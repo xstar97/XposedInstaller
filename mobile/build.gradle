@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        //applicationId "de.robv.android.xposed.installer"
+        applicationId versions.appId
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.appVersion
+        archivesBaseName = "XposedInstaller_${versionName}".replace(' ', '_')
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            pseudoLocalesEnabled true
+        }
+    }
+    compileOptions {
+        sourceCompatibility versions.sourceCompatibility
+        targetCompatibility versions.targetCompatibility
+    }
+
+    /*sourceSets {
+        main.java.srcDirs += 'src/main/java'
+        test.java.srcDirs += 'src/test/java'
+    }*/
+}
+
+dependencies {
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(":core")
+
+    // Kotlin
+    implementation kotlinDependencies.kotlinJdk8
+
+    // Support Libraries
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.design
+    implementation supportDependencies.supportV13
+    implementation supportDependencies.supportV4
+
+    implementation supportDependencies.recyclerView
+    implementation supportDependencies.cardView
+    implementation supportDependencies.preferenceV7
+    implementation supportDependencies.preferenceV14
+
+    // Anko Support Libraries
+    implementation ankoDependencies.appCompat
+    implementation ankoDependencies.appCompatDelegate
+    implementation ankoDependencies.design
+    //implementation ankoDependencies.cardView
+    //implementation ankoDependencies.recyclerView
+    //implementation ankoDependencies.recyclerViewDelegate
+
+    implementation ankoDependencies.ankoSdk15
+    implementation ankoDependencies.sdk15Delegate
+
+    // Utils Libraries
+    implementation utilsDependencies.baseAdapter
+}
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}

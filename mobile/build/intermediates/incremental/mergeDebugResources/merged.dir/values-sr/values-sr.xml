@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Одлазак на Почетну"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Кретање нагоре"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Још опција"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Готово"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Прикажи све"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Избор апликације"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"ИСКЉУЧИ"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"УКЉУЧИ"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Претражите..."</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Брисање упита"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Упит за претрагу"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Претрага"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Слање упита"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Гласовна претрага"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Дели са"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Дељење са апликацијом <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Скупи"</string>
+    <string name="about_developers"><a href="http://forum.xda-developers.com/member.php?u=4419114">rovo89</a> i <a href="http://forum.xda-developers.com/member.php?u=4322181">Tungstwenty</a></string>
+    <string name="about_developers_label">Glavni developeri/programeri:</string>
+    <string name="about_libraries_label">Korišćene biblioteke:</string>
+    <string name="about_source_label">Izvor koda:</string>
+    <string name="about_translator_label">Prevodilac:</string>
+    <string name="about_version_label">Verzija ove aplikacije:</string>
+    <string name="auto_flash_note">%s instaliraće se automatski nakon što izaberete "OK".</string>
+    <string name="changes">Promene:</string>
+    <string name="dont_show_again">Ne prikazuj ponovo</string>
+    <string name="download_author">Od %s</string>
+    <string name="download_could_not_read_file">Nemoguće otvaranje učitanog fajla: %s</string>
+    <string name="download_incorrect_package_name">Ime paketa je neispravno (učitano: %1$s, očekivano: %2$s)</string>
+    <string name="download_md5sum_incorrect">MD5 sum je neispravan (učitano: %1$s, očekivano: %2$s)</string>
+    <string name="download_no_valid_apk">Učitan fajl nije validan APK (ili je nekompatibilan)</string>
+    <string name="download_section_24h">Zadnjih 24 sata</string>
+    <string name="download_section_30d">Zadnjih 30 dana</string>
+    <string name="download_section_7d">Zadnjih 7 dana</string>
+    <string name="download_section_framework">Framework</string>
+    <string name="download_section_installed">Instalirano</string>
+    <string name="download_section_not_installed">Nije instalirano</string>
+    <string name="download_section_older">Pre više od 30 dana</string>
+    <string name="download_section_update_available">Nadogradn ja dostupna</string>
+    <string name="download_sorting_created">Sortirano po datumu kreiranja</string>
+    <string name="download_sorting_status">Sortitano po statusu</string>
+    <string name="download_sorting_title">Redosled</string>
+    <string name="download_sorting_updated">Sortirano po poslednjoj verziji</string>
+    <string name="download_status_installed">Instalirano (verzija %s)</string>
+    <string name="download_status_update_available">Nadogradnj a dostupna (verzija %1$s \u2192 %2$s)</string>
+    <string name="download_timestamps">Dodato %1$s \u00b7 osveženo %2$s</string>
+    <string name="download_unknown_author">Nepoznat autor</string>
+    <string name="download_view_cancel">Prekid</string>
+    <string name="download_view_download">Učitavanje</string>
+    <string name="download_view_failed">Učitavanje neuspešno (greška %d)</string>
+    <string name="download_view_install">Instalacija</string>
+    <string name="download_view_no_url">URL nije dostupan</string>
+    <string name="download_view_running">Učitavanje u toku (%1$,d od %2$,d kB)</string>
+    <string name="download_view_successful">Učitavanje uspešno</string>
+    <string name="download_view_waiting">Čeka se na učitavanje</string>
+    <string name="file_copy_failed">Nemoguće kopiranje %1$s u %2$s</string>
+    <string name="file_copying">Kopiranje %s…</string>
+    <string name="file_create_directory_failed">Nemoguće kreiranje direktorijuma %s</string>
+    <string name="file_creating_directory">Kreiranje dirktorijuma %s…</string>
+    <string name="file_done">Završeno! Promene će biti vidljive nakon ponovnog pokretanja sistema.</string>
+    <string name="file_writing_recovery_command">Zaspisivanje recovery komande…</string>
+    <string name="file_writing_recovery_command_failed">Neuspe šno zapisivanje recovery komande. Molim, koristite drugi instalacioni metod.</string>
+    <string name="install_update">Instalacija/Nadogradnja</string>
+    <string name="install_warning">U nekim slučajevima, može se desiti da vaš uređaj ne podigne sistem nakon instalacije Xposed-a.\n\Ako nikada niste čuli o terminima \"soft brick\" i \"bootloop\" do sada ili ako ne znate kako da nađete rešenje ako se nađete u toj situaciji, <b>NE</b> instalirajte Xposed!\n\nU svakom slučaju, imati rezervnu kopiju sistema je preporučljivo.</string>
+    <string name="install_warning_title">Budite oprezni!</string>
+    <string name="log_is_empty">Log je prazan</string>
+    <string name="logs_clear_failed">Nemoguće izbrisati log:</string>
+    <string name="logs_cleared">Log uspešno izbrisan</string>
+    <string name="logs_save_failed">Nemoguće zapisati log na SD cartu:</string>
+    <string name="menuClearLog">Izbrisati log sada</string>
+    <string name="menuReload">Učitaj ponovo</string>
+    <string name="menuSaveToSd">Snimi na SD kartu</string>
+    <string name="menuSearch">Pretraži</string>
+    <string name="menuSend">Pošalji</string>
+    <string name="module_app_info">Informacije o aplikaciji</string>
+    <string name="module_download_updates">Učitaj/Nadogradi</string>
+    <string name="module_empty_description">(trenutno bez opisa)</string>
+    <string name="module_is_not_activated_yet">Xposed modul još nije aktivan</string>
+    <string name="module_launch">Startovanje UI</string>
+    <string name="module_no_ui">Ovaj modul ne daje korisnički interfejs</string>
+    <string name="module_support">Podrška</string>
+    <string name="module_uninstall">Deinstalacija</string>
+    <string name="no_min_version_specified">Ovaj modul nije precizirao Xposed verziju koja je potrebna.</string>
+    <string name="no_xposed_modules_found">Ni jedan Xposed modul nije pronađen!</string>
+    <string name="reboot">Restart</string>
+    <string name="reboot_confirmation">Da li želite da restartujete uređaj sada?</string>
+    <string name="reboot_failed">Restartovanje je neuspešno. Milim, restartujte urđaj normalnom procedurom.</string>
+    <string name="repo_download_failed">Učitano %1$s neuspešno: %2$s</string>
+    <string name="repo_download_failed_http">Učitano %1$s neuspešno: %2$d (%3$s)</string>
+    <string name="repo_load_failed">Nemoguće učitati repozitorij iz %1$s:\n%2$s</string>
+    <string name="root_failed">Neuspešan pristup root direktorijumu.\n\nProverite još jednom da li je vaš uređaj root-ovan pravilno i da niste blokirali shell komande.</string>
+    <string name="sdcard_not_writable">SD karta nije pronađena ili je nemoguće zapisati podatke na njoj</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Претражи"</string>
+    <string name="settings_disable_resources">Onemogući resource hooks</string>
+    <string name="settings_disable_resources_summary">Radi na konfliktima sa theming endžinom\n<b>UPOZORENJE:</b> Moduli koji pokušavaju da izmene resurse neće raditi ako je ova opcija omogućena.</string>
+    <string name="settings_group_download">Učitaj</string>
+    <string name="settings_group_experimental">Eksperimentalno </string>
+    <string name="soft_reboot">Softverski restart</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">">999"</string>
+    <string name="translator">maleksa</string>
+    <string name="uninstall">Deinstalacija</string>
+    <string name="warning_min_version_too_low">Ovaj modul je kreiran za Xposed verziju %1$d, ali zbog nekompaktibilnosti u verziji %2$d, je onemogućen.</string>
+    <string name="warning_xposed_min_version">Ovaj modul zahteva noviju verziju Xposed-a (%d) i zato ne može biti aktiviran.</string>
+    <string name="welcome_framework_update_available">Nova verzija Xposed Framework-a je dostupna (%s).</string>
+    <string name="xposed_module_list_updated">Xposed modul lista je osvežena\nPromene će biti aktivne nakon ponovnog pokretanja sistema </string>
+    <string name="xposed_not_active">Poslednja verzija Xposed programa trenutno nije aktivna. Da li ste instalirali Framework i restartovali uređaj?</string>
+</resources>

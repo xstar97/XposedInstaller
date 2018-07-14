@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: eu.chainfire:libsuperuser-1.0.0.201608240809">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/libsuperuser-1.0.0.201608240809.aar/9b10aa05280d416e248d6a179e8b493e/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/libsuperuser-1.0.0.201608240809.aar/9b10aa05280d416e248d6a179e8b493e/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/eu.chainfire/libsuperuser/1.0.0.201608240809/ef4a6f7c2f9b9dc7c469344e383dc94eb0d13c5a/libsuperuser-1.0.0.201608240809-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:id="@+id/card_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="3dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="3dp"
+    android:foreground="?selectableItemBackground"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    card_view:cardBackgroundColor="?attr/list_download_item_color"
+    card_view:cardCornerRadius="2dip"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dip">
+
+        <TextView
+            android:id="@+id/txtStatus"
+            tools:text="txtStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+        <TextView
+            android:id="@+id/txtVersion"
+            android:layout_below="@id/txtStatus"
+            tools:text="txtVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textIsSelectable="false"/>
+
+        <TextView
+            android:id="@+id/txtRelType"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            tools:text="txtRelType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textIsSelectable="false"
+            android:textStyle="italic"/>
+
+        <TextView
+            android:id="@+id/txtUploadDate"
+            android:layout_below="@id/txtRelType"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            tools:text="txtUploadDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?android:attr/textColorTertiary"
+            android:textIsSelectable="false"
+            android:textStyle="italic"/>
+
+        <de.robv.android.xposed.installer.core.widget.DownloadView
+            android:id="@+id/downloadView"
+            android:layout_below="@id/txtVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtChangesTitle"
+            android:layout_below="@id/downloadView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/changes"
+            tools:text="@string/changes"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtChanges"
+            android:layout_below="@id/txtChangesTitle"
+            tools:text="txtChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+    </RelativeLayout>
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:orientation="vertical"
+        android:padding="8dip">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtStatus"
+                    tools:text="txtStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                <TextView
+                    android:id="@+id/txtVersion"
+                    tools:text="txtVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textIsSelectable="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtRelType"
+                    tools:text="txtRelType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textIsSelectable="false"
+                    android:textStyle="italic"/>
+
+                <TextView
+                    android:id="@+id/txtUploadDate"
+                    tools:text="txtUploadDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorTertiary"
+                    android:textIsSelectable="false"
+                    android:textStyle="italic"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <de.robv.android.xposed.installer.core.widget.DownloadView
+            android:id="@+id/downloadView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtChangesTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/changes"
+            tools:text="@string/changes"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtChanges"
+            tools:text="txtChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+    </LinearLayout>-->
+</android.support.v7.widget.CardView>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Ugrás a főoldalra"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Felfelé mozgatás"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"További lehetőségek"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Kész"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Összes megtekintése"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Válasszon ki egy alkalmazást"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"KI"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"BE"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Keresés…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Lekérdezés törlése"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Keresési lekérdezés"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Keresés"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Lekérdezés küldése"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Hangalapú keresés"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Megosztás a következővel:"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Megosztás a következő alkalmazással: <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Összecsukás"</string>
+    <string name="about_developers"><a href="http://forum.xda-developers.com/member.php?u=4419114">rovo89</a> és <a href="http://forum.xda-developers.com/member.php?u=4322181">Tungstwenty</a></string>
+    <string name="about_developers_label">Fő fejlesztők:</string>
+    <string name="about_libraries_label">Használt könyvtárak:</string>
+    <string name="about_source_label">Forráskód:</string>
+    <string name="about_translator_label">Fordító:</string>
+    <string name="about_version_label">Alkalmazás verziója:</string>
+    <string name="activate_and_reboot">Aktiválás és újraindítás</string>
+    <string name="auto_flash_note">%s automatikusan flashelve lesz amint megnyomod az "OK"-ot.</string>
+    <string name="changes">Változások:</string>
+    <string name="dont_show_again">Ne mutasd még egyszer</string>
+    <string name="download_author">%s-tól</string>
+    <string name="download_could_not_read_file">A letöltött fájlt nem lehetett olvasni: %s</string>
+    <string name="download_details_not_found">Nincs ilyen csomagnevű (\"%s\") modul a gyűjteményben.</string>
+    <string name="download_details_page_description">Leírás</string>
+    <string name="download_details_page_settings">Beállítások</string>
+    <string name="download_details_page_versions">Verziók</string>
+    <string name="download_incorrect_package_name">A csomag neve hibás: (letöltött: %1$s, várt: %2$s)</string>
+    <string name="download_md5sum_incorrect">Hibás MD5 ellenőrzöösszeg (letöltött: %1$s, várt: %2$s)</string>
+    <string name="download_no_valid_apk">A letöltött fájl nem érvényes APK (vagy nem kompatibilis)</string>
+    <string name="download_no_versions">A készítő nem tötött fel még semmit.</string>
+    <string name="download_section_24h">Elmúlt 24 órában</string>
+    <string name="download_section_30d">Elmúlt 30 napban</string>
+    <string name="download_section_7d">Elmúlt 7 napban</string>
+    <string name="download_section_framework">Keretrendszer</string>
+    <string name="download_section_installed">Telepítve</string>
+    <string name="download_section_not_installed">Nincs telepítve</string>
+    <string name="download_section_older">Több, mint 30 napja</string>
+    <string name="download_section_update_available">Frissítés elérhető</string>
+    <string name="download_sorting_created">Rendezés készítés ideje szerint</string>
+    <string name="download_sorting_status">Rendezés állapot szerint</string>
+    <string name="download_sorting_title">Rendezés</string>
+    <string name="download_sorting_updated">Rendezés legutolsó frissítés szerint</string>
+    <string name="download_status_installed">Telepítve (verzió %s)</string>
+    <string name="download_status_update_available">Frissítés elérhető (verzió %1$s \u2192 %2$s)</string>
+    <string name="download_test_version_not_shown">Egy teszt verzió elérhető, de nincs megjelenítve a globális vagy modul-specifikus beállításaid miatt.</string>
+    <string name="download_timestamps">Hozzáadva: %1$s \u00b7 Frissítve: %2$s</string>
+    <string name="download_unknown_author">ismeretlen készítő</string>
+    <string name="download_view_cancel">Mégse</string>
+    <string name="download_view_download">Letöltés</string>
+    <string name="download_view_failed">Sikertelen letöltés (hiba: %d)</string>
+    <string name="download_view_install">Telepítés</string>
+    <string name="download_view_no_url">Nincs elérhető letöltési URL</string>
+    <string name="download_view_running">Letöltés folyamatban (%1$,d a %2$,d kB-ból)</string>
+    <string name="download_view_successful">Sikeres letöltés</string>
+    <string name="download_view_waiting">Letöltés várakozik</string>
+    <string name="file_copy_failed">Nem sikerült a másolás: %1$s -> %2$s</string>
+    <string name="file_copying">Másolás %s…</string>
+    <string name="file_create_directory_failed">Nem sikerült elkészíteni a %s könyvtárat</string>
+    <string name="file_creating_directory">Könyvtár készítése %s…</string>
+    <string name="file_done">Kész! A változtatások újraindítás után fognak életbe lépni.</string>
+    <string name="file_writing_recovery_command">Recovery parancs írása…</string>
+    <string name="file_writing_recovery_command_failed">A recovery parancs írása nem sikerült. Kérlek használj egy másik telepítési módszert.</string>
+    <string name="install_known_issue">Úgy tűnik ismert probléma (\"%s\") van a telepített ROM-mal. Az Xposed telepítése nem működhet vagy súlyos problémákhoz vezethet. Kattints ide a probléma részleteiért.</string>
+    <string name="install_update">Telepítés/Frissítés</string>
+    <string name="install_warning">Néhány esetben az eszközöd talán nem fog bootolni az Xposed telepítése után. Ha sosem hallottál a \"soft brick\"-ről vagy a \"bootloop\"-ról vagy ha nem tudod, hogyan térj vissza egy ilyen helyzetből, <b>NE</b> telepítsd az Xposed-ot. Egy friss mentés megléte erősen ajánlott minden esetben.</string>
+    <string name="install_warning_title">Légy óvatos!</string>
+    <string name="log_is_empty">A napló üres</string>
+    <string name="logs_clear_failed">Nem lehetett üríteni a naplót:</string>
+    <string name="logs_cleared">Napló sikeresen ürítve</string>
+    <string name="logs_save_failed">Nem lehetett a naplót az SD kártyára írni:</string>
+    <string name="menuClearLog">Napló ürítése most</string>
+    <string name="menuReload">Újratöltés</string>
+    <string name="menuSaveToSd">SD kártyára mentés</string>
+    <string name="menuSearch">Keresés</string>
+    <string name="menuSend">Küldés</string>
+    <string name="module_activated">Az Xposed modul aktiválva lett</string>
+    <string name="module_app_info">Alkalmazásinformáció</string>
+    <string name="module_download_updates">Letöltés/Frissítések</string>
+    <string name="module_empty_description">(nincs leírás)</string>
+    <string name="module_is_not_activated_yet">Az Xposed modul még nincs aktiválva</string>
+    <string name="module_is_not_activated_yet_detailed">%s telepítve lett, de még nincs aktiválva.</string>
+    <string name="module_launch">UI megnyitása</string>
+    <string name="module_no_ui">A modulnak nincs felhasználói felülete</string>
+    <string name="module_support">Támogatás</string>
+    <string name="module_uninstall">Eltávolítás</string>
+    <string name="no_min_version_specified">A modul nem tünteti fel a szükséges Xposed verziót.</string>
+    <string name="no_xposed_modules_found">Nem található Xposed modul!</string>
+    <string name="reboot">Újraindítás</string>
+    <string name="reboot_confirmation">Újra akarsz indítani most?</string>
+    <string name="reboot_failed">Újraindítás sikertelen. Kérlek használd az eszköz rendes újraindítási funkcióját.</string>
+    <string name="reltype_beta">Béta</string>
+    <string name="reltype_beta_summary">Béta (néhány hiba várható)</string>
+    <string name="reltype_experimental">Kísérleti</string>
+    <string name="reltype_experimental_summary">Kísérleti (hibák nagy eséllyel)</string>
+    <string name="reltype_stable">Stabil</string>
+    <string name="reltype_stable_summary">Stabil (hibák kis eséllyel)</string>
+    <string name="reltype_use_global_summary">Globális beállítások használata</string>
+    <string name="repo_download_failed">%1$s letöltése sikertelen: %2$s</string>
+    <string name="repo_download_failed_http">%1$s letöltése sikertelen: %2$d (%3$s)</string>
+    <string name="repo_load_failed">Nem lehet betölteni a gyűjteményt %1$s-ról:\n%2$s</string>
+    <string name="root_failed">Rendszergazda jogok kérése sikertelen.\n\nEllenőrizd, hogy az eszközöd megfelelően van-e rootolva és nincsenek-e blokkolva a shell parancsok.</string>
+    <string name="sdcard_not_writable">SD kártya nem található vagy nem írható</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Keresés"</string>
+    <string name="settings_disable_resources">"Resource hook"-ok letiltva</string>
+    <string name="settings_disable_resources_summary">Megoldás a témamotorokkal való konfliktusokra.\n<b>FIGYELEM:</b> A resource-okat módosítani próbáló modulok nem fognak működni, ha ez engedélyezve van.</string>
+    <string name="settings_group_app">Alkalmazás</string>
+    <string name="settings_group_download">Letöltések</string>
+    <string name="settings_group_experimental">Kísérlet</string>
+    <string name="settings_release_type">Megjelenítendő verziók</string>
+    <string name="settings_theme">Téma</string>
+    <string name="settings_theme_black">Fekete (AMOLED képernyőkön hasznos)</string>
+    <string name="settings_theme_dark">Sötét</string>
+    <string name="settings_theme_light">Világos</string>
+    <string name="soft_reboot">Gyors újraindítás</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="translator"><a href="http://forum.xda-developers.com/member.php?u=4719724">Adam77Root</a></string>
+    <string name="uninstall">Eltávolítás</string>
+    <string name="warning_min_version_too_low">Ez a modul a(z) %1$d verziójú Xposed-hoz lett készítve, de a(z) %2$d verzió összeférhetetlen változtatásai miatt le lett tiltva.</string>
+    <string name="warning_xposed_min_version">A modulhoz frissebb Xposed verzió (%d) szükséges, ezért nem aktiválható.</string>
+    <string name="welcome_framework_update_available">Frissítés elérhető az Xposed keretrendszerhez (%s).</string>
+    <string name="xposed_module_list_updated">Az Xposed modul lista frissült\nA változtatások újraindítás után lépnek életbe</string>
+    <string name="xposed_module_updated_notification">Újraindítás a változtatások aktiválásához</string>
+    <string name="xposed_module_updated_notification_title">Xposed modul frissítve</string>
+    <string name="xposed_not_active">Az Xposed legfrissebb verziója jelenleg nem aktív. Telepítetted a keretrendszert és újraindítottad az eszközt?</string>
+</resources>

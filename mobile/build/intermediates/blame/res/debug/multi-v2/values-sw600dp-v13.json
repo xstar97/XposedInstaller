@@ -1,0 +1,81 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "map": [
+                {
+                    "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,93",
+                        "endLines": "2,9",
+                        "endColumns": "37,12",
+                        "endOffsets": "88,541"
+                    },
+                    "to": {
+                        "startLines": "2,21",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,1323",
+                        "endLines": "2,27",
+                        "endColumns": "37,12",
+                        "endOffsets": "88,1771"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fe396f009e1b2eb2e399c75fe4a1fd44\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "93,162,231,301,375,451,510,581",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "157,226,296,370,446,505,576,644"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\core-0.9.6.0.aar\\595810849bd59482ea6d8b042d09a6bb\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "51",
+                        "endOffsets": "102"
+                    },
+                    "to": {
+                        "startLines": "19",
+                        "startColumns": "4",
+                        "startOffsets": "1208",
+                        "endColumns": "51",
+                        "endOffsets": "1255"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\bd8269469c06fe57f4f2519374dcb34f\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,115,185,256,328,386,444,550,614,677",
+                        "endLines": "2,3,4,5,6,7,8,9,10,14",
+                        "endColumns": "59,69,70,71,57,57,105,63,62,12",
+                        "endOffsets": "110,180,251,323,381,439,545,609,672,854"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,18,20,28",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "649,709,779,850,922,980,1038,1144,1260,1776",
+                        "endLines": "11,12,13,14,15,16,17,18,20,31",
+                        "endColumns": "59,69,70,71,57,57,105,63,62,12",
+                        "endOffsets": "704,774,845,917,975,1033,1139,1203,1318,1953"
+                    }
+                }
+            ]
+        }
+    ]
+}

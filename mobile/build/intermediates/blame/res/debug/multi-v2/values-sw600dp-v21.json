@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v21\\values-sw600dp-v21.xml",
+            "map": [
+                {
+                    "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\values-sw600dp-v21\\values-sw600dp-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "10",
+                        "endColumns": "12",
+                        "endOffsets": "663"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Navigeren naar startpositie"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Omhoog navigeren"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Meer opties"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Gereed"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Alles weergeven"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Een app selecteren"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"UIT"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"AAN"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Zoeken…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Zoekopdracht wissen"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Zoekopdracht"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Zoeken"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Zoekopdracht verzenden"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Gesproken zoekopdracht"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Delen met"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Delen met <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Samenvouwen"</string>
+    <string name="about_developers"><a href="http://forum.xda-developers.com/member.php?u=4419114">rovo89</a> en <a href="http://forum.xda-developers.com/member.php?u=4322181">Tungstwenty</a></string>
+    <string name="about_developers_label">Hoofdontwikkelaars:</string>
+    <string name="about_libraries_label">Gebruikte bibliotheken:</string>
+    <string name="about_source_label">Broncode:</string>
+    <string name="about_translator_label">Het Framework is naar het Nederlands vertaald door:</string>
+    <string name="about_version_label">Versie van deze app:</string>
+    <string name="activate_and_reboot">Activeer en herstart</string>
+    <string name="auto_flash_note">%s wordt automatisch geflasht wanneer u op "Oke" drukt.</string>
+    <string name="changes">Veranderingen:</string>
+    <string name="dont_show_again">Niet opnieuw tonen</string>
+    <string name="download_author">door %s</string>
+    <string name="download_could_not_read_file">Kan het gedownloade bestand niet lezen: %s</string>
+    <string name="download_details_not_found">Er is geen module met pakketnaam \"%s\" in de opslagruimte.</string>
+    <string name="download_details_page_description">Omschrijving</string>
+    <string name="download_details_page_settings">Instellingen</string>
+    <string name="download_details_page_versions">Versies</string>
+    <string name="download_incorrect_package_name">Pakketnaam is incorrect (gedownload: %1$s, verwacht: %2$s)</string>
+    <string name="download_md5sum_incorrect">MD5-som is niet correct (gedownload: %1$s, verwacht: %2$s)</string>
+    <string name="download_no_valid_apk">Het gedownloade bestand is geen geldige APK (of incompatibel)</string>
+    <string name="download_no_versions">De auteur heeft nog niks geüpload.</string>
+    <string name="download_section_24h">Laatste 24 uur</string>
+    <string name="download_section_30d">Laatste 30 dagen</string>
+    <string name="download_section_7d">Laatste 7 dagen</string>
+    <string name="download_section_framework">Framework</string>
+    <string name="download_section_installed">Geïnstalleerd</string>
+    <string name="download_section_not_installed">Niet geïnstalleerd</string>
+    <string name="download_section_older">Meer dan 30 dagen geleden</string>
+    <string name="download_section_update_available">Update(s) beschikbaar</string>
+    <string name="download_sorting_created">Sorteren op laatst toegevoegd</string>
+    <string name="download_sorting_status">Sorteren op status</string>
+    <string name="download_sorting_title">Sorteervolgorde</string>
+    <string name="download_sorting_updated">Sorteren op laatst geüpdatet</string>
+    <string name="download_status_installed">Geïnstalleerd (versie %s)</string>
+    <string name="download_status_update_available">Update beschikbaar (versie %1$s \u2192 %2$s)</string>
+    <string name="download_test_version_not_shown">Er is een test versie beschikbaar, maar deze wordt niet getoond door uw globale of module-specifieke instellingen.</string>
+    <string name="download_timestamps">Toegevoegd op %1$s \u00b7 Bijgewerkt op %2$s</string>
+    <string name="download_unknown_author">onbekende auteur</string>
+    <string name="download_view_cancel">Annuleren</string>
+    <string name="download_view_download">Download</string>
+    <string name="download_view_failed">De download is mislukt (fout %d)</string>
+    <string name="download_view_install">Installeren</string>
+    <string name="download_view_no_url">Geen download-URL beschikbaar</string>
+    <string name="download_view_running">Bezig met downloaden (%1$,d van %2$,d kB)</string>
+    <string name="download_view_successful">De download is geslaagd</string>
+    <string name="download_view_waiting">Wachten op download…</string>
+    <string name="file_copy_failed">Kan %1$s niet kopiëren naar %2$s</string>
+    <string name="file_copying">Kopiëren %s…</string>
+    <string name="file_create_directory_failed">Kan de map %s niet maken</string>
+    <string name="file_creating_directory">Map %s aan het maken…</string>
+    <string name="file_done">Gelukt! Wijzigingen worden actief na een herstart.</string>
+    <string name="file_writing_recovery_command">Herstel-commando aan het schrijven…</string>
+    <string name="file_writing_recovery_command_failed">Schrijven van herstel-commando is mislukt. Gebruik een andere installatiemethode.</string>
+    <string name="install_known_issue">Er blijkt een bekend probleem te zijn(\"%s\") met uw ROM. Xposed installeren werkt mogelijk niet of kan tot ernstige problemen leiden. Klik hier voor details.</string>
+    <string name="install_update">Installeren/Bijwerken</string>
+    <string name="install_warning">In sommige gevallen kan het apparaat niet meer opstarten na het installeren van Xposed.\n\nAls u nog nooit gehoord heeft van \"soft brick\" of \"bootloop\" of als u niet weet hoe dit hersteld moet worden, installeer Xposed dan <b>NIET</b>!\n\nHet hebben van een recente back-up is in ieder geval sterk aanbevolen!</string>
+    <string name="install_warning_title">Pas op!</string>
+    <string name="log_is_empty">Logboek is leeg</string>
+    <string name="logs_clear_failed">Kan logboek niet legen:</string>
+    <string name="logs_cleared">Logboek succesvol geleegd</string>
+    <string name="logs_save_failed">Kan niet schrijven naar SD-kaart:</string>
+    <string name="menuClearLog">Maak logboek nu leeg</string>
+    <string name="menuReload">Vernieuwen</string>
+    <string name="menuSaveToSd">Opslaan op SD-kaart</string>
+    <string name="menuSearch">Zoeken</string>
+    <string name="menuSend">Deel</string>
+    <string name="module_activated">Xposed module is geactiveerd</string>
+    <string name="module_app_info">App informatie</string>
+    <string name="module_download_updates">Download / update</string>
+    <string name="module_empty_description">(geen beschrijving beschikbaar)</string>
+    <string name="module_is_not_activated_yet">Xposed module is nog niet geactiveerd</string>
+    <string name="module_is_not_activated_yet_detailed">%s werdt geinstalleerd, maar is nog niet geactiveerd.</string>
+    <string name="module_launch">Open App</string>
+    <string name="module_no_ui">Deze module heeft geen interface beschikbaar</string>
+    <string name="module_support">Help</string>
+    <string name="module_uninstall">Verwijder app</string>
+    <string name="no_min_version_specified">Deze module heeft geen benodigde versie van Xposed opgegeven.</string>
+    <string name="no_xposed_modules_found">Geen Xposed modules gevonden!</string>
+    <string name="reboot">Herstart apparaat</string>
+    <string name="reboot_confirmation">Wilt u nu herstarten?</string>
+    <string name="reboot_failed">Herstart mislukt. Herstart het apparaat handmatig.</string>
+    <string name="reltype_beta">Beta</string>
+    <string name="reltype_beta_summary">Beta (enkele bugs te verwachten)</string>
+    <string name="reltype_experimental">Experimenteel</string>
+    <string name="reltype_experimental_summary">Experimenteel (hoog risico op bugs)</string>
+    <string name="reltype_stable">Stabiel</string>
+    <string name="reltype_stable_summary">Stabiel (laag risico op bugs)</string>
+    <string name="reltype_use_global_summary">Gebruik globale instelling</string>
+    <string name="repo_download_failed">Downloaden %1$s mislukt: %2$s</string>
+    <string name="repo_download_failed_http">Downloaden %1$s mislukt: %2$d (%3$s)</string>
+    <string name="repo_load_failed">Kan de repository niet laden van %1$s:\n%2$s</string>
+    <string name="root_failed">Het krijgen van root-toegang is mislukt.\n\nZorg ervoor dat uw apparaat goed geroot is en dat shell commando\'s niet geblokkeerd worden.</string>
+    <string name="sdcard_not_writable">SD-kaart niet gevonden of niet schrijfbaar</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Zoeken"</string>
+    <string name="settings_disable_resources">Resource-hooks uitschakelen</string>
+    <string name="settings_disable_resources_summary">Tijdelijke oplossing voor conflicten met thema-applicaties\n<b>WAARSCHUWING:</b> Modules die resources proberen te veranderen werken niet wanneer deze optie geactiveerd is.</string>
+    <string name="settings_group_app">Applicaties</string>
+    <string name="settings_group_download">Download</string>
+    <string name="settings_group_experimental">Experimenteel</string>
+    <string name="settings_release_type">Versies die worden getoond</string>
+    <string name="settings_theme">Thema</string>
+    <string name="settings_theme_black">Zwart (nuttig voor AMOLED schermen)</string>
+    <string name="settings_theme_dark">Donker</string>
+    <string name="settings_theme_light">Licht</string>
+    <string name="soft_reboot">Herstart systeem</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="translator"><a href="https://github.com/Martinusbe">Martin Coulon (Martinusbe)</a>, <a href="http://code.gertlily.com/">Gert-Jan Anema (GertlilyNL)</a> &amp; <a href="https://github.com/lionzeye">Leonard Simonse (lionzeye)</a></string>
+    <string name="uninstall">Verwijderen</string>
+    <string name="warning_min_version_too_low">Deze module werd gecreëerd voor Xposed versie %1$d, maar door veranderingen in versie %2$d, is het uitgeschakeld.</string>
+    <string name="warning_xposed_min_version">Deze module heeft een nieuwere versie van Xposed nodig (%d) en kan dus niet geactiveerd worden.</string>
+    <string name="welcome_framework_update_available">Een update voor het Xposed Framework is beschikbaar.</string>
+    <string name="xposed_module_list_updated">De module-lijst van Xposed is bijgewerkt\nVeranderingen worden actief bij herstart</string>
+    <string name="xposed_module_updated_notification">Herstart om de veranderingen te activeren</string>
+    <string name="xposed_module_updated_notification_title">Xposed module bijgewerkt</string>
+    <string name="xposed_not_active">De laatste versie van Xposed is momenteel niet actief. Heeft u het Framework geïnstalleerd en het systeem herstart?</string>
+</resources>

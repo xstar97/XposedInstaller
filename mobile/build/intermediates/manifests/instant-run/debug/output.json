@@ -1,0 +1,1 @@
+[{"outputType":{"type":"INSTANT_RUN_MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":43,"versionName":"3.1.5","enabled":true,"outputFile":"XposedInstaller_3.1.5-debug.apk","fullName":"debug","baseName":"debug"},"path":"AndroidManifest.xml","properties":{"packageId":"de.robv.android.xposed.installer","split":"","minSdkVersion":"15"}}]

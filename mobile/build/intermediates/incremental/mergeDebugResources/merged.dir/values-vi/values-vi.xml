@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Điều hướng về trang chủ"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Điều hướng lên trên"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Thêm tùy chọn"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Xong"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Xem tất cả"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Chọn một ứng dụng"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"TẮT"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"BẬT"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Tìm kiếm…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Xóa truy vấn"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Tìm kiếm truy vấn"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Tìm kiếm"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Gửi truy vấn"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Tìm kiếm bằng giọng nói"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Chia sẻ với"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Chia sẻ với <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Thu gọn"</string>
+    <string name="about_developers"><a href="http://forum.xda-developers.com/member.php?u=4419114">rovo89</a> và <a href="http://forum.xda-developers.com/member.php?u=4322181">Tungstwenty</a></string>
+    <string name="about_developers_label">Các tác giả chính:</string>
+    <string name="about_libraries_label">Sử dụng các thư viện:</string>
+    <string name="about_source_label">Mã nguồn:</string>
+    <string name="about_translator_label">Người dịch:</string>
+    <string name="about_version_label">Phiên bản của ứng dụng:</string>
+    <string name="activate_and_reboot">Kích hoạt và khởi động lại</string>
+    <string name="auto_flash_note">%s sẽ được cài đặt tự động khi bạn bấm "OK".</string>
+    <string name="changes">Các thay đổi:</string>
+    <string name="dont_show_again">Đừng hiện lại nữa</string>
+    <string name="download_author">bởi %s</string>
+    <string name="download_could_not_read_file">Không thể đọc tập tin đã tải: %s</string>
+    <string name="download_details_not_found">Không có module nào mang tên \"%s\" trong kho lưu trữ.</string>
+    <string name="download_details_page_description">Miêu tả</string>
+    <string name="download_details_page_settings">Thiết lập</string>
+    <string name="download_details_page_versions">Phiên bản</string>
+    <string name="download_incorrect_package_name">Sai tên gói (đã tải: %1$s, cần tải: %2$s)</string>
+    <string name="download_md5sum_incorrect">Sai mã MD5 (đã tải: %1$s, cần tải: %2$s)</string>
+    <string name="download_no_valid_apk">Tập tin đã tải không phải là một APK hợp lệ (hoặc không tương thích)</string>
+    <string name="download_no_versions">Tác giả chưa tải gì lên.</string>
+    <string name="download_section_24h">24 giờ trước</string>
+    <string name="download_section_30d">30 ngày trước</string>
+    <string name="download_section_7d">7 ngày trước</string>
+    <string name="download_section_framework">Framework</string>
+    <string name="download_section_installed">Đã cài</string>
+    <string name="download_section_not_installed">Chưa cài</string>
+    <string name="download_section_older">Hơn 30 ngày trước</string>
+    <string name="download_section_update_available">Có bản mới</string>
+    <string name="download_sorting_created">Theo ngày đưa lên</string>
+    <string name="download_sorting_status">Theo trạng thái</string>
+    <string name="download_sorting_title">Thứ tự sắp xếp</string>
+    <string name="download_sorting_updated">Theo cập nhật mới nhất</string>
+    <string name="download_status_installed">Đã cài (bản %s)</string>
+    <string name="download_status_update_available">Có bản mới (bản %1$s \u2192 %2$s)</string>
+    <string name="download_test_version_not_shown">Có bản cập nhật beta, nhưng không được hiển thị do thiết lập chung hoặc riêng từng module của bạn..</string>
+    <string name="download_timestamps">Đưa lên ngày %1$s \u00b7 Cập nhật ngày %2$s</string>
+    <string name="download_unknown_author">không rõ tác giả</string>
+    <string name="download_view_cancel">Bỏ</string>
+    <string name="download_view_download">Tải xuống</string>
+    <string name="download_view_failed">Tải xuống không thành công (lỗi %d)</string>
+    <string name="download_view_install">Cài đặt</string>
+    <string name="download_view_no_url">Không có link tải xuống nào</string>
+    <string name="download_view_running">Đang tải xuống (%1$,d of %2$,d kB)</string>
+    <string name="download_view_successful">Tải xuống thành công</string>
+    <string name="download_view_waiting">Đang đợi tải xuống</string>
+    <string name="file_copy_failed">Không thể chép %1$s vào %2$s</string>
+    <string name="file_copying">Đang chép %s…</string>
+    <string name="file_create_directory_failed">Không thể tạo thư mục %s</string>
+    <string name="file_creating_directory">Đang tạo thư mục %s…</string>
+    <string name="file_done">Xong! Các thay đổi sẽ có hiệu lực khi khởi động lại thiết bị.</string>
+    <string name="file_writing_recovery_command">Đang viết lệnh cho recovery…</string>
+    <string name="file_writing_recovery_command_failed">Không thể viết lệnh cho recovery. Hãy dùng cách khác để cài.</string>
+    <string name="install_known_issue">Bản ROM của bạn đã được thông báo là gặp truc trặc (\"%s\") với Xposed. Ứng dụng có thể không hoạt động hoặc gặp lỗi nghiêm trọng. Hãy bấm vào đây để xem chi tiết vấn đề.</string>
+    <string name="install_update">Cài đặt/Cập nhật</string>
+    <string name="install_warning">Trong một số trường hợp, thiết bị của bạn có thể không khởi động được sau khi cài Xposed.\n\nNếu bạn chưa từng nghe nói về \"soft brick\" và \"bootloop\" hoặc nếu bạn không biết cách xử lý trong tình huống đó, thì <b>ĐỪNG</b> cài Xposed!\n\nDù thế nào, bạn cũng nên có một bản sao lưu mới.</string>
+    <string name="install_warning_title">Hãy cẩn thận!</string>
+    <string name="log_is_empty">Nhật ký trống</string>
+    <string name="logs_clear_failed">Không thể xoá nhật ký:</string>
+    <string name="logs_cleared">Đã xoá nhật ký</string>
+    <string name="logs_save_failed">Không thể ghi nhật ký vào thẻ SD:</string>
+    <string name="menuClearLog">Xoá nhật ký</string>
+    <string name="menuReload">Tải lại</string>
+    <string name="menuSaveToSd">Lưu vào thẻ SD</string>
+    <string name="menuSearch">Tìm kiếm</string>
+    <string name="menuSend">Gửi</string>
+    <string name="module_activated">Module của Xposed đã được kích hoạt</string>
+    <string name="module_app_info">Thông tin ứng dụng</string>
+    <string name="module_download_updates">Tải xuống/Cập nhật</string>
+    <string name="module_empty_description">(không có phần miêu tả)</string>
+    <string name="module_is_not_activated_yet">Module chưa bật</string>
+    <string name="module_is_not_activated_yet_detailed">%s đã được cài, nhưng chưa được kích hoạt.</string>
+    <string name="module_launch">Mở giao diện</string>
+    <string name="module_no_ui">Module này không có giao diện</string>
+    <string name="module_support">Hỗ trợ</string>
+    <string name="module_uninstall">Gỡ cài đặt</string>
+    <string name="no_min_version_specified">Module này không yêu cầu cụ thể phiên bản Xposed nào.</string>
+    <string name="no_xposed_modules_found">Không tìm thấy module nào!</string>
+    <string name="reboot">Khởi động lại</string>
+    <string name="reboot_confirmation">Bạn có muốn khởi động lại không?</string>
+    <string name="reboot_failed">Không thể khởi động lại. Vui lòng sử dụng chức năng khởi động lại của thiết bị.</string>
+    <string name="reltype_beta">Beta</string>
+    <string name="reltype_beta_summary">Beta (có thể chứa lỗi)</string>
+    <string name="reltype_experimental">Thử nghiệm</string>
+    <string name="reltype_experimental_summary">Thử nghiệm (nhiều khả năng lỗi)</string>
+    <string name="reltype_stable">Ổn định</string>
+    <string name="reltype_stable_summary">Ổn định (ít khả năng lỗi)</string>
+    <string name="reltype_use_global_summary">Dùng thiết lập chung</string>
+    <string name="repo_download_failed">Tải xuống %1$s không thành công: %2$s</string>
+    <string name="repo_download_failed_http">Tải xuống %1$s không thành công: %2$d (%3$s)</string>
+    <string name="repo_load_failed">Không thể tải kho module từ %1$s:\n%2$s</string>
+    <string name="root_failed">Không thể lấy quyền root.\n\nHãy đảm bảo rằng thiết bị của bạn đã root và bạn không chặn các lệnh shell.</string>
+    <string name="sdcard_not_writable">Không tìm thấy thẻ SD hoặc thẻ không ghi lên được</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Tìm kiếm"</string>
+    <string name="settings_disable_resources">Ngắt các kết nối tài nguyên</string>
+    <string name="settings_disable_resources_summary">Tránh xung đột với các máy giao diện\n<b>CẢNH BÁO:</b> Các module cần thay đổi tài nguyên sẽ không hoạt động khi bật tính năng này.</string>
+    <string name="settings_group_app">Ứng dụng</string>
+    <string name="settings_group_download">Tải xuống</string>
+    <string name="settings_group_experimental">Thử nghiệm</string>
+    <string name="settings_release_type">Phiên bản được hiển thị</string>
+    <string name="settings_theme">Kiểu giao diện</string>
+    <string name="settings_theme_black">Đen (phù hợp với màn hình AMOLED)</string>
+    <string name="settings_theme_dark">Tối</string>
+    <string name="settings_theme_light">Sáng</string>
+    <string name="soft_reboot">Khởi động lại mềm</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="translator">Alienz</string>
+    <string name="uninstall">Gỡ cài đặt</string>
+    <string name="warning_min_version_too_low">Module này được viết cho Xposed bản %1$d, nhưng do không tương thích với các thay đổi trong bản %2$d, nên đã bị tắt.</string>
+    <string name="warning_xposed_min_version">Module này cần bản Xposed mới (%d) nên hiện tại không thể bật.</string>
+    <string name="welcome_framework_update_available">Đã có bản mới cho Framework của Xposed (%s).</string>
+    <string name="xposed_module_list_updated">Danh sách module đã được cập nhật\nCác thay đổi sẽ có hiệu lực sau khi khởi động lại</string>
+    <string name="xposed_module_updated_notification">Khởi động lại để áp dụng ác thay đổi</string>
+    <string name="xposed_module_updated_notification_title">Module của Xposed đã được cập nhật</string>
+    <string name="xposed_not_active">Phiên bản mới nhất của Xposed chưa hoạt động. Bạn đã cài Framework và khởi động lại chưa?</string>
+</resources>

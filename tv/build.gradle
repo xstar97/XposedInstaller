@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        applicationId versions.appId
+        minSdkVersion 21
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.appVersion
+        archivesBaseName = "XposedInstaller_${versionName}".replace(' ', '_')
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompatibility
+        targetCompatibility versions.targetCompatibility
+    }
+
+    /*sourceSets {
+        main.java.srcDirs += 'src/main/java'
+        test.java.srcDirs += 'src/test/java'
+    }*/
+}
+
+dependencies {
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin
+    implementation kotlinDependencies.kotlinJdk8
+
+    // Support Libraries
+    implementation supportDependencies.leanbackV17
+}

@@ -1,0 +1,45 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: 'dependencies.gradle'
+
+buildscript {
+    // Load dependencies - Gradle cannot handle with external properties inside of buildscript
+    // So we need to apply external file here again
+    apply from: 'dependencies.gradle'
+
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com'
+        }
+    }
+    dependencies {
+        classpath gradlePlugins.android
+
+        // Kotlin Grade plugin
+        classpath gradlePlugins.kotlin
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url 'https://maven.google.com'
+        }
+        maven { url 'https://jitpack.io' }
+        mavenCentral()
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = versions.gradle
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
