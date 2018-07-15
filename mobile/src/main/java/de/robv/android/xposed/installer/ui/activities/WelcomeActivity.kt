@@ -12,8 +12,7 @@ import de.robv.android.xposed.installer.XposedApp
 import de.robv.android.xposed.installer.core.util.Loader
 import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.core.util.RepoLoader
-import de.robv.android.xposed.installer.logic.ThemeUtil
-import de.robv.android.xposed.installer.logic.nav.*
+import de.robv.android.xposed.installer.logic.*
 import de.robv.android.xposed.installer.ui.fragments.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
@@ -36,7 +35,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         navPosition = findNavPosById(item.itemId)
-        if(getNav() != NAV_BOTTOM){
+        if(Utils().getNav() != NAV_BOTTOM){
             closeDrawer()
         }
         return switchFragment(navPosition)
@@ -63,6 +62,16 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         super.onSaveInstanceState(outState)
     }
 
+    override fun onBackPressed() {
+    if (Utils().getNav() == NAV_DRAWER)
+        if (isDrawerOpen()){
+        closeDrawer()
+    } else {
+        super.onBackPressed()
+    }
+        else
+        super.onBackPressed()
+}
     private fun restoreSaveInstanceState(savedInstanceState: Bundle?) {
         // Restore the current navigation position.
         savedInstanceState?.also {
@@ -75,9 +84,8 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         savedInstanceState ?: switchFragment(getMenu())
     }
 
-
     private fun setNav() {
-        if (getNav() == NAV_BOTTOM) {
+        if (Utils().getNav() == NAV_BOTTOM) {
             getDrawerNav()!!.visibility = View.GONE
             getBottomNav()!!.visibility = View.VISIBLE
             initBottomNav(this, this)

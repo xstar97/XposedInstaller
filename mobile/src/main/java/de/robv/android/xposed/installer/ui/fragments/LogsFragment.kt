@@ -10,6 +10,7 @@ import android.os.Environment
 import android.os.Handler
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.FileProvider
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -21,6 +22,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.XposedApp
 
 import java.io.File
 
@@ -35,7 +37,7 @@ import de.robv.android.xposed.installer.core.base.BaseXposedApp.BASE_PKG
 import de.robv.android.xposed.installer.core.base.BaseXposedApp.WRITE_EXTERNAL_PERMISSION
 import de.robv.android.xposed.installer.ui.fragments.utils.LogsUtil
 
-//TODO fix from crashing when trying to save log!
+//TODO fix loading logs
 class LogsFragment : Fragment(), LogsReader.onAsyncComplete
 {
     companion object {
@@ -127,13 +129,18 @@ class LogsFragment : Fragment(), LogsReader.onAsyncComplete
     }
 
     private fun send() {
-        val uri = FileProvider.getUriForFile(activity!!, "$BASE_PKG.fileprovider", mFileErrorLog)
-        val sendIntent = Intent()
-        sendIntent.action = Intent.ACTION_SEND
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uri)
-        sendIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-        sendIntent.type = "application/html"
-        startActivity(Intent.createChooser(sendIntent, resources.getString(R.string.menuSend)))
+        try {
+            val uri = FileProvider.getUriForFile(activity!!, "$BASE_PKG.fileprovider", mFileErrorLog)
+
+            val sendIntent = Intent()
+            sendIntent.action = Intent.ACTION_SEND
+            sendIntent.putExtra(Intent.EXTRA_STREAM, uri)
+            sendIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+            sendIntent.type = "application/html"
+            startActivity(Intent.createChooser(sendIntent, resources.getString(R.string.menuSend)))
+        }catch (e: Exception){
+            Log.d(XposedApp.TAG, e.message)
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int,
@@ -176,26 +183,6 @@ class LogsFragment : Fragment(), LogsReader.onAsyncComplete
 
         val targetFile = File(dir, filename)
 
-        //TODO add portion to util class
-         /*try {
-            /*FileInputStream in = new FileInputStream(mFileErrorLog);
-            FileOutputStream out = new FileOutputStream(targetFile);
-            byte[] buffer = new byte[1024];
-            int len;
-            while ((len = in.read(buffer)) > 0) {
-                out.write(buffer, 0, len);
-            }
-            in.close();
-            out.close();
-
-            Toast.makeText(getActivity(), targetFile.toString(),
-                    Toast.LENGTH_LONG).show();
-
-            return targetFile;*/
-        //} catch (IOException e) {
-          //  Toast.makeText(getActivity(), getResources().getString(R.string.logs_save_failed) + "\n" + e.getMessage(), Toast.LENGTH_LONG).show();
-         //   return null;
-        //}*/
         return LogsUtil().saveUtil(activity, mFileErrorLog, targetFile)
 
     }

@@ -72,6 +72,10 @@ dependencies {
 
     // Utils Libraries
     implementation utilsDependencies.baseAdapter
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.testRunner
+    androidTestImplementation testDependencies.espressoCore
 }
 kotlin {
     experimental {

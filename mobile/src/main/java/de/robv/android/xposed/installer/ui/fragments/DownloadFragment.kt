@@ -43,6 +43,7 @@ import de.robv.android.xposed.installer.ui.activities.DownloadDetailsActivity
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView
 
+//TODO replace list view with recyclerView and base adapter
 @Suppress("NAME_SHADOWING")
 class DownloadFragment : Fragment(), Loader.Listener<RepoLoader>, ModuleListener
 {
@@ -231,12 +232,14 @@ class DownloadFragment : Fragment(), Loader.Listener<RepoLoader>, ModuleListener
         override fun getHeaderView(position: Int, convertView: View?, parent: ViewGroup): View {
             var convertView = convertView
             if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.list_sticky_header_download, parent, false)
+                //convertView = mInflater.inflate(R.layout.list_sticky_header_download, parent, false)
+                convertView = mInflater.inflate(R.layout.list_item_download_header, parent, false)
             }
 
             val section = getHeaderId(position)
 
-            val tv = convertView!!.findViewById<View>(android.R.id.title) as TextView
+            //val tv = convertView!!.findViewById<View>(android.R.id.title) as TextView
+            val tv = convertView!!.findViewById<View>(R.id.list_item_download_header) as TextView
             tv.text = if (mSortingOrder == RepoDb.SORT_STATUS)
                 sectionHeadersStatus[section.toInt()]
             else

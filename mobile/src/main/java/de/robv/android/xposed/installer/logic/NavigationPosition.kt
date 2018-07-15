@@ -1,20 +1,17 @@
-package de.robv.android.xposed.installer.logic.nav
+package de.robv.android.xposed.installer.logic
 
 import android.support.v4.app.Fragment
-import android.util.Log
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.XposedApp
-import de.robv.android.xposed.installer.logic.Utils
 import de.robv.android.xposed.installer.ui.fragments.*
 
-
-val NAV_DOWNLOAD = if (Utils().getNav() == Utils().NAV_BOTTOM) 0 else 2
-val NAV_MODULES = 1
-val NAV_HOME = if (Utils().getNav() == Utils().NAV_BOTTOM) 2 else 0
-val NAV_LOGS = 3
-val NAV_SETTINGS = 4
-val NAV_SUPPORT = 5
-val NAV_ABOUT = 6
+// positions in menu(bottom nav and drawer nav)
+var NAV_DOWNLOAD = if (Utils().getNav() == Utils().NAV_BOTTOM) 0 else 2
+var NAV_MODULES = 1
+var NAV_HOME = if (Utils().getNav() == Utils().NAV_BOTTOM) 2 else 0
+var NAV_LOGS = 3
+var NAV_SETTINGS = 4
+var NAV_SUPPORT = 5
+var NAV_ABOUT = 6
 
 enum class NavigationPosition(val position: Int, val id: Int) {
 

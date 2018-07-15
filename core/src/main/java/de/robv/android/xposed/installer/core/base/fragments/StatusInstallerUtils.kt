@@ -11,8 +11,7 @@ import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.installation.FlashDirectly
 import de.robv.android.xposed.installer.core.installation.FlashRecoveryAuto
 import de.robv.android.xposed.installer.core.installation.Flashable
-import de.robv.android.xposed.installer.core.repo.zips.ZipRepository
-import de.robv.android.xposed.installer.core.repo.zips.Zips
+import de.robv.android.xposed.installer.core.repo.zips.ZipModel
 import de.robv.android.xposed.installer.core.util.DownloadsUtil
 import de.robv.android.xposed.installer.core.util.FrameworkZips
 import de.robv.android.xposed.installer.core.util.RunnableWithParam
@@ -32,6 +31,8 @@ open class StatusInstallerUtils
             return try {
                 Class.forName(className)
                 true
+            } catch (e: Throwable) {
+                false
             } catch (e: ClassNotFoundException) {
                 false
             }
@@ -59,6 +60,63 @@ open class StatusInstallerUtils
             }
 
         }
+
+        private val zipList0 = ArrayList<ZipModel>()
+        private val zipList1 = ArrayList<ZipModel>()
+
+        fun getZips(): Pair<ArrayList<ZipModel>, ArrayList<ZipModel>>{
+            zipList0.clear()
+            zipList1.clear()
+            return synchronized(FrameworkZips::class.java) {
+                 try {
+                    Log.d(BaseXposedApp.TAG, "size 0: ${zipList0.size}\nsize 1: ${zipList1.size}")
+                    val allTitles0 = FrameworkZips.getAllTitles(FrameworkZips.Type.INSTALLER)
+                    val allTitles1 = FrameworkZips.getAllTitles(FrameworkZips.Type.UNINSTALLER)
+                    for (title0 in allTitles0) {
+                        val online = FrameworkZips.getOnline(title0, FrameworkZips.Type.INSTALLER)
+                        val local = FrameworkZips.getLocal(title0, FrameworkZips.Type.INSTALLER)
+
+                        val hasLocal = local != null
+                        val hasOnline = online != null
+                        val zip = if (!hasLocal) online else local
+
+                        val myTitle = zip!!.title
+                        val iconStatus = getIconStatus(hasLocal, hasOnline)
+                        val zipType = 0
+
+                        Log.d(BaseXposedApp.TAG, "title: $myTitle")
+                        zipList0.add(ZipModel(myTitle, iconStatus, zipType))
+                    }
+                    for (title1 in allTitles1) {
+                        val online = FrameworkZips.getOnline(title1, FrameworkZips.Type.UNINSTALLER)
+                        val local = FrameworkZips.getLocal(title1, FrameworkZips.Type.UNINSTALLER)
+
+                        val hasLocal = local != null
+                        val hasOnline = online != null
+                        val zip = if (!hasLocal) online else local
+
+                        val myTitle = zip!!.title
+                        val iconStatus = getIconStatus(hasLocal, hasOnline)
+                        val zipType = 1
+
+                        Log.d(BaseXposedApp.TAG, "title: $myTitle")
+                        zipList1.add(ZipModel(myTitle, iconStatus, zipType))
+                    }
+                }catch (e: Exception) {
+                    Log.d(BaseXposedApp.TAG, "size 0: ${zipList0.size}\nsize 1: ${zipList1.size}")
+                }
+                Pair(zipList0, zipList1)
+            }
+        }
+
+        private fun getIconStatus(hasLocal: Boolean, hasOnline: Boolean): Int =
+                if (!hasLocal) {
+                    R.drawable.ic_cloud
+                } else if (hasOnline) {
+                    R.drawable.ic_cloud_download
+                } else {
+                    R.drawable.ic_cloud_off
+                }
 
         //actions
         fun flash(context: Context, install: Intent, flashable: Flashable) {
@@ -167,7 +225,7 @@ open class StatusInstallerUtils
             Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show()
         }
     }
-
+/*
     @Suppress("MemberVisibilityCanBePrivate")
     open class MyDataBaseUtil
     {
@@ -245,6 +303,6 @@ open class StatusInstallerUtils
                 } else {
                     R.drawable.ic_cloud_off
                 }
-    }
+    }*/
 
 }

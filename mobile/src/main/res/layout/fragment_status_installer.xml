@@ -79,14 +79,36 @@
                     tools:text="@string/framework_no_zips"
                     tools:visibility="visible" />
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/zip_recyclerView"
-                    android:visibility="gone"
-                    tools:visibility="visible"
+                <TextView style="?android:attr/listSeparatorTextViewStyle"
+                    android:id="@+id/zip_spinner0_title"
                     android:layout_below="@id/zips_load_error"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/view_margin"
+                    android:text="@string/install_update"/>
 
+                <Spinner
+                    android:id="@+id/zip_spinner0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/zip_spinner0_title"
+                    android:layout_margin="10dp" />
+
+
+                <TextView style="?android:attr/listSeparatorTextViewStyle"
+                    android:id="@+id/zip_spinner1_title"
+                    android:layout_below="@id/zip_spinner0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/view_margin"
+                    android:text="@string/uninstall" />
+
+                <Spinner
+                    android:id="@+id/zip_spinner1"
+                    android:layout_below="@id/zip_spinner1_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp" />
 
             </RelativeLayout>
 
@@ -99,5 +121,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"/>
-
 </RelativeLayout>

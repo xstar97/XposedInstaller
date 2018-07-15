@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SwitchCompat
 import android.util.Log
 import android.view.LayoutInflater
@@ -37,40 +35,48 @@ import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils
 import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.getCanonicalFile
 import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.getPathWithCanonicalPath
 import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.showActionDialog
-import de.robv.android.xposed.installer.core.repo.zips.ZipRepository
-import de.robv.android.xposed.installer.core.repo.zips.Zips
+import de.robv.android.xposed.installer.core.repo.zips.ZipModel
 import de.robv.android.xposed.installer.core.util.*
 import de.robv.android.xposed.installer.core.util.FrameworkZips.LocalZipLoader
 import de.robv.android.xposed.installer.core.util.FrameworkZips.OnlineZipLoader
-import de.robv.android.xposed.installer.logic.adapters.zip.ZipBaseAdapter
-import de.robv.android.xposed.installer.logic.adapters.zip.ZipModel
-import de.robv.android.xposed.installer.logic.adapters.zip.viewholders.ZipBaseViewHolder
+import de.robv.android.xposed.installer.logic.adapters.zip.ZipSpinnerAdapter
 import de.robv.android.xposed.installer.ui.activities.InstallationActivity
 import kotlinx.android.synthetic.main.fragment_status_installer.*
+
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
 @Suppress("DEPRECATION", "PrivatePropertyName", "UNUSED_ANONYMOUS_PARAMETER", "LocalVariableName")
-class StatusInstallerFragment : Fragment(), ZipBaseViewHolder.Delegate
+class StatusInstallerFragment : Fragment(), View.OnClickListener
 {
-    companion object {
+
+    override fun onClick(v: View?) {
+        val id = v!!.id
+        if (id == R.id.zip_spinner0_title){
+            val zip = zip_spinner0.selectedItem as ZipModel
+            val key = zip.key
+            val type = if (zip.type == 0) FrameworkZips.Type.INSTALLER else FrameworkZips.Type.UNINSTALLER
+
+            showActionDialog(activity!!, Intent(context, InstallationActivity::class.java), key, type)
+        }
+        else if (id == R.id.zip_spinner1_title){
+            val zip = zip_spinner1.selectedItem as ZipModel
+            val key = zip.key
+            val type = if (zip.type == 0) FrameworkZips.Type.INSTALLER else FrameworkZips.Type.UNINSTALLER
+
+            showActionDialog(activity!!, Intent(context, InstallationActivity::class.java), key, type)
+            }
+        }
+
+        companion object {
         val TAG: String = StatusInstallerFragment::class.java.simpleName
         fun newInstance() = StatusInstallerFragment()
     }
-    override fun onItemClick(infoItem: ZipModel) {
 
-        val type = if (infoItem.type == 0) FrameworkZips.Type.INSTALLER else FrameworkZips.Type.UNINSTALLER
-        Log.d(XposedApp.TAG, "type: $type")
-        showActionDialog(activity!!, Intent(context, InstallationActivity::class.java), infoItem.key, type)
-    }
     private val PREF_VALUE_HIDE_WARN = "hide_install_warning"
 
     private val mOnlineZipListener = Loader.Listener<OnlineZipLoader> { refreshZipViewsOnUiThread() }
     private val mLocalZipListener = Loader.Listener<LocalZipLoader> { refreshZipViewsOnUiThread() }
-
-    private val zipAdapter by lazy { ZipBaseAdapter(activity!!, this) }
-    private val zipList0 = ArrayList<ZipModel>()
-    private val zipList1 = ArrayList<ZipModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_status_installer, container, false)
@@ -116,7 +122,7 @@ class StatusInstallerFragment : Fragment(), ZipBaseViewHolder.Delegate
         }
 
         // Device info
-        setSheet(DeviceInfoSheetFragment())
+        setSheetFragment()
 
         // Known issues
         refreshKnownIssue(v)
@@ -147,16 +153,8 @@ class StatusInstallerFragment : Fragment(), ZipBaseViewHolder.Delegate
         }
     }
 
-    private fun initZip(v: View){
-        val zippy = v.findViewById(R.id.zip_recyclerView) as RecyclerView
-        if (zippy.adapter == null) {
-            zippy.adapter = zipAdapter
-            zippy.layoutManager = LinearLayoutManager(activity)
-        }
-    }
-
-    private fun setSheet(sheet: Fragment){
-        childFragmentManager.beginTransaction().replace(R.id.app_sheet_content, sheet).commitNowAllowingStateLoss()
+    private fun setSheetFragment(){
+        childFragmentManager.beginTransaction().replace(R.id.app_sheet_content, DeviceInfoSheetFragment()).commitNowAllowingStateLoss()
     }
 
     private fun refreshInstallStatus() {
@@ -305,49 +303,39 @@ class StatusInstallerFragment : Fragment(), ZipBaseViewHolder.Delegate
     }
 
     private fun refreshZips(v: View){
-        initZip(v)
-        doAsync {
-            zipList0.clear()
-            zipList1.clear()
-            val tvError = v.findViewById(R.id.zips_load_error) as TextView
+        zip_spinner0_title.setOnClickListener(this)
+        zip_spinner1_title.setOnClickListener(this)
 
-            val db = ZipRepository(activity!!.applicationContext)
-            StatusInstallerUtils.MyDataBaseUtil().initZipDB(db)
+        val myZips0 = StatusInstallerUtils.getZips().first
+        val myZips1 = StatusInstallerUtils.getZips().second
 
-            val myZips0 = db.getAllZips(Zips.TABLE_NAME_0)
-            val myZips1 = db.getAllZips(Zips.TABLE_NAME_1)
-
-            when {
-                !FrameworkZips.hasLoadedOnlineZips() -> {
+        val tvError = v.findViewById(R.id.zips_load_error) as TextView
+        Log.d(XposedApp.TAG, "size 0: ${myZips0.size}\nsize 1: ${myZips1.size}")
+        when {
+            !FrameworkZips.hasLoadedOnlineZips() -> {
                     tvError.setText(R.string.framework_zip_load_failed)
                     tvError.visibility = View.VISIBLE
                 }
-                myZips0.size == 0 || myZips1.size == 0 -> {
-                    tvError.setText(R.string.framework_no_zips)
-                    tvError.visibility = View.VISIBLE
-                }
-                else -> {
-                    tvError.visibility = View.GONE
-                    populateList(myZips0, myZips1)
-                }
-                }
+            myZips0.size == 0 || myZips1.size == 0 -> {
+                tvError.setText(R.string.framework_no_zips)
+                tvError.visibility = View.VISIBLE
+            }
+            else -> {
+                tvError.visibility = View.GONE
+                populateSpinner(myZips0, myZips1)
+            }
         }
     }
-    private fun populateList(zip0: ArrayList<Zips>, zip1: ArrayList<Zips>){
 
+    private fun populateSpinner(zip0: ArrayList<ZipModel>, zip1: ArrayList<ZipModel>){
         doAsync {
-            for (installer in zip0) {
-                zipList0.add(ZipModel(installer.title, installer.icon, installer.type))
-            }
 
-            for (uninstaller in zip1) {
-                zipList1.add(ZipModel(uninstaller.title, uninstaller.icon, uninstaller.type))
-            }
+            val adapter0 = ZipSpinnerAdapter(activity!!, zip0)
+            val adapter1 = ZipSpinnerAdapter(activity!!, zip1)
 
             uiThread {
-                zipAdapter.addZipItems(zipAdapter.SECTION_INSTALL, zipList0)
-                zipAdapter.addZipItems(zipAdapter.SECTION_UNINSTALL, zipList1)
-                zip_recyclerView!!.visibility = View.VISIBLE
+                zip_spinner0.adapter = adapter0
+                zip_spinner1.adapter = adapter1
             }
         }
     }

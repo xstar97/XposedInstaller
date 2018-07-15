@@ -52,4 +52,5 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@android:color/tertiary_text_dark" />
     </RelativeLayout>
+
 </FrameLayout>

@@ -14,7 +14,7 @@ import android.view.MenuItem
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
 import de.robv.android.xposed.installer.logic.Utils
-import de.robv.android.xposed.installer.logic.nav.NavigationPosition
+import de.robv.android.xposed.installer.logic.NavigationPosition
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
@@ -50,15 +50,9 @@ open class BaseNavActivity: XposedBaseActivity(),
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    fun getNav(): Int{
-        val  id = Utils().getPrefValue(Utils().PREF_NAV)
-        Log.d(XposedApp.TAG, "PREF_NAV: id: $id")
-        return id
-    }
-    //
-    fun getMenu(): NavigationPosition{
+    fun getMenu(): NavigationPosition {
         return try {
-            val id = Utils().getPrefValue(Utils().PREF_VIEW)
+            val id = Utils().getView()
             Log.d(XposedApp.TAG, "PREF_VIEW: id: $id")
             when (id) {
                 0 -> NAV_FRAMEWORK//R.id.nav_item_framework

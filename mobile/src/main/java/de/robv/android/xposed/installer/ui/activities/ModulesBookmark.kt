@@ -19,7 +19,6 @@ import android.widget.TextView
 import de.robv.android.xposed.installer.R
 
 import java.util.ArrayList
-import java.util.Collections
 
 import de.robv.android.xposed.installer.core.repo.Module
 import de.robv.android.xposed.installer.core.util.DownloadsUtil
@@ -112,7 +111,7 @@ class ModulesBookmark : XposedBaseActivity() {
                     if (m != null) mBookmarkedModules.add(m)
                 }
             }
-            Collections.sort(mBookmarkedModules) { mod1, mod2 -> mod1.name.compareTo(mod2.name) }
+            mBookmarkedModules.sortWith(Comparator { mod1, mod2 -> mod1.name.compareTo(mod2.name) })
             mAdapter!!.addAll(mBookmarkedModules)
             mAdapter!!.notifyDataSetChanged()
         }
