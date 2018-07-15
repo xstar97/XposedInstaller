@@ -21,6 +21,11 @@ All the activies and fragments inherit the support packages(yes even 'settingsFr
 there is a TON more work to do....
  
 ### Issue(s)
-I switched out the original DSL in 'StatusInstallerFragment.kt' for a recyerlView for cleaner code...but having issues loading the data correctly when it first comes in...switching fragments seems to fix it and looks 'normal' but any data change affects the ui causing to duplicate the data and creating false data(empty spaces)...no idea why it does this, but I have to guess is must be how we collect the zip data....
+1. navigation needs to be reworked still as there are some bugs left when switching between both bottom nav and drawer nav...
+-the wrong item is selected after activity.create() function is called....(possible to get current fragment and set 'active' tab to avoid isssue)
+
+2. logs fragments needs to checked for issues loading its data...(possible to just toss asynctask in favor of doAsync from anko?)
+3. show about and support fragments/activities in fab, menu, etc(bottom nav only)
+
 
 certain key functions CANT be rewritten in kotlin yet and have to stay as a utility java class...but its a work in progress.
