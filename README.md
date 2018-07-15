@@ -21,6 +21,7 @@ All the activies and fragments inherit the support packages(yes even 'settingsFr
 there is a TON more work to do....
 
 ![alt text](https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/Screenshot_1531635080.png)
+![alt text](https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/Screenshot_1531635105.png)
  
 ### Issue(s)
 1. navigation needs to be reworked still as there are some bugs left when switching between both bottom nav and drawer nav...
