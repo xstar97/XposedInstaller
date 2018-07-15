@@ -19,6 +19,8 @@ I planned on adding more anko/kotlin support throughout the entire project...but
 All the activies and fragments inherit the support packages(yes even 'settingsFragment')
 
 there is a TON more work to do....
+
+![alt text](https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/Screenshot_1531635080.png)
  
 ### Issue(s)
 1. navigation needs to be reworked still as there are some bugs left when switching between both bottom nav and drawer nav...
