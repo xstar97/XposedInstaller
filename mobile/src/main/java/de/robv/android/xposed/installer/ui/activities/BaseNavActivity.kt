@@ -13,8 +13,8 @@ import android.util.Log
 import android.view.MenuItem
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
-import de.robv.android.xposed.installer.logic.Utils
 import de.robv.android.xposed.installer.logic.NavigationPosition
+import de.robv.android.xposed.installer.logic.Utils.Companion.getView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
@@ -27,9 +27,6 @@ open class BaseNavActivity: XposedBaseActivity(),
 {
     val NAV_KEY_POSITION = "keyPosition"
     var navPosition: NavigationPosition = NavigationPosition.HOME
-
-    val NAV_BOTTOM = 0
-    val NAV_DRAWER = 1
 
     val NAV_DOWNLOAD = NavigationPosition.DOWNLOAD
     val NAV_MODULE = NavigationPosition.MODULES
@@ -52,8 +49,8 @@ open class BaseNavActivity: XposedBaseActivity(),
 
     fun getMenu(): NavigationPosition {
         return try {
-            val id = Utils().getView()
-            Log.d(XposedApp.TAG, "PREF_VIEW: id: $id")
+            val id = getView()
+            //Log.d(XposedApp.TAG, "PREF_VIEW: id: $id")
             when (id) {
                 0 -> NAV_FRAMEWORK//R.id.nav_item_framework
                 1 -> NAV_MODULE//R.id.nav_item_modules

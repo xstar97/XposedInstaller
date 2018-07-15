@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
+import android.support.v4.widget.DrawerLayout
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -16,6 +17,7 @@ import de.robv.android.xposed.installer.logic.*
 import de.robv.android.xposed.installer.ui.fragments.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
+import de.robv.android.xposed.installer.logic.Utils.Companion.isBottomNav
 
 class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.Listener<RepoLoader>
 {
@@ -35,7 +37,8 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         navPosition = findNavPosById(item.itemId)
-        if(Utils().getNav() != NAV_BOTTOM){
+
+        if(!isBottomNav()){
             closeDrawer()
         }
         return switchFragment(navPosition)
@@ -52,8 +55,8 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        initFragment(savedInstanceState)
         setNav()
-       initFragment(savedInstanceState)
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -63,15 +66,18 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
     }
 
     override fun onBackPressed() {
-    if (Utils().getNav() == NAV_DRAWER)
         if (isDrawerOpen()){
-        closeDrawer()
-    } else {
-        super.onBackPressed()
+            closeDrawer()
+        } else {
+            super.onBackPressed()
+        }
     }
-        else
-        super.onBackPressed()
-}
+
+    override fun onResume() {
+        super.onResume()
+        val lockOrNot = if (isBottomNav()) DrawerLayout.LOCK_MODE_LOCKED_CLOSED else DrawerLayout.LOCK_MODE_UNLOCKED
+        getDrawerLayout()!!.setDrawerLockMode(lockOrNot)
+    }
     private fun restoreSaveInstanceState(savedInstanceState: Bundle?) {
         // Restore the current navigation position.
         savedInstanceState?.also {
@@ -85,7 +91,8 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
     }
 
     private fun setNav() {
-        if (Utils().getNav() == NAV_BOTTOM) {
+        //Log.d(XposedApp.TAG, "pos: ${getMenu().position}\nid: ${getMenu().id}")
+        if (isBottomNav()) {
             getDrawerNav()!!.visibility = View.GONE
             getBottomNav()!!.visibility = View.VISIBLE
             initBottomNav(this, this)
@@ -108,6 +115,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         getFragManager().executePendingTransactions()
         return true
     }
+
     private fun android.support.v4.app.FragmentManager.findFragment(position: NavigationPosition): Fragment {
         return findFragmentByTag(position.getTag()) ?: position.createFragment()
     }
@@ -127,10 +135,10 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit()
     }
-
     private fun getFragManager(): android.support.v4.app.FragmentManager{
         return supportFragmentManager
     }
+
     private fun notifyDataSetChanged() {
         val parentLayout = content
         val frameworkUpdateVersion = mRepoLoader!!.frameworkUpdateVersion

@@ -52,14 +52,15 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
 
     override fun onClick(v: View?) {
         val id = v!!.id
-        if (id == R.id.zip_spinner0_title){
+
+        if (id == R.id.button_zip_spinner0){
             val zip = zip_spinner0.selectedItem as ZipModel
             val key = zip.key
             val type = if (zip.type == 0) FrameworkZips.Type.INSTALLER else FrameworkZips.Type.UNINSTALLER
 
             showActionDialog(activity!!, Intent(context, InstallationActivity::class.java), key, type)
         }
-        else if (id == R.id.zip_spinner1_title){
+        else if (id == R.id.button_zip_spinner1){
             val zip = zip_spinner1.selectedItem as ZipModel
             val key = zip.key
             val type = if (zip.type == 0) FrameworkZips.Type.INSTALLER else FrameworkZips.Type.UNINSTALLER
@@ -303,8 +304,8 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
     }
 
     private fun refreshZips(v: View){
-        zip_spinner0_title.setOnClickListener(this)
-        zip_spinner1_title.setOnClickListener(this)
+        button_zip_spinner0.setOnClickListener(this)
+        button_zip_spinner1.setOnClickListener(this)
 
         val myZips0 = StatusInstallerUtils.getZips().first
         val myZips1 = StatusInstallerUtils.getZips().second

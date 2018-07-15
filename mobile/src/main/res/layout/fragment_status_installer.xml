@@ -44,7 +44,7 @@
 
                 <include android:id="@+id/installer_view"
                     android:layout_below="@id/disableView"
-                    layout="@layout/status_installer_installed_view"
+                    layout="@layout/view_status_installer_installed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -79,36 +79,35 @@
                     tools:text="@string/framework_no_zips"
                     tools:visibility="visible" />
 
-                <TextView style="?android:attr/listSeparatorTextViewStyle"
-                    android:id="@+id/zip_spinner0_title"
+                <Spinner
+                    android:id="@+id/zip_spinner0"
                     android:layout_below="@id/zips_load_error"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/view_margin"
-                    android:text="@string/install_update"/>
-
-                <Spinner
-                    android:id="@+id/zip_spinner0"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/zip_spinner0_title"
                     android:layout_margin="10dp" />
 
-
-                <TextView style="?android:attr/listSeparatorTextViewStyle"
-                    android:id="@+id/zip_spinner1_title"
+                <Button
+                    android:id="@+id/button_zip_spinner0"
                     android:layout_below="@id/zip_spinner0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/view_margin"
-                    android:text="@string/uninstall" />
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/install_update" />
 
                 <Spinner
                     android:id="@+id/zip_spinner1"
-                    android:layout_below="@id/zip_spinner1_title"
+                    android:layout_below="@id/button_zip_spinner0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp" />
+
+                <Button
+                    android:id="@+id/button_zip_spinner1"
+                    android:layout_below="@id/zip_spinner1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/uninstall" />
 
             </RelativeLayout>
 

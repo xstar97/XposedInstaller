@@ -69,7 +69,7 @@ open class StatusInstallerUtils
             zipList1.clear()
             return synchronized(FrameworkZips::class.java) {
                  try {
-                    Log.d(BaseXposedApp.TAG, "size 0: ${zipList0.size}\nsize 1: ${zipList1.size}")
+                    //Log.d(BaseXposedApp.TAG, "size 0: ${zipList0.size}\nsize 1: ${zipList1.size}")
                     val allTitles0 = FrameworkZips.getAllTitles(FrameworkZips.Type.INSTALLER)
                     val allTitles1 = FrameworkZips.getAllTitles(FrameworkZips.Type.UNINSTALLER)
                     for (title0 in allTitles0) {
@@ -84,7 +84,7 @@ open class StatusInstallerUtils
                         val iconStatus = getIconStatus(hasLocal, hasOnline)
                         val zipType = 0
 
-                        Log.d(BaseXposedApp.TAG, "title: $myTitle")
+                        //Log.d(BaseXposedApp.TAG, "title: $myTitle")
                         zipList0.add(ZipModel(myTitle, iconStatus, zipType))
                     }
                     for (title1 in allTitles1) {
@@ -99,7 +99,7 @@ open class StatusInstallerUtils
                         val iconStatus = getIconStatus(hasLocal, hasOnline)
                         val zipType = 1
 
-                        Log.d(BaseXposedApp.TAG, "title: $myTitle")
+                        //Log.d(BaseXposedApp.TAG, "title: $myTitle")
                         zipList1.add(ZipModel(myTitle, iconStatus, zipType))
                     }
                 }catch (e: Exception) {
@@ -199,7 +199,7 @@ open class StatusInstallerUtils
                 doAsync {
                     val zip = FrameworkZips.getOnline(title, type)
                     val zipTitle = zip.title
-                    Log.d(BaseXposedApp.TAG, "title: $zipTitle")
+                    //Log.d(BaseXposedApp.TAG, "title: $zipTitle")
                     uiThread {
                         DownloadsUtil.Builder(context)
                                 .setTitle(zipTitle)

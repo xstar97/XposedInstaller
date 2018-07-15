@@ -1612,6 +1612,10 @@
         "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\drawable-xxxhdpi-v4\\ic_menu_search.png"
     },
     {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_view_status_installer_installed.xml.flat",
+        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\src\\main\\res\\layout\\view_status_installer_installed.xml"
+    },
+    {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ic_github.png.flat",
         "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\drawable-mdpi-v4\\ic_github.png"
     },
@@ -1962,10 +1966,6 @@
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_arrow_down_24dp.xml.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\preference-v7-27.1.1.aar\\e719916a203232be32867d99a231ab64\\res\\drawable-anydpi-v21\\ic_arrow_down_24dp.xml"
-    },
-    {
-        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_status_installer_installed_view.xml.flat",
-        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\src\\main\\res\\layout\\status_installer_installed_view.xml"
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ic_save.png.flat",
