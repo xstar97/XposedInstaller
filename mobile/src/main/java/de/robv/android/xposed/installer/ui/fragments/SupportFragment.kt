@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.util.NavUtil
+import de.robv.android.xposed.installer.core.base.fragments.BaseSupport
 import de.robv.android.xposed.installer.logic.adapters.info.TabInfoBaseAdapter
 import de.robv.android.xposed.installer.logic.adapters.info.TabInfoModel
 import kotlinx.android.synthetic.main.fragment_view.*
@@ -25,13 +25,13 @@ class SupportFragment: BaseViewFragment()
 
             }
             getString(R.string.support_framework_label) -> {
-                setNavUtil(getString(R.string.about_support))
+                BaseSupport.showSupportPage(activity!!)
             }
             getString(R.string.support_faq_label) -> {
-                setNavUtil(getString(R.string.support_faq_url))
+                BaseSupport.showIssuesPage(activity!!)
             }
             getString(R.string.support_donate_label) -> {
-                setNavUtil(getString(R.string.support_donate_url))
+                BaseSupport.showDonationPage(activity!!)
 
             }
         }
@@ -61,8 +61,5 @@ class SupportFragment: BaseViewFragment()
         supportList.add(TabInfoModel(R.drawable.ic_nav_logs, getString(R.string.support_faq_label), ""))
         supportList.add(TabInfoModel(R.drawable.ic_donate, getString(R.string.support_donate_label), getString(R.string.support_donate_description)))
         supportAdapter.addItems(supportAdapter.SECTION_SUPPORT, supportList)
-    }
-    private fun setNavUtil(string: String){
-        NavUtil.startURL(activity, string)
     }
 }

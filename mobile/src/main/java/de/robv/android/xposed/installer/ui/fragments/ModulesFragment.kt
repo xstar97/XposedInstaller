@@ -59,7 +59,7 @@ import android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
 import de.robv.android.xposed.installer.core.base.BaseXposedApp.WRITE_EXTERNAL_PERMISSION
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.DISABLE_FILE
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
 import de.robv.android.xposed.installer.core.util.ModuleUtil.SETTINGS_CATEGORY
 import de.robv.android.xposed.installer.ui.fragments.utils.ModulesUtil
 

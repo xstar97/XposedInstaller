@@ -29,7 +29,8 @@ import de.robv.android.xposed.installer.core.repo.RepoDb;
 
 import static de.robv.android.xposed.installer.core.base.BaseXposedApp.BASE_PKG;
 
-public final class ModuleUtil {
+public final class ModuleUtil
+{
     // xposedminversion below this
     private static final String MODULES_LIST_FILE = new BaseXposedApp().BASE_DIR + "conf/modules.list";
     private static final String PLAY_STORE_PACKAGE = "com.android.vending";

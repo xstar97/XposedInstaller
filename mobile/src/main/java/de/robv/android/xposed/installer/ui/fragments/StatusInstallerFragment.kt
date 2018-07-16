@@ -26,15 +26,16 @@ import java.io.IOException
 import de.robv.android.xposed.installer.ui.fragments.sheets.DeviceInfoSheetFragment
 
 import de.robv.android.xposed.installer.core.base.BaseXposedApp
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.DISABLE_FILE
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.LOCAL_ZIP_LOADER
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.ONLINE_ZIP_LOADER
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.checkClassExists
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.confirmReboot
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.getCanonicalFile
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.getPathWithCanonicalPath
-import de.robv.android.xposed.installer.core.base.fragments.StatusInstallerUtils.Companion.showActionDialog
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.LOCAL_ZIP_LOADER
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.ONLINE_ZIP_LOADER
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.checkClassExists
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.confirmReboot
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.getCanonicalFile
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.getPathWithCanonicalPath
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.showActionDialog
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.showOptimizedAppDialog
 import de.robv.android.xposed.installer.core.repo.zips.ZipModel
 import de.robv.android.xposed.installer.core.util.*
 import de.robv.android.xposed.installer.core.util.FrameworkZips.LocalZipLoader
@@ -56,20 +57,20 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
         if (id == R.id.button_zip_spinner0){
             val zip = zip_spinner0.selectedItem as ZipModel
             val key = zip.key
-            val type = if (zip.type == 0) FrameworkZips.Type.INSTALLER else FrameworkZips.Type.UNINSTALLER
+            val type = FrameworkZips.Type.INSTALLER
 
             showActionDialog(activity!!, Intent(context, InstallationActivity::class.java), key, type)
         }
         else if (id == R.id.button_zip_spinner1){
             val zip = zip_spinner1.selectedItem as ZipModel
             val key = zip.key
-            val type = if (zip.type == 0) FrameworkZips.Type.INSTALLER else FrameworkZips.Type.UNINSTALLER
+            val type = FrameworkZips.Type.UNINSTALLER
 
             showActionDialog(activity!!, Intent(context, InstallationActivity::class.java), key, type)
             }
         }
 
-        companion object {
+    companion object {
         val TAG: String = StatusInstallerFragment::class.java.simpleName
         fun newInstance() = StatusInstallerFragment()
     }
@@ -86,6 +87,8 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
         super.onViewCreated(v, savedInstanceState)
 
         refreshZips(v)
+        button_zip_spinner0.setOnClickListener(this)
+        button_zip_spinner1.setOnClickListener(this)
 
         // Available ZIPs
         val refreshLayout = v.findViewById<View>(R.id.swiperefreshlayout) as SwipeRefreshLayout
@@ -200,16 +203,11 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //mShowOutdated = BaseXposedApp.getPreferences().getBoolean(PREF_KEY_OUTDATED, false)
         setHasOptionsMenu(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater!!.inflate(R.menu.menu_installer, menu)
-        //menu!!.findItem(R.id.show_outdated).isChecked = mShowOutdated
-        if (Build.VERSION.SDK_INT < 26) {
-           // menu.findItem(R.id.dexopt_now).isVisible = false
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -219,38 +217,10 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
             confirmReboot(activity!!, mode.titleRes, MaterialDialog.SingleButtonCallback { dialog, which -> RootUtil.reboot(mode, activity!!) })
             return true
         } else if (i == R.id.dexopt_now) {
-            MaterialDialog.Builder(activity!!)
-                    .title(R.string.dexopt_now)
-                    .content(R.string.this_may_take_a_while)
-                    .progress(true, 0)
-                    .cancelable(false)
-                    .showListener { dialog ->
-                        object : Thread("dexopt") {
-                            override fun run() {
-                                val rootUtil = RootUtil()
-                                if (!rootUtil.startShell()) {
-                                    dialog.dismiss()
-                                    NavUtil.showMessage(activity!!, getString(R.string.root_failed))
-                                    return
-                                }
-
-                                rootUtil.execute("cmd package bg-dexopt-job", null)
-
-                                dialog.dismiss()
-                                BaseXposedApp.runOnUiThread { Toast.makeText(activity, R.string.done, Toast.LENGTH_LONG).show() }
-                            }
-                        }.start()
-                    }.show()
-            return true
-        } else if (i == R.id.show_outdated) {
-            //TODO add show outdated method
-            /*mShowOutdated = !item.isChecked
-            BaseXposedApp.getPreferences().edit().putBoolean(PREF_KEY_OUTDATED, mShowOutdated).apply()
-            item.isChecked = mShowOutdated
-
-            refreshZipViews(view!!)*/
+            showOptimizedAppDialog(activity!!)
             return true
         }
+
         return super.onOptionsItemSelected(item)
     }
 
@@ -304,11 +274,9 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
     }
 
     private fun refreshZips(v: View){
-        button_zip_spinner0.setOnClickListener(this)
-        button_zip_spinner1.setOnClickListener(this)
 
-        val myZips0 = StatusInstallerUtils.getZips().first
-        val myZips1 = StatusInstallerUtils.getZips().second
+        val myZips0 = BaseStatusInstaller.getZips().first
+        val myZips1 = BaseStatusInstaller.getZips().second
 
         val tvError = v.findViewById(R.id.zips_load_error) as TextView
         Log.d(XposedApp.TAG, "size 0: ${myZips0.size}\nsize 1: ${myZips1.size}")
