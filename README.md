@@ -24,7 +24,7 @@ there is a TON more work to do....
  
 ### Issue(s)
 
-- logs fragments needs to checked for issues loading its data...(possible to just toss asynctask in favor of doAsync from anko?)
+- tv module!
 - show about and support fragments/activities in fab, menu, etc(bottom nav only)
 
 
