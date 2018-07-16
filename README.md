@@ -4,9 +4,9 @@
 
 Instead of using just 1 module...I separated the Xposed Installer into 3 separate modules:
 
-1. Core(all the goodies go here)
-2. Mobile(UI, some logic)
-3. TV(UI, some logic)//coming soon!
+- Core(all the goodies go here)
+- Mobile(UI, some logic)
+- TV(UI, some logic)//coming soon!
 
 Mobile and TV(coming soon) modules are writtin in kotlin, but mostly deal with UI only(anko DSL should be considered!), however for the 'core' module is mostly written in java with the exception of a few classes have been rewritten in kotlin....
 
@@ -20,15 +20,12 @@ All the activies and fragments inherit the support packages(yes even 'settingsFr
 
 there is a TON more work to do....
 
-![alt text](https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/Screenshot_1531635080.png)
-![alt text](https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/Screenshot_1531635105.png)
+![alt text](https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/Screenshot_1531667579.png)
  
 ### Issue(s)
-1. navigation needs to be reworked still as there are some bugs left when switching between both bottom nav and drawer nav...
--the wrong item is selected after activity.create() function is called....(possible to get current fragment and set 'active' tab to avoid isssue)
 
-2. logs fragments needs to checked for issues loading its data...(possible to just toss asynctask in favor of doAsync from anko?)
-3. show about and support fragments/activities in fab, menu, etc(bottom nav only)
+- logs fragments needs to checked for issues loading its data...(possible to just toss asynctask in favor of doAsync from anko?)
+- show about and support fragments/activities in fab, menu, etc(bottom nav only)
 
 
 certain key functions CANT be rewritten in kotlin yet and have to stay as a utility java class...but its a work in progress.
