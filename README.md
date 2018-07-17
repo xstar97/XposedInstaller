@@ -15,7 +15,6 @@ The file, 'dependencies.gradle', contains all the the entire project dependencie
 
 - function to add a list of dependencies to each invidual module from 'dependies.gradle' is being look into...
  
-
 ## whats new on the UI Level?
 
 - All the activies and fragments inherit the support packages(yes even 'settingsFragment'!)
@@ -25,8 +24,9 @@ The file, 'dependencies.gradle', contains all the the entire project dependencie
 
 there is a TON more work to do....
 
-[home_nav_drawer]: https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavDrawer.png "home"
-[home_nav_bottom]: https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavBottom.png "home"
+[home_nav_drawer]: https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavDrawer.png
+
+[home_nav_bottom]: https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavBottom.png
 
 ![alt drawer][home_nav_drawer]
 ![alt bottom][home_nav_bottom]
