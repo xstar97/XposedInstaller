@@ -24,12 +24,9 @@ The file, 'dependencies.gradle', contains all the the entire project dependencie
 
 there is a TON more work to do....
 
-[home_nav_drawer]: https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavDrawer.png
+<img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavDrawer.png" alt="drawing" width="250px"/>
 
-[home_nav_bottom]: https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavBottom.png
-
-![alt drawer][home_nav_drawer]
-![alt bottom][home_nav_bottom]
+<img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavBottom.png" alt="drawing" width="250px"/>
  
 ### TODO
 
