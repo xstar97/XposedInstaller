@@ -19,13 +19,13 @@ open class Utils
 
         fun getNav(): Int {
             val id = getPrefValue(PREF_NAV)
-            Log.d(XposedApp.TAG, "$PREF_NAV: id: $id")
+            Log.d(XposedApp.TAG, "${PREF_NAV}_pref: id: $id")
             return id
         }
 
         fun getView(): Int {
             val id = getPrefValue(PREF_VIEW)
-            Log.d(XposedApp.TAG, "$PREF_VIEW: id: $id")
+            Log.d(XposedApp.TAG, "${PREF_VIEW}_pref: id: $id")
             return id
         }
 

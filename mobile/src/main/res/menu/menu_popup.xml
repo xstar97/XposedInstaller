@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/nav_item_support"
+        android:icon="@drawable/ic_nav_support"
+        android:title="@string/nav_item_support"/>
+
+    <item
+        android:id="@+id/nav_item_about"
+        android:icon="@drawable/ic_nav_about"
+        android:title="@string/nav_item_about"/>
+
+</menu>

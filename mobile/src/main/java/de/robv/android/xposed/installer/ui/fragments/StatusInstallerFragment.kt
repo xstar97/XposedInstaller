@@ -23,7 +23,7 @@ import de.robv.android.xposed.installer.XposedApp
 
 import java.io.File
 import java.io.IOException
-import de.robv.android.xposed.installer.ui.fragments.sheets.DeviceInfoSheetFragment
+import de.robv.android.xposed.installer.ui.fragments.sheets.DeviceInfoFragment
 
 import de.robv.android.xposed.installer.core.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller
@@ -45,7 +45,7 @@ import de.robv.android.xposed.installer.ui.activities.InstallationActivity
 import kotlinx.android.synthetic.main.fragment_status_installer.*
 
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
+import org.jetbrains.anko.support.v4.onUiThread
 
 @Suppress("DEPRECATION", "PrivatePropertyName", "UNUSED_ANONYMOUS_PARAMETER", "LocalVariableName")
 class StatusInstallerFragment : Fragment(), View.OnClickListener
@@ -158,7 +158,7 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
     }
 
     private fun setSheetFragment(){
-        childFragmentManager.beginTransaction().replace(R.id.app_sheet_content, DeviceInfoSheetFragment()).commitNowAllowingStateLoss()
+        childFragmentManager.beginTransaction().replace(R.id.app_sheet_content, DeviceInfoFragment()).commitNowAllowingStateLoss()
     }
 
     private fun refreshInstallStatus() {
@@ -275,23 +275,27 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
 
     private fun refreshZips(v: View){
 
-        val myZips0 = BaseStatusInstaller.getZips().first
-        val myZips1 = BaseStatusInstaller.getZips().second
+        doAsync {
+            val myZips0 = BaseStatusInstaller.getZips().first
+            val myZips1 = BaseStatusInstaller.getZips().second
 
-        val tvError = v.findViewById(R.id.zips_load_error) as TextView
-        Log.d(XposedApp.TAG, "size 0: ${myZips0.size}\nsize 1: ${myZips1.size}")
-        when {
-            !FrameworkZips.hasLoadedOnlineZips() -> {
-                    tvError.setText(R.string.framework_zip_load_failed)
-                    tvError.visibility = View.VISIBLE
+            onUiThread {
+                val tvError = v.findViewById(R.id.zips_load_error) as TextView
+                Log.d(XposedApp.TAG, "size 0: ${myZips0.size}\nsize 1: ${myZips1.size}")
+                when {
+                    !FrameworkZips.hasLoadedOnlineZips() -> {
+                        tvError.setText(R.string.framework_zip_load_failed)
+                        tvError.visibility = View.VISIBLE
+                    }
+                    myZips0.size == 0 || myZips1.size == 0 -> {
+                        tvError.setText(R.string.framework_no_zips)
+                        tvError.visibility = View.VISIBLE
+                    }
+                    else -> {
+                        tvError.visibility = View.GONE
+                        populateSpinner(myZips0, myZips1)
+                    }
                 }
-            myZips0.size == 0 || myZips1.size == 0 -> {
-                tvError.setText(R.string.framework_no_zips)
-                tvError.visibility = View.VISIBLE
-            }
-            else -> {
-                tvError.visibility = View.GONE
-                populateSpinner(myZips0, myZips1)
             }
         }
     }
@@ -302,7 +306,7 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
             val adapter0 = ZipSpinnerAdapter(activity!!, zip0)
             val adapter1 = ZipSpinnerAdapter(activity!!, zip1)
 
-            uiThread {
+            onUiThread {
                 zip_spinner0.adapter = adapter0
                 zip_spinner1.adapter = adapter1
             }

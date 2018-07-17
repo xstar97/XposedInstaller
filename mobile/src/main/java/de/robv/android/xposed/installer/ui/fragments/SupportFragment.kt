@@ -51,11 +51,11 @@ class SupportFragment: BaseViewFragment()
         fragment_view_recyclerView.adapter = supportAdapter
         fragment_view_recyclerView.layoutManager = LinearLayoutManager(activity)
         if (supportList.isEmpty())
-        supportInfo()
+            populateList()
     }
 
     @SuppressLint("StringFormatMatches")
-    private fun supportInfo(){
+    private fun populateList(){
         supportList.add(TabInfoModel(R.drawable.ic_info, getString(R.string.support_modules_label), getString(R.string.support_modules_description, getString(R.string.module_support))))
         supportList.add(TabInfoModel(R.drawable.ic_help, getString(R.string.support_framework_label), ""))
         supportList.add(TabInfoModel(R.drawable.ic_nav_logs, getString(R.string.support_faq_label), ""))

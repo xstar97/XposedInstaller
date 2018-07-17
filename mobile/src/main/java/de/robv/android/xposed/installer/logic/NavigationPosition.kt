@@ -5,10 +5,10 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.logic.Utils.Companion.isBottomNav
 import de.robv.android.xposed.installer.ui.fragments.*
 
-// positions in menu(bottom nav and drawer nav)
-val NAV_DOWNLOAD = if (isBottomNav()) 0 else 2
+// positions in menu(bottom nav and navigation_drawer nav)
+var NAV_DOWNLOAD = if (isBottomNav()) 0 else 2
 val NAV_MODULES = 1
-val NAV_HOME = if (isBottomNav()) 2 else 0
+var NAV_HOME = if (isBottomNav()) 2 else 0
 val NAV_LOGS = 3
 val NAV_SETTINGS = 4
 val NAV_SUPPORT = 5
@@ -24,7 +24,6 @@ enum class NavigationPosition(val position: Int, val id: Int) {
     SUPPORT(NAV_SUPPORT, R.id.nav_item_support),
     ABOUT(NAV_ABOUT, R.id.nav_item_about);
 }
-
 
 fun findNavPosById(id: Int): NavigationPosition = when (id) {
     NavigationPosition.DOWNLOAD.id -> NavigationPosition.DOWNLOAD

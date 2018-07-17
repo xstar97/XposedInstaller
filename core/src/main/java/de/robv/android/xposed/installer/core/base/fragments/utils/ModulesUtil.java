@@ -1,4 +1,4 @@
-package de.robv.android.xposed.installer.ui.fragments.utils;
+package de.robv.android.xposed.installer.core.base.fragments.utils;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import de.robv.android.xposed.installer.R;
+import de.robv.android.xposed.installer.core.R;
 import de.robv.android.xposed.installer.core.repo.Module;
 import de.robv.android.xposed.installer.core.util.RepoLoader;
 

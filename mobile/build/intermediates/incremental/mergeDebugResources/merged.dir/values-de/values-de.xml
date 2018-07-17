@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="air_error_short_description">
+        <item quantity="one">Die Beschreibung muss mindestens %d Zeichen haben</item>
+        <item quantity="other">Die Beschreibung muss mindestens %d Zeichen haben</item>
+    </plurals>
     <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Zur Startseite"</string>
     <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Nach oben"</string>
     <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Weitere Optionen"</string>
@@ -26,6 +30,31 @@
     <string name="activate_and_reboot">Aktivieren und neustarten</string>
     <string name="activate_only">Nur aktivieren</string>
     <string name="add_bookmark">Zu Favoriten</string>
+    <string name="air_dialog_action_failed">Ok</string>
+    <string name="air_dialog_description_failed_invalid_token">Ungültiges Access-Token. Bitte kontaktiere den App-Entwickler.</string>
+    <string name="air_dialog_description_failed_issues_not_available">Issues sind im ausgewählten Repository nicht aktiviert. Bitte kontaktiere den App-Entwickler.</string>
+    <string name="air_dialog_description_failed_unknown">Ein unerwarteter Fehler ist aufgetreten. Bitte kontaktiere den App-Entwickler.</string>
+    <string name="air_dialog_description_failed_wrong_credentials">Falscher Benutzername oder falsches Passwort</string>
+    <string name="air_dialog_title_failed">Senden des Berichts nicht möglich</string>
+    <string name="air_dialog_title_loading">Bericht auf GitHub hochladen…</string>
+    <string name="air_error_no_description">Bitte gib eine Problembeschreibung ein</string>
+    <string name="air_error_no_email">Bitte gib eine gültige E-mail Adresse ein</string>
+    <string name="air_error_no_password">Bitte gib Dein gültiges GitHub-Passwort ein</string>
+    <string name="air_error_no_title">Bitte gib einen Problemtitel ein</string>
+    <string name="air_error_no_username">Bitte gib Deinen gültigen GitHub-Benutzernamen ein</string>
+    <string name="air_label_device_info">Geräteinfo</string>
+    <string name="air_label_email">E-Mail</string>
+    <string name="air_label_email_optional">E-Mail (optional)</string>
+    <string name="air_label_issue_description">Beschreibung</string>
+    <string name="air_label_issue_title">Titel</string>
+    <string name="air_label_password">Passwort</string>
+    <string name="air_label_use_account">Mit GitHub-Account senden</string>
+    <string name="air_label_use_email">Mit E-Mail senden</string>
+    <string name="air_label_use_guest">Anonym senden</string>
+    <string name="air_label_username">Benutzername</string>
+    <string name="air_title_issue">Problem</string>
+    <string name="air_title_login">Login</string>
+    <string name="air_title_report_issue">Fehler melden</string>
     <string name="auto_flash_note">%s sollte automatisch installiert werden, sobald du "OK" drückst.</string>
     <string name="bookmark_added">Als Favorit hinzugefügt</string>
     <string name="bookmark_removed">Von Favoriten entfernt</string>

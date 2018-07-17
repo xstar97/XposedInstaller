@@ -56,6 +56,10 @@
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\bd8269469c06fe57f4f2519374dcb34f\\res\\layout\\design_layout_snackbar_include.xml"
     },
     {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable_air_ic_send_light.xml.flat",
+        "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\android-issue-reporter-1.3.1.aar\\154b9cd89a661459bbea28a3214575e4\\res\\drawable\\air_ic_send_light.xml"
+    },
+    {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_icon_group.xml.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\62e21d90349109d1a6a92232de31d81d\\res\\layout\\notification_template_icon_group.xml"
     },
@@ -314,6 +318,10 @@
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_md_stub_colorchooser_grid.xml.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\commons-0.9.6.0.aar\\968d0e84c465ebb02be50262f68b3779\\res\\layout\\md_stub_colorchooser_grid.xml"
+    },
+    {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\menu_navigation_drawer.xml.flat",
+        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\src\\main\\res\\menu\\navigation_drawer.xml"
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_switch_track.xml.flat",
@@ -612,6 +620,10 @@
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\preference-v7-27.1.1.aar\\e719916a203232be32867d99a231ab64\\res\\layout-v21\\preference_dropdown_material.xml"
     },
     {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable_air_ic_send_dark.xml.flat",
+        "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\android-issue-reporter-1.3.1.aar\\154b9cd89a661459bbea28a3214575e4\\res\\drawable\\air_ic_send_dark.xml"
+    },
+    {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout-v21_preference_information_material.xml.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\preference-v7-27.1.1.aar\\e719916a203232be32867d99a231ab64\\res\\layout-v21\\preference_information_material.xml"
     },
@@ -770,6 +782,10 @@
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_preference_information_material.xml.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\preference-v7-27.1.1.aar\\e719916a203232be32867d99a231ab64\\res\\layout\\preference_information_material.xml"
+    },
+    {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_air_activity_issue_reporter.xml.flat",
+        "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\android-issue-reporter-1.3.1.aar\\154b9cd89a661459bbea28a3214575e4\\res\\layout\\air_activity_issue_reporter.xml"
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\color_abc_background_cache_hint_selector_material_light.xml.flat",
@@ -1062,10 +1078,6 @@
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fe396f009e1b2eb2e399c75fe4a1fd44\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\menu_bottom_navigation.xml.flat",
-        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\src\\main\\res\\menu\\bottom_navigation.xml"
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_btn_colored_borderless_text_material.xml.flat",
@@ -1716,6 +1728,10 @@
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fe396f009e1b2eb2e399c75fe4a1fd44\\res\\color\\abc_tint_seek_thumb.xml"
     },
     {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_air_card_login.xml.flat",
+        "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\android-issue-reporter-1.3.1.aar\\154b9cd89a661459bbea28a3214575e4\\res\\layout\\air_card_login.xml"
+    },
+    {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_nav_settings.xml.flat",
         "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\drawable-anydpi-v21\\ic_nav_settings.xml"
     },
@@ -2176,10 +2192,6 @@
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\bd8269469c06fe57f4f2519374dcb34f\\res\\drawable-v21\\avd_hide_password.xml"
     },
     {
-        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\menu_navigation.xml.flat",
-        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\src\\main\\res\\menu\\navigation.xml"
-    },
-    {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_spinner.xml.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fe396f009e1b2eb2e399c75fe4a1fd44\\res\\color\\abc_tint_spinner.xml"
     },
@@ -2212,6 +2224,10 @@
         "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\drawable\\ic_splash.png"
     },
     {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\menu_navigation_bottom.xml.flat",
+        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\src\\main\\res\\menu\\navigation_bottom.xml"
+    },
+    {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\62e21d90349109d1a6a92232de31d81d\\res\\layout-v21\\notification_template_icon_group.xml"
     },
@@ -2230,6 +2246,10 @@
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fe396f009e1b2eb2e399c75fe4a1fd44\\res\\drawable-mdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\menu_menu_popup.xml.flat",
+        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\src\\main\\res\\menu\\menu_popup.xml"
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -2614,6 +2634,10 @@
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_design_ic_visibility.png.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\bd8269469c06fe57f4f2519374dcb34f\\res\\drawable-xxxhdpi-v4\\design_ic_visibility.png"
+    },
+    {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable_air_ic_expand_more.xml.flat",
+        "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\android-issue-reporter-1.3.1.aar\\154b9cd89a661459bbea28a3214575e4\\res\\drawable\\air_ic_expand_more.xml"
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -3009,7 +3033,7 @@
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\menu_drawer.xml.flat",
-        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\src\\main\\res\\menu\\drawer.xml"
+        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\menu\\drawer.xml"
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\anim_abc_grow_fade_in_from_bottom.xml.flat",
@@ -3262,6 +3286,10 @@
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fe396f009e1b2eb2e399c75fe4a1fd44\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_air_card_report.xml.flat",
+        "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\android-issue-reporter-1.3.1.aar\\154b9cd89a661459bbea28a3214575e4\\res\\layout\\air_card_report.xml"
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_nav_modules.png.flat",

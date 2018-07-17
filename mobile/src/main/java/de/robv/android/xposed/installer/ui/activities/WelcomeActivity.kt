@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.widget.DrawerLayout
+import android.support.v7.widget.PopupMenu
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -18,8 +19,9 @@ import de.robv.android.xposed.installer.ui.fragments.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 import de.robv.android.xposed.installer.logic.Utils.Companion.isBottomNav
+import org.jetbrains.anko.startActivity
 
-class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.Listener<RepoLoader>
+class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.Listener<RepoLoader>, View.OnClickListener
 {
     private var mRepoLoader: RepoLoader? = null
 
@@ -35,6 +37,13 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         notifyDataSetChanged()
     }
 
+    override fun onClick(v: View?) {
+        val id = v!!.id
+        if (id == R.id.fabMenu){
+            showFabMenu(v)
+        }
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         navPosition = findNavPosById(item.itemId)
 
@@ -48,15 +57,16 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         //TODO notify user to stop spamming!
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceBundle: Bundle?) {
+        super.onCreate(savedInstanceBundle)
         ThemeUtil.setTheme(this)
-        restoreSaveInstanceState(savedInstanceState)
+        restoreSaveInstanceState(savedInstanceBundle)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        fabMenu.setOnClickListener(this@WelcomeActivity)
 
-        initFragment(savedInstanceState)
         setNav()
+        initFragment(savedInstanceBundle)
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -77,6 +87,8 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         super.onResume()
         val lockOrNot = if (isBottomNav()) DrawerLayout.LOCK_MODE_LOCKED_CLOSED else DrawerLayout.LOCK_MODE_UNLOCKED
         getDrawerLayout()!!.setDrawerLockMode(lockOrNot)
+        setNavActive()
+        initFab()
     }
     private fun restoreSaveInstanceState(savedInstanceState: Bundle?) {
         // Restore the current navigation position.
@@ -90,20 +102,41 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         savedInstanceState ?: switchFragment(getMenu())
     }
 
+    private fun initFab(){
+        fabMenu.hide()
+        if (isBottomNav())
+            if (navPosition != NavigationPosition.SETTINGS) fabMenu.show()
+        else
+            fabMenu.hide()
+    }
+    private fun showFabMenu(v: View){
+        val popUp = PopupMenu(this, v)
+        popUp.menuInflater
+                .inflate(R.menu.menu_popup, popUp.menu)
+
+        popUp.setOnMenuItemClickListener{ item ->
+            val aboutOrSupport = if (item.itemId == R.id.nav_item_support) 1 else 0
+            this.startActivity<ViewActivity>("intFrag" to aboutOrSupport)
+            true
+        }
+        popUp.show()
+    }
+
     private fun setNav() {
-        //Log.d(XposedApp.TAG, "pos: ${getMenu().position}\nid: ${getMenu().id}")
         if (isBottomNav()) {
             getDrawerNav()!!.visibility = View.GONE
             getBottomNav()!!.visibility = View.VISIBLE
             initBottomNav(this, this)
-            setBottomNavActive(getMenu().position)
         }
         else{
             getBottomNav()!!.visibility = View.GONE
             getDrawerNav()!!.visibility = View.VISIBLE
             initDrawerNav(this,this)
-            setDrawerNavActive(getMenu().position)
         }
+    }
+
+    private fun setNavActive(){
+        if (isBottomNav()) setBottomNavActive(navPosition.position) else setDrawerNavActive(navPosition.position)
     }
 
     private fun switchFragment(navPosition: NavigationPosition): Boolean {
@@ -134,6 +167,8 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         getFragManager().beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit()
+        initFab()
+        setNavActive()
     }
     private fun getFragManager(): android.support.v4.app.FragmentManager{
         return supportFragmentManager

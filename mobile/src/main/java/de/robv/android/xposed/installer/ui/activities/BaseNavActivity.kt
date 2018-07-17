@@ -26,16 +26,8 @@ open class BaseNavActivity: XposedBaseActivity(),
         NavigationView.OnNavigationItemSelectedListener
 {
     val NAV_KEY_POSITION = "keyPosition"
-    var navPosition: NavigationPosition = NavigationPosition.HOME
-
-    val NAV_DOWNLOAD = NavigationPosition.DOWNLOAD
-    val NAV_MODULE = NavigationPosition.MODULES
-    val NAV_FRAMEWORK = NavigationPosition.HOME
-    val NAV_LOGS = NavigationPosition.LOGS
-    val NAV_SETTINGS = NavigationPosition.SETTINGS
-    val NAV_SUPPORT = NavigationPosition.SUPPORT
-    val NAV_ABOUT = NavigationPosition.ABOUT
-
+    //var navPosition: NavigationPosition = NavigationPosition.HOME
+    var navPosition: NavigationPosition = getMenu()
 
     private var myToggle: ActionBarDrawerToggle? = null
 
@@ -50,17 +42,16 @@ open class BaseNavActivity: XposedBaseActivity(),
     fun getMenu(): NavigationPosition {
         return try {
             val id = getView()
-            //Log.d(XposedApp.TAG, "PREF_VIEW: id: $id")
             when (id) {
-                0 -> NAV_FRAMEWORK//R.id.nav_item_framework
-                1 -> NAV_MODULE//R.id.nav_item_modules
-                2 -> NAV_DOWNLOAD//R.id.nav_item_downloads
-                3 -> NAV_LOGS//R.id.nav_item_logs
-                else -> NAV_FRAMEWORK//R.id.nav_item_framework
+                0 -> NavigationPosition.HOME    //NavigationPosition.HOME     -> id: R.id.nav_item_framework -> position: 2 | 0
+                1 -> NavigationPosition.MODULES //NavigationPosition.MODULES  -> id: R.id.nav_item_modules   -> position: 1
+                2 -> NavigationPosition.DOWNLOAD//NavigationPosition.DOWNLOAD -> id: R.id.nav_item_downloads -> position: 0 | 1
+                3 -> NavigationPosition.LOGS    //NavigationPosition.LOGS     -> id: R.id.nav_item_logs      -> position: 3
+                else -> NavigationPosition.HOME
             }
         }catch (e: Exception){
             Log.e(XposedApp.TAG, e.message)
-            return NAV_FRAMEWORK
+            return NavigationPosition.HOME
         }
     }
 
@@ -78,7 +69,7 @@ open class BaseNavActivity: XposedBaseActivity(),
         return bottom_navigation
     }
 
-    //Nav drawer section
+    //Nav navigation_drawer section
     open fun initDrawerNav(activity: Activity, listener: NavigationView.OnNavigationItemSelectedListener) {
         myToggle = ActionBarDrawerToggle(
                 activity, getDrawerLayout(), getToolBar(), R.string.navigation_drawer_open, R.string.navigation_drawer_close)

@@ -13,12 +13,13 @@ import de.robv.android.xposed.installer.core.installation.FlashRecoveryAuto
 import de.robv.android.xposed.installer.core.installation.Flashable
 import de.robv.android.xposed.installer.core.repo.zips.ZipModel
 import de.robv.android.xposed.installer.core.util.*
+import eu.chainfire.libsuperuser.Application.toast
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.selector
 import org.jetbrains.anko.uiThread
 import java.io.File
 import java.io.IOException
 
-@Suppress("UNUSED_CHANGED_VALUE", "UNUSED_ANONYMOUS_PARAMETER")
 open class BaseStatusInstaller
 {
     companion object {
@@ -62,6 +63,17 @@ open class BaseStatusInstaller
         private val zipList0 = ArrayList<ZipModel>()
         private val zipList1 = ArrayList<ZipModel>()
 
+        //call this method with a doAsync block and any ui updates in a uithread block....
+        /**
+         *
+         * doAsync{
+         * dosomething here
+         *
+         * onUIThread{
+         * update ui here
+         * }
+         *
+         */
         fun getZips(): Pair<ArrayList<ZipModel>, ArrayList<ZipModel>>{
             zipList0.clear()
             zipList1.clear()
@@ -97,7 +109,6 @@ open class BaseStatusInstaller
                         val iconStatus = getIconStatus(hasLocal, hasOnline)
                         val zipType = 1
 
-                        //Log.d(BaseXposedApp.TAG, "title: $myTitle")
                         zipList1.add(ZipModel(myTitle, iconStatus, zipType))
                     }
                 }catch (e: Exception) {
@@ -150,7 +161,7 @@ open class BaseStatusInstaller
                     .onPositive(yesHandler)
                     .show()
         }
-        @Suppress("LocalVariableName")
+
         fun showActionDialog(context: Context, install: Intent, title: String, type: FrameworkZips.Type) {
             val ACTION_FLASH = 0
             val ACTION_FLASH_RECOVERY = 1
@@ -242,7 +253,6 @@ open class BaseStatusInstaller
         }
 
         //TODO allow user to choose download folder
-        @Suppress("UNUSED_PARAMETER")
         private fun saveTo(context: Context, file: File) {
             Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show()
         }

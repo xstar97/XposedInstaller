@@ -47,22 +47,22 @@ class AboutFragment: BaseViewFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initViews()
     }
-
     private fun initViews() {
         fragment_view_recyclerView.adapter = aboutAdapter
         fragment_view_recyclerView.layoutManager = LinearLayoutManager(activity)
         if (aboutList.isEmpty())
-            aboutInfo()
+            populateList()
     }
 
-    private fun aboutInfo() {
-        aboutList.add(TabInfoModel(R.drawable.ic_info, getString(R.string.about_version_label), BaseAbout.getVersion(activity!!)))
-        aboutList.add(TabInfoModel(R.drawable.ic_person, getString(R.string.about_developers_label), ""))
-        aboutList.add(TabInfoModel(R.drawable.ic_description, getString(R.string.about_libraries_label), ""))
-        aboutList.add(TabInfoModel(R.drawable.ic_language, getString(R.string.about_translator_label), getString(R.string.translator)))
-        aboutList.add(TabInfoModel(R.drawable.ic_github, getString(R.string.about_source_label), ""))
-        aboutAdapter.addItems(aboutAdapter.SECTION_ABOUT, aboutList)
+     private fun populateList() {
+         aboutList.add(TabInfoModel(R.drawable.ic_info, getString(R.string.about_version_label), BaseAbout.getVersion(activity!!)))
+         aboutList.add(TabInfoModel(R.drawable.ic_person, getString(R.string.about_developers_label), ""))
+         aboutList.add(TabInfoModel(R.drawable.ic_description, getString(R.string.about_libraries_label), ""))
+         aboutList.add(TabInfoModel(R.drawable.ic_language, getString(R.string.about_translator_label), getString(R.string.translator)))
+         aboutList.add(TabInfoModel(R.drawable.ic_github, getString(R.string.about_source_label), ""))
+         aboutAdapter.addItems(aboutAdapter.SECTION_ABOUT, aboutList)
     }
 }

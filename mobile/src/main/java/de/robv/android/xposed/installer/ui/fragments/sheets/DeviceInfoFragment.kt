@@ -17,15 +17,13 @@ import de.robv.android.xposed.installer.ui.fragments.BaseViewFragment
 import java.io.File
 import kotlinx.android.synthetic.main.fragment_view.*
 
-class DeviceInfoSheetFragment: BaseViewFragment()
+class DeviceInfoFragment: BaseViewFragment()
 {
     override fun onItemClick(infoItem: TabInfoModel) {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //TODO add xda links for specific items...
     }
-
     private val deviceAdapter by lazy { TabInfoBaseAdapter(activity!!, this) }
     private val deviceList = ArrayList<TabInfoModel>()
-    private val SECTION_DEVICE = 2
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_view, container, false)
@@ -45,16 +43,16 @@ class DeviceInfoSheetFragment: BaseViewFragment()
         val manufacturer = uiFramework
         val cpu = FrameworkZips.ARCH
 
-        val verified_boot_deactivated = determineVerifiedBootState().first
-        val verified_boot_explanation = determineVerifiedBootState().second
+        val verifiedBootDeactivated = determineVerifiedBootState().first
+        val verifiedBootExplanation = determineVerifiedBootState().second
 
         deviceList.add(TabInfoModel(R.drawable.ic_android, androidSdk, ""))
         deviceList.add(TabInfoModel(R.drawable.ic_phone, manufacturer, ""))
         deviceList.add(TabInfoModel(R.drawable.ic_chip, cpu, ""))
-        if (verified_boot_deactivated != "" || verified_boot_explanation != "") {
-            deviceList.add(TabInfoModel(R.drawable.ic_verified, verified_boot_deactivated, verified_boot_explanation))
+        if (verifiedBootDeactivated.isNotEmpty() || verifiedBootExplanation.isNotEmpty()) {
+            deviceList.add(TabInfoModel(R.drawable.ic_verified, verifiedBootDeactivated, verifiedBootExplanation))
         }
-        deviceAdapter.addItems(SECTION_DEVICE, deviceList)
+        deviceAdapter.addItems(deviceAdapter.SECTION_DEVICE, deviceList)
     }
 
     private val androidVersion: String
@@ -101,9 +99,7 @@ class DeviceInfoSheetFragment: BaseViewFragment()
 
             return when {
                 verified -> {
-                    //TODO add color support
                     Pair(getString(R.string.verified_boot_active), getString(R.string.verified_boot_explanation))
-                    //tv.setTextColor(resources.getColor(R.color.warning))
                 }
                 detected -> {
                     Pair(getString(R.string.verified_boot_deactivated), "")
