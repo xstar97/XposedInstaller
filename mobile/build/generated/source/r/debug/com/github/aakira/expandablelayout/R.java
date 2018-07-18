@@ -425,7 +425,7 @@ public final class R {
         public static final int abc_textfield_search_activated_mtrl_alpha = 0x7f080055;
         public static final int abc_textfield_search_default_mtrl_alpha = 0x7f080056;
         public static final int abc_textfield_search_material = 0x7f080057;
-        public static final int notification_template_icon_bg = 0x7f0800b5;
+        public static final int notification_template_icon_bg = 0x7f0800b4;
     }
     public static final class id {
         public static final int accelerate = 0x7f090006;
@@ -529,8 +529,8 @@ public final class R {
         public static final int up = 0x7f090165;
         public static final int useLogo = 0x7f090166;
         public static final int vertical = 0x7f090168;
-        public static final int withText = 0x7f09016c;
-        public static final int wrap_content = 0x7f09016d;
+        public static final int withText = 0x7f09016d;
+        public static final int wrap_content = 0x7f09016e;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;

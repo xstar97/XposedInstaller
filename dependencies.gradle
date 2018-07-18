@@ -1,5 +1,11 @@
 ext {
-    //Versions
+
+    modules = [
+            core: ':core',
+            mobile: ':mobile',
+            tv: ':tv'
+    ]
+
     versions = [
             appId              : 'de.robv.android.xposed.installer',
             appVersion         : '3.1.5',
@@ -37,81 +43,76 @@ ext {
     // constants
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
 
-    gradlePlugins = [
-            android            : "com.android.tools.build:gradle:${versions.gradleBuildTools}",
-            kotlin             : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+     gradlePlugins = [
+            android            : [group: 'com.android.tools.build', name: 'gradle', version: versions.gradleBuildTools],
+            kotlin             : [group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: versions.kotlin]
     ]
 
     kotlinDependencies = [
-            kotlinJre8         : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${versions.kotlin}",
-            kotlinJdk8         : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+            kotlinJre8         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jre8', version: versions.kotlin],
+            kotlinJdk8         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: versions.kotlin],
     ]
 
     //Support Libraries dependencies
     supportDependencies = [
-            appCompat          : "com.android.support:appcompat-v7:${versions.supportLib}",
-            design             : "com.android.support:design:${versions.supportLib}",
-            recyclerView       : "com.android.support:recyclerview-v7:${versions.supportLib}",
-            cardView           : "com.android.support:cardview-v7:${versions.supportLib}",
-            supportV4          : "com.android.support:support-v4:${versions.supportLib}",
-            supportV13         : "com.android.support:support-v13:${versions.supportLib}",
-            preferenceV7       : "com.android.support:preference-v7:${versions.supportLib}",
-            preferenceV14      : "com.android.support:preference-v14:${versions.supportLib}",
-            preferenceV17      : "com.android.support:preference-leanback-v17:${versions.supportLib}",
-            customTabs         : "com.android.support:customtabs:${versions.supportLib}",
-            leanbackV17        : "com.android.support:leanback-v17:${versions.supportLib}",
-            vectorDrawable     : "com.android.support:support-vector-drawable:${versions.supportLib}",
-            annotations        : "com.android.support:support-annotations:${versions.supportLib}"
-            //constrainLayout  : "com.android.support.constraint:constraint-layout:${versions.constraintLayout}"
+            appCompat          : [group: 'com.android.support', name: 'appcompat-v7', version: versions.supportLib],
+            design             : [group: 'com.android.support', name: 'design', version: versions.supportLib],
+            leanbackV17        : [group: 'com.android.support', name: 'leanback-v17', version: versions.supportLib],
+            recyclerView       : [group: 'com.android.support', name: 'recyclerview-v7', version: versions.supportLib],
+            cardView           : [group: 'com.android.support', name: 'cardview-v7', version: versions.supportLib],
+            supportV13         : [group: 'com.android.support', name: 'support-v13', version: versions.supportLib],
+            supportV4          : [group: 'com.android.support', name: 'support-v4', version: versions.supportLib],
+            preferenceV17      : [group: 'com.android.support', name: 'preference-leanback-v17', version: versions.supportLib],
+            preferenceV14      : [group: 'com.android.support', name: 'preference-v14', version: versions.supportLib],
+            preferenceV7       : [group: 'com.android.support', name: 'preference-v7', version: versions.supportLib],
+            customTabs         : [group: 'com.android.support', name: 'customtabs', version: versions.supportLib],
+            vectorDrawable     : [group: 'com.android.support', name: 'support-vector-drawable', version: versions.supportLib],
+            annotations        : [group: 'com.android.support', name: 'support-annotations', version: versions.supportLib],
+            constrainLayout    : [group: 'com.android.support', name: 'constraint-layout', version: versions.supportLib],
     ]
 
     ankoDependencies = [
-            anko               : "org.jetbrains.anko:anko:${versions.anko}",
-            commons            : "org.jetbrains.anko:anko-commons:${versions.anko}",
-            sqlite             : "org.jetbrains.anko:anko-sqlite:${versions.anko}",
-            percent            : "org.jetbrains.anko:anko-percent:${versions.anko}",
-            coroutines              : "org.jetbrains.anko:anko-coroutines:${versions.anko}",
+            anko               : [group: 'org.jetbrains.anko', name: 'anko', version: versions.anko],
+            commons            : [group: 'org.jetbrains.anko', name: 'anko-commons', version: versions.anko],
+            sqlite             : [group: 'org.jetbrains.anko', name: 'anko-sqlite', version: versions.anko],
+            percent            : [group: 'org.jetbrains.anko', name: 'anko-percent', version: versions.anko],
+            coroutines         : [group: 'org.jetbrains.anko', name: 'anko-coroutines', version: versions.anko],
 
-            supportV4Commons   : "org.jetbrains.anko:anko-support-v4-commons:${versions.anko}",
-            supportV4            : "org.jetbrains.anko:anko-support-v4:${versions.anko}",
+            appCompat          : [group: 'org.jetbrains.anko', name: 'anko-appcompat-v7', version: versions.anko],
+            supportV4          : [group: 'org.jetbrains.anko', name: 'anko-support-v4', version: versions.anko],
+            design             : [group: 'org.jetbrains.anko', name: 'anko-design', version: versions.anko],
+            supportV4Commons   : [group: 'org.jetbrains.anko', name: 'anko-support-v4-commons', version: versions.anko],
+            appCompatCommons   : [group: 'org.jetbrains.anko', name: 'anko-appcompat-v7-commons', version: versions.anko],
+            appCompatDelegate  : [group: 'org.jetbrains.anko', name: 'anko-appcompat-v7-coroutines', version: versions.anko],
+            designDelegate     : [group: 'org.jetbrains.anko', name: 'anko-anko-design-coroutines', version: versions.anko],
 
-            appCompatCommons   : "org.jetbrains.anko:anko-appcompat-v7-commons:${versions.anko}",
-            appCompat          : "org.jetbrains.anko:anko-appcompat-v7:${versions.anko}",
-            appCompatDelegate  : "org.jetbrains.anko:anko-appcompat-v7-coroutines:${versions.anko}",
-
-            design             : "org.jetbrains.anko:anko-design:${versions.anko}",
-            designDelegate     : "org.jetbrains.anko:anko-design-coroutines:${versions.anko}",
-
-            recyclerView       : "org.jetbrains.anko:anko-recyclerview-v7:${versions.anko}",
-            recyclerViewDelegate : "org.jetbrains.anko:anko-recyclerview-v7-coroutines:${versions.anko}",
-
-            cardView           : "org.jetbrains.anko:anko-cardview-v7:${versions.anko}",
-
-            constraintLayout   : "org.jetbrains.anko:anko-constraint-layout:${versions.anko}",
-
-            ankoSdk15          : "org.jetbrains.anko:anko-sdk15:${versions.anko}",
-            ankoSdk21          : "org.jetbrains.anko:anko-sdk21:${versions.anko}",
-            sdk15Delegate      : "org.jetbrains.anko:anko-sdk15-coroutines:${versions.anko}",
-            sdk21Delegate      : "org.jetbrains.anko:anko-sdk21-coroutines:${versions.anko}"
+            recyclerView       : [group: 'org.jetbrains.anko', name: 'anko-recyclerview-v7', version: versions.anko],
+            recyclerViewDelegate : [group: 'org.jetbrains.anko', name: 'anko-recyclerview-v7-coroutines', version: versions.anko],
+            cardView            : [group: 'org.jetbrains.anko', name: 'anko-cardview-v7', version: versions.anko],
+            constraintLayout    : [group: 'org.jetbrains.anko', name: 'anko-constraint-layout', version: versions.anko],
+            ankoSdk15           : [group: 'org.jetbrains.anko', name: 'anko-sdk15', version: versions.anko],
+            sdk15Delegate       : [group: 'org.jetbrains.anko', name: 'anko-sdk15-coroutines', version: versions.anko],
+            ankoSdk21           : [group: 'org.jetbrains.anko', name: 'anko-sdk21', version: versions.anko],
+            sdk21Delegate       : [group: 'org.jetbrains.anko', name: 'anko-sdk21-coroutines', version: versions.anko],
     ]
 
     utilsDependencies = [
-            libSuperUser       : "eu.chainfire:libsuperuser:${versions.libSuperUser}",
-            glide              : "com.github.bumptech.glide:glide:${versions.glide}",
-            picasso            : "com.squareup.picasso:picasso:${versions.picasso}",
-            stickyListHeaders  : "se.emilsjolander:stickylistheaders:${versions.stickyListHeaders}",
-            materialDialogs    : "com.afollestad.material-dialogs:commons:${versions.materialDialogs}",
-            licensesDialog     : "de.psdev.licensesdialog:licensesdialog:${versions.licensesDialog}",
-            baseAdapter        : "com.github.skydoves:baserecyclerviewadapter:${versions.baseAdapter}",
-            issueReporter      : "com.heinrichreimersoftware:android-issue-reporter:${versions.issueReporter}",
-            hover              : "io.mattcarroll.hover:hover:${versions.hover}"
+            libSuperUser       : [group: 'eu.chainfire', name: 'libsuperuser', version: versions.libSuperUser],
+            glide              : [group: 'com.github.bumptech.glide', name: 'glide', version: versions.glide],
+            picasso            : [group: 'com.squareup.picasso', name: 'picasso', version: versions.picasso],
+            stickyListHeaders  : [group: 'se.emilsjolander', name: 'stickylistheaders', version: versions.stickyListHeaders],
+            materialDialogs    : [group: 'com.afollestad.material-dialogs', name: 'commons', version: versions.materialDialogs],
+            licensesDialog     : [group: 'de.psdev.licensesdialog', name: 'licensesdialog', version: versions.licensesDialog],
+            baseAdapter        : [group: 'com.github.skydoves', name: 'baserecyclerviewadapter', version: versions.baseAdapter],
+            issueReporter      : [group: 'com.heinrichreimersoftware', name: 'android-issue-reporter', version: versions.issueReporter],
+            hover              : [group: 'io.mattcarroll.hover', name: 'hover', version: versions.hover],
     ]
 
 
     testDependencies = [
-            junit              : "junit:junit:${versions.junit}",
-            espressoCore       : "com.android.support.test.espresso:espresso-core:${versions.espresso}",
-            testRunner         : "com.android.support.test:runner:${versions.testRunner}"
+            junit              : [group: 'junit', name: 'junit', version: versions.junit],
+            espressoCore       : [group: 'com.android.support.test.espresso', name: 'espresso-core', version: versions.espresso],
+            testRunner         : [group: 'com.android.support.test', name: 'runner', version: versions.testRunner],
     ]
 
 }

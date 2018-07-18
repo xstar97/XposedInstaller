@@ -19,9 +19,8 @@ import de.robv.android.xposed.installer.ui.fragments.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 import de.robv.android.xposed.installer.logic.Utils.Companion.isBottomNav
-import org.jetbrains.anko.startActivity
 
-class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.Listener<RepoLoader>, View.OnClickListener
+class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.Listener<RepoLoader>, View.OnClickListener, PopupMenu.OnMenuItemClickListener
 {
     private var mRepoLoader: RepoLoader? = null
 
@@ -49,7 +48,11 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
 
         return switchFragment(navPosition)
     }
-
+    override fun onMenuItemClick(item: MenuItem?): Boolean {
+        val nav = if (item!!.itemId == R.id.nav_item_about) NavigationPosition.ABOUT else NavigationPosition.SUPPORT
+        Utils.launchSheet(getFragManager(), nav)
+        return true
+    }
     override fun onNavigationItemReselected(item: MenuItem) {
         //TODO notify user to stop spamming!
     }
@@ -110,16 +113,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         }
     }
     private fun showFabMenu(v: View){
-        val popUp = PopupMenu(this, v)
-        popUp.menuInflater
-                .inflate(R.menu.menu_popup, popUp.menu)
-
-        popUp.setOnMenuItemClickListener{ item ->
-            val aboutOrSupport = if (item.itemId == R.id.nav_item_support) 1 else 0
-            this.startActivity<ViewActivity>("intFrag" to aboutOrSupport)
-            true
-        }
-        popUp.show()
+        Utils.launchMenu(this, v, R.menu.menu_popup, this).show()
     }
 
     private fun setNav() {

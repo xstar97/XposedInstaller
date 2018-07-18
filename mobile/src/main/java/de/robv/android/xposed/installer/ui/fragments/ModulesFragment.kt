@@ -333,6 +333,8 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
 
         if (packageName == NOT_ACTIVE_NOTE_TAG) {
             (activity as WelcomeActivity).switchFragment(NavigationPosition.HOME)
+            //TODO enable method for sheet container instead!
+            //Utils.launchSheet(childFragmentManager, NavigationPosition.HOME.getTag())
             return
         }
 

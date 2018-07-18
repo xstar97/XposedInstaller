@@ -102,23 +102,6 @@ class LogsFragment : Fragment()
         hsvLog?.post { hsvLog?.scrollTo(0, 0) }
     }
 
-
-    /*
-    private fun send() {
-        try {
-            val uri = FileProvider.getUriForFile(activity!!, "$BASE_PKG.fileprovider", mFileErrorLog)
-
-            val sendIntent = Intent()
-            sendIntent.action = Intent.ACTION_SEND
-            sendIntent.putExtra(Intent.EXTRA_STREAM, uri)
-            sendIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-            sendIntent.type = "application/html"
-            startActivity(Intent.createChooser(sendIntent, resources.getString(R.string.menuSend)))
-        }catch (e: Exception){
-            Log.d(XposedApp.TAG, e.message)
-        }
-    }*/
-
     override fun onRequestPermissionsResult(requestCode: Int,
                                             permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions,

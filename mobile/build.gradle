@@ -66,9 +66,8 @@ dependencies {
     //implementation ankoDependencies.cardView
     //implementation ankoDependencies.recyclerView
     //implementation ankoDependencies.recyclerViewDelegate
-
-    implementation ankoDependencies.ankoSdk15
-    implementation ankoDependencies.sdk15Delegate
+    //implementation ankoDependencies.ankoSdk15
+    //implementation ankoDependencies.sdk15Delegate
 
     // Utils Libraries
     implementation utilsDependencies.baseAdapter

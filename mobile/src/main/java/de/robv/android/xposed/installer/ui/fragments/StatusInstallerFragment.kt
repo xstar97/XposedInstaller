@@ -23,7 +23,6 @@ import de.robv.android.xposed.installer.XposedApp
 
 import java.io.File
 import java.io.IOException
-import de.robv.android.xposed.installer.ui.fragments.sheets.DeviceInfoFragment
 
 import de.robv.android.xposed.installer.core.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller

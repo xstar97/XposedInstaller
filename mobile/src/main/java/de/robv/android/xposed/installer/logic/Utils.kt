@@ -1,15 +1,21 @@
 package de.robv.android.xposed.installer.logic
 
+import android.content.Context
+import android.os.Bundle
+import android.support.v7.widget.PopupMenu
 import android.util.Log
+import android.view.View
 import de.robv.android.xposed.installer.XposedApp
+import de.robv.android.xposed.installer.ui.fragments.ViewBottomSheetFragment
+import de.robv.android.xposed.installer.ui.fragments.ViewDialogFragment
 
 open class Utils
 {
     companion object {
-        val PREF_NAV = "default_navigation"
-        val PREF_VIEW = "default_view"
-        val NAV_BOTTOM = 0
-        val NAV_DRAWER = 1
+        const val PREF_NAV = "default_navigation"
+        const val PREF_VIEW = "default_view"
+        const val NAV_BOTTOM = 0
+        const val NAV_DRAWER = 1
 
         fun isBottomNav(): Boolean {
             return try {
@@ -44,5 +50,28 @@ open class Utils
                 0
             }
         }
+
+        fun launchSheet(fragmentManager: android.support.v4.app.FragmentManager, tag: NavigationPosition){
+            val bottomSheetFragment = ViewBottomSheetFragment.newInstance(tag)
+            //val bundle = Bundle()
+           // bundle.putString(ViewBottomSheetFragment.BUNDLE_SHEET_KEY, tag)
+            //bottomSheetFragment.arguments = bundle
+            bottomSheetFragment.show(fragmentManager, bottomSheetFragment.tag)
+        }
+
+        fun launchDialog(fragmentManager: android.support.v4.app.FragmentManager, tag: NavigationPosition){
+            val dialog = ViewDialogFragment.newInstance(tag)
+            dialog.show(fragmentManager, dialog.tag)
+
+        }
+
+        fun launchMenu(context: Context, v: View, menu: Int, delegate: PopupMenu.OnMenuItemClickListener): PopupMenu{
+            val popUp = PopupMenu(context, v)
+            popUp.menuInflater.inflate(menu, popUp.menu)
+            popUp.setOnMenuItemClickListener(delegate)
+            return popUp
+        }
     }
+
+
 }

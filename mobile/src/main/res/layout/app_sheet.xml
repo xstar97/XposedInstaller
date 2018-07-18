@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--TODO add empty_black_border to background -->
 <RelativeLayout
     android:id="@+id/tab_sheet_about"
     android:layout_width="match_parent"

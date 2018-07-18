@@ -1436,6 +1436,10 @@
         "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\ic_github.png"
     },
     {
+        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_view_sheet.xml.flat",
+        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\src\\main\\res\\layout\\view_sheet.xml"
+    },
+    {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fe396f009e1b2eb2e399c75fe4a1fd44\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
     },
@@ -2906,10 +2910,6 @@
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\layout_preference_widget_switch_compat.xml.flat",
         "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\preference-v7-27.1.1.aar\\e719916a203232be32867d99a231ab64\\res\\layout\\preference_widget_switch_compat.xml"
-    },
-    {
-        "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v4_empty_border_black.xml.flat",
-        "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\drawable-anydpi-v4\\empty_border_black.xml"
     },
     {
         "merged": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4_ic_launcher.png.flat",

@@ -522,18 +522,18 @@ public final class R {
         public static final int abc_textfield_search_default_mtrl_alpha = 0x7f080056;
         public static final int abc_textfield_search_material = 0x7f080057;
         public static final int abc_vector_test = 0x7f080058;
-        public static final int notification_action_background = 0x7f0800ad;
-        public static final int notification_bg = 0x7f0800ae;
-        public static final int notification_bg_low = 0x7f0800af;
-        public static final int notification_bg_low_normal = 0x7f0800b0;
-        public static final int notification_bg_low_pressed = 0x7f0800b1;
-        public static final int notification_bg_normal = 0x7f0800b2;
-        public static final int notification_bg_normal_pressed = 0x7f0800b3;
-        public static final int notification_icon_background = 0x7f0800b4;
-        public static final int notification_template_icon_bg = 0x7f0800b5;
-        public static final int notification_template_icon_low_bg = 0x7f0800b6;
-        public static final int notification_tile_bg = 0x7f0800b7;
-        public static final int notify_panel_notification_icon_bg = 0x7f0800b8;
+        public static final int notification_action_background = 0x7f0800ac;
+        public static final int notification_bg = 0x7f0800ad;
+        public static final int notification_bg_low = 0x7f0800ae;
+        public static final int notification_bg_low_normal = 0x7f0800af;
+        public static final int notification_bg_low_pressed = 0x7f0800b0;
+        public static final int notification_bg_normal = 0x7f0800b1;
+        public static final int notification_bg_normal_pressed = 0x7f0800b2;
+        public static final int notification_icon_background = 0x7f0800b3;
+        public static final int notification_template_icon_bg = 0x7f0800b4;
+        public static final int notification_template_icon_low_bg = 0x7f0800b5;
+        public static final int notification_tile_bg = 0x7f0800b6;
+        public static final int notify_panel_notification_icon_bg = 0x7f0800b7;
     }
     public static final class id {
         public static final int action0 = 0x7f090008;
@@ -643,8 +643,8 @@ public final class R {
         public static final int topPanel = 0x7f090155;
         public static final int up = 0x7f090165;
         public static final int useLogo = 0x7f090166;
-        public static final int withText = 0x7f09016c;
-        public static final int wrap_content = 0x7f09016d;
+        public static final int withText = 0x7f09016d;
+        public static final int wrap_content = 0x7f09016e;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;

@@ -31,6 +31,9 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/core">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -49,7 +52,28 @@
     <favorites_list name="Java" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-610">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mobile/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="54" column="15" lean-forward="false" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -59,16 +83,13 @@
         <option value="Kotlin Enum" />
         <option value="resourceFile" />
         <option value="layoutResourceFile_vertical" />
-        <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mSVLog</find>
-      <find>mHSVLog</find>
-      <find>menuSend</find>
       <find>about_source</find>
       <find>default_navigation</find>
       <find>default_navigation_pref</find>
@@ -96,6 +117,9 @@
       <find>findNavPosById</find>
       <find>air_label_email</find>
       <find>ema</find>
+      <find>sheet</find>
+      <find>Utils</find>
+      <find>Uti</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -4596,20 +4620,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/services/FabHoverMenuService.java" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/services/HoverMenuScreen.java" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/services/MyHoverMenu.java" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/services/MyHoverMenu.kt" />
-        <option value="$PROJECT_DIR$/mobile/build.gradle" />
-        <option value="$PROJECT_DIR$/mobile/src/main/res/layout/view_chat_head.xml" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/services/ChatHeadService.kt" />
-        <option value="$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/base/fragments/utils/ModulesUtil.java" />
-        <option value="$PROJECT_DIR$/mobile/src/main/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/sheets/DeviceInfoFragment.kt" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/adapters/info/viewholders/TabInfoBaseViewHolder.kt" />
-        <option value="$PROJECT_DIR$/mobile/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/CustomTabActivityHelper.kt" />
-        <option value="$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/CustomTabsURLSpan.kt" />
         <option value="$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/LinkTransformationMethod.kt" />
         <option value="$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/ServiceConnectionCallback.kt" />
         <option value="$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/ServiceConnection.kt" />
@@ -4630,23 +4640,37 @@
         <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/AboutFragment.kt" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/DownloadFragment.kt" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/SupportFragment.kt" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/StatusInstallerFragment.kt" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/Utils.kt" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/NavigationPositionBottom.kt" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/NavigationPositionDrawer.kt" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/SettingsActivity.kt" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/SettingsFragment.kt" />
         <option value="$PROJECT_DIR$/mobile/src/main/res/layout/app_bar_main.xml" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/WelcomeActivity.kt" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/NavigationPosition.kt" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/ModulesFragment.kt" />
         <option value="$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/base/fragments/BaseLogs.kt" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/LogsFragment.kt" />
         <option value="$PROJECT_DIR$/core/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/core/src/main/res/menu/menu_logs.xml" />
         <option value="$PROJECT_DIR$/core/src/main/res/values/arrays.xml" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/BaseNavActivity.kt" />
         <option value="$PROJECT_DIR$/mobile/src/main/res/xml/prefs.xml" />
+        <option value="$PROJECT_DIR$/dependencies.gradle" />
+        <option value="$PROJECT_DIR$/mobile/build.gradle" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/StatusInstallerFragment.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/sheets/ViewBottomSheetFragment.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/res/layout/view_fragment_about.xml" />
+        <option value="$PROJECT_DIR$/mobile/src/main/res/layout/view_fragment_support.xml" />
+        <option value="$PROJECT_DIR$/mobile/src/main/res/layout/view_sheet.xml" />
+        <option value="$PROJECT_DIR$/mobile/src/main/res/layout/app_sheet.xml" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/BaseNavActivity.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/res/layout/fragment_view.xml" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/sheets/ViewBottomSheetFragment.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/children/ViewBottomSheetFragment.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/children/ViewDialogFragment.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/ViewDialogFragment.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/ViewBottomSheetFragment.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/ViewDialogFragment.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/Utils.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/WelcomeActivity.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/LogsFragment.kt" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/ModulesFragment.kt" />
       </list>
     </option>
   </component>
@@ -4672,129 +4696,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="fragments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="chrome" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="mobile" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="mobile" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="mobile" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="mobile" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="installer" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="mobile" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="installer" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="mobile" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="installer" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="mobile" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="installer" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="mobile" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="installer" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="fragments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -4832,14 +4733,25 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Java" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../../../../AppData/Local/Android/sdk" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Downloads" />
@@ -4851,11 +4763,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="de.robv.android.xposed.installer.ui.fragments" />
       <recent name="de.robv.android.xposed.installer.logic" />
       <recent name="de.robv.android.xposed.installer.ui.fragments.base" />
       <recent name="de.robv.android.xposed.installer.services" />
       <recent name="de.robv.android.xposed.installer.ui.activities.layouts" />
-      <recent name="de.robv.android.xposed.installer.ui.fragments.ui" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="de.robv.android.xposed.installer.core.repo.zips" />
@@ -5148,6 +5060,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49785176" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25402793" sideWeight="0.5327586" order="2" side_tool="true" content_ui="tabs" />
@@ -5156,7 +5069,7 @@
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3344749" sideWeight="0.49194413" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27739727" sideWeight="0.49033296" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27708095" sideWeight="0.49033296" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Anko Layout Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.48916763" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.51083237" order="10" side_tool="true" content_ui="tabs" />
@@ -5172,7 +5085,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49785176" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25725028" sideWeight="0.4737443" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25725028" sideWeight="0.4737443" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25725028" sideWeight="0.5262557" order="2" side_tool="true" content_ui="tabs" />
@@ -5230,199 +5143,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/adapters/info/viewholders/TabInfoBaseViewHolder.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/CustomTabsURLSpan.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/installation/Flashable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/CustomTabActivityHelper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/CustomTabsHelper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1722">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/LinkTransformationMethod.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/ServiceConnectionCallback.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/chrome/ServiceConnection.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/DownloadDetailsActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="238" column="34" lean-forward="true" selection-start-line="238" selection-start-column="34" selection-end-line="238" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/base/fragments/BaseAbout.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
-          <folding>
-            <element signature="e#798#1071#0" expanded="false" />
-            <element signature="e#1116#1219#0" expanded="false" />
-            <element signature="e#1270#1651#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/InstallationActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-232">
-          <caret line="36" column="57" lean-forward="true" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
-          <folding>
-            <element signature="e#2431#13446#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/utils/InstallationUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="111" column="36" lean-forward="false" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/fragment_status_installer.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="932">
-          <caret line="106" column="48" lean-forward="false" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
-          <folding>
-            <element signature="e#1702#1718#0" expanded="false" />
-            <element signature="e#2804#2833#0" expanded="false" />
-            <element signature="e#3508#3535#0" expanded="false" />
-            <element signature="e#4239#4263#0" expanded="false" />
-            <element signature="e#4924#4943#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/BasePreferenceFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/ModulesBookmark.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-441">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/DownloadDetailsVersionsFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/preference-v7/27.1.1/306693a02a130ff2a58c8635ea063880d3d2e56d/preference-v7-27.1.1-sources.jar!/android/support/v7/preference/ListPreferenceDialogFragmentCompat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="130" column="9" lean-forward="true" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/util/PrefixedSharedPreferences.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#637#684#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/DownloadDetailsFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="52" column="86" lean-forward="false" selection-start-line="52" selection-start-column="86" selection-end-line="52" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/res/xml/module_prefs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -5478,22 +5198,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/res/menu/context_menu_modules_bookmark.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/DownloadFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/AboutFragment.kt">
@@ -5506,45 +5217,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/SupportFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="71" lean-forward="false" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/NavigationPositionDrawer.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="35" column="69" lean-forward="true" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/NavigationPositionBottom.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/NavigationPositionDrawer.kt" />
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/NavigationPositionBottom.kt" />
     <entry file="file://$PROJECT_DIR$/core/src/main/res/menu/context_menu_modules.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/StatusInstallerFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="41" column="79" lean-forward="false" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="79" />
-          <folding />
-        </state>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/base/fragments/BaseStatusInstaller.kt">
@@ -5563,125 +5245,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/SettingsFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="58" column="52" lean-forward="false" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="52" />
-          <folding>
-            <element signature="e#55#621#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/app_bar_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="49" column="39" lean-forward="false" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/WelcomeActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="e#1199#1237#0" expanded="false" />
-            <element signature="e#1308#1346#0" expanded="false" />
-            <element signature="e#1481#1519#0" expanded="false" />
-            <element signature="e#1556#1657#0" expanded="false" />
-            <element signature="e#1613#1651#1" expanded="false" />
-            <element signature="e#1889#1941#0" expanded="false" />
-            <element signature="e#1999#2338#0" expanded="false" />
-            <element signature="e#2396#2556#0" expanded="false" />
-            <element signature="e#2591#2714#0" expanded="false" />
-            <element signature="e#2620#2657#1" expanded="false" />
-            <element signature="e#2663#2708#1" expanded="false" />
-            <element signature="e#2744#3005#0" expanded="false" />
-            <element signature="e#3076#3296#0" expanded="false" />
-            <element signature="e#3163#3289#2" expanded="false" />
-            <element signature="e#3355#3420#0" expanded="false" />
-            <element signature="e#3450#3645#0" expanded="false" />
-            <element signature="e#3682#4068#0" expanded="false" />
-            <element signature="e#3847#4041#2" expanded="false" />
-            <element signature="e#4095#4454#0" expanded="false" />
-            <element signature="e#4124#4280#1" expanded="false" />
-            <element signature="e#4293#4448#1" expanded="false" />
-            <element signature="e#4521#4937#0" expanded="false" />
-            <element signature="e#4999#5166#0" expanded="false" />
-            <element signature="e#5027#5091#1" expanded="false" />
-            <element signature="e#5096#5160#1" expanded="false" />
-            <element signature="e#5276#5364#0" expanded="false" />
-            <element signature="e#5398#5547#0" expanded="false" />
-            <element signature="e#5462#5541#2" expanded="false" />
-            <element signature="e#5612#6049#0" expanded="false" />
-            <element signature="e#5647#5732#1" expanded="false" />
-            <element signature="e#5738#5839#1" expanded="false" />
-            <element signature="e#6122#6167#0" expanded="false" />
-            <element signature="e#6208#7245#0" expanded="false" />
-            <element signature="e#6401#7164#0" expanded="false" />
-            <element signature="e#6546#6808#1" expanded="false" />
-            <element signature="e#6600#6794#1" expanded="false" />
-            <element signature="e#6650#6693#0" expanded="false" />
-            <element signature="e#6946#7154#1" expanded="false" />
-            <element signature="e#6993#7027#1" expanded="false" />
-            <element signature="e#7061#7085#1" expanded="false" />
-            <element signature="e#7184#7239#0" expanded="false" />
-            <element signature="e#7275#7511#0" expanded="false" />
-            <element signature="e#7315#7430#0" expanded="false" />
-            <element signature="e#7450#7505#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/NavigationPosition.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-          <folding>
-            <element signature="e#48#257#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/Utils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/ModulesFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="343" column="45" lean-forward="false" selection-start-line="343" selection-start-column="45" selection-end-line="343" selection-end-column="45" />
-          <folding>
-            <element signature="e#55#2800#0" expanded="false" />
-            <element signature="e#5043#5075#1" expanded="false" />
-            <element signature="e#5329#5383#1" expanded="false" />
-            <element signature="e#6890#6919#1" expanded="false" />
-            <element signature="e#7043#10076#0" expanded="false" />
-            <element signature="e#7989#8027#1" expanded="false" />
-            <element signature="e#8536#8564#1" expanded="false" />
-            <element signature="e#8811#8851#1" expanded="false" />
-            <element signature="e#9554#9600#0" expanded="false" />
-            <element signature="e#10518#12777#0" expanded="false" />
-            <element signature="e#10639#10667#1" expanded="false" />
-            <element signature="e#10923#10958#1" expanded="false" />
-            <element signature="e#11321#11343#1" expanded="false" />
-            <element signature="e#18018#21580#0" expanded="false" />
-            <element signature="e#19667#19711#0" expanded="false" />
-            <element signature="e#20208#20252#0" expanded="false" />
-            <element signature="e#20497#20543#1" expanded="false" />
-            <element signature="e#20782#20829#1" expanded="false" />
-            <element signature="e#21071#21128#0" expanded="false" />
-            <element signature="e#21315#21358#0" expanded="false" />
-          </folding>
-        </state>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/res/values/donottranslate.xml">
@@ -5689,16 +5261,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/LogsFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="52" column="16" lean-forward="false" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-          <folding>
-            <element signature="e#2165#2250#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5711,14 +5273,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/res/menu/menu_logs.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="19" column="45" lean-forward="false" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/res/values/arrays.xml">
@@ -5737,16 +5298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/BaseNavActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
-          <folding>
-            <element signature="e#2855#3189#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/de/robv/android/xposed/installer/core/base/fragments/BaseLogs.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -5762,6 +5313,350 @@
             <element signature="e#2539#2567#1" expanded="false" />
             <element signature="e#3312#3932#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/adapters/download/DownloadModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/DownloadFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3309">
+          <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+          <folding>
+            <element signature="e#55#1766#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/adapters/download/DownloadBaseAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126">
+          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/ThemeUtil.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/AutoCloseBottomSheetBehavior.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tv/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-294">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/SupportFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="37" column="5" lean-forward="false" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="e#55#581#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/SettingsFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-840">
+          <caret line="58" column="52" lean-forward="false" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/view_fragment_support.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="79" lean-forward="false" selection-start-line="3" selection-start-column="79" selection-end-line="3" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/view_fragment_about.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../AppData/Local/Android/sdk/sources/android-27/android/view/LayoutInflater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="726" column="0" lean-forward="false" selection-start-line="726" selection-start-column="0" selection-end-line="726" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/activity_container.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/StatusInstallerFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="159" column="4" lean-forward="true" selection-start-line="159" selection-start-column="4" selection-end-line="161" selection-end-column="5" />
+          <folding>
+            <element signature="e#5953#6692#0" expanded="false" />
+            <element signature="e#6907#8833#0" expanded="false" />
+            <element signature="e#8868#9079#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/ViewActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="72" column="25" lean-forward="false" selection-start-line="69" selection-start-column="4" selection-end-line="75" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/view_sheet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="39" lean-forward="true" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/DeviceInfoFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/fragment_status_installer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1841">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/BaseNavActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#2855#3189#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/NavigationPosition.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/fragment_view.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/app_sheet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/children/ViewDialogFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/LogsFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="68" column="48" lean-forward="true" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+          <folding>
+            <element signature="e#2165#2250#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/ModulesFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="335" column="61" lean-forward="false" selection-start-line="335" selection-start-column="61" selection-end-line="335" selection-end-column="61" />
+          <folding>
+            <element signature="e#55#2800#0" expanded="false" />
+            <element signature="e#7043#10076#0" expanded="false" />
+            <element signature="e#10518#12777#0" expanded="false" />
+            <element signature="e#18168#21730#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/activities/WelcomeActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding>
+            <element signature="e#56#936#0" expanded="false" />
+            <element signature="e#1194#1232#0" expanded="false" />
+            <element signature="e#1303#1341#0" expanded="false" />
+            <element signature="e#1476#1514#0" expanded="false" />
+            <element signature="e#1608#1646#1" expanded="false" />
+            <element signature="e#2246#2585#0" expanded="false" />
+            <element signature="e#2643#2803#0" expanded="false" />
+            <element signature="e#2838#2961#0" expanded="false" />
+            <element signature="e#2867#2904#1" expanded="false" />
+            <element signature="e#2910#2955#1" expanded="false" />
+            <element signature="e#2991#3252#0" expanded="false" />
+            <element signature="e#3323#3543#0" expanded="false" />
+            <element signature="e#3410#3536#2" expanded="false" />
+            <element signature="e#3602#3667#0" expanded="false" />
+            <element signature="e#3697#3892#0" expanded="false" />
+            <element signature="e#4029#4388#0" expanded="false" />
+            <element signature="e#4058#4214#1" expanded="false" />
+            <element signature="e#4227#4382#1" expanded="false" />
+            <element signature="e#4455#4871#0" expanded="false" />
+            <element signature="e#4933#5100#0" expanded="false" />
+            <element signature="e#4961#5025#1" expanded="false" />
+            <element signature="e#5030#5094#1" expanded="false" />
+            <element signature="e#5210#5298#0" expanded="false" />
+            <element signature="e#5332#5481#0" expanded="false" />
+            <element signature="e#5396#5475#2" expanded="false" />
+            <element signature="e#5546#5983#0" expanded="false" />
+            <element signature="e#5581#5666#1" expanded="false" />
+            <element signature="e#5672#5773#1" expanded="false" />
+            <element signature="e#6142#7179#0" expanded="false" />
+            <element signature="e#6335#7098#0" expanded="false" />
+            <element signature="e#6480#6742#1" expanded="false" />
+            <element signature="e#6534#6728#1" expanded="false" />
+            <element signature="e#6880#7088#1" expanded="false" />
+            <element signature="e#7118#7173#0" expanded="false" />
+            <element signature="e#7209#7445#0" expanded="false" />
+            <element signature="e#7249#7364#0" expanded="false" />
+            <element signature="e#7384#7439#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/ViewBottomSheetFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+          <folding>
+            <element signature="e#1550#2436#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/logic/Utils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+          <folding>
+            <element signature="e#48#394#0" expanded="false" />
+            <element signature="e#635#932#0" expanded="false" />
+            <element signature="e#960#1101#0" expanded="false" />
+            <element signature="e#1130#1273#0" expanded="false" />
+            <element signature="e#1318#1641#0" expanded="false" />
+            <element signature="e#1748#2084#0" expanded="false" />
+            <element signature="e#2192#2318#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/de/robv/android/xposed/installer/ui/fragments/ViewDialogFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding>
+            <element signature="e#55#510#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-610">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="54" column="15" lean-forward="false" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
