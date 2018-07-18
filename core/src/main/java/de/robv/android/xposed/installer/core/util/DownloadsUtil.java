@@ -179,18 +179,8 @@ public class DownloadsUtil
                 .progressNumberFormat(context.getString(R.string.download_progress))
                 .canceledOnTouchOutside(false)
                 .negativeText(R.string.download_view_cancel)
-                .onNegative(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.cancel();
-                    }
-                })
-                .cancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        removeById(context, id);
-                    }
-                })
+                .onNegative((dialog12, which) -> dialog12.cancel())
+                .cancelListener(dialog1 -> removeById(context, id))
         );
         dialog.setShowProcess(false);
         dialog.show();
@@ -231,18 +221,15 @@ public class DownloadsUtil
                         return;
                     }
 
-                    BaseXposedApp.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (info.totalSize <= 0 || info.status != DownloadManager.STATUS_RUNNING) {
-                                dialog.setContent(R.string.download_view_waiting);
-                                dialog.setShowProcess(false);
-                            } else {
-                                dialog.setContent(R.string.download_running);
-                                dialog.setProgress(info.bytesDownloaded / 1024);
-                                dialog.setMaxProgress(info.totalSize / 1024);
-                                dialog.setShowProcess(true);
-                            }
+                    BaseXposedApp.runOnUiThread(() -> {
+                        if (info.totalSize <= 0 || info.status != DownloadManager.STATUS_RUNNING) {
+                            dialog.setContent(R.string.download_view_waiting);
+                            dialog.setShowProcess(false);
+                        } else {
+                            dialog.setContent(R.string.download_running);
+                            dialog.setProgress(info.bytesDownloaded / 1024);
+                            dialog.setMaxProgress(info.totalSize / 1024);
+                            dialog.setShowProcess(true);
                         }
                     });
                 }
@@ -250,7 +237,9 @@ public class DownloadsUtil
         }.start();
     }
 
-    private static class DownloadDialog extends MaterialDialog {
+    private static class DownloadDialog extends MaterialDialog
+    {
+
         public DownloadDialog(Builder builder) {
             super(builder);
         }
@@ -364,6 +353,7 @@ public class DownloadsUtil
 
     public static void removeAllForUrl(Context context, String url) {
         DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        assert dm != null;
         Cursor c = dm.query(new Query());
         int columnId = c.getColumnIndexOrThrow(DownloadManager.COLUMN_ID);
         int columnUri = c.getColumnIndexOrThrow(DownloadManager.COLUMN_URI);

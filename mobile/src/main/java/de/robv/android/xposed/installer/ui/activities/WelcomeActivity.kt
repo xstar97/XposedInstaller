@@ -47,9 +47,6 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         navPosition = findNavPosById(item.itemId)
 
-        if(!isBottomNav()){
-            closeDrawer()
-        }
         return switchFragment(navPosition)
     }
 
@@ -87,27 +84,30 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         super.onResume()
         val lockOrNot = if (isBottomNav()) DrawerLayout.LOCK_MODE_LOCKED_CLOSED else DrawerLayout.LOCK_MODE_UNLOCKED
         getDrawerLayout()!!.setDrawerLockMode(lockOrNot)
-        setNavActive()
-        initFab()
+        initVisFab()
+        setNavActive(navPosition)
     }
     private fun restoreSaveInstanceState(savedInstanceState: Bundle?) {
         // Restore the current navigation position.
         savedInstanceState?.also {
-            val id = it.getInt(NAV_KEY_POSITION, getMenu().id)
+
+           val id = it.getInt(NAV_KEY_POSITION, getDefaultMenu().id)
             navPosition = findNavPosById(id)
         }
 
     }
     private fun initFragment(savedInstanceState: Bundle?) {
-        savedInstanceState ?: switchFragment(getMenu())
+        savedInstanceState ?: switchFragment(navPosition)
     }
 
-    private fun initFab(){
+    private fun initVisFab(){
         fabMenu.hide()
-        if (isBottomNav())
+        if (isBottomNav()) {
             if (navPosition != NavigationPosition.SETTINGS) fabMenu.show()
-        else
+        }
+        else{
             fabMenu.hide()
+        }
     }
     private fun showFabMenu(v: View){
         val popUp = PopupMenu(this, v)
@@ -135,21 +135,26 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         }
     }
 
-    private fun setNavActive(){
-        if (isBottomNav()) setBottomNavActive(navPosition.position) else setDrawerNavActive(navPosition.position)
-    }
-
-    private fun switchFragment(navPosition: NavigationPosition): Boolean {
-
+    fun switchFragment(navPosition: NavigationPosition): Boolean {
         val fragment = getFragManager().findFragment(navPosition)
-        if (fragment.isAdded) return false
+        if (fragment!!.isAdded) return false
         detachFragment()
         attachFragment(fragment, navPosition.getTag())
         getFragManager().executePendingTransactions()
+        setNavActive(navPosition)
+        initVisFab()
+        //if drawer is 'active' and 'open'...action will close it!
+        closeDrawer()
         return true
     }
-
-    private fun android.support.v4.app.FragmentManager.findFragment(position: NavigationPosition): Fragment {
+    private fun setNavActive(navPosition: NavigationPosition){
+        if (isBottomNav()){
+            setBottomNavActive(navPosition.getPos())
+        } else{
+            setDrawerNavActive(navPosition.getPos())
+        }
+    }
+    private fun android.support.v4.app.FragmentManager.findFragment(position: NavigationPosition): Fragment? {
         return findFragmentByTag(position.getTag()) ?: position.createFragment()
     }
     private fun detachFragment() {
@@ -167,8 +172,6 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         getFragManager().beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit()
-        initFab()
-        setNavActive()
     }
     private fun getFragManager(): android.support.v4.app.FragmentManager{
         return supportFragmentManager

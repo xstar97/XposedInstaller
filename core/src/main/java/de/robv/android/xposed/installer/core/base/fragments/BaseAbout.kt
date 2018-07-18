@@ -18,7 +18,6 @@ import de.robv.android.xposed.installer.core.util.NavUtil
 class BaseAbout
 {
     companion object {
-
         fun getVersion(context: Context): String{
             val packageName = context.packageName
             return try {
@@ -39,6 +38,7 @@ class BaseAbout
 
             (dialog.findViewById(R.id.md_content) as TextView).movementMethod = LinkMovementMethod.getInstance()
         }
+        //todo add other open libraries here
         fun getLicenseDialog(context: Context) {
             val notices = Notices()
             notices.addNotice(Notice("material-dialogs", "https://github.com/afollestad/material-dialogs", "Copyright (c) 2014-2016 Aidan Michael Follestad", MITLicense()))

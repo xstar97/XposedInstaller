@@ -8,11 +8,19 @@
         android:title="@string/menuSaveToSd"
         app:showAsAction="ifRoom"/>
 
-    <item
-        android:id="@+id/menu_send"
+    <item android:id="@+id/menu_send"
         android:icon="@drawable/ic_send"
         android:title="@string/menuSend"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/send_email"
+                android:title="@string/menuSendEmail" />
+            <item
+                android:id="@+id/send_github"
+                android:title="@string/menuSendGitHub" />
+        </menu>
+    </item>
 
     <item
         android:id="@+id/menu_clear"

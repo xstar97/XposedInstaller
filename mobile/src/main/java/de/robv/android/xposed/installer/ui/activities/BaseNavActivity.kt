@@ -14,7 +14,7 @@ import android.view.MenuItem
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
 import de.robv.android.xposed.installer.logic.NavigationPosition
-import de.robv.android.xposed.installer.logic.Utils.Companion.getView
+import de.robv.android.xposed.installer.logic.Utils
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
@@ -26,8 +26,7 @@ open class BaseNavActivity: XposedBaseActivity(),
         NavigationView.OnNavigationItemSelectedListener
 {
     val NAV_KEY_POSITION = "keyPosition"
-    //var navPosition: NavigationPosition = NavigationPosition.HOME
-    var navPosition: NavigationPosition = getMenu()
+    var navPosition: NavigationPosition = getDefaultMenu()
 
     private var myToggle: ActionBarDrawerToggle? = null
 
@@ -39,14 +38,14 @@ open class BaseNavActivity: XposedBaseActivity(),
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    fun getMenu(): NavigationPosition {
+    fun getDefaultMenu(): NavigationPosition {
         return try {
-            val id = getView()
+            val id = Utils.getView()
             when (id) {
-                0 -> NavigationPosition.HOME    //NavigationPosition.HOME     -> id: R.id.nav_item_framework -> position: 2 | 0
-                1 -> NavigationPosition.MODULES //NavigationPosition.MODULES  -> id: R.id.nav_item_modules   -> position: 1
-                2 -> NavigationPosition.DOWNLOAD//NavigationPosition.DOWNLOAD -> id: R.id.nav_item_downloads -> position: 0 | 1
-                3 -> NavigationPosition.LOGS    //NavigationPosition.LOGS     -> id: R.id.nav_item_logs      -> position: 3
+                0 -> NavigationPosition.HOME
+                1 -> NavigationPosition.MODULES
+                2 -> NavigationPosition.DOWNLOAD
+                3 -> NavigationPosition.LOGS
                 else -> NavigationPosition.HOME
             }
         }catch (e: Exception){

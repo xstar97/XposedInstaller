@@ -16,6 +16,7 @@ import java.io.IOException
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
 import de.robv.android.xposed.installer.core.util.RepoLoader
+import de.robv.android.xposed.installer.logic.NavigationPosition
 
 @Suppress("UNUSED_ANONYMOUS_PARAMETER", "PrivatePropertyName")
 class SettingsFragment : BasePreferenceFragment()
@@ -53,7 +54,11 @@ class SettingsFragment : BasePreferenceFragment()
             val value = sharedPreferences!!.getString(preference.key, "")
             setPreferenceSummery(preference, value)
 
-            if (key == "theme" || key == "default_navigation") activity!!.recreate()
+            if (key == "theme"){
+                activity!!.recreate()
+            } else if(key == "default_navigation") {
+                activity!!.recreate()
+            }
         }
     }
 

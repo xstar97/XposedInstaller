@@ -23,7 +23,6 @@ import kotlinx.android.synthetic.main.fragment_logs.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.support.v4.onUiThread
 
-//TODO fix loading logs
 class LogsFragment : Fragment()
 {
     companion object {
@@ -54,12 +53,12 @@ class LogsFragment : Fragment()
                 reloadErrorLog()
                 return true
             }
-            R.id.menu_send -> {
-                try {
-                    BaseLogs.send(activity!!)
-                } catch (ignored: NullPointerException) {
-                }
-
+            R.id.send_email -> {
+                BaseLogs.sendEmail(activity!!)
+                return true
+            }
+            R.id.send_github -> {
+                BaseLogs.sendGitHubReport(activity!!)
                 return true
             }
             R.id.menu_save -> {

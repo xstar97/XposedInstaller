@@ -3,9 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="de.robv.android.xposed.installer">
 
-    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
     <application
         android:name=".XposedApp"
         android:allowBackup="false"
@@ -97,12 +94,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-
-        <service
-            android:name=".services.ChatHeadService"
-            android:enabled="true"
-            android:exported="false"/>
 
     </application>
 

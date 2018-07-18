@@ -3,6 +3,8 @@
 
     <!-- General/various strings -->
     <string name="menuSend">Send</string>
+    <string name="menuSendEmail">Email</string>
+    <string name="menuSendGitHub">GitHub</string>
     <string name="menuSaveToSd">Save to SD card</string>
     <string name="xposed_not_active">The latest version of Xposed is currently not active. Did you install the Framework and reboot?</string>
 

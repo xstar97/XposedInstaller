@@ -28,8 +28,8 @@ import de.robv.android.xposed.installer.ui.fragments.DownloadDetailsVersionsFrag
 
 class ModulesBookmark : XposedBaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceBundle: Bundle?) {
+        super.onCreate(savedInstanceBundle)
         ThemeUtil.setTheme(this)
         setContentView(R.layout.activity_container)
 
@@ -50,7 +50,7 @@ class ModulesBookmark : XposedBaseActivity() {
 
         container = findViewById(R.id.container)
 
-        if (savedInstanceState == null) {
+        if (savedInstanceBundle == null) {
             fragmentManager.beginTransaction().add(R.id.container, ModulesBookmarkFragment()).commit()
         }
     }

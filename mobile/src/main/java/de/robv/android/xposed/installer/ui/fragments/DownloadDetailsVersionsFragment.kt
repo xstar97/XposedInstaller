@@ -212,7 +212,7 @@ class DownloadDetailsVersionsFragment : ListFragment()
 
                 if (item.changelogIsHtml) {
                     holder.txtChanges!!.text = RepoParser.parseSimpleHtml(activity, item.changelog, holder.txtChanges)
-                    holder.txtChanges!!.transformationMethod = LinkTransformationMethod(activity)
+                    holder.txtChanges!!.transformationMethod = LinkTransformationMethod(activity!!)
                     holder.txtChanges!!.movementMethod = LinkMovementMethod.getInstance()
                 } else {
                     holder.txtChanges!!.text = item.changelog

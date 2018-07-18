@@ -9,6 +9,7 @@ import android.support.v4.app.ActivityCompat
 
 import android.util.Log
 import android.widget.Toast
+import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.base.fragments.utils.LogsUtils
@@ -25,6 +26,8 @@ open class BaseLogs
     {
         private val mFileErrorLog = File("${BaseXposedApp().BASE_DIR}/log/error.log")
         private val mFileErrorLogOld = File("${BaseXposedApp().BASE_DIR}/log/error.log.old")
+        private val gitHubUser = "rovo89"
+        private val gitHubRepo = "XposedInstaller"
 
         fun getLogs(context: Context): String{
             return try {
@@ -78,15 +81,37 @@ open class BaseLogs
 
             return LogsUtils().saveUtil(context, mFileErrorLog, targetFile)
         }
-        fun send(context: Context) {
-            try {
-                val log = mFileErrorLog.readText()
-                if (log.isNotEmpty())
-                    context.email("", "Logs", mFileErrorLog.readText())
-                else
-                    Toast.makeText(context, context.getString(R.string.log_is_empty), Toast.LENGTH_SHORT).show()
+
+        fun sendGitHubReport(context: Context){
+            try{
+                IssueReporterLauncher.forTarget("Xstar97", gitHubRepo)
+                        .theme(R.style.Theme_XposedInstaller_Dark)
+                        .guestToken("0823ad6425a067409916abc6652b583abc445e61")
+                        .guestEmailRequired(true)
+                        .minDescriptionLength(20)
+                        .putExtraInfo(getLogContent().first, getLogContent().second)
+                        .homeAsUpEnabled(true)
+                        .launch(context)
             }catch (e: Exception){
                 Log.d(BaseXposedApp.TAG, e.message)
+            }
+        }
+
+        fun sendEmail(context: Context){
+            context.email("", "Logs", getLogContent().second)
+        }
+        private fun getLogContent(): Pair<String, String>{
+            var name = "error.log"
+            var log = "Log Is Empty:("
+            return try {
+                if (mFileErrorLog.exists()) {
+                    name = mFileErrorLog.name
+                    log = mFileErrorLog.readText()
+                }
+                Pair(name, log)
+            }catch (e: Exception){
+                Log.e(BaseXposedApp.TAG, e.message)
+                Pair(name, log)
             }
         }
     }

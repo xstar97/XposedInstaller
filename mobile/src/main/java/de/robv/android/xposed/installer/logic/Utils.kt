@@ -12,31 +12,37 @@ open class Utils
         val NAV_DRAWER = 1
 
         fun isBottomNav(): Boolean {
-            val nav = getNav() == NAV_BOTTOM
-            Log.d(XposedApp.TAG, "isBottomNav: $nav")
-            return nav
+            return try {
+                val nav = getNav() == NAV_BOTTOM
+                Log.d(XposedApp.TAG, "${PREF_NAV}_pref -> boolean: $nav")
+                nav
+            }catch (e: Exception){
+                Log.e(XposedApp.TAG, e.message)
+                true
+            }
         }
 
         fun getNav(): Int {
             val id = getPrefValue(PREF_NAV)
-            Log.d(XposedApp.TAG, "${PREF_NAV}_pref: id: $id")
+            Log.d(XposedApp.TAG, "${PREF_NAV}_pref -> id: $id")
             return id
         }
 
         fun getView(): Int {
             val id = getPrefValue(PREF_VIEW)
-            Log.d(XposedApp.TAG, "${PREF_VIEW}_pref: id: $id")
+            Log.d(XposedApp.TAG, "${PREF_VIEW}_pref -> id: $id")
             return id
         }
 
         fun getPrefValue(key: String): Int {
             return try {
-                XposedApp.getPreferences().getString(key, "0").toInt()
+                val value = XposedApp.getPreferences().getString(key, "0").toInt()
+                Log.d(XposedApp.TAG, "key: $key\nvalue: $value")
+                value
             } catch (e: Exception) {
                 Log.w(XposedApp.TAG, e.message)
                 0
             }
         }
-
     }
 }

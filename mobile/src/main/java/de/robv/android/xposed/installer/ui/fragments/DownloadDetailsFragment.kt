@@ -50,7 +50,7 @@ class DownloadDetailsFragment : Fragment() {
         if (module.description != null) {
             if (module.descriptionIsHtml) {
                 description.text = RepoParser.parseSimpleHtml(activity, module.description, description)
-                description.transformationMethod = LinkTransformationMethod(activity)
+                description.transformationMethod = LinkTransformationMethod(activity!!)
                 description.movementMethod = LinkMovementMethod.getInstance()
             } else {
                 description.text = module.description

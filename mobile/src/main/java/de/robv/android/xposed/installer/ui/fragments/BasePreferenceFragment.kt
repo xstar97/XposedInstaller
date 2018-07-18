@@ -2,7 +2,6 @@ package de.robv.android.xposed.installer.ui.fragments
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.preference.PreferenceFragment
 import android.support.v7.preference.ListPreference
 import android.support.v7.preference.Preference
 import android.support.v7.preference.PreferenceFragmentCompat
@@ -27,11 +26,10 @@ open class BasePreferenceFragment : PreferenceFragmentCompat(), SharedPreference
         val stringValue = value.toString()
 
         if (preference is ListPreference) {
-            val listPreference = preference as ListPreference
-            val prefIndex = listPreference.findIndexOfValue(stringValue)
+            val prefIndex = preference.findIndexOfValue(stringValue)
 
             if (prefIndex >= 0) {
-                listPreference.summary = listPreference.entries[prefIndex]
+                preference.summary = preference.entries[prefIndex]
             }
         } else {
             // For other preferences, set the summary to the value's simple string representation.

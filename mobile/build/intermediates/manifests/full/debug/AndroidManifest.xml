@@ -8,8 +8,6 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="27" />
 
-    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -108,11 +106,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-        <service
-            android:name="de.robv.android.xposed.installer.services.ChatHeadService"
-            android:enabled="true"
-            android:exported="false" />
 
         <activity
             android:name="com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher$Activity"

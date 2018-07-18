@@ -34,8 +34,8 @@ import de.robv.android.xposed.installer.ui.activities.utils.InstallationUtils
 
 class InstallationActivity : XposedBaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceBundle: Bundle?) {
+        super.onCreate(savedInstanceBundle)
 
         val flashable = intent.getParcelableExtra<Flashable>(Flashable.KEY)
         if (flashable == null) {
@@ -60,7 +60,7 @@ class InstallationActivity : XposedBaseActivity() {
 
         setFloating(toolbar, flashable.type.title)
 
-        if (savedInstanceState == null) {
+        if (savedInstanceBundle == null) {
             val logFragment = InstallationFragment()
             supportFragmentManager.beginTransaction().replace(R.id.container, logFragment).commit()
             logFragment.startInstallation(this, flashable)

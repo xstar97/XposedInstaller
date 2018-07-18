@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.preference.Preference
+import android.support.v7.preference.PreferenceManager
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.util.PrefixedSharedPreferences
 
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.ui.activities.DownloadDetailsActivity
@@ -23,11 +25,10 @@ class DownloadDetailsSettingsFragment : BasePreferenceFragment() {
         mActivity = activity as DownloadDetailsActivity
     }
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        addPreferencesFromResource(R.xml.module_prefs)
-
         val module = mActivity!!.module ?: return
-
         val packageName = module.packageName
+
+        addPreferencesFromResource(R.xml.module_prefs)
 
         val prefs = activity!!.getSharedPreferences("module_settings", Context.MODE_PRIVATE)
         val editor = prefs.edit()
@@ -47,42 +48,4 @@ class DownloadDetailsSettingsFragment : BasePreferenceFragment() {
             true
         }
     }
-
-    /*private var mActivity: DownloadDetailsActivity? = null
-
-    override fun onAttach(activity: Activity) {
-        super.onAttach(activity)
-        mActivity = activity as DownloadDetailsActivity
-    }*/
-
-    /*@Suppress("UNUSED_ANONYMOUS_PARAMETER")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val module = mActivity!!.module ?: return
-
-        val packageName = module.packageName
-
-        val prefManager = prefManager.sharedPreferencesName = "module_settings"
-        PrefixedSharedPreferences.injectToPreferenceManager(prefManager, module.packageName)
-        addPreferencesFromResource(R.xml.module_prefs)
-
-        val prefs = activity.getSharedPreferences("module_settings", Context.MODE_PRIVATE)
-        val editor = prefs.edit()
-
-        if (prefs.getBoolean("no_global", true)) {
-            for ((key) in prefs.all) {
-                if (prefs.getString(key, "") == "global") {
-                    editor.putString(key, "").apply()
-                }
-            }
-
-            editor.putBoolean("no_global", false).apply()
-        }
-
-        findPreference("release_type").onPreferenceChangeListener = OnPreferenceChangeListener { preference, newValue ->
-            RepoLoader.getInstance().setReleaseTypeLocal(packageName, newValue as String)
-            true
-        }
-    }*/
 }

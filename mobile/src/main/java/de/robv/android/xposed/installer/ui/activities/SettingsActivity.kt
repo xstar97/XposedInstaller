@@ -15,8 +15,8 @@ import kotlinx.android.synthetic.main.view_toolbar.*
 
 class SettingsActivity : XposedBaseActivity(), FolderChooserDialog.FolderCallback {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceBundle: Bundle?) {
+        super.onCreate(savedInstanceBundle)
         ThemeUtil.setTheme(this)
         setContentView(R.layout.activity_container)
 
@@ -32,7 +32,7 @@ class SettingsActivity : XposedBaseActivity(), FolderChooserDialog.FolderCallbac
 
         setFloating(toolbar, 0)
 
-        if (savedInstanceState == null) {
+        if (savedInstanceBundle == null) {
             supportFragmentManager.beginTransaction()
                     .replace(R.id.container, SettingsFragment()).commit()
         }

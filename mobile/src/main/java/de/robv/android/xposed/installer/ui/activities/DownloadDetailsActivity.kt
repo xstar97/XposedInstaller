@@ -59,7 +59,7 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
             return null
         }
 
-    public override fun onCreate(savedInstanceState: Bundle?) {
+    public override fun onCreate(savedInstanceBundle: Bundle?) {
         ThemeUtil.setTheme(this)
 
         mPackageName = modulePackageName
@@ -67,7 +67,7 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
 
         installedModule = ModuleUtil.getInstance().getModule(mPackageName)
 
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceBundle)
         sRepoLoader.addListener(this)
         sModuleUtil.addListener(this)
 
@@ -196,12 +196,12 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
 
                 if (isPackageInstalled(mPackageName, this)) {
                     val s = packageManager.getInstallerPackageName(mPackageName)
-                    var playStore: Boolean
+                    val playStore: Boolean
 
-                    try {
-                        playStore = s == ModulesFragment().PLAY_STORE_PACKAGE
+                    playStore = try {
+                        s == ModulesFragment().PLAY_STORE_PACKAGE
                     } catch (e: NullPointerException) {
-                        playStore = false
+                        false
                     }
 
                     text += if (playStore) {
@@ -236,7 +236,7 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
     }
 
     internal inner class SwipeFragmentPagerAdapter(fm: android.support.v4.app.FragmentManager) : FragmentPagerAdapter(fm) {
-        val PAGE_COUNT = 3
+        private val PAGE_COUNT = 3
         private val tabTitles = arrayOf(getString(R.string.download_details_page_description), getString(R.string.download_details_page_versions), getString(R.string.download_details_page_settings))
 
         override fun getCount(): Int {
@@ -261,10 +261,9 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
     }
 
     companion object {
-
-        val DOWNLOAD_DESCRIPTION = 0
-        val DOWNLOAD_VERSIONS = 1
-        val DOWNLOAD_SETTINGS = 2
+        const val DOWNLOAD_DESCRIPTION = 0
+        const val DOWNLOAD_VERSIONS = 1
+        const val DOWNLOAD_SETTINGS = 2
         @SuppressLint("StaticFieldLeak")
         private val sRepoLoader = RepoLoader.getInstance()
         private val sModuleUtil = ModuleUtil.getInstance()

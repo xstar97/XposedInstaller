@@ -42,6 +42,7 @@
         <item>@string/reltype_experimental_summary</item>
     </string-array>
     <string-array name="module_release_type_values" translatable="false">
+        <item/>
         <item>stable</item>
         <item>beta</item>
         <item>experimental</item>
@@ -1144,6 +1145,8 @@
     <string name="menuSaveToSd">Save to SD card</string>
     <string name="menuSearch">Search</string>
     <string name="menuSend">Send</string>
+    <string name="menuSendEmail">Email</string>
+    <string name="menuSendGitHub">GitHub</string>
     <string name="module_activated">Xposed module has been activated</string>
     <string name="module_app_info">App info</string>
     <string name="module_download_updates">Download/Updates</string>

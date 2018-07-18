@@ -3,7 +3,7 @@
 xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.preference.ListPreference
-        android:defaultValue="0"
+        android:defaultValue=""
         android:entries="@array/module_release_type_texts"
         android:entryValues="@array/module_release_type_values"
         android:key="release_type"

@@ -62,6 +62,8 @@ import de.robv.android.xposed.installer.core.base.BaseXposedApp.WRITE_EXTERNAL_P
 import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
 import de.robv.android.xposed.installer.core.util.ModuleUtil.SETTINGS_CATEGORY
 import de.robv.android.xposed.installer.core.base.fragments.utils.ModulesUtil
+import de.robv.android.xposed.installer.logic.NavigationPosition
+import de.robv.android.xposed.installer.ui.activities.WelcomeActivity
 
 @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE", "UNUSED_VARIABLE", "PropertyName", "MemberVisibilityCanBePrivate")
 class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
@@ -109,7 +111,6 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
         installedXposedVersion = XposedApp.getInstalledXposedVersion()
         if (installedXposedVersion < 0 || XposedApp.getActiveXposedVersion() < 0 || DISABLE_FILE.exists()) {
             val notActiveNote = activity!!.layoutInflater.inflate(R.layout.view_xposed_not_active_note, listView, false)
@@ -127,20 +128,20 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         registerForContextMenu(listView)
         mModuleUtil!!.addListener(this)
 
-        //val actionBar = (activity as WelcomeActivity).supportActionBar
+        val actionBar = (activity as WelcomeActivity).supportActionBar
 
         val metrics = resources.displayMetrics
         val sixDp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 6f, metrics).toInt()
         val eightDp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8f, metrics).toInt()
         //assert(actionBar != null)
-        //val toolBarDp = if (actionBar!!.height == 0) 196 else actionBar.height
+        val toolBarDp = if (actionBar!!.height == 0) 196 else actionBar.height
 
         listView.divider = null
         listView.dividerHeight = sixDp
         //listView.setPadding(eightDp, toolBarDp + eightDp, eightDp, eightDp)
         listView.clipToPadding = false
 
-        setHasOptionsMenu(true)
+       setHasOptionsMenu(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -192,24 +193,6 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
                 }
 
                 ModulesUtil().onMenuEnabledModules(activity, targetDir, listModules, enabledModulesPath)
-                /*try {
-                    if (!targetDir.exists())
-                        targetDir.mkdir()
-
-                    val `in` = FileInputStream(listModules)
-                    val out = FileOutputStream(enabledModulesPath)
-
-                    val buffer = ByteArray(1024)
-                    var len: Int
-                    while ((len = `in`.read(buffer)) > 0) {
-                        out.write(buffer, 0, len)
-                    }
-                    `in`.close()
-                    out.close()
-                } catch (e: IOException) {
-                    Toast.makeText(activity, resources.getString(R.string.logs_save_failed) + "\n" + e.message, Toast.LENGTH_LONG).show()
-                    return false
-                }*/
 
                 Toast.makeText(activity, enabledModulesPath.toString(), Toast.LENGTH_LONG).show()
                 return true
@@ -349,8 +332,7 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         val packageName = v.tag as String
 
         if (packageName == NOT_ACTIVE_NOTE_TAG) {
-            //TODO add this to new 'WelcomeActivity.kt'
-            //(activity as WelcomeActivity).switchFragment(0)
+            (activity as WelcomeActivity).switchFragment(NavigationPosition.HOME)
             return
         }
 
