@@ -13,7 +13,7 @@ Mobile and TV(coming soon!) modules are writtin in kotlin. However those modules
 
 The file, 'dependencies.gradle', contains all the the entire project dependencies, versions, etc.
 
-- function to add a list of dependencies to each invidual module from 'dependies.gradle' is being look into...
+~~- - function to add a list of dependencies to each invidual module from 'dependies.gradle' is being look into...~~
  
 ## whats new on the UI Level?
 
