@@ -12,8 +12,6 @@ Instead of using just 1 module...I separated the Xposed Installer into 3 separat
 Mobile and TV(coming soon!) modules are writtin in kotlin. However those modules mostly deal with UI(anko DSL should be considered!) while the 'core' module deals with almost all the logic and is mostly written in java....
 
 The file, 'dependencies.gradle', contains all the the entire project dependencies, versions, etc.
-
-~~- - function to add a list of dependencies to each invidual module from 'dependies.gradle' is being look into...~~
  
 ## whats new on the UI Level?
 
