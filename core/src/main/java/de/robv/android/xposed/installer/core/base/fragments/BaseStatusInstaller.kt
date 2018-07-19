@@ -13,9 +13,7 @@ import de.robv.android.xposed.installer.core.installation.FlashRecoveryAuto
 import de.robv.android.xposed.installer.core.installation.Flashable
 import de.robv.android.xposed.installer.core.repo.zips.ZipModel
 import de.robv.android.xposed.installer.core.util.*
-import eu.chainfire.libsuperuser.Application.toast
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.selector
 import org.jetbrains.anko.uiThread
 import java.io.File
 import java.io.IOException
@@ -64,16 +62,6 @@ open class BaseStatusInstaller
         private val zipList1 = ArrayList<ZipModel>()
 
         //call this method with a doAsync block and any ui updates in a uithread block....
-        /**
-         *
-         * doAsync{
-         * dosomething here
-         *
-         * onUIThread{
-         * update ui here
-         * }
-         *
-         */
         fun getZips(): Pair<ArrayList<ZipModel>, ArrayList<ZipModel>>{
             zipList0.clear()
             zipList1.clear()
@@ -162,11 +150,12 @@ open class BaseStatusInstaller
                     .show()
         }
 
+        @Suppress("UNUSED_ANONYMOUS_PARAMETER")
         fun showActionDialog(context: Context, install: Intent, title: String, type: FrameworkZips.Type) {
-            val ACTION_FLASH = 0
-            val ACTION_FLASH_RECOVERY = 1
-            val ACTION_SAVE = 2
-            val ACTION_DELETE = 3
+            val actionFlash = 0
+            val actionFlashRecovery = 1
+            val actionSave = 2
+            val actionDelete = 3
 
             val isDownloaded = FrameworkZips.hasLocal(title, type)
             val itemCount = if (isDownloaded) 3 else 2
@@ -175,10 +164,10 @@ open class BaseStatusInstaller
             var i = 0
 
             texts[i] = context.getString(type.text_flash)
-            ids[i++] = ACTION_FLASH
+            ids[i++] = actionFlash
 
             texts[i] = context.getString(type.text_flash_recovery)
-            ids[i++] = ACTION_FLASH_RECOVERY
+            ids[i++] = actionFlashRecovery
 
             //TODO add save function
             /*
@@ -188,7 +177,8 @@ open class BaseStatusInstaller
 
             if (FrameworkZips.hasLocal(title, type)) {
                 texts[i] = context.getString(R.string.framework_delete)
-                ids[i++] = ACTION_DELETE
+                //ids[i++] = actionDelete
+                ids[i.inc()] = actionDelete
             }
 
             MaterialDialog.Builder(context)
@@ -199,7 +189,7 @@ open class BaseStatusInstaller
                         val action = itemView.id
 
                         // Handle delete simple actions.
-                        if (action == ACTION_DELETE) {
+                        if (action == actionDelete) {
                             FrameworkZips.delete(context, title, type)
                             LOCAL_ZIP_LOADER.triggerReload(true)
                             return@ListCallback
@@ -208,9 +198,9 @@ open class BaseStatusInstaller
                         // Handle actions that need a download first.
                         var runAfterDownload: RunnableWithParam<File>? = null
                         when (action) {
-                            ACTION_FLASH -> runAfterDownload = RunnableWithParam { file -> flash(context, install, FlashDirectly(file, type, title, false)) }
-                            ACTION_FLASH_RECOVERY -> runAfterDownload = RunnableWithParam { file -> flash(context, install, FlashRecoveryAuto(file, type, title)) }
-                            ACTION_SAVE -> runAfterDownload = RunnableWithParam { file -> saveTo(context, file) }
+                            actionFlash -> runAfterDownload = RunnableWithParam { file -> flash(context, install, FlashDirectly(file, type, title, false)) }
+                            actionFlashRecovery -> runAfterDownload = RunnableWithParam { file -> flash(context, install, FlashRecoveryAuto(file, type, title)) }
+                            actionSave -> runAfterDownload = RunnableWithParam { file -> saveTo(context, file) }
                         }
 
                         val local = FrameworkZips.getLocal(title, type)
@@ -222,6 +212,8 @@ open class BaseStatusInstaller
                     })
                     .show()
         }
+
+        @Suppress("UNUSED_ANONYMOUS_PARAMETER")
         fun download(context: Context, title: String, type: FrameworkZips.Type, callback: RunnableWithParam<File>?) {
             try {
                 doAsync {
@@ -233,7 +225,7 @@ open class BaseStatusInstaller
                                 .setTitle(zipTitle)
                                 .setUrl(zip.url)
                                 .setDestinationFromUrl(DownloadsUtil.DOWNLOAD_FRAMEWORK)
-                                .setCallback { context, info ->
+                                .setCallback { delegate, info ->
                                     LOCAL_ZIP_LOADER.triggerReload(true)
                                     callback!!.run(File(info.localFilename))
                                 }
@@ -253,6 +245,7 @@ open class BaseStatusInstaller
         }
 
         //TODO allow user to choose download folder
+        @Suppress("UNUSED_PARAMETER")
         private fun saveTo(context: Context, file: File) {
             Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show()
         }

@@ -15,10 +15,10 @@ import de.robv.android.xposed.installer.core.util.Loader
 import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.logic.*
-import de.robv.android.xposed.installer.ui.fragments.*
+import de.robv.android.xposed.installer.ui.activities.base.BaseNavActivity
+import de.robv.android.xposed.installer.ui.fragments.Download.DownloadDetailsFragment
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
-import de.robv.android.xposed.installer.logic.Utils.Companion.isBottomNav
 
 class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.Listener<RepoLoader>, View.OnClickListener, PopupMenu.OnMenuItemClickListener
 {
@@ -50,11 +50,12 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
     }
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         val nav = if (item!!.itemId == R.id.nav_item_about) NavigationPosition.ABOUT else NavigationPosition.SUPPORT
-        Utils.launchSheet(getFragManager(), nav)
+        Utils().launchSheet(getFragManager(), nav)
         return true
     }
     override fun onNavigationItemReselected(item: MenuItem) {
         //TODO notify user to stop spamming!
+       // Snackbar.make(getView)
     }
 
     override fun onCreate(savedInstanceBundle: Bundle?) {
@@ -85,7 +86,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
 
     override fun onResume() {
         super.onResume()
-        val lockOrNot = if (isBottomNav()) DrawerLayout.LOCK_MODE_LOCKED_CLOSED else DrawerLayout.LOCK_MODE_UNLOCKED
+        val lockOrNot = if (Utils().isBottomNav()) DrawerLayout.LOCK_MODE_LOCKED_CLOSED else DrawerLayout.LOCK_MODE_UNLOCKED
         getDrawerLayout()!!.setDrawerLockMode(lockOrNot)
         initVisFab()
         setNavActive(navPosition)
@@ -105,7 +106,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
 
     private fun initVisFab(){
         fabMenu.hide()
-        if (isBottomNav()) {
+        if (Utils().isBottomNav()) {
             if (navPosition != NavigationPosition.SETTINGS) fabMenu.show()
         }
         else{
@@ -113,11 +114,11 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         }
     }
     private fun showFabMenu(v: View){
-        Utils.launchMenu(this, v, R.menu.menu_popup, this).show()
+        Utils().launchMenu(this, v, R.menu.menu_popup, this).show()
     }
 
     private fun setNav() {
-        if (isBottomNav()) {
+        if (Utils().isBottomNav()) {
             getDrawerNav()!!.visibility = View.GONE
             getBottomNav()!!.visibility = View.VISIBLE
             initBottomNav(this, this)
@@ -142,7 +143,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         return true
     }
     private fun setNavActive(navPosition: NavigationPosition){
-        if (isBottomNav()){
+        if (Utils().isBottomNav()){
             setBottomNavActive(navPosition.getPos())
         } else{
             setDrawerNavActive(navPosition.getPos())

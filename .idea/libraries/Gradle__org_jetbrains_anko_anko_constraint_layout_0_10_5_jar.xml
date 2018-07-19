@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.anko:anko-constraint-layout:0.10.5@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.anko/anko-constraint-layout/0.10.5/f2f346db23e6052829c5e058441857136be4f64f/anko-constraint-layout-0.10.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.anko/anko-constraint-layout/0.10.5/fcdc2f86c92d752205999d96a4256379c008c28e/anko-constraint-layout-0.10.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

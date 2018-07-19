@@ -10,28 +10,22 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.XposedInstaller.Light"
         tools:replace="android:allowBackup">
-        <activity
-            android:name=".ui.activities.SplashActivity"
-            android:theme="@style/SplashTheme">
+        <activity android:name=".ui.activities.SplashActivity" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.activities.WelcomeActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="true"
-            android:label="@string/app_name" />
-        <activity
-            android:name=".ui.activities.SettingsActivity"
-            android:theme="@style/Theme.XposedInstaller.Transparent" />
-        <activity
-            android:name=".ui.activities.DownloadDetailsActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="true"
-            android:theme="@style/Theme.XposedInstaller.Transparent">
+        <!-- HOME -->
+        <activity android:name=".ui.activities.WelcomeActivity" android:configChanges="orientation|screenSize" android:exported="true" android:label="@string/app_name" />
+
+        <!-- Container -->
+        <activity android:name=".ui.activities.containers.ViewActivity" android:theme="@style/Theme.XposedInstaller.Transparent"/>
+
+        <activity android:name=".ui.activities.SettingsActivity" android:theme="@style/Theme.XposedInstaller.Transparent" />
+
+        <activity android:name=".ui.activities.DownloadDetailsActivity" android:configChanges="orientation|screenSize" android:exported="true" android:theme="@style/Theme.XposedInstaller.Transparent">
             <intent-filter>
                 <action android:name="de.robv.android.xposed.installer.DOWNLOAD_DETAILS" />
 
@@ -42,29 +36,18 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
-                <data
-                    android:host="repo.xposed.info"
-                    android:pathPrefix="/module/"
-                    android:scheme="http" />
+                <data android:host="repo.xposed.info" android:pathPrefix="/module/" android:scheme="http" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.activities.ViewActivity"
-            android:theme="@style/Theme.XposedInstaller.Transparent" />
-        <activity
-            android:name=".ui.activities.ModulesBookmark"
-            android:theme="@style/Theme.XposedInstaller.Transparent" />
-        <activity
-            android:name=".ui.activities.InstallationActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.XposedInstaller.Transparent" />
 
-        <receiver
-            android:name=".core.receivers.PackageChangeReceiver"
-            android:exported="false">
+        <activity android:name=".ui.activities.ModulesBookmark" android:theme="@style/Theme.XposedInstaller.Transparent" />
+
+        <activity android:name=".ui.activities.InstallationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.XposedInstaller.Transparent" />
+
+        <receiver android:name=".core.receivers.PackageChangeReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_CHANGED" />
@@ -73,26 +56,17 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name=".core.receivers.DownloadReceiver"
-            android:exported="true"
-            android:permission="android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS">
+
+        <receiver android:name=".core.receivers.DownloadReceiver" android:exported="true" android:permission="android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name=".core.util.NotificationUtil$RebootReceiver"
-            android:exported="false" />
 
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="de.robv.android.xposed.installer.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+        <receiver android:name=".core.util.NotificationUtil$RebootReceiver" android:exported="false" />
+
+        <provider android:name="android.support.v4.content.FileProvider" android:authorities="de.robv.android.xposed.installer.fileprovider" android:exported="false" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
         </provider>
 
     </application>

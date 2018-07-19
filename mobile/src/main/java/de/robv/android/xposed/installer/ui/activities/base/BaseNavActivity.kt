@@ -1,4 +1,4 @@
-package de.robv.android.xposed.installer.ui.activities
+package de.robv.android.xposed.installer.ui.activities.base
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -15,6 +15,7 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
 import de.robv.android.xposed.installer.logic.NavigationPosition
 import de.robv.android.xposed.installer.logic.Utils
+import de.robv.android.xposed.installer.ui.activities.XposedBaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
@@ -40,7 +41,7 @@ open class BaseNavActivity: XposedBaseActivity(),
 
     fun getDefaultMenu(): NavigationPosition {
         return try {
-            val id = Utils.getView()
+            val id = Utils().getView()
             when (id) {
                 0 -> NavigationPosition.HOME
                 1 -> NavigationPosition.MODULES

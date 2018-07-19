@@ -1,4 +1,4 @@
-package de.robv.android.xposed.installer.ui.fragments
+package de.robv.android.xposed.installer.ui.fragments.base
 
 import android.content.SharedPreferences
 import android.os.Bundle

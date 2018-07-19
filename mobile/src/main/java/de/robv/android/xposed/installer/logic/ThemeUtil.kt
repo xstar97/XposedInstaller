@@ -1,8 +1,6 @@
 package de.robv.android.xposed.installer.logic
 
 import android.content.Context
-import android.content.res.Resources.Theme
-import android.content.res.TypedArray
 
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.base.BaseXposedApp

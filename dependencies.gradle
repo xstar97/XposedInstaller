@@ -23,6 +23,7 @@ ext {
 
             kotlin             : '1.2.51',
             supportLib         : '27.1.1',
+            constraint         : '1.1.2',
             anko               : '0.10.5',
 
             libSuperUser       : '1.0.0.201608240809',//1.0.0.201608240809
@@ -51,6 +52,8 @@ ext {
     kotlinDependencies = [
             kotlinJre8         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jre8', version: versions.kotlin],
             kotlinJdk8         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: versions.kotlin],
+            kotlinJre7         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jre7', version: versions.kotlin],
+            kotlinJdk7         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: versions.kotlin]
     ]
 
     //Support Libraries dependencies
@@ -68,7 +71,7 @@ ext {
             customTabs         : [group: 'com.android.support', name: 'customtabs', version: versions.supportLib],
             vectorDrawable     : [group: 'com.android.support', name: 'support-vector-drawable', version: versions.supportLib],
             annotations        : [group: 'com.android.support', name: 'support-annotations', version: versions.supportLib],
-            constrainLayout    : [group: 'com.android.support', name: 'constraint-layout', version: versions.supportLib],
+            constraint         : [group: 'com.android.support.constraint', name: 'constraint-layout', version: versions.constraint]
     ]
 
     ankoDependencies = [
@@ -89,11 +92,11 @@ ext {
             recyclerView       : [group: 'org.jetbrains.anko', name: 'anko-recyclerview-v7', version: versions.anko],
             recyclerViewDelegate : [group: 'org.jetbrains.anko', name: 'anko-recyclerview-v7-coroutines', version: versions.anko],
             cardView            : [group: 'org.jetbrains.anko', name: 'anko-cardview-v7', version: versions.anko],
-            constraintLayout    : [group: 'org.jetbrains.anko', name: 'anko-constraint-layout', version: versions.anko],
+            constraint          : [group: 'org.jetbrains.anko', name: 'anko-constraint-layout', version: versions.anko],
             ankoSdk15           : [group: 'org.jetbrains.anko', name: 'anko-sdk15', version: versions.anko],
             sdk15Delegate       : [group: 'org.jetbrains.anko', name: 'anko-sdk15-coroutines', version: versions.anko],
             ankoSdk21           : [group: 'org.jetbrains.anko', name: 'anko-sdk21', version: versions.anko],
-            sdk21Delegate       : [group: 'org.jetbrains.anko', name: 'anko-sdk21-coroutines', version: versions.anko],
+            sdk21Delegate       : [group: 'org.jetbrains.anko', name: 'anko-sdk21-coroutines', version: versions.anko]
     ]
 
     utilsDependencies = [
@@ -105,14 +108,14 @@ ext {
             licensesDialog     : [group: 'de.psdev.licensesdialog', name: 'licensesdialog', version: versions.licensesDialog],
             baseAdapter        : [group: 'com.github.skydoves', name: 'baserecyclerviewadapter', version: versions.baseAdapter],
             issueReporter      : [group: 'com.heinrichreimersoftware', name: 'android-issue-reporter', version: versions.issueReporter],
-            hover              : [group: 'io.mattcarroll.hover', name: 'hover', version: versions.hover],
+            hover              : [group: 'io.mattcarroll.hover', name: 'hover', version: versions.hover]
     ]
 
 
     testDependencies = [
             junit              : [group: 'junit', name: 'junit', version: versions.junit],
             espressoCore       : [group: 'com.android.support.test.espresso', name: 'espresso-core', version: versions.espresso],
-            testRunner         : [group: 'com.android.support.test', name: 'runner', version: versions.testRunner],
+            testRunner         : [group: 'com.android.support.test', name: 'runner', version: versions.testRunner]
     ]
 
 }

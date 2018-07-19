@@ -3,8 +3,8 @@ package de.robv.android.xposed.installer.ui.activities
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.StringRes
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.view.WindowManager
 
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.logic.ThemeUtil
@@ -42,7 +42,9 @@ abstract class XposedBaseActivity : AppCompatActivity()
             setFinishOnTouchOutside(true)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = resources.getColor(R.color.colorPrimaryDark)
+            val color = ContextCompat.getColor(this, R.color.colorPrimaryDark)
+            //window.statusBarColor = resources.getColor(R.color.colorPrimaryDark)
+            window.statusBarColor = color
         }
     }
 }

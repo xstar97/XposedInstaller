@@ -1,4 +1,4 @@
-package de.robv.android.xposed.installer.ui.fragments
+package de.robv.android.xposed.installer.ui.fragments.Download
 
 import android.support.v4.app.Fragment
 import android.content.Context

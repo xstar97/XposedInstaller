@@ -64,6 +64,7 @@ import de.robv.android.xposed.installer.core.util.ModuleUtil.SETTINGS_CATEGORY
 import de.robv.android.xposed.installer.core.base.fragments.utils.ModulesUtil
 import de.robv.android.xposed.installer.logic.NavigationPosition
 import de.robv.android.xposed.installer.ui.activities.WelcomeActivity
+import de.robv.android.xposed.installer.ui.fragments.Download.DownloadDetailsVersionsFragment
 
 @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE", "UNUSED_VARIABLE", "PropertyName", "MemberVisibilityCanBePrivate")
 class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener

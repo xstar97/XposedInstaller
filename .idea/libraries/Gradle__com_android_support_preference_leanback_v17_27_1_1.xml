@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.android.support:preference-leanback-v17-27.1.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/preference-leanback-v17-27.1.1.aar/f881c1a0095dd83075b3a797ade50487/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/preference-leanback-v17-27.1.1.aar/f881c1a0095dd83075b3a797ade50487/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/preference-leanback-v17/27.1.1/dab05bce7a011565d8c593de52dcef6a9197e2da/preference-leanback-v17-27.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

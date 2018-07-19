@@ -38,11 +38,37 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:leanback-v17:27.1.1'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(":core")
 
     // Kotlin
     implementation kotlinDependencies.kotlinJdk8
 
     // Support Libraries
     implementation supportDependencies.leanbackV17
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.design
+    implementation supportDependencies.supportV13
+    implementation supportDependencies.supportV4
+    implementation supportDependencies.constraint
+    implementation supportDependencies.vectorDrawable
+
+    implementation supportDependencies.recyclerView
+    implementation supportDependencies.cardView
+    implementation supportDependencies.preferenceV7
+    implementation supportDependencies.preferenceV14
+    implementation supportDependencies.preferenceV17
+
+    // Anko Support Libraries
+    implementation ankoDependencies.appCompat
+    implementation ankoDependencies.appCompatDelegate
+    implementation ankoDependencies.design
+    implementation ankoDependencies.constraint
+
+    // Util Libraries
+    implementation utilsDependencies.glide
 }

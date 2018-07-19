@@ -1,4 +1,4 @@
-package de.robv.android.xposed.installer.ui.fragments
+package de.robv.android.xposed.installer.ui.fragments.containers
 
 import android.os.Bundle
 import android.support.design.widget.BottomSheetDialogFragment
@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
 import de.robv.android.xposed.installer.logic.NavigationPosition
-import de.robv.android.xposed.installer.logic.createFragment
+import de.robv.android.xposed.installer.logic.Utils
 import de.robv.android.xposed.installer.logic.getTag
 
 /**
@@ -42,17 +42,7 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
         return v
     }
     private fun setSheetFragment(){
-        val frag = when(getFragTag()){
-            NavigationPosition.DOWNLOAD.getTag() -> NavigationPosition.DOWNLOAD.createFragment()
-            NavigationPosition.MODULES.getTag() -> NavigationPosition.MODULES.createFragment()
-            NavigationPosition.HOME.getTag() -> NavigationPosition.HOME.createFragment()
-            NavigationPosition.LOGS.getTag() -> NavigationPosition.LOGS.createFragment()
-            NavigationPosition.SETTINGS.getTag() -> NavigationPosition.SETTINGS.createFragment()
-            NavigationPosition.SUPPORT.getTag() -> NavigationPosition.SUPPORT.createFragment()
-            NavigationPosition.ABOUT.getTag() -> NavigationPosition.ABOUT.createFragment()
-            else -> NavigationPosition.HOME.createFragment()
-        }
-        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, frag).commitNowAllowingStateLoss()
+        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, Utils().getFragment(getFragTag())).commitNowAllowingStateLoss()
     }
     private fun getFragTag(): String {
         val bundle = this.arguments

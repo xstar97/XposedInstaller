@@ -1,4 +1,4 @@
-package de.robv.android.xposed.installer.ui.fragments
+package de.robv.android.xposed.installer.ui.fragments.Download
 
 import android.annotation.SuppressLint
 import android.app.Activity

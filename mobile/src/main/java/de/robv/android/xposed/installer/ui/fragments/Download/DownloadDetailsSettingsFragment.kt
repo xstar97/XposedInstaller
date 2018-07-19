@@ -1,17 +1,16 @@
-package de.robv.android.xposed.installer.ui.fragments
+package de.robv.android.xposed.installer.ui.fragments.Download
 
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceManager
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.util.PrefixedSharedPreferences
 
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.ui.activities.DownloadDetailsActivity
+import de.robv.android.xposed.installer.ui.fragments.base.BasePreferenceFragment
 
-@Suppress("DEPRECATION")
+@Suppress("DEPRECATION", "UNUSED_ANONYMOUS_PARAMETER")
 class DownloadDetailsSettingsFragment : BasePreferenceFragment() {
 
     companion object {

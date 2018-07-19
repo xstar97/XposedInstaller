@@ -24,7 +24,7 @@ import de.robv.android.xposed.installer.core.repo.Module
 import de.robv.android.xposed.installer.core.util.DownloadsUtil
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.logic.ThemeUtil
-import de.robv.android.xposed.installer.ui.fragments.DownloadDetailsVersionsFragment
+import de.robv.android.xposed.installer.ui.fragments.Download.DownloadDetailsVersionsFragment
 
 class ModulesBookmark : XposedBaseActivity() {
 

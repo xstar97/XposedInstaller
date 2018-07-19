@@ -16,7 +16,7 @@ import java.io.IOException
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
 import de.robv.android.xposed.installer.core.util.RepoLoader
-import de.robv.android.xposed.installer.logic.NavigationPosition
+import de.robv.android.xposed.installer.ui.fragments.base.BasePreferenceFragment
 
 @Suppress("UNUSED_ANONYMOUS_PARAMETER", "PrivatePropertyName")
 class SettingsFragment : BasePreferenceFragment()

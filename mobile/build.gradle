@@ -63,6 +63,7 @@ dependencies {
     implementation ankoDependencies.appCompat
     implementation ankoDependencies.appCompatDelegate
     implementation ankoDependencies.design
+    implementation supportDependencies.vectorDrawable
     //implementation ankoDependencies.cardView
     //implementation ankoDependencies.recyclerView
     //implementation ankoDependencies.recyclerViewDelegate

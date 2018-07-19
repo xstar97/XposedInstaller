@@ -56,8 +56,4 @@ dependencies {
     api ankoDependencies.sqlite
 
     api utilsDependencies.issueReporter
-
-    testImplementation testDependencies.junit
-    androidTestImplementation testDependencies.testRunner
-    androidTestImplementation testDependencies.espressoCore
 }

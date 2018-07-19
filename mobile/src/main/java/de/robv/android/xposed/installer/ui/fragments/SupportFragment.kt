@@ -10,6 +10,7 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.base.fragments.BaseSupport
 import de.robv.android.xposed.installer.logic.adapters.info.TabInfoBaseAdapter
 import de.robv.android.xposed.installer.logic.adapters.info.TabInfoModel
+import de.robv.android.xposed.installer.ui.fragments.base.BaseViewFragment
 import kotlinx.android.synthetic.main.fragment_view.*
 
 class SupportFragment: BaseViewFragment()

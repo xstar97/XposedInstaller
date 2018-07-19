@@ -1,4 +1,4 @@
-package de.robv.android.xposed.installer.ui.fragments
+package de.robv.android.xposed.installer.ui.fragments.base
 
 import android.support.v4.app.Fragment
 import de.robv.android.xposed.installer.logic.adapters.info.TabInfoModel

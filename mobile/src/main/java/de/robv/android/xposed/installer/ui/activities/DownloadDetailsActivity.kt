@@ -19,7 +19,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 
-import de.robv.android.xposed.installer.ui.fragments.DownloadDetailsVersionsFragment
+import de.robv.android.xposed.installer.ui.fragments.Download.DownloadDetailsVersionsFragment
 import de.robv.android.xposed.installer.ui.fragments.ModulesFragment
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.repo.Module
@@ -29,8 +29,8 @@ import de.robv.android.xposed.installer.core.util.ModuleUtil.InstalledModule
 import de.robv.android.xposed.installer.core.util.ModuleUtil.ModuleListener
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.logic.ThemeUtil
-import de.robv.android.xposed.installer.ui.fragments.DownloadDetailsFragment
-import de.robv.android.xposed.installer.ui.fragments.DownloadDetailsSettingsFragment
+import de.robv.android.xposed.installer.ui.fragments.Download.DownloadDetailsFragment
+import de.robv.android.xposed.installer.ui.fragments.Download.DownloadDetailsSettingsFragment
 
 class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader>, ModuleListener
 {

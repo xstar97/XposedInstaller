@@ -157,7 +157,7 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
     }
 
     private fun setSheetFragment(){
-        childFragmentManager.beginTransaction().replace(R.id.app_sheet_content, DeviceInfoFragment()).commitNowAllowingStateLoss()
+        childFragmentManager.beginTransaction().replace(R.id.app_sheet_content, DeviceInfoFragment()).commit()
     }
 
     private fun refreshInstallStatus() {

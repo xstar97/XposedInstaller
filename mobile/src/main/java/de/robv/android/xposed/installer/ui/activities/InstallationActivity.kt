@@ -152,6 +152,7 @@ class InstallationActivity : XposedBaseActivity() {
                 // Fade in the result image.
                 mConsoleResult!!.setImageResource(R.drawable.ic_check_circle)
                 mConsoleResult!!.visibility = View.VISIBLE
+                //TODO replace the InstallationUtils method
                 val fadeInResult = InstallationUtils.FadeInResult(mConsoleResult, "alpha", 0.0f, 0.03f)
                 fadeInResult.duration = (MEDIUM_ANIM_TIME * 2).toLong()
 
@@ -176,6 +177,7 @@ class InstallationActivity : XposedBaseActivity() {
                 expandBottomBar.duration = (MEDIUM_ANIM_TIME * 2).toLong()
                 expandBottomBar.startDelay = (LONG_ANIM_TIME * 4).toLong()
 
+                //TODO replace the InstallationUtils method
                 val countdownProgress = InstallationUtils.CountdownProgress(mProgress, "progress", REBOOT_COUNTDOWN, 0)
                 countdownProgress.duration = REBOOT_COUNTDOWN.toLong()
                 countdownProgress.interpolator = LinearInterpolator()
@@ -252,6 +254,7 @@ class InstallationActivity : XposedBaseActivity() {
 
                 mConsoleResult!!.setImageResource(R.drawable.ic_error)
                 mConsoleResult!!.visibility = View.VISIBLE
+                //TODO replace the InstallationUtils method
                 val fadeInResult = InstallationUtils.FadeInResult(mConsoleResult, "alpha", 0.0f, 0.03f)
                 fadeInResult.duration = (MEDIUM_ANIM_TIME * 2).toLong()
 

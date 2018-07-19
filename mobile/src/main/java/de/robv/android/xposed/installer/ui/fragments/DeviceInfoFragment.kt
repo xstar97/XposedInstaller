@@ -13,11 +13,16 @@ import de.robv.android.xposed.installer.XposedApp
 import de.robv.android.xposed.installer.core.util.FrameworkZips
 import de.robv.android.xposed.installer.logic.adapters.info.TabInfoBaseAdapter
 import de.robv.android.xposed.installer.logic.adapters.info.TabInfoModel
+import de.robv.android.xposed.installer.ui.fragments.base.BaseViewFragment
 import java.io.File
 import kotlinx.android.synthetic.main.fragment_view.*
 
 class DeviceInfoFragment: BaseViewFragment()
 {
+    companion object {
+        val TAG: String = DeviceInfoFragment::class.java.simpleName
+        fun newInstance() = DeviceInfoFragment()
+    }
     override fun onItemClick(infoItem: TabInfoModel) {
         //TODO add xda links for specific items...
     }

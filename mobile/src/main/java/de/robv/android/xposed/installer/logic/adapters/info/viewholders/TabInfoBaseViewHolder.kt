@@ -1,6 +1,6 @@
 package de.robv.android.xposed.installer.logic.adapters.info.viewholders
 
-import android.content.res.Resources
+import android.support.v4.content.ContextCompat
 import android.view.View
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 import de.robv.android.xposed.installer.R
@@ -24,11 +24,15 @@ class TabInfoBaseViewHolder(view: View, private val delegate: Delegate) : BaseVi
 
     private fun drawItem() {
         itemView.run {
-            list_item_tab_icon.setBackgroundResource(infoItem.icon)
-            if (shouldAddWarningColor(this.resources)){
-                list_item_tab_key.setTextColor(this.resources.getColor(R.color.warning))
-                list_item_tab_description.setTextColor(resources.getColor(R.color.warning))
+
+            val red500 = ContextCompat.getColor(context, R.color.warning)
+            //val red500 = Color.parseColor("#F44336")
+            if(infoItem.key == resources.getString(R.string.verified_boot_active)){
+                list_item_tab_key.setTextColor(red500)
+            }else if(infoItem.desciption == resources.getString(R.string.verified_boot_explanation)){
+                list_item_tab_description.setTextColor(red500)
             }
+            list_item_tab_icon.setBackgroundResource(infoItem.icon)
             list_item_tab_key.text = infoItem.key
             list_item_tab_description.text = infoItem.desciption
         }
@@ -39,9 +43,4 @@ class TabInfoBaseViewHolder(view: View, private val delegate: Delegate) : BaseVi
     }
 
     override fun onLongClick(v: View?) = false
-    private fun shouldAddWarningColor(res: Resources): Boolean{
-
-        return infoItem.key == res.getString(R.string.verified_boot_active) ||
-        infoItem.desciption == res.getString(R.string.verified_boot_explanation)
-    }
 }
