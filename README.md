@@ -24,7 +24,7 @@ there is a TON more work to do....
 
 Bottom Nav(MOBILE)         |            TV
 :-------------------------:|:-------------------------:
-  <img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavDrawer.png" alt="drawing" width="250px"/>                          | <img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavBottom.png" alt="drawing" width="250px"/>                             | <img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/emptyTV.png" alt="drawing" width="720px"/>
+<img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavBottom.png" alt="drawing" width="250px"/>                             | <img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/emptyTV.png" alt="drawing" width="720px"/>
  
 ### TODO
 
