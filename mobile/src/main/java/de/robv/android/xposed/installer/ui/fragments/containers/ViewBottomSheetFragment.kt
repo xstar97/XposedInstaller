@@ -9,9 +9,7 @@ import android.view.ViewGroup
 
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
-import de.robv.android.xposed.installer.logic.NavigationPosition
-import de.robv.android.xposed.installer.logic.Utils
-import de.robv.android.xposed.installer.logic.getTag
+import de.robv.android.xposed.installer.logic.*
 
 /**
  * BottomSheetFragment Container for all the fragments
@@ -24,7 +22,7 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
         fun newInstance(tag: NavigationPosition): ViewBottomSheetFragment {
             val frag = ViewBottomSheetFragment()
             val args = Bundle()
-            args.putString(BUNDLE_SHEET_KEY, tag.getTag())
+            args.putInt(BUNDLE_SHEET_KEY, tag.getPos())
             frag.arguments = args
             return frag
         }
@@ -42,15 +40,17 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
         return v
     }
     private fun setSheetFragment(){
-        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, Utils().getFragment(getFragTag())).commitNowAllowingStateLoss()
+        val nav = NavigationPosition.values()
+        val sheet = nav[getFragPos()].createFragment()
+        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, sheet).commitNowAllowingStateLoss()
     }
-    private fun getFragTag(): String {
+    private fun getFragPos(): Int {
         val bundle = this.arguments
          if (bundle != null) {
-            val i = bundle.getString(BUNDLE_SHEET_KEY, NavigationPosition.HOME.getTag())
+            val i = bundle.getInt(BUNDLE_SHEET_KEY, NavigationPosition.HOME.getPos())
             Log.d(XposedApp.TAG, "initSheet: $i")
             return i
         }
-        return NavigationPosition.HOME.getTag()
+        return NavigationPosition.HOME.getPos()
     }
 }

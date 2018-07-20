@@ -54,15 +54,12 @@ open class Utils
         }
     }
 
-    fun launchSheet(fragmentManager: android.support.v4.app.FragmentManager, tag: NavigationPosition){
-        val bottomSheetFragment = ViewBottomSheetFragment.newInstance(tag)
-        //val bundle = Bundle()
-        // bundle.putString(ViewBottomSheetFragment.BUNDLE_SHEET_KEY, tag)
-        //bottomSheetFragment.arguments = bundle
+    fun launchSheet(fragmentManager: android.support.v4.app.FragmentManager, nav: NavigationPosition){
+        val bottomSheetFragment = ViewBottomSheetFragment.newInstance(nav)
         bottomSheetFragment.show(fragmentManager, bottomSheetFragment.tag)
     }
-    fun launchDialog(fragmentManager: android.support.v4.app.FragmentManager, tag: NavigationPosition){
-        val dialog = ViewDialogFragment.newInstance(tag)
+    fun launchDialog(fragmentManager: android.support.v4.app.FragmentManager, nav: NavigationPosition){
+        val dialog = ViewDialogFragment.newInstance(nav)
         dialog.show(fragmentManager, dialog.tag)
 
     }
@@ -71,19 +68,5 @@ open class Utils
         popUp.menuInflater.inflate(menu, popUp.menu)
         popUp.setOnMenuItemClickListener(delegate)
         return popUp
-    }
-
-    fun getFragment(tag: String): Fragment {
-        return when (tag) {
-            NavigationPosition.DOWNLOAD.getTag() -> NavigationPosition.DOWNLOAD.createFragment()
-            NavigationPosition.MODULES.getTag() -> NavigationPosition.MODULES.createFragment()
-            NavigationPosition.HOME.getTag() -> NavigationPosition.HOME.createFragment()
-            NavigationPosition.LOGS.getTag() -> NavigationPosition.LOGS.createFragment()
-            NavigationPosition.SETTINGS.getTag() -> NavigationPosition.SETTINGS.createFragment()
-            NavigationPosition.SUPPORT.getTag() -> NavigationPosition.SUPPORT.createFragment()
-            NavigationPosition.ABOUT.getTag() -> NavigationPosition.ABOUT.createFragment()
-            NavigationPosition.DEVICEINFO.getTag() -> NavigationPosition.DEVICEINFO.createFragment()
-            else -> NavigationPosition.HOME.createFragment()
-        }
     }
 }

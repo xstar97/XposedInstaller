@@ -24,6 +24,7 @@ fun findNavPosById(id: Int): NavigationPosition = when (id) {
     NavigationPosition.SETTINGS.id -> NavigationPosition.SETTINGS
     NavigationPosition.SUPPORT.id -> NavigationPosition.SUPPORT
     NavigationPosition.ABOUT.id -> NavigationPosition.ABOUT
+    //TODO add error fragment
     else -> NavigationPosition.HOME
 }
 

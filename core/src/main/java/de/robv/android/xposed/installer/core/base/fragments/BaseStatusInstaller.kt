@@ -28,9 +28,7 @@ open class BaseStatusInstaller
             return try {
                 Class.forName(className)
                 true
-            } catch (e: Throwable) {
-                false
-            } catch (e: ClassNotFoundException) {
+            }catch (e: ClassNotFoundException) {
                 false
             }
 
@@ -150,7 +148,7 @@ open class BaseStatusInstaller
                     .show()
         }
 
-        @Suppress("UNUSED_ANONYMOUS_PARAMETER")
+        @Suppress("UNUSED_ANONYMOUS_PARAMETER", "UNUSED_CHANGED_VALUE")
         fun showActionDialog(context: Context, install: Intent, title: String, type: FrameworkZips.Type) {
             val actionFlash = 0
             val actionFlashRecovery = 1
@@ -177,8 +175,8 @@ open class BaseStatusInstaller
 
             if (FrameworkZips.hasLocal(title, type)) {
                 texts[i] = context.getString(R.string.framework_delete)
-                //ids[i++] = actionDelete
-                ids[i.inc()] = actionDelete
+                //TODO rework this method
+                ids[i++] = actionDelete
             }
 
             MaterialDialog.Builder(context)

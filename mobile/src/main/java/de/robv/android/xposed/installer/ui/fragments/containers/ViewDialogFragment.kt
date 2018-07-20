@@ -9,19 +9,17 @@ import android.view.ViewGroup
 
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.XposedApp
-import de.robv.android.xposed.installer.logic.NavigationPosition
-import de.robv.android.xposed.installer.logic.Utils
-import de.robv.android.xposed.installer.logic.getTag
+import de.robv.android.xposed.installer.logic.*
 
 class ViewDialogFragment : DialogFragment() {
 
     companion object {
         val TAG: String = ViewDialogFragment::class.java.simpleName
         const val BUNDLE_DIALOG_KEY = "initDialog"
-        fun newInstance(tag: NavigationPosition): ViewDialogFragment {
+        fun newInstance(pos: NavigationPosition): ViewDialogFragment {
             val frag = ViewDialogFragment()
             val args = Bundle()
-            args.putString(BUNDLE_DIALOG_KEY, tag.getTag())
+            args.putInt(BUNDLE_DIALOG_KEY, pos.getPos())
             frag.arguments = args
             return frag
         }
@@ -37,16 +35,18 @@ class ViewDialogFragment : DialogFragment() {
         setDialogFragment()
     }
     private fun setDialogFragment(){
-        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, Utils().getFragment(getFragTag())).commitNowAllowingStateLoss()
+        val nav = NavigationPosition.values()
+        val dialog = nav[getFragPos()].createFragment()
+        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, dialog).commitNowAllowingStateLoss()
     }
-    private fun getFragTag(): String {
+    private fun getFragPos(): Int {
         val bundle = this.arguments
         if (bundle != null) {
-            val i = bundle.getString(BUNDLE_DIALOG_KEY, NavigationPosition.HOME.getTag())
+            val i = bundle.getInt(BUNDLE_DIALOG_KEY, NavigationPosition.HOME.getPos())
             Log.d(XposedApp.TAG, "initSheet: $i")
             return i
         }
-        return NavigationPosition.HOME.getTag()
+        return NavigationPosition.HOME.getPos()
     }
 
 }

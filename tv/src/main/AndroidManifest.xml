@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activities.WelcomeActivity" />
-        <activity android:name=".ui.activities.ViewActivity" />
+        <activity android:name=".ui.activities.containers.ViewActivity" />
 
     </application>
 

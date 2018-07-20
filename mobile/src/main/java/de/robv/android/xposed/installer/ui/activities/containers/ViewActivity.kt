@@ -38,24 +38,27 @@ class ViewActivity: XposedBaseActivity()
         }
     }
     private fun setFragTitle(): String {
-        return when(getFragTag()){
-            NavigationPosition.DOWNLOAD.getTag() -> getString(R.string.nav_item_download)
-            NavigationPosition.MODULES.getTag() -> getString(R.string.nav_item_modules)
-            NavigationPosition.HOME.getTag() -> getString(R.string.nav_item_install)
-            NavigationPosition.LOGS.getTag() -> getString(R.string.nav_item_logs)
-            NavigationPosition.SETTINGS.getTag() -> getString(R.string.nav_item_settings)
-            NavigationPosition.SUPPORT.getTag() -> getString(R.string.nav_item_support)
-            NavigationPosition.ABOUT.getTag() -> getString(R.string.nav_item_about)
+        return when(getFragPos()){
+            NavigationPosition.DOWNLOAD.getPos() -> getString(R.string.nav_item_download)
+            NavigationPosition.MODULES.getPos() -> getString(R.string.nav_item_modules)
+            NavigationPosition.HOME.getPos() -> getString(R.string.nav_item_install)
+            NavigationPosition.LOGS.getPos() -> getString(R.string.nav_item_logs)
+            NavigationPosition.SETTINGS.getPos() -> getString(R.string.nav_item_settings)
+            NavigationPosition.SUPPORT.getPos() -> getString(R.string.nav_item_support)
+            NavigationPosition.ABOUT.getPos() -> getString(R.string.nav_item_about)
+            //TODO add error fragment
             else -> getString(R.string.nav_item_install)
         }
     }
     private fun setActivityFragment(){
+        val nav = NavigationPosition.values()
+        val activity = nav[getFragPos()].createFragment()
         supportFragmentManager.beginTransaction()
-                .replace(R.id.container, Utils().getFragment(getFragTag())).commit()
+                .replace(R.id.container, activity).commit()
     }
 
-    private fun getFragTag(): String{
-        val intent = this.intent.extras!!.get(INTENT_ACTIVITY_KEY).toString()
+    private fun getFragPos(): Int{
+        val intent = this.intent.extras!!.get(INTENT_ACTIVITY_KEY).toString().toInt()
         Log.d(XposedApp.TAG, "$INTENT_ACTIVITY_KEY: $intent")
         return intent
     }

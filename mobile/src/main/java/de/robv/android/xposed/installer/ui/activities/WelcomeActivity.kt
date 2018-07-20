@@ -49,8 +49,14 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         return switchFragment(navPosition)
     }
     override fun onMenuItemClick(item: MenuItem?): Boolean {
-        val nav = if (item!!.itemId == R.id.nav_item_about) NavigationPosition.ABOUT else NavigationPosition.SUPPORT
-        Utils().launchSheet(getFragManager(), nav)
+        try {
+            val nav = NavigationPosition.values()
+            val pos = if (item!!.itemId == R.id.nav_item_about) NavigationPosition.ABOUT.getPos() else NavigationPosition.SUPPORT.getPos()
+            val navPos = nav[pos]
+            Utils().launchSheet(getFragManager(), navPos)
+        }catch (e: Exception){
+            Log.e(XposedApp.TAG, e.message)
+        }
         return true
     }
     override fun onNavigationItemReselected(item: MenuItem) {
@@ -149,9 +155,8 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
             setDrawerNavActive(navPosition.getPos())
         }
     }
-    private fun android.support.v4.app.FragmentManager.findFragment(position: NavigationPosition): Fragment? {
-        return findFragmentByTag(position.getTag()) ?: position.createFragment()
-    }
+
+
     private fun detachFragment() {
         getFragManager().findFragmentById(R.id.content)?.also {
             getFragManager().beginTransaction().detach(it).commit()
@@ -167,6 +172,10 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         getFragManager().beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit()
+    }
+
+    private fun android.support.v4.app.FragmentManager.findFragment(position: NavigationPosition): Fragment? {
+        return findFragmentByTag(position.getTag()) ?: position.createFragment()
     }
     private fun getFragManager(): android.support.v4.app.FragmentManager{
         return supportFragmentManager
@@ -196,6 +205,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
             Log.d(XposedApp.TAG, e.message)
         }
     }
+
     override fun onDestroy() {
         super.onDestroy()
         try {
