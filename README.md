@@ -22,14 +22,15 @@ The file, 'dependencies.gradle', contains all the the entire project dependencie
 
 there is a TON more work to do....
 
-<img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavDrawer.png" alt="drawing" width="250px"/>
-
-<img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavBottom.png" alt="drawing" width="250px"/>
+Drawer Nav(MOBILE)         |  Bottom Nav(MOBILE)        |            TV
+:-------------------------:|:-------------------------: |:-------------------------:
+  <img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavDrawer.png" alt="drawing" width="250px"/>                          | <img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/StatusInstallerFragmentNavBottom.png" alt="drawing" width="250px"/>                             | <img src="https://raw.githubusercontent.com/Xstar97/XposedInstaller/master/screenshots/emptyTV.png" alt="drawing" width="720px"/>
  
 ### TODO
 
 - TV Module:)
 - remove unused dependencies...
-- create utlity/base classes to be resused and never rewritten in 'core' module
+- remove specific ui/notification from core to be more universal!
+- create utlity/base classes to be resused in both mobile and tv modules and be written in 'core' module
 
 certain key functions CANT be rewritten in kotlin yet and have to stay as a utility java class...but its a work in progress.
