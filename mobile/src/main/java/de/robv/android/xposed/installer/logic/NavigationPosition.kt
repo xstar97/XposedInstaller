@@ -1,5 +1,6 @@
 package de.robv.android.xposed.installer.logic
 
+import android.content.Context
 import android.support.v4.app.Fragment
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.ui.fragments.*
@@ -59,5 +60,15 @@ fun NavigationPosition.getPos(): Int = when (this) {
     NavigationPosition.SUPPORT -> 5
     NavigationPosition.ABOUT -> 6
     NavigationPosition.DEVICEINFO -> 7
+}
+fun NavigationPosition.getTitle(context: Context): String = when (this) {
+    NavigationPosition.DOWNLOAD -> context.getString(R.string.nav_item_download)
+    NavigationPosition.MODULES -> context.getString(R.string.nav_item_modules)
+    NavigationPosition.HOME -> context.getString(R.string.nav_item_install)
+    NavigationPosition.LOGS -> context.getString(R.string.nav_item_logs)
+    NavigationPosition.SETTINGS -> context.getString(R.string.nav_item_settings)
+    NavigationPosition.SUPPORT -> context.getString(R.string.nav_item_support)
+    NavigationPosition.ABOUT -> context.getString(R.string.nav_item_about)
+    NavigationPosition.DEVICEINFO -> context.getString(R.string.framework_device_info)
 }
 private fun setNavPos(bottom: Int, drawer: Int) = if (Utils().isBottomNav()) bottom else drawer

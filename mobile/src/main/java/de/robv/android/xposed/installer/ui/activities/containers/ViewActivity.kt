@@ -38,23 +38,11 @@ class ViewActivity: XposedBaseActivity()
         }
     }
     private fun setFragTitle(): String {
-        return when(getFragPos()){
-            NavigationPosition.DOWNLOAD.getPos() -> getString(R.string.nav_item_download)
-            NavigationPosition.MODULES.getPos() -> getString(R.string.nav_item_modules)
-            NavigationPosition.HOME.getPos() -> getString(R.string.nav_item_install)
-            NavigationPosition.LOGS.getPos() -> getString(R.string.nav_item_logs)
-            NavigationPosition.SETTINGS.getPos() -> getString(R.string.nav_item_settings)
-            NavigationPosition.SUPPORT.getPos() -> getString(R.string.nav_item_support)
-            NavigationPosition.ABOUT.getPos() -> getString(R.string.nav_item_about)
-            //TODO add error fragment
-            else -> getString(R.string.nav_item_install)
-        }
+        return NavigationPosition.values()[getFragPos()].getTitle(this)
     }
     private fun setActivityFragment(){
-        val nav = NavigationPosition.values()
-        val activity = nav[getFragPos()].createFragment()
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.container, activity).commit()
+        val activity = NavigationPosition.values()[getFragPos()].createFragment()
+        supportFragmentManager.beginTransaction().replace(R.id.container, activity).commit()
     }
 
     private fun getFragPos(): Int{

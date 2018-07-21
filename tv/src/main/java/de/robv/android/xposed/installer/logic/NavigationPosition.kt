@@ -1,6 +1,8 @@
 package de.robv.android.xposed.installer.logic
 
+import android.content.Context
 import android.support.v4.app.Fragment
+import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.ui.fragments.*
 
 enum class NavigationPosition(val pos: Int) {
@@ -10,8 +12,7 @@ enum class NavigationPosition(val pos: Int) {
     LOGS(3),
     SUPPORT(4),
     ABOUT(5),
-    SETTINGS(6),
-    ERROR(-1);
+    SETTINGS(6);
 }
 fun NavigationPosition.createFragment(): Fragment = when (this) {
     //NavigationPosition.HOME -> StatusInstallerFragment.newInstance()
@@ -33,4 +34,26 @@ fun NavigationPosition.getTag(): String = when (this) {
     //NavigationPosition.ABOUT -> AboutFragment.TAG
     NavigationPosition.SETTINGS -> SettingsFragment.TAG
     else -> ErrorFragment.TAG
+}
+
+fun NavigationPosition.getTitle(context: Context): String = when (this) {
+    NavigationPosition.HOME -> context.getString(R.string.nav_item_install)
+    NavigationPosition.MODULES -> context.getString(R.string.nav_item_modules)
+    NavigationPosition.DOWNLOAD -> context.getString(R.string.nav_item_download)
+    NavigationPosition.LOGS -> context.getString(R.string.nav_item_logs)
+    NavigationPosition.SUPPORT -> context.getString(R.string.nav_item_support)
+    NavigationPosition.ABOUT -> context.getString(R.string.nav_item_about)
+    NavigationPosition.SETTINGS -> context.getString(R.string.nav_item_settings)
+    else -> context.getString(R.string.error_fragment)
+}
+
+fun NavigationPosition.getNavCategoriesItems(): Array<String> = when (this) {
+    NavigationPosition.HOME -> arrayOf("framework installed message", "installer", "uninstaller", "your device")
+    NavigationPosition.MODULES -> arrayOf("list of istalled modules")
+    NavigationPosition.DOWNLOAD -> arrayOf("list of downloadable modules")
+    NavigationPosition.LOGS -> arrayOf("View Logs")
+    NavigationPosition.SUPPORT -> arrayOf("support for module", "framework/installer suppoer", "faq/known issues", "donate")
+    NavigationPosition.ABOUT -> arrayOf("version", "main devs", "list of used libraries", "translator", "source code:)")
+    NavigationPosition.SETTINGS -> arrayOf("launch settings")
+    else -> arrayOf("", "")
 }
