@@ -8,16 +8,12 @@ import de.robv.android.xposed.installer.R
 import android.widget.TextView
 import android.view.Gravity
 import android.view.ViewGroup
-import android.support.v17.leanback.widget.Presenter
-import android.support.v17.leanback.widget.ListRow
-import android.support.v17.leanback.widget.ArrayObjectAdapter
-import android.support.v17.leanback.widget.HeaderItem
-import android.support.v17.leanback.widget.ListRowPresenter
 
 import de.robv.android.xposed.installer.logic.NavigationPosition
-import de.robv.android.xposed.installer.logic.getNavCategoriesItems
 import de.robv.android.xposed.installer.logic.getTitle
 
+import android.support.v17.leanback.widget.*
+import android.support.v17.leanback.widget.Presenter
 
 open class BaseNavFragment: BrowseSupportFragment()
 {
@@ -29,31 +25,28 @@ open class BaseNavFragment: BrowseSupportFragment()
         const val GRID_ITEM_HEIGHT = 200
         var mRowsAdapter: ArrayObjectAdapter? = null
     }
-    //delegateOnSelected: HeadersSupportFragment.OnHeaderViewSelectedListener, delegateOnClicked: HeadersSupportFragment.OnHeaderClickedListener
-    fun setupUIElements() {
+
+    fun setupUIElements(){
         title = getString(R.string.app_name)
         headersState = BrowseSupportFragment.HEADERS_ENABLED
         isHeadersTransitionOnBackEnabled = true
         brandColor = ContextCompat.getColor(activity!!, R.color.fastlane_background)
-        //headersSupportFragment.setOnHeaderViewSelectedListener(delegateOnSelected)
-        //headersSupportFragment.setOnHeaderClickedListener(delegateOnClicked)
     }
-
     fun loadRows(context: Context){
         val list = NavigationPosition.values()
         mRowsAdapter = ArrayObjectAdapter(ListRowPresenter())
-
-        for (i in 0 until list.size) {
-            val gridItemPresenterHeader = HeaderItem(i.toLong(), list[i].getTitle(context))
-            val item = NavigationPosition.values()[i].getNavCategoriesItems()
-
-            val mGridPresenter = GridItemPresenter()
-            val gridRowAdapter = ArrayObjectAdapter(mGridPresenter)
-            for(c in 0 until item.size) {
-                gridRowAdapter.add(item[c])
-            }
-            mRowsAdapter!!.add(ListRow(gridItemPresenterHeader, gridRowAdapter))
+        val mGridPresenter = GridItemPresenter()
+        val gridRowAdapter0 = ArrayObjectAdapter(mGridPresenter)
+        val gridRowAdapter1 = ArrayObjectAdapter(mGridPresenter)
+        for (i in 0 until 4) {
+            gridRowAdapter0.add(list[i].getTitle(context))
         }
+        //-1 to remove error fragment from list!
+        for (i in 4 until list.size-1){
+            gridRowAdapter1.add(list[i].getTitle(context))
+        }
+        mRowsAdapter!!.add(ListRow(HeaderItem(0, "NAV"), gridRowAdapter0))
+        mRowsAdapter!!.add(ListRow(HeaderItem(1, "OTHER"), gridRowAdapter1))
         adapter = mRowsAdapter
     }
 

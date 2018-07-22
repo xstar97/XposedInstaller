@@ -12,7 +12,8 @@ enum class NavigationPosition(val pos: Int) {
     LOGS(3),
     SUPPORT(4),
     ABOUT(5),
-    SETTINGS(6);
+    SETTINGS(6),
+    ERROR(7);
 }
 fun NavigationPosition.createFragment(): Fragment = when (this) {
     //NavigationPosition.HOME -> StatusInstallerFragment.newInstance()
@@ -45,15 +46,4 @@ fun NavigationPosition.getTitle(context: Context): String = when (this) {
     NavigationPosition.ABOUT -> context.getString(R.string.nav_item_about)
     NavigationPosition.SETTINGS -> context.getString(R.string.nav_item_settings)
     else -> context.getString(R.string.error_fragment)
-}
-
-fun NavigationPosition.getNavCategoriesItems(): Array<String> = when (this) {
-    NavigationPosition.HOME -> arrayOf("framework installed message", "installer", "uninstaller", "your device")
-    NavigationPosition.MODULES -> arrayOf("list of istalled modules")
-    NavigationPosition.DOWNLOAD -> arrayOf("list of downloadable modules")
-    NavigationPosition.LOGS -> arrayOf("View Logs")
-    NavigationPosition.SUPPORT -> arrayOf("support for module", "framework/installer suppoer", "faq/known issues", "donate")
-    NavigationPosition.ABOUT -> arrayOf("version", "main devs", "list of used libraries", "translator", "source code:)")
-    NavigationPosition.SETTINGS -> arrayOf("launch settings")
-    else -> arrayOf("", "")
 }
