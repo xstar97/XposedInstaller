@@ -11,7 +11,7 @@ import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.installation.FlashDirectly
 import de.robv.android.xposed.installer.core.installation.FlashRecoveryAuto
 import de.robv.android.xposed.installer.core.installation.Flashable
-import de.robv.android.xposed.installer.core.repo.zips.ZipModel
+import de.robv.android.xposed.installer.core.models.ZipModel
 import de.robv.android.xposed.installer.core.util.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread

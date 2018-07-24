@@ -16,14 +16,14 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
-        android:name="de.robv.android.xposed.installer.XposedApp"
+        android:name="de.robv.android.xposed.installer.mobile.XposedApp"
         android:allowBackup="false"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.XposedInstaller.Light" >
         <activity
-            android:name="de.robv.android.xposed.installer.ui.activities.SplashActivity"
+            android:name="de.robv.android.xposed.installer.mobile.ui.activities.SplashActivity"
             android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,20 +33,20 @@
         </activity>
         <!-- HOME -->
         <activity
-            android:name="de.robv.android.xposed.installer.ui.activities.WelcomeActivity"
+            android:name="de.robv.android.xposed.installer.mobile.ui.activities.WelcomeActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
             android:label="@string/app_name" />
 
         <!-- Container -->
         <activity
-            android:name="de.robv.android.xposed.installer.ui.activities.containers.ViewActivity"
+            android:name="de.robv.android.xposed.installer.mobile.ui.activities.containers.ViewActivity"
             android:theme="@style/Theme.XposedInstaller.Transparent" />
         <activity
-            android:name="de.robv.android.xposed.installer.ui.activities.SettingsActivity"
+            android:name="de.robv.android.xposed.installer.mobile.ui.activities.SettingsActivity"
             android:theme="@style/Theme.XposedInstaller.Transparent" />
         <activity
-            android:name="de.robv.android.xposed.installer.ui.activities.DownloadDetailsActivity"
+            android:name="de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
             android:theme="@style/Theme.XposedInstaller.Transparent" >
@@ -70,10 +70,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="de.robv.android.xposed.installer.ui.activities.ModulesBookmark"
+            android:name="de.robv.android.xposed.installer.mobile.ui.activities.ModulesBookmark"
             android:theme="@style/Theme.XposedInstaller.Transparent" />
         <activity
-            android:name="de.robv.android.xposed.installer.ui.activities.InstallationActivity"
+            android:name="de.robv.android.xposed.installer.mobile.ui.activities.InstallationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.XposedInstaller.Transparent" />
 

@@ -78,13 +78,13 @@ MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\c
 	tools:replace
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:12:9-44
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:7:9-34
-activity#de.robv.android.xposed.installer.ui.activities.SplashActivity
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:7:9-41
+activity#de.robv.android.xposed.installer.mobile.ui.activities.SplashActivity
 ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:13:9-19:20
 	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:13:64-98
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:13:103-137
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:13:19-63
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:13:19-102
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:14:13-18:29
 action#android.intent.action.MAIN
@@ -95,38 +95,38 @@ category#android.intent.category.LAUNCHER
 ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:17:17-77
 	android:name
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:17:27-74
-activity#de.robv.android.xposed.installer.ui.activities.WelcomeActivity
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:9-171
+activity#de.robv.android.xposed.installer.mobile.ui.activities.WelcomeActivity
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:9-210
 	android:label
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:136-168
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:175-207
 	android:exported
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:112-135
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:151-174
 	android:configChanges
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:65-111
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:104-150
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:19-64
-activity#de.robv.android.xposed.installer.ui.activities.containers.ViewActivity
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:24:9-131
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:21:19-103
+activity#de.robv.android.xposed.installer.mobile.ui.activities.containers.ViewActivity
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:24:9-170
 	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:24:73-129
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:24:112-168
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:24:19-72
-activity#de.robv.android.xposed.installer.ui.activities.SettingsActivity
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:9-125
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:24:19-111
+activity#de.robv.android.xposed.installer.mobile.ui.activities.SettingsActivity
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:9-164
 	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:66-122
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:105-161
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:19-65
-activity#de.robv.android.xposed.installer.ui.activities.DownloadDetailsActivity
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:19-104
+activity#de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity
 ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:9-44:20
 	android:exported
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:120-143
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:159-182
 	android:configChanges
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:73-119
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:112-158
 	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:144-200
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:183-239
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:19-72
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:19-111
 intent-filter#action:name:de.robv.android.xposed.installer.DOWNLOAD_DETAILS+category:name:android.intent.category.DEFAULT+data:scheme:package
 ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:29:13-35:29
 action#de.robv.android.xposed.installer.DOWNLOAD_DETAILS
@@ -155,20 +155,20 @@ category#android.intent.category.BROWSABLE
 ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:42:17-78
 	android:name
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:42:27-75
-activity#de.robv.android.xposed.installer.ui.activities.ModulesBookmark
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:9-124
+activity#de.robv.android.xposed.installer.mobile.ui.activities.ModulesBookmark
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:9-163
 	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:65-121
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:104-160
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:19-64
-activity#de.robv.android.xposed.installer.ui.activities.InstallationActivity
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:9-166
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:19-103
+activity#de.robv.android.xposed.installer.mobile.ui.activities.InstallationActivity
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:9-205
 	android:screenOrientation
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:70-106
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:109-145
 	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:107-163
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:146-202
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:19-69
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:19-108
 receiver#de.robv.android.xposed.installer.core.receivers.PackageChangeReceiver
 ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:50:9-58:20
 	android:exported
