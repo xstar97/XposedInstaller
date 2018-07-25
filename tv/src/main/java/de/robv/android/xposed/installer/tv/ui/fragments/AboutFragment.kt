@@ -11,7 +11,7 @@ import de.robv.android.xposed.installer.tv.ui.fragments.base.BaseGuidedFragment
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.error
 
-class AboutFragment : BaseGuidedFragment(), AnkoLogger
+class AboutFragment: BaseGuidedFragment(), AnkoLogger
 {
     companion object {
         val TAG: String = AboutFragment::class.java.simpleName
