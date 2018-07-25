@@ -1,124 +1,181 @@
 package de.robv.android.xposed.installer.tv.ui.fragments
 
-import android.Manifest
 import android.content.SharedPreferences
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v7.preference.Preference
+import android.support.v17.leanback.widget.GuidanceStylist
+import android.support.v17.leanback.widget.GuidedAction
+import android.support.v17.leanback.widget.GuidedAction.CHECKBOX_CHECK_SET_ID
 import android.util.Log
 import android.widget.Toast
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.models.InfoModel
 import de.robv.android.xposed.installer.tv.XposedApp
-import de.robv.android.xposed.installer.core.util.RepoLoader
-import de.robv.android.xposed.installer.tv.ui.fragments.base.BasePreferenceFragment
+import de.robv.android.xposed.installer.tv.ui.fragments.base.BasePreferenceGuidedFragment
 import java.io.File
 import java.io.IOException
 
-class SettingsFragment: BasePreferenceFragment()
+//TODO add more preferences!
+class SettingsFragment: BasePreferenceGuidedFragment()
 {
     companion object {
-        private val mDisableResourcesFlag = File(XposedApp().BASE_DIR + "conf/disable_resources")
         val TAG: String = SettingsFragment::class.java.simpleName
+        private val mDisableResourcesFlag = File(XposedApp().BASE_DIR + "conf/disable_resources")
         fun newInstance() = SettingsFragment()
     }
 
-    private var mClickedPreference: Preference? = null
-    private val downloadLocation: Preference? = null
+    private val releaseTypeGlobal = 0
+    private val releaseTypeGlobalStable = 1
+    private val releaseTypeGlobalBeta = 2
+    private val releaseTypeGlobalExperimental = 3
+
+    private val disableResources = 4
+
     private val PREF_TYPE = "release_type_global"
     private val PREF_RES = "disable_resources"
+    private val PREF_THEME = "theme"
+    private val PREF_VIEW ="default_view"
 
-    override fun onPreferenceClick(preference: Preference?): Boolean {
-        if (preference!!.key == downloadLocation!!.key) {
-            if (checkPermissions()) {
-                mClickedPreference = downloadLocation
-                return false
-            }
-
-            //TODO enable method to choose download location
-            /*new FolderChooserDialog.Builder((SettingsActivity) getActivity())
-                        .cancelButton(android.R.string.cancel)
-                        .initialPath(XposedAppfu.getDownloadPath())
-                        .show();*/
-        }
-
-        return true
-    }
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        val preference = findPreference(key)
-        if (preference != null) {
-            Log.d(XposedApp.TAG, "key: $key")
-            val value = sharedPreferences!!.getString(preference.key, "")
-            setPreferenceSummery(preference, value)
+
+        Log.d(XposedApp.TAG, "onSharedPreferenceChanged key: $key")
+        when(key){
+            PREF_TYPE ->{
+                findActionById(releaseTypeGlobal.toLong()).description = getReleaseTypeGlobalSummary()
+                notifyActionChanged(findActionPositionById(releaseTypeGlobal.toLong()))
+            }
+            PREF_RES ->{
+                //nothing to do here yet:/
+            }
         }
     }
 
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        addPreferencesFromResource(R.xml.prefs)
-        val sharedPreferences = preferenceScreen.sharedPreferences
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val sharedPreferences = XposedApp.getPreferences()
         sharedPreferences.registerOnSharedPreferenceChangeListener(this)
 
-        if (sharedPreferences != null) {
-            //val preferenceScreen = preferenceScreen
-            findPreference(PREF_TYPE).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
-                val type = newValue as String
-                RepoLoader.getInstance().setReleaseTypeGlobal(type)
-                true
-            }
+    }
 
-            val prefDisableResources = findPreference(PREF_RES) as android.support.v7.preference.CheckBoxPreference
-            prefDisableResources.isChecked = mDisableResourcesFlag.exists()
-            prefDisableResources.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
-                val enabled = newValue as Boolean
-                if (enabled) {
+    override fun onResume() {
+        super.onResume()
+        XposedApp.getPreferences().registerOnSharedPreferenceChangeListener(this)
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        XposedApp.getPreferences().unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onCreateGuidance(savedInstanceState: Bundle?): GuidanceStylist.Guidance {
+        return GuidanceStylist.Guidance(getString(R.string.nav_item_settings),
+                getString(R.string.app_name),
+                "", null)
+    }
+
+    override fun onCreateActions(actions: MutableList<GuidedAction>, savedInstanceState: Bundle?) {
+
+        try {
+            actions.add(addReleaseTypeGlobal())
+
+            actions.add(addDisableResources())
+
+        }catch (npe: NullPointerException){
+            Log.e(XposedApp.TAG, "onCreateActions: npe: ${npe.message}")
+        }catch (e: Exception){
+            Log.e(XposedApp.TAG, "onCreateActions: e: ${e.message}")
+        }
+    }
+
+    override fun onGuidedActionClicked(action: GuidedAction?) {
+
+        val pos = action!!.id.toInt()
+        Log.v(XposedApp.TAG, "onGuidedActionClicked: pos: $pos")
+
+
+        when (pos) {
+            releaseTypeGlobal -> {
+                //nothing to do here:/
+            }
+            disableResources -> {
+                if(action.isChecked){
                     try {
                         mDisableResourcesFlag.createNewFile()
+                        Log.v(XposedApp.TAG, "creating...${mDisableResourcesFlag.name}")
                     } catch (e: IOException) {
                         Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
                     }
 
                 } else {
                     mDisableResourcesFlag.delete()
+                    Log.v(XposedApp.TAG, "deleting...${mDisableResourcesFlag.name}")
                 }
-                enabled == mDisableResourcesFlag.exists()
+            }
+        }
+    }
+
+    override fun onSubGuidedActionClicked(action: GuidedAction?): Boolean {
+        val pos = action!!.id.toInt()
+        Log.v(XposedApp.TAG, "onSubGuidedActionClicked: posSub: $pos")
+
+        when(pos){
+            releaseTypeGlobalStable -> {
+                val stable = releaseTypeValues()[0]
+                XposedApp.getPreferences().edit().putString(PREF_TYPE, stable).apply()
+            }
+            releaseTypeGlobalBeta -> {
+                val beta = releaseTypeValues()[1]
+                XposedApp.getPreferences().edit().putString(PREF_TYPE, beta).apply()
+            }
+            releaseTypeGlobalExperimental -> {
+                val experimental = releaseTypeValues()[2]
+                XposedApp.getPreferences().edit().putString(PREF_TYPE, experimental).apply()
             }
         }
 
-        // TODO maybe enable again after checking the implementation
-        //downloadLocation = findPreference("download_location");
-        //downloadLocation.setOnPreferenceClickListener(this);
 
-    }
-    private fun checkPermissions(): Boolean {
-        if (Build.VERSION.SDK_INT < 23) return false
-
-        if (ActivityCompat.checkSelfPermission(context!!,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
-            return true
-        }
-        return false
+        return true
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            if (mClickedPreference != null) {
-                android.os.Handler().postDelayed({ onPreferenceClick(mClickedPreference) }, 500)
-            }
-        } else {
-            Toast.makeText(activity, R.string.permissionNotGranted, Toast.LENGTH_LONG).show()
-        }
+    //actions
+    private fun addReleaseTypeGlobal(): GuidedAction{
+        return GuidedAction.Builder(activity!!)
+                .id(releaseTypeGlobal.toLong())
+                .title(activity!!.getString(R.string.settings_release_type))
+                .description(getReleaseTypeGlobalSummary())
+                .subActions(getActionsFromList(releaseTypeGlobalSubList()))
+                .build()
+    }
+    private fun addDisableResources(): GuidedAction{
+        return GuidedAction.Builder(activity!!)
+                .id(disableResources.toLong())
+                .title(activity!!.getString(R.string.settings_disable_resources))
+                .description(activity!!.getString(R.string.settings_disable_resources_summary))
+                .checkSetId(CHECKBOX_CHECK_SET_ID)
+                .checked(getDisableResourcesCheckState())
+                .build()
     }
 
-    override fun onResume() {
-        super.onResume()
-        preferenceScreen.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+    private fun getReleaseTypeGlobalSummary(): String{
+        return XposedApp.getPreferences().getString("release_type_global", releaseTypeValues()[0])
     }
-    override fun onDestroy() {
-        super.onDestroy()
-        preferenceScreen.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
+    private fun getDisableResourcesCheckState(): Boolean{
+        return mDisableResourcesFlag.exists()
+    }
+
+    private fun releaseTypeGlobalSubList(): ArrayList<InfoModel>{
+        val infoList = ArrayList<InfoModel>()
+        val stable = releaseTypeText()[0]
+        val beta = releaseTypeText()[1]
+        val experimental = releaseTypeText()[2]
+        //Log.v(XposedApp.TAG, "stable: $stable\nbeta: $beta\nexperimental: $experimental")
+        infoList.add(InfoModel(releaseTypeGlobalStable, 0, stable, ""))
+        infoList.add(InfoModel(releaseTypeGlobalBeta, 0, beta, ""))
+        infoList.add(InfoModel(releaseTypeGlobalExperimental, 0, experimental, ""))
+        return infoList
+    }
+    private fun releaseTypeText(): Array<String>{
+        return resources.getStringArray(R.array.release_type_texts)
+    }
+    private fun releaseTypeValues(): Array<String>{
+        return resources.getStringArray(R.array.release_type_values)
     }
 }

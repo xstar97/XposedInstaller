@@ -21,7 +21,7 @@ fun NavigationPosition.createFragment(): Fragment = when (this) {
     //NavigationPosition.LOGS -> LogsFragment.newInstance()
     NavigationPosition.SUPPORT -> SupportFragment.newInstance()
     NavigationPosition.ABOUT -> AboutFragment.newInstance()
-    NavigationPosition.SETTINGS -> SettingsGuidedFragment.newInstance()
+    NavigationPosition.SETTINGS -> SettingsFragment.newInstance()
     else -> ErrorFragment.newInstance()
 }
 
@@ -32,7 +32,7 @@ fun NavigationPosition.getTag(): String = when (this) {
     //NavigationPosition.LOGS -> LogsFragment.TAG
     NavigationPosition.SUPPORT -> SupportFragment.TAG
     NavigationPosition.ABOUT -> AboutFragment.TAG
-    NavigationPosition.SETTINGS -> SettingsGuidedFragment.TAG
+    NavigationPosition.SETTINGS -> SettingsFragment.TAG
     else -> ErrorFragment.TAG
 }
 
