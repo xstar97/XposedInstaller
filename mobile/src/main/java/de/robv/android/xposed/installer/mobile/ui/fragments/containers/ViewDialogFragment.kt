@@ -37,18 +37,15 @@ class ViewDialogFragment : DialogFragment() {
         setDialogFragment()
     }
     private fun setDialogFragment(){
-        val nav = NavigationPosition.values()
-        val dialog = nav[getFragPos()].createFragment()
-        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, dialog).commitNowAllowingStateLoss()
+        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getNav().createFragment()).commitNowAllowingStateLoss()
     }
-    private fun getFragPos(): Int {
+    private fun getNav(): NavigationPosition{
         val bundle = this.arguments
         if (bundle != null) {
-            val i = bundle.getInt(BUNDLE_DIALOG_KEY, NavigationPosition.HOME.getPos())
-            Log.d(XposedApp.TAG, "initSheet: $i")
+            val i = bundle.get(BUNDLE_DIALOG_KEY) as NavigationPosition
+            Log.d(XposedApp.TAG, "$BUNDLE_DIALOG_KEY: $i")
             return i
         }
-        return NavigationPosition.HOME.getPos()
+        return NavigationPosition.ERROR
     }
-
 }

@@ -50,10 +50,8 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
     }
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         try {
-            val nav = NavigationPosition.values()
-            val pos = if (item!!.itemId == R.id.nav_item_about) NavigationPosition.ABOUT.getPos() else NavigationPosition.SUPPORT.getPos()
-            val navPos = nav[pos]
-            Utils().launchSheet(getFragManager(), navPos)
+            val nav = findNavPosById(item!!.itemId)
+            Utils().launchSheet(getFragManager(), nav)
         }catch (e: Exception){
             Log.e(XposedApp.TAG, e.message)
         }
@@ -61,7 +59,6 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
     }
     override fun onNavigationItemReselected(item: MenuItem) {
         //TODO notify user to stop spamming!
-       // Snackbar.make(getView)
     }
 
     override fun onCreate(savedInstanceBundle: Bundle?) {
@@ -203,7 +200,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
                 Snackbar.make(parentLayout, R.string.modules_updates_available, Snackbar.LENGTH_LONG).setAction(getString(R.string.view)) { switchFragment(NavigationPosition.MODULES) }.show()
             }
         }catch (e: Exception){
-            Log.d(XposedApp.TAG, e.message)
+            //Log.d(XposedApp.TAG, e.message)
         }
     }
 
@@ -213,7 +210,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
             ModuleUtil.getInstance().removeListener(this)
             mRepoLoader?.removeListener(this)
         }catch (e: Exception){
-            Log.d(XposedApp.TAG, e.message)
+            //Log.d(XposedApp.TAG, e.message)
         }
     }
 }

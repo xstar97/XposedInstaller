@@ -1,21 +1,20 @@
 package de.robv.android.xposed.installer.mobile.logic
 
-import android.content.Context
 import android.support.v4.app.Fragment
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.ui.fragments.*
 import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadFragment
 
-enum class NavigationPosition(val id: Int) {
+enum class NavigationPosition(val id: Int, val title: Int) {
 
-    DOWNLOAD(R.id.nav_item_downloads),
-    MODULES(R.id.nav_item_modules),
-    HOME(R.id.nav_item_framework),
-    LOGS(R.id.nav_item_logs),
-    SETTINGS(R.id.nav_item_settings),
-    SUPPORT(R.id.nav_item_support),
-    ABOUT(R.id.nav_item_about),
-    DEVICEINFO(7);
+    ERROR(-1, R.string.error_fragment_title),
+    DOWNLOAD(R.id.nav_item_downloads, R.string.nav_item_download),
+    MODULES(R.id.nav_item_modules, R.string.nav_item_modules),
+    HOME(R.id.nav_item_framework, R.string.nav_item_install),
+    LOGS(R.id.nav_item_logs, R.string.nav_item_logs),
+    SETTINGS(R.id.nav_item_settings, R.string.nav_item_settings),
+    SUPPORT(R.id.nav_item_support, R.string.nav_item_support),
+    ABOUT(R.id.nav_item_about, R.string.nav_item_about);
 }
 fun findNavPosById(id: Int): NavigationPosition = when (id) {
     NavigationPosition.DOWNLOAD.id -> NavigationPosition.DOWNLOAD
@@ -26,7 +25,7 @@ fun findNavPosById(id: Int): NavigationPosition = when (id) {
     NavigationPosition.SUPPORT.id -> NavigationPosition.SUPPORT
     NavigationPosition.ABOUT.id -> NavigationPosition.ABOUT
     //TODO add error fragment
-    else -> NavigationPosition.HOME
+    else -> NavigationPosition.ERROR
 }
 
 fun NavigationPosition.createFragment(): Fragment = when (this) {
@@ -37,7 +36,7 @@ fun NavigationPosition.createFragment(): Fragment = when (this) {
     NavigationPosition.SETTINGS -> SettingsFragment.newInstance()
     NavigationPosition.SUPPORT -> SupportFragment.newInstance()
     NavigationPosition.ABOUT -> AboutFragment.newInstance()
-    NavigationPosition.DEVICEINFO -> DeviceInfoFragment.newInstance()
+    else -> ErrorFragment.newInstance()
 }
 
 fun NavigationPosition.getTag(): String = when (this) {
@@ -48,7 +47,7 @@ fun NavigationPosition.getTag(): String = when (this) {
     NavigationPosition.SETTINGS -> SettingsFragment.TAG
     NavigationPosition.SUPPORT -> SupportFragment.TAG
     NavigationPosition.ABOUT -> AboutFragment.TAG
-    NavigationPosition.DEVICEINFO -> DeviceInfoFragment.TAG
+    else -> ErrorFragment.TAG
 }
 
 fun NavigationPosition.getPos(): Int = when (this) {
@@ -59,16 +58,6 @@ fun NavigationPosition.getPos(): Int = when (this) {
     NavigationPosition.SETTINGS -> 4
     NavigationPosition.SUPPORT -> 5
     NavigationPosition.ABOUT -> 6
-    NavigationPosition.DEVICEINFO -> 7
-}
-fun NavigationPosition.getTitle(context: Context): String = when (this) {
-    NavigationPosition.DOWNLOAD -> context.getString(R.string.nav_item_download)
-    NavigationPosition.MODULES -> context.getString(R.string.nav_item_modules)
-    NavigationPosition.HOME -> context.getString(R.string.nav_item_install)
-    NavigationPosition.LOGS -> context.getString(R.string.nav_item_logs)
-    NavigationPosition.SETTINGS -> context.getString(R.string.nav_item_settings)
-    NavigationPosition.SUPPORT -> context.getString(R.string.nav_item_support)
-    NavigationPosition.ABOUT -> context.getString(R.string.nav_item_about)
-    NavigationPosition.DEVICEINFO -> context.getString(R.string.framework_device_info)
+    else -> -1
 }
 private fun setNavPos(bottom: Int, drawer: Int) = if (Utils().isBottomNav()) bottom else drawer

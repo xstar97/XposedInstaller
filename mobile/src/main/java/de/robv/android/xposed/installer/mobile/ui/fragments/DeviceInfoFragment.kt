@@ -1,21 +1,15 @@
 package de.robv.android.xposed.installer.mobile.ui.fragments
 
-import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.base.fragments.BaseDeviceInfo
 import de.robv.android.xposed.installer.core.models.InfoModel
-import de.robv.android.xposed.installer.mobile.XposedApp
-import de.robv.android.xposed.installer.core.util.FrameworkZips
-import de.robv.android.xposed.installer.mobile.logic.adapters.info.TabInfoBaseAdapter
+import de.robv.android.xposed.installer.mobile.logic.adapters.info.InfoBaseAdapter
+import de.robv.android.xposed.installer.mobile.logic.adapters.info.InfoBaseAdapter.Companion.SECTION_DEVICE
 import de.robv.android.xposed.installer.mobile.ui.fragments.base.BaseViewFragment
-import kotlinx.android.synthetic.main.fragment_view.*
-import java.io.File
 
 class DeviceInfoFragment: BaseViewFragment()
 {
@@ -23,13 +17,8 @@ class DeviceInfoFragment: BaseViewFragment()
         val TAG: String = DeviceInfoFragment::class.java.simpleName
         fun newInstance() = DeviceInfoFragment()
     }
-    private val deviceSdk = 0
-    private val deviceManufacturer = 1
-    private val deviceCpu = 2
-    private val deviceVerified = 3
 
-    private val deviceAdapter by lazy { TabInfoBaseAdapter(activity!!, this) }
-    private val deviceList = ArrayList<InfoModel>()
+    private val adapter by lazy { InfoBaseAdapter(activity!!, this) }
 
     override fun onItemClick(infoItem: InfoModel) {
         //TODO add xda links for specific items...
@@ -39,85 +28,7 @@ class DeviceInfoFragment: BaseViewFragment()
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        prepareListInfo()
-    }
-
-    private fun prepareListInfo(){
-        fragment_view_recyclerView.adapter = deviceAdapter
-        fragment_view_recyclerView.layoutManager = LinearLayoutManager(activity)
-        deviceInfo()
-    }
-    private fun deviceInfo(){
-        val androidSdk = getString(R.string.android_sdk, Build.VERSION.RELEASE, androidVersion, Build.VERSION.SDK_INT)
-        val manufacturer = uiFramework
-        val cpu = FrameworkZips.ARCH
-
-        val verifiedBootDeactivated = determineVerifiedBootState().first
-        val verifiedBootExplanation = determineVerifiedBootState().second
-
-        deviceList.add(InfoModel(deviceSdk, R.drawable.ic_android, androidSdk, ""))
-        deviceList.add(InfoModel(deviceManufacturer, R.drawable.ic_phone, manufacturer, ""))
-        deviceList.add(InfoModel(deviceCpu, R.drawable.ic_chip, cpu, ""))
-        if (verifiedBootDeactivated.isNotEmpty() || verifiedBootExplanation.isNotEmpty()) {
-            deviceList.add(InfoModel(deviceVerified, R.drawable.ic_verified, verifiedBootDeactivated, verifiedBootExplanation))
-        }
-        deviceAdapter.addItems(deviceAdapter.SECTION_DEVICE, deviceList)
-    }
-
-    private val androidVersion: String
-        get() {
-            return when (Build.VERSION.SDK_INT) {
-                15 -> "Ice Cream Sandwich"
-                16, 17, 18 -> "Jelly Bean"
-                19 -> "KitKat"
-                21, 22 -> "Lollipop"
-                23 -> "Marshmallow"
-                24, 25 -> "Nougat"
-                26, 27 -> "Oreo"
-                else -> "unknown"
-            }
-        }
-    private val uiFramework: String
-        get() {
-            var manufacturer = Character.toUpperCase(Build.MANUFACTURER[0]) + Build.MANUFACTURER.substring(1)
-            if (Build.BRAND != Build.MANUFACTURER) {
-                manufacturer += " " + Character.toUpperCase(Build.BRAND[0]) + Build.BRAND.substring(1)
-            }
-            manufacturer += " " + Build.MODEL + " "
-            if (manufacturer.contains("Samsung")) {
-                manufacturer += if (File("/system/framework/twframework.jar").exists()) "(TouchWiz)" else "(AOSP-based ROM)"
-            } else if (manufacturer.contains("Xioami")) {
-                manufacturer += if (File("/system/framework/framework-miui-res.apk").exists()) "(MIUI)" else "(AOSP-based ROM)"
-            }
-            return manufacturer
-        }
-
-    @SuppressLint("PrivateApi")
-    private fun determineVerifiedBootState(): Pair<String, String> {
-        return try {
-            val c = Class.forName("android.os.SystemProperties")
-            val m = c.getDeclaredMethod("get", String::class.java, String::class.java)
-            m.isAccessible = true
-
-            val propSystemVerified = m.invoke(null, "partition.system.verified", "0") as String
-            val propState = m.invoke(null, "ro.boot.verifiedbootstate", "") as String
-            val fileDmVerityModule = File("/sys/module/dm_verity")
-
-            val verified = propSystemVerified != "0"
-            val detected = !propState.isEmpty() || fileDmVerityModule.exists()
-
-            return when {
-                verified -> {
-                    Pair(getString(R.string.verified_boot_active), getString(R.string.verified_boot_explanation))
-                }
-                detected -> {
-                    Pair(getString(R.string.verified_boot_deactivated), "")
-                }
-                else -> Pair("", "")
-            }
-        } catch (e: Exception) {
-            Log.e(XposedApp.TAG, "Could not detect Verified Boot state", e)
-            Pair("", "")
-        }
+        val list = BaseDeviceInfo.getDeviceInfoList(activity!!)
+        initViews(adapter, SECTION_DEVICE, list)
     }
 }

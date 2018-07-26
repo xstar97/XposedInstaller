@@ -15,15 +15,10 @@ class SupportFragment : BaseGuidedFragment(), AnkoLogger
         val TAG: String = SupportFragment::class.java.simpleName
         fun newInstance() = SupportFragment()
     }
-    val supportModulesLabel = 0
-    val supportFrameworkLabel = 1
-    val supportFaqLabel = 2
-    val supportDonateLabel = 3
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private val supportModulesLabel = 0
+    private val supportFrameworkLabel = 1
+    private val supportFaqLabel = 2
+    private val supportDonateLabel = 3
 
     override fun onCreateGuidance(savedInstanceState: Bundle?): GuidanceStylist.Guidance {
         return GuidanceStylist.Guidance(getString(R.string.nav_item_support),
@@ -34,7 +29,7 @@ class SupportFragment : BaseGuidedFragment(), AnkoLogger
     override fun onCreateActions(actions: MutableList<GuidedAction>, savedInstanceState: Bundle?) {
 
         try {
-            val list = getActionsFromList(supportList())
+            val list = getActionsFromList(activity!!, supportList())
             for (about in list) {
                 actions.add(about)
             }
@@ -66,11 +61,11 @@ class SupportFragment : BaseGuidedFragment(), AnkoLogger
     }
 
     private fun supportList(): ArrayList<InfoModel>{
-        val infoList = ArrayList<InfoModel>()
-        infoList.add(InfoModel(supportModulesLabel, R.drawable.ic_info, getString(R.string.support_modules_label), getString(R.string.support_modules_description, getString(R.string.module_support))))
-        infoList.add(InfoModel(supportFrameworkLabel, R.drawable.ic_help, getString(R.string.support_framework_label), ""))
-        infoList.add(InfoModel(supportFaqLabel, R.drawable.ic_nav_logs, getString(R.string.support_faq_label), ""))
-        infoList.add(InfoModel(supportDonateLabel, R.drawable.ic_donate, getString(R.string.support_donate_label), getString(R.string.support_donate_description)))
-        return infoList
+        val list = ArrayList<InfoModel>()
+        list.add(InfoModel(supportModulesLabel, R.drawable.ic_info, getString(R.string.support_modules_label), getString(R.string.support_modules_description, getString(R.string.module_support))))
+        list.add(InfoModel(supportFrameworkLabel, R.drawable.ic_help, getString(R.string.support_framework_label), ""))
+        list.add(InfoModel(supportFaqLabel, R.drawable.ic_nav_logs, getString(R.string.support_faq_label), ""))
+        list.add(InfoModel(supportDonateLabel, R.drawable.ic_donate, getString(R.string.support_donate_label), getString(R.string.support_donate_description)))
+        return list
     }
 }

@@ -80,7 +80,6 @@ open class BaseStatusInstaller
                         val iconStatus = getIconStatus(hasLocal, hasOnline)
                         val zipType = 0
 
-                        //Log.d(BaseXposedApp.TAG, "title: $myTitle")
                         zipList0.add(ZipModel(myTitle, iconStatus, zipType))
                     }
                     for (title1 in allTitles1) {
@@ -156,7 +155,7 @@ open class BaseStatusInstaller
             val actionDelete = 3
 
             val isDownloaded = FrameworkZips.hasLocal(title, type)
-            val itemCount = if (isDownloaded) 3 else 2
+            val itemCount = if (isDownloaded) actionDelete else actionSave
             val texts = arrayOfNulls<String>(itemCount)
             val ids = IntArray(itemCount)
             var i = 0

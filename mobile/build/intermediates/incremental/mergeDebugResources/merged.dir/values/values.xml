@@ -25,16 +25,6 @@
         <item>@string/download_sorting_updated</item>
         <item>@string/download_sorting_created</item>
     </string-array>
-    <string-array name="list_preference_entries">
-        <item>Entry 1</item>
-        <item>Entry 2</item>
-        <item>Entry 3</item>
-    </string-array>
-    <string-array name="list_preference_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
     <string-array name="module_release_type_texts" translatable="false">
         <item>@string/reltype_use_global_summary</item>
         <item>@string/reltype_stable_summary</item>
@@ -46,33 +36,6 @@
         <item>stable</item>
         <item>beta</item>
         <item>experimental</item>
-    </string-array>
-    <string-array name="multi_select_list_preference_default_value"/>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
     </string-array>
     <string-array name="release_type_texts" translatable="false">
         <item>@string/reltype_stable_summary</item>
@@ -1044,6 +1007,7 @@
     <string name="chrome_custom_tabs_summ">Open links in internal browser</string>
     <string name="countdown">%1$s (%2$d)</string>
     <string name="dexopt_now">Optimize apps now</string>
+    <string name="dismiss_error">Dismiss</string>
     <string name="done">Done!</string>
     <string name="dont_show_again">Don\'t show this again</string>
     <string name="download_author">by %s</string>
@@ -1084,6 +1048,8 @@
     <string name="download_view_size">Size: %s KB</string>
     <string name="download_view_successful">Download successful</string>
     <string name="download_view_waiting">Download is waiting</string>
+    <string name="error_fragment_message">An error occurred</string>
+    <string name="error_fragment_title">Error</string>
     <string name="expand_button_title">Advanced</string>
     <string name="export_">Export…</string>
     <string name="export_enabled_modules">Export enabled modules list</string>
@@ -1202,22 +1168,6 @@
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="permissionNotGranted">This feature will not work without permission to write external storage.</string>
-    <string name="pref_default_display_name">John Smith</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-    <string name="pref_header_general">General</string>
-    <string name="pref_header_notifications">Notifications</string>
-    <string name="pref_ringtone_silent">Silent</string>
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-    <string name="pref_title_vibrate">Vibrate</string>
     <string name="reboot">Reboot</string>
     <string name="reboot_confirmation">Do you want to reboot now?</string>
     <string name="reboot_failed">Reboot failed. Please use the device\'s normal reboot function.</string>
@@ -1254,7 +1204,6 @@
     <string name="settings_theme_dark">Dark</string>
     <string name="settings_theme_light">Light</string>
     <string name="share">Share with…</string>
-    <string name="show_more">Show more</string>
     <string name="show_outdated">Show outdated versions</string>
     <string name="skip_xposedminversion_check">Skip \'xposedminversion\' check</string>
     <string name="skip_xposedminversion_check_summ">Skip \'xposedminversion\' check for modules</string>
@@ -1271,11 +1220,6 @@
     <string name="support_modules_description">Long-click any module in the modules list and select \"%1$s\".</string>
     <string name="support_modules_label">Support for modules</string>
     <string name="this_may_take_a_while">This may take a while.</string>
-    <string name="title_activity_base_settings">Settings</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_home">Home</string>
-    <string name="title_notifications">Notifications</string>
     <string name="translator">The real OG(Rovo89)</string>
     <string name="undo">Undo</string>
     <string name="uninstall">Uninstall</string>

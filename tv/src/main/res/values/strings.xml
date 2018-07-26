@@ -1,10 +1,4 @@
 <resources>
     <string name="app_name">Xposed Installer TV</string>
 
-    <string name="error_fragment">Error Fragment</string>
-
-    <!-- Error messages -->
-    <string name="error_fragment_message">An error occurred</string>
-    <string name="dismiss_error">Dismiss</string>
-
 </resources>

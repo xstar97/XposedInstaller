@@ -7,7 +7,6 @@ import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.NavigationPosition
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
 import de.robv.android.xposed.installer.mobile.logic.createFragment
-import de.robv.android.xposed.installer.mobile.logic.getTitle
 import de.robv.android.xposed.installer.mobile.ui.activities.XposedBaseActivity
 import kotlinx.android.synthetic.main.view_toolbar.*
 
@@ -15,7 +14,7 @@ class ViewActivity: XposedBaseActivity()
 {
     companion object {
         val TAG: String = ViewActivity::class.java.simpleName
-        const val INTENT_ACTIVITY_KEY = "initActivity"
+        const val INTENT_NAV_KEY = "initNav"
         fun newInstance() = ViewActivity()
     }
 
@@ -41,16 +40,20 @@ class ViewActivity: XposedBaseActivity()
         }
     }
     private fun setFragTitle(): String {
-        return NavigationPosition.values()[getFragPos()].getTitle(this)
+
+        return this.getString(getNav().title)
     }
     private fun setActivityFragment(){
-        val activity = NavigationPosition.values()[getFragPos()].createFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.container, activity).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container, getNav().createFragment()).commit()
     }
-
-    private fun getFragPos(): Int{
-        val intent = this.intent.extras!!.get(INTENT_ACTIVITY_KEY).toString().toInt()
-        Log.d(XposedApp.TAG, "$INTENT_ACTIVITY_KEY: $intent")
-        return intent
+    private fun getNav(): NavigationPosition{
+        return try {
+            val nav = this.intent.extras!!.get(INTENT_NAV_KEY) as NavigationPosition
+            Log.d(XposedApp.TAG, "$INTENT_NAV_KEY: ${getString(nav.title)}")
+            nav
+        }catch (e: Exception){
+            Log.w(XposedApp.TAG, e.message)
+            NavigationPosition.ERROR
+        }
     }
 }

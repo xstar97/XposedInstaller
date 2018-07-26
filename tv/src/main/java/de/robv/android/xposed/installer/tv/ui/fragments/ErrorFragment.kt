@@ -18,8 +18,6 @@ import android.support.v17.leanback.app.ErrorSupportFragment
 import android.support.v4.content.ContextCompat
 import android.view.View
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.tv.XposedApp
-import java.io.File
 
 /**
  * This class demonstrates how to extend [android.support.v17.leanback.app.ErrorFragment].
@@ -28,7 +26,6 @@ class ErrorFragment : ErrorSupportFragment() {
 
     companion object {
         private val TRANSLUCENT = true
-        private val mDisableResourcesFlag = File(XposedApp().BASE_DIR + "conf/disable_resources")
         val TAG: String = ErrorFragment::class.java.simpleName
         fun newInstance() = ErrorFragment()
     }
@@ -45,7 +42,6 @@ class ErrorFragment : ErrorSupportFragment() {
 
         buttonText = resources.getString(R.string.dismiss_error)
         buttonClickListener = View.OnClickListener {
-            //fragmentManager!!.beginTransaction().remove(this@ErrorFragment).commit()
             activity!!.finish()
         }
     }

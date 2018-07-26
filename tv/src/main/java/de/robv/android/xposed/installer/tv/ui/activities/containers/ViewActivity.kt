@@ -6,13 +6,12 @@ import android.util.Log
 import de.robv.android.xposed.installer.tv.XposedApp
 import de.robv.android.xposed.installer.tv.logic.NavigationPosition
 import de.robv.android.xposed.installer.tv.logic.createFragment
-import de.robv.android.xposed.installer.tv.ui.fragments.*
 
 class ViewActivity: FragmentActivity()
 {
     companion object {
         val TAG: String = ViewActivity::class.java.simpleName
-        const val INTENT_ACTIVITY_KEY = "initActivity"
+        const val INTENT_NAV_KEY = "initNAV"
         fun newInstance() = ViewActivity()
     }
 
@@ -24,18 +23,17 @@ class ViewActivity: FragmentActivity()
         }
     }
     private fun setActivityFragment(){
-        val nav = NavigationPosition.values()
-        val frag = if (getFragPos() != -1)
-            nav[getFragPos()].createFragment()
-        else
-            ErrorFragment()
-
-        supportFragmentManager.beginTransaction()
-                .replace(android.R.id.content, frag).commit()
+       supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, getNav().createFragment()).commit()
     }
-    private fun getFragPos(): Int{
-        val intent = this.intent.extras!!.get(INTENT_ACTIVITY_KEY).toString().toInt()
-        Log.d(XposedApp.TAG, "$INTENT_ACTIVITY_KEY: $intent")
-        return intent
+    private fun getNav(): NavigationPosition{
+       return try {
+            val nav = this.intent.extras!!.get(INTENT_NAV_KEY) as NavigationPosition
+            Log.d(XposedApp.TAG, "$INTENT_NAV_KEY: ${getString(nav.title)}")
+            nav
+        }catch (e: Exception){
+           Log.w(XposedApp.TAG, e.message)
+           NavigationPosition.ERROR
+        }
     }
 }

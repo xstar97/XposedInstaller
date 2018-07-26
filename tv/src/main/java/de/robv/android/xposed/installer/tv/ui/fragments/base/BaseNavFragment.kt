@@ -10,11 +10,12 @@ import android.view.Gravity
 import android.view.ViewGroup
 
 import de.robv.android.xposed.installer.tv.logic.NavigationPosition
-import de.robv.android.xposed.installer.tv.logic.getTitle
 
 import android.support.v17.leanback.widget.*
 import android.support.v17.leanback.widget.Presenter
+import android.util.Log
 import de.robv.android.xposed.installer.core.models.NavModel
+import de.robv.android.xposed.installer.tv.XposedApp
 
 open class BaseNavFragment: BrowseSupportFragment()
 {
@@ -42,11 +43,11 @@ open class BaseNavFragment: BrowseSupportFragment()
         val list = navList(context)
 
         for (nav in list.first){
-            gridRowAdapter0.add(NavModel(nav.pos, nav.title))
+            gridRowAdapter0.add(NavModel(nav.pos, nav.icon, nav.title))
         }
 
         for (nav in list.second){
-            gridRowAdapter1.add(NavModel(nav.pos,nav.title))
+            gridRowAdapter1.add(NavModel(nav.pos, nav.icon,nav.title))
         }
 
         mRowsAdapter!!.add(ListRow(HeaderItem(0, "NAV"), gridRowAdapter0))
@@ -61,10 +62,10 @@ open class BaseNavFragment: BrowseSupportFragment()
             view.layoutParams = ViewGroup.LayoutParams(GRID_ITEM_WIDTH, GRID_ITEM_HEIGHT)
             view.isFocusable = true
             view.isFocusableInTouchMode = true
-            //view.setBackgroundColor(resources.getColor(R.color.default_background))
             view.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.default_background))
             view.setTextColor(Color.WHITE)
             view.gravity = Gravity.CENTER
+
             return Presenter.ViewHolder(view)
         }
 
@@ -79,16 +80,27 @@ open class BaseNavFragment: BrowseSupportFragment()
     }
 
     private fun navList(context: Context): Pair<ArrayList<NavModel>, ArrayList<NavModel>>{
-        //this implementation allows the list to start from index: 0 to end of the list, but give the nav items their current positions
-        //from NavigationPosition...
-        val list = NavigationPosition.values()
+        val removeErrorFrag = 1
+        val nav = NavigationPosition.values()
+        val list = nav.copyOfRange(removeErrorFrag, nav.size)
+
         val first = ArrayList<NavModel>()
-        for (f in 0 until 4) {
-            first.add(NavModel(f, list[f].getTitle(context)))
+        for (f in 0 until NavigationPosition.SUPPORT.pos) {
+            val pos = list[f].pos
+            val icon = list[f].icon
+            val title = list[f].title
+            Log.v(XposedApp.TAG, "pos1: $pos | title: ${context.getString(title)}\n")
+            //if (pos != -1)
+            first.add(NavModel(pos, icon, context.getString(title)))
         }
         val second = ArrayList<NavModel>()
-        for (s in 4 until list.size) {
-            second.add(NavModel(s, list[s].getTitle(context)))
+        for (s in NavigationPosition.SUPPORT.pos until list.size) {
+            val pos = list[s].pos
+            val icon = list[s].icon
+            val title = list[s].title
+            Log.v(XposedApp.TAG, "pos2: $pos | title: ${context.getString(title)}\n")
+           // if (pos != -1)
+            second.add(NavModel(pos, icon, context.getString(title)))
         }
         return Pair(first, second)
     }

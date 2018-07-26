@@ -13,19 +13,20 @@ import de.psdev.licensesdialog.licenses.SILOpenFontLicense11
 import de.psdev.licensesdialog.model.Notice
 import de.psdev.licensesdialog.model.Notices
 import de.robv.android.xposed.installer.core.R
+import de.robv.android.xposed.installer.core.models.InfoModel
 import de.robv.android.xposed.installer.core.util.NavUtil
 
 class BaseAbout
 {
     companion object {
-        fun getVersion(context: Context): String{
-            val packageName = context.packageName
-            return try {
-                context.packageManager.getPackageInfo(packageName, 0).versionName
-            } catch (ignored: PackageManager.NameNotFoundException) {
-                "-1"
-            }
-        }
+        //pos
+        const val aboutVersionLabel = 0
+        const val aboutDevelopersLabel = 1
+        const val aboutLibrariesLabel = 2
+        const val aboutTranslatorLabel = 3
+        const val aboutSourceLabel = 4
+
+        //actions
         fun showGitHubPage(context: Context){
             NavUtil.startURL(context as Activity, context.getString(R.string.about_source))
         }
@@ -53,6 +54,25 @@ class BaseAbout
                     .setIncludeOwnLicense(true)
                     .build()
                     .show()
+        }
+
+        fun getAboutList(context: Context): ArrayList<InfoModel>{
+            val list = ArrayList<InfoModel>()
+            list.add(InfoModel(aboutVersionLabel,R.drawable.ic_info, context.getString(R.string.about_version_label), BaseAbout.getVersion(context)))
+            list.add(InfoModel(aboutDevelopersLabel, R.drawable.ic_person, context.getString(R.string.about_developers_label), ""))
+            list.add(InfoModel(aboutLibrariesLabel,R.drawable.ic_description, context.getString(R.string.about_libraries_label), ""))
+            list.add(InfoModel(aboutTranslatorLabel, R.drawable.ic_language, context.getString(R.string.about_translator_label), context.getString(R.string.translator)))
+            list.add(InfoModel(aboutSourceLabel, R.drawable.ic_github, context.getString(R.string.about_source_label), ""))
+            return list
+        }
+
+        private fun getVersion(context: Context): String{
+            val packageName = context.packageName
+            return try {
+                context.packageManager.getPackageInfo(packageName, 0).versionName
+            } catch (ignored: PackageManager.NameNotFoundException) {
+                "-1"
+            }
         }
     }
 }

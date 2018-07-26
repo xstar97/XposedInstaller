@@ -240,4 +240,12 @@
     <string name="loading">Loading…</string>
     <string name="update_download_list">Pulldown to refresh download\'s module list</string>
 
+
+    <string name="error_fragment_title">Error</string>
+
+    <!-- Error messages -->
+    <string name="error_fragment_message">An error occurred</string>
+    <string name="dismiss_error">Dismiss</string>
+
+
 </resources>

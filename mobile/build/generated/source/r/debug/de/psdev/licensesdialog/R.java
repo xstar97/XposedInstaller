@@ -764,11 +764,11 @@ public final class R {
         public static final int abc_shareactionprovider_share_with = 0x7f10001a;
         public static final int abc_shareactionprovider_share_with_application = 0x7f10001b;
         public static final int abc_toolbar_collapse_description = 0x7f10001c;
-        public static final int notices_close = 0x7f1000d4;
-        public static final int notices_default_style = 0x7f1000d5;
-        public static final int notices_title = 0x7f1000d6;
-        public static final int search_menu_title = 0x7f100101;
-        public static final int status_bar_notification_info_overflow = 0x7f100118;
+        public static final int notices_close = 0x7f1000d7;
+        public static final int notices_default_style = 0x7f1000d8;
+        public static final int notices_title = 0x7f1000d9;
+        public static final int search_menu_title = 0x7f1000f6;
+        public static final int status_bar_notification_info_overflow = 0x7f10010c;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat = 0x7f110000;

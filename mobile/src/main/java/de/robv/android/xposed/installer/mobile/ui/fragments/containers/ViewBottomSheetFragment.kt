@@ -11,7 +11,6 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.NavigationPosition
 import de.robv.android.xposed.installer.mobile.logic.createFragment
-import de.robv.android.xposed.installer.mobile.logic.getPos
 
 /**
  * BottomSheetFragment Container for all the fragments
@@ -21,10 +20,10 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
     companion object {
         val TAG: String = ViewBottomSheetFragment::class.java.simpleName
         const val BUNDLE_SHEET_KEY = "initSheet"
-        fun newInstance(tag: NavigationPosition): ViewBottomSheetFragment {
+        fun newInstance(nav: NavigationPosition): ViewBottomSheetFragment {
             val frag = ViewBottomSheetFragment()
             val args = Bundle()
-            args.putInt(BUNDLE_SHEET_KEY, tag.getPos())
+            args.putSerializable(BUNDLE_SHEET_KEY, nav)
             frag.arguments = args
             return frag
         }
@@ -42,17 +41,15 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
         return v
     }
     private fun setSheetFragment(){
-        val nav = NavigationPosition.values()
-        val sheet = nav[getFragPos()].createFragment()
-        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, sheet).commitNowAllowingStateLoss()
+        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getNav().createFragment()).commitNowAllowingStateLoss()
     }
-    private fun getFragPos(): Int {
+    private fun getNav(): NavigationPosition{
         val bundle = this.arguments
-         if (bundle != null) {
-            val i = bundle.getInt(BUNDLE_SHEET_KEY, NavigationPosition.HOME.getPos())
-            Log.d(XposedApp.TAG, "initSheet: $i")
+        if (bundle != null) {
+            val i = bundle.get(BUNDLE_SHEET_KEY) as NavigationPosition
+            Log.d(XposedApp.TAG, "$BUNDLE_SHEET_KEY: $i")
             return i
         }
-        return NavigationPosition.HOME.getPos()
+        return NavigationPosition.ERROR
     }
 }

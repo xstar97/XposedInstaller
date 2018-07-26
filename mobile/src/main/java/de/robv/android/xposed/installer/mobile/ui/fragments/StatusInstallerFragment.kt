@@ -223,7 +223,7 @@ class StatusInstallerFragment : Fragment(), View.OnClickListener
         return super.onOptionsItemSelected(item)
     }
 
-
+    //TODO add method to core module instead
     @SuppressLint("StringFormatInvalid")
     private fun refreshKnownIssue(v: View) {
         val issueName: String?

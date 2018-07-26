@@ -10,7 +10,7 @@ class WelcomeActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //if (savedInstanceState == null) {
-        //    supportFragmentManager.beginTransaction().replace(R.id.main_fragment, MainFragment()).commit()
+        //    supportFragmentManager.beginTransaction().replace(R.id.main_fragment, WelcomeFragment()).commit()
         //}
     }
 }

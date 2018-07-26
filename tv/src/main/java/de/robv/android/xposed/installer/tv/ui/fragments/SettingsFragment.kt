@@ -10,12 +10,13 @@ import android.widget.Toast
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.models.InfoModel
 import de.robv.android.xposed.installer.tv.XposedApp
-import de.robv.android.xposed.installer.tv.ui.fragments.base.BasePreferenceGuidedFragment
+import de.robv.android.xposed.installer.tv.ui.fragments.base.BaseGuidedFragment
 import java.io.File
 import java.io.IOException
 
 //TODO add more preferences!
-class SettingsFragment: BasePreferenceGuidedFragment()
+class SettingsFragment: BaseGuidedFragment(),
+        SharedPreferences.OnSharedPreferenceChangeListener
 {
     companion object {
         val TAG: String = SettingsFragment::class.java.simpleName
@@ -44,7 +45,7 @@ class SettingsFragment: BasePreferenceGuidedFragment()
                 notifyActionChanged(findActionPositionById(releaseTypeGlobal.toLong()))
             }
             PREF_RES ->{
-                //nothing to do here yet:/
+                //nothing to do here:/
             }
         }
     }
@@ -53,7 +54,6 @@ class SettingsFragment: BasePreferenceGuidedFragment()
         super.onCreate(savedInstanceState)
         val sharedPreferences = XposedApp.getPreferences()
         sharedPreferences.registerOnSharedPreferenceChangeListener(this)
-
     }
 
     override fun onResume() {
@@ -74,10 +74,8 @@ class SettingsFragment: BasePreferenceGuidedFragment()
     override fun onCreateActions(actions: MutableList<GuidedAction>, savedInstanceState: Bundle?) {
 
         try {
-            actions.add(addReleaseTypeGlobal())
-
-            actions.add(addDisableResources())
-
+            actions.add(getReleaseTypeGlobal())
+            actions.add(getDisableResources())
         }catch (npe: NullPointerException){
             Log.e(XposedApp.TAG, "onCreateActions: npe: ${npe.message}")
         }catch (e: Exception){
@@ -136,15 +134,15 @@ class SettingsFragment: BasePreferenceGuidedFragment()
     }
 
     //actions
-    private fun addReleaseTypeGlobal(): GuidedAction{
+    private fun getReleaseTypeGlobal(): GuidedAction{
         return GuidedAction.Builder(activity!!)
                 .id(releaseTypeGlobal.toLong())
                 .title(activity!!.getString(R.string.settings_release_type))
                 .description(getReleaseTypeGlobalSummary())
-                .subActions(getActionsFromList(releaseTypeGlobalSubList()))
+                .subActions(getActionsFromList(activity!!, releaseTypeGlobalSubList()))
                 .build()
     }
-    private fun addDisableResources(): GuidedAction{
+    private fun getDisableResources(): GuidedAction{
         return GuidedAction.Builder(activity!!)
                 .id(disableResources.toLong())
                 .title(activity!!.getString(R.string.settings_disable_resources))
@@ -162,20 +160,20 @@ class SettingsFragment: BasePreferenceGuidedFragment()
     }
 
     private fun releaseTypeGlobalSubList(): ArrayList<InfoModel>{
-        val infoList = ArrayList<InfoModel>()
+        val list = ArrayList<InfoModel>()
         val stable = releaseTypeText()[0]
         val beta = releaseTypeText()[1]
         val experimental = releaseTypeText()[2]
-        //Log.v(XposedApp.TAG, "stable: $stable\nbeta: $beta\nexperimental: $experimental")
-        infoList.add(InfoModel(releaseTypeGlobalStable, 0, stable, ""))
-        infoList.add(InfoModel(releaseTypeGlobalBeta, 0, beta, ""))
-        infoList.add(InfoModel(releaseTypeGlobalExperimental, 0, experimental, ""))
-        return infoList
+        Log.v(XposedApp.TAG, "stable: $stable\nbeta: $beta\nexperimental: $experimental")
+        list.add(InfoModel(releaseTypeGlobalStable, 0, stable, ""))
+        list.add(InfoModel(releaseTypeGlobalBeta, 0, beta, ""))
+        list.add(InfoModel(releaseTypeGlobalExperimental, 0, experimental, ""))
+        return list
     }
     private fun releaseTypeText(): Array<String>{
         return resources.getStringArray(R.array.release_type_texts)
     }
     private fun releaseTypeValues(): Array<String>{
-        return resources.getStringArray(R.array.release_type_values)
+        return activity!!.resources.getStringArray(R.array.release_type_values)
     }
 }
