@@ -5,8 +5,8 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.ui.fragments.*
 import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadFragment
 
-enum class NavigationPosition(val id: Int, val title: Int) {
-
+enum class NavigationPosition(val id: Int, val title: Int)
+{
     ERROR(-1, R.string.error_fragment_title),
     DOWNLOAD(R.id.nav_item_downloads, R.string.nav_item_download),
     MODULES(R.id.nav_item_modules, R.string.nav_item_modules),

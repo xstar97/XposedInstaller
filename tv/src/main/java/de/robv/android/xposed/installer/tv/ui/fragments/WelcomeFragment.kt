@@ -3,11 +3,9 @@ package de.robv.android.xposed.installer.tv.ui.fragments
 import android.os.Bundle
 import android.support.v17.leanback.widget.*
 import android.util.Log
-import de.robv.android.xposed.installer.tv.XposedApp
 import de.robv.android.xposed.installer.core.models.NavModel
 import de.robv.android.xposed.installer.tv.logic.findNavByPos
 import de.robv.android.xposed.installer.tv.ui.activities.containers.ViewActivity
-import de.robv.android.xposed.installer.tv.ui.activities.containers.ViewActivity.Companion.INTENT_NAV_KEY
 
 import de.robv.android.xposed.installer.tv.ui.fragments.base.BaseNavFragment
 import org.jetbrains.anko.startActivity
@@ -18,14 +16,12 @@ class WelcomeFragment : BaseNavFragment(), OnItemViewSelectedListener, OnItemVie
         try {
             val model = item as NavModel
             val pos = model.pos
-            val icon = model.icon
             val title = model.title
 
             val nav = findNavByPos(pos)
-            activity!!.startActivity<ViewActivity>(INTENT_NAV_KEY to nav)
-            Log.d(XposedApp.TAG, "pos: $pos\nnav: $icon\ntitle: $title")
+            activity!!.startActivity<ViewActivity>(ViewActivity.INTENT_NAV_KEY to nav)
         }catch (e: Exception){
-            Log.d(XposedApp.TAG, e.message)
+            Log.d(TAG, e.message)
         }
     }
 

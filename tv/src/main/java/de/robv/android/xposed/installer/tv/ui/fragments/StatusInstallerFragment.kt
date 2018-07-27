@@ -1,5 +1,6 @@
 package de.robv.android.xposed.installer.tv.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v17.leanback.widget.GuidanceStylist
 import android.support.v17.leanback.widget.GuidedAction
@@ -9,7 +10,7 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.base.fragments.BaseDeviceInfo
 import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller
-import de.robv.android.xposed.installer.core.models.InfoModel
+import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.showActionDialog
 import de.robv.android.xposed.installer.core.models.ZipModel
 import de.robv.android.xposed.installer.core.util.FrameworkZips
 import de.robv.android.xposed.installer.core.util.Loader
@@ -33,12 +34,6 @@ class StatusInstallerFragment: BaseGuidedFragment()
     private val actionInstallUpdate = 2
     private val actionUninstall = 3
     private val actionYourDevice = 4
-
-
-    private val actionFlash = 0
-    private val actionFlashRecovery = 1
-    private val actionSave = 2
-    private val actionDelete = 3
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,11 +96,11 @@ class StatusInstallerFragment: BaseGuidedFragment()
     override fun onSubGuidedActionClicked(action: GuidedAction?): Boolean {
         val pos = action!!.id.toInt()
 
-        val title = action.title
-        Log.v(XposedApp.TAG, "onSubGuidedActionClicked: \nposSub: $pos\ntitle: $title")
-
-        val device = findActionById(actionYourDevice.toLong())
-        return action == device
+        val title = action.title.toString()
+        val type = if(title.contains("uninstaller", ignoreCase = true)) FrameworkZips.Type.UNINSTALLER else FrameworkZips.Type.INSTALLER
+        Log.v(XposedApp.TAG, "onSubGuidedActionClicked: \nposSub: $pos\ntitle: $title\ntype: $type")
+        // showActionDialog(activity!!, Intent(context, InstallationActivity::class.java), title, type)
+        return true
     }
 
     private fun getXposed(): GuidedAction {
@@ -145,25 +140,13 @@ class StatusInstallerFragment: BaseGuidedFragment()
         return GuidedAction.Builder(activity!!)
                 .id(actionInstallUpdate.toLong())
                 .title(activity!!.getString(R.string.install_update))
-                .hasNext(true)
                 .build()
     }
     private fun getUninstaller(): GuidedAction{
         return GuidedAction.Builder(activity!!)
                 .id(actionUninstall.toLong())
                 .title(activity!!.getString(R.string.uninstall))
-                .hasNext(true)
                 .build()
-    }
-    private fun getZipsActions(): ArrayList<InfoModel>{
-        val list = ArrayList<InfoModel>()
-        val install = activity!!.getString(FrameworkZips.Type.INSTALLER.text_flash)
-        val uninstall = activity!!.getString(FrameworkZips.Type.INSTALLER.text_flash_recovery)
-        val del = activity!!.getString(R.string.framework_delete)
-        list.add(InfoModel(actionFlash, 0, install,""))
-        list.add(InfoModel(actionFlashRecovery, 0, uninstall, ""))
-        list.add(InfoModel(actionDelete, 0, del, ""))
-        return list
     }
 
     private fun getDevice(): GuidedAction{

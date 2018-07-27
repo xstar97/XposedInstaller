@@ -9,6 +9,7 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.logic.adapters.download.viewholders.DownloadBaseViewHolder
 import de.robv.android.xposed.installer.mobile.logic.adapters.download.viewholders.DownloadBaseViewHolderHeader
 import android.content.Context
+import de.robv.android.xposed.installer.core.models.DownloadModel
 
 class DownloadBaseAdapter(private val context: Context, private val delegate: DownloadBaseViewHolder.Delegate): BaseAdapter() {
 

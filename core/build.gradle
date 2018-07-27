@@ -1,13 +1,9 @@
 apply plugin: 'com.android.library'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion versions.compileSdk
-
-
 
     defaultConfig {
         minSdkVersion versions.minSdk
@@ -42,6 +38,7 @@ dependencies {
 
     // Kotlin
     implementation kotlinDependencies.kotlinJdk8
+    //implementation kotlinDependencies.kotlinJre8
 
     api utilsDependencies.libSuperUser
 

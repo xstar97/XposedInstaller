@@ -36,20 +36,16 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val v=  inflater.inflate(R.layout.view_sheet, container, false)
-
         setSheetFragment()
         return v
     }
     private fun setSheetFragment(){
-        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getNav().createFragment()).commitNowAllowingStateLoss()
+        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getFrag().createFragment()).commitNowAllowingStateLoss()
     }
-    private fun getNav(): NavigationPosition{
-        val bundle = this.arguments
-        if (bundle != null) {
-            val i = bundle.get(BUNDLE_SHEET_KEY) as NavigationPosition
-            Log.d(XposedApp.TAG, "$BUNDLE_SHEET_KEY: $i")
-            return i
-        }
-        return NavigationPosition.ERROR
+    private fun getFrag(): NavigationPosition{
+        val bundle = this.arguments ?: return NavigationPosition.ERROR
+        val i = bundle.get(BUNDLE_SHEET_KEY) as NavigationPosition
+        Log.d(XposedApp.TAG, "$BUNDLE_SHEET_KEY: ${getString(i.title)}")
+        return i
     }
 }

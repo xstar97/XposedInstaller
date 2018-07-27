@@ -40,13 +40,13 @@ class ViewActivity: XposedBaseActivity()
         }
     }
     private fun setFragTitle(): String {
-
-        return this.getString(getNav().title)
+        return getString(getFrag().title)
     }
     private fun setActivityFragment(){
-        supportFragmentManager.beginTransaction().replace(R.id.container, getNav().createFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container, getFrag().createFragment()).commit()
     }
-    private fun getNav(): NavigationPosition{
+
+    private fun getFrag(): NavigationPosition {
         return try {
             val nav = this.intent.extras!!.get(INTENT_NAV_KEY) as NavigationPosition
             Log.d(XposedApp.TAG, "$INTENT_NAV_KEY: ${getString(nav.title)}")

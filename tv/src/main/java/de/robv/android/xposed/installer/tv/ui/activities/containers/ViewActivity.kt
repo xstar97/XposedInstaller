@@ -23,17 +23,18 @@ class ViewActivity: FragmentActivity()
         }
     }
     private fun setActivityFragment(){
-       supportFragmentManager.beginTransaction()
-                .replace(android.R.id.content, getNav().createFragment()).commit()
+        supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, getFrag().createFragment()).commit()
     }
-    private fun getNav(): NavigationPosition{
-       return try {
+
+    private fun getFrag(): NavigationPosition {
+        return try {
             val nav = this.intent.extras!!.get(INTENT_NAV_KEY) as NavigationPosition
             Log.d(XposedApp.TAG, "$INTENT_NAV_KEY: ${getString(nav.title)}")
             nav
         }catch (e: Exception){
-           Log.w(XposedApp.TAG, e.message)
-           NavigationPosition.ERROR
+            Log.w(XposedApp.TAG, e.message)
+            NavigationPosition.ERROR
         }
     }
 }

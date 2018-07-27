@@ -11,17 +11,16 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.NavigationPosition
 import de.robv.android.xposed.installer.mobile.logic.createFragment
-import de.robv.android.xposed.installer.mobile.logic.getPos
 
 class ViewDialogFragment : DialogFragment() {
 
     companion object {
         val TAG: String = ViewDialogFragment::class.java.simpleName
         const val BUNDLE_DIALOG_KEY = "initDialog"
-        fun newInstance(pos: NavigationPosition): ViewDialogFragment {
+        fun newInstance(nav: NavigationPosition): ViewDialogFragment {
             val frag = ViewDialogFragment()
             val args = Bundle()
-            args.putInt(BUNDLE_DIALOG_KEY, pos.getPos())
+            args.putSerializable(BUNDLE_DIALOG_KEY, nav)
             frag.arguments = args
             return frag
         }
@@ -37,15 +36,12 @@ class ViewDialogFragment : DialogFragment() {
         setDialogFragment()
     }
     private fun setDialogFragment(){
-        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getNav().createFragment()).commitNowAllowingStateLoss()
+        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getFrag().createFragment()).commitNowAllowingStateLoss()
     }
-    private fun getNav(): NavigationPosition{
-        val bundle = this.arguments
-        if (bundle != null) {
-            val i = bundle.get(BUNDLE_DIALOG_KEY) as NavigationPosition
-            Log.d(XposedApp.TAG, "$BUNDLE_DIALOG_KEY: $i")
-            return i
-        }
-        return NavigationPosition.ERROR
+    private fun getFrag(): NavigationPosition{
+        val bundle = this.arguments ?: return NavigationPosition.ERROR
+        val i = bundle.get(BUNDLE_DIALOG_KEY) as NavigationPosition
+        Log.d(XposedApp.TAG, "$BUNDLE_DIALOG_KEY: ${getString(i.title)}")
+        return i
     }
 }
