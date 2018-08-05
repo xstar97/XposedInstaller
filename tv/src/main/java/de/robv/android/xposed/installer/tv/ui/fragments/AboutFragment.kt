@@ -24,7 +24,7 @@ class AboutFragment: BaseGuidedFragment()
     override fun onCreateActions(actions: MutableList<GuidedAction>, savedInstanceState: Bundle?) {
 
         try {
-            val list = getActionsFromList(activity!!, BaseAbout.getAboutList(activity!!))
+            val list = getActionsFromList(activity!!, BaseAbout().getAboutList(activity!!))
             for (about in list) {
                 actions.add(about)
             }
@@ -43,16 +43,16 @@ class AboutFragment: BaseGuidedFragment()
 
             }
             BaseAbout.aboutDevelopersLabel -> {
-                BaseAbout.showDevelopersDialog(activity!!)
+                BaseAbout().showDevelopersDialog(activity!!)
             }
             BaseAbout.aboutLibrariesLabel -> {
-                BaseAbout.getLicenseDialog(activity!!)
+                BaseAbout().getLicenseDialog(activity!!)
             }
             BaseAbout.aboutTranslatorLabel -> {
 
             }
             BaseAbout.aboutSourceLabel -> {
-                BaseAbout.showGitHubPage(activity!!)
+                BaseAbout().showGitHubPage(activity!!)
             }
         }
     }

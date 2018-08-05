@@ -43,7 +43,7 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
         childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getFrag().createFragment()).commitNowAllowingStateLoss()
     }
     private fun getFrag(): NavigationPosition{
-        val bundle = this.arguments ?: return NavigationPosition.ERROR
+        val bundle = this.arguments ?: return NavigationPosition.HOME
         val i = bundle.get(BUNDLE_SHEET_KEY) as NavigationPosition
         Log.d(XposedApp.TAG, "$BUNDLE_SHEET_KEY: ${getString(i.title)}")
         return i

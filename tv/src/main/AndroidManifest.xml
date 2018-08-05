@@ -34,6 +34,7 @@
 
         <activity android:name="de.robv.android.xposed.installer.tv.ui.activities.WelcomeActivity" />
         <activity android:name="de.robv.android.xposed.installer.tv.ui.activities.containers.ViewActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".tv.ui.activities.InstallationActivity" />
 
     </application>
 

@@ -53,7 +53,7 @@ class ViewActivity: XposedBaseActivity()
             nav
         }catch (e: Exception){
             Log.w(XposedApp.TAG, e.message)
-            NavigationPosition.ERROR
+            NavigationPosition.HOME
         }
     }
 }

@@ -20,6 +20,7 @@ import android.view.View
 import android.widget.TextView
 
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.base.fragments.BaseModules
 import de.robv.android.xposed.installer.core.repo.Module
 import de.robv.android.xposed.installer.core.util.Loader
 import de.robv.android.xposed.installer.core.util.ModuleUtil
@@ -27,7 +28,6 @@ import de.robv.android.xposed.installer.core.util.ModuleUtil.InstalledModule
 import de.robv.android.xposed.installer.core.util.ModuleUtil.ModuleListener
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
-import de.robv.android.xposed.installer.mobile.ui.fragments.ModulesFragment
 import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsFragment
 import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsSettingsFragment
 import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsVersionsFragment
@@ -199,18 +199,18 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
                     val playStore: Boolean
 
                     playStore = try {
-                        s == ModulesFragment().PLAY_STORE_PACKAGE
+                        s == BaseModules.PLAY_STORE_PACKAGE
                     } catch (e: NullPointerException) {
                         false
                     }
 
                     text += if (playStore) {
-                        String.format(ModulesFragment().PLAY_STORE_LINK, mPackageName)
+                        String.format(BaseModules.PLAY_STORE_LINK, mPackageName)
                     } else {
-                        String.format(ModulesFragment().XPOSED_REPO_LINK, mPackageName)
+                        String.format(BaseModules.XPOSED_REPO_LINK, mPackageName)
                     }
                 } else {
-                    text += String.format(ModulesFragment().XPOSED_REPO_LINK,
+                    text += String.format(BaseModules.XPOSED_REPO_LINK,
                             mPackageName)
                 }
 

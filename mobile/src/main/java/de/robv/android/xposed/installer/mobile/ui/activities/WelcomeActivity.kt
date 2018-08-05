@@ -20,7 +20,11 @@ import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDet
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 
-class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.Listener<RepoLoader>, View.OnClickListener, PopupMenu.OnMenuItemClickListener
+class WelcomeActivity: BaseNavActivity(),
+        ModuleUtil.ModuleListener,
+        Loader.Listener<RepoLoader>,
+        View.OnClickListener,
+        PopupMenu.OnMenuItemClickListener
 {
     private var mRepoLoader: RepoLoader? = null
 
@@ -38,20 +42,23 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
 
     override fun onClick(v: View?) {
         val id = v!!.id
-        if (id == R.id.fabMenu){
-            showFabMenu(v)
+        when(id){
+            R.id.fabMenu ->{
+                showFabMenu(v)
+            }
+            R.id.card_view_status ->{
+
+            }
         }
     }
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         navPosition = findNavPosById(item.itemId)
-
         return switchFragment(navPosition)
     }
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         try {
             val nav = findNavPosById(item!!.itemId)
-            Utils().launchSheet(getFragManager(), nav)
+            Utils().launchSheet(supportFragmentManager, nav)
         }catch (e: Exception){
             Log.e(XposedApp.TAG, e.message)
         }
@@ -75,7 +82,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
 
     override fun onSaveInstanceState(outState: Bundle?) {
         // Store the current navigation position.
-        outState?.putInt(NAV_KEY_POSITION, navPosition.id)
+        outState?.putInt(navKeyPosition, navPosition.id)
         super.onSaveInstanceState(outState)
     }
 
@@ -90,15 +97,14 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
     override fun onResume() {
         super.onResume()
         val lockOrNot = if (Utils().isBottomNav()) DrawerLayout.LOCK_MODE_LOCKED_CLOSED else DrawerLayout.LOCK_MODE_UNLOCKED
-        getDrawerLayout()!!.setDrawerLockMode(lockOrNot)
+        drawerLayout()!!.setDrawerLockMode(lockOrNot)
         initVisFab()
-        setNavActive(navPosition)
+        navActive(navPosition)
     }
     private fun restoreSaveInstanceState(savedInstanceState: Bundle?) {
         // Restore the current navigation position.
         savedInstanceState?.also {
-
-           val id = it.getInt(NAV_KEY_POSITION, getDefaultMenu().id)
+           val id = it.getInt(navKeyPosition, getDefaultMenu().id)
             navPosition = findNavPosById(id)
         }
 
@@ -122,61 +128,58 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
 
     private fun setNav() {
         if (Utils().isBottomNav()) {
-            getDrawerNav()!!.visibility = View.GONE
-            getBottomNav()!!.visibility = View.VISIBLE
+            drawerNav()!!.visibility = View.GONE
+            bottomNav()!!.visibility = View.VISIBLE
             initBottomNav(this, this)
         }
         else{
-            getBottomNav()!!.visibility = View.GONE
-            getDrawerNav()!!.visibility = View.VISIBLE
+            bottomNav()!!.visibility = View.GONE
+            drawerNav()!!.visibility = View.VISIBLE
             initDrawerNav(this,this)
         }
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun switchFragment(navPosition: NavigationPosition): Boolean {
-        val fragment = getFragManager().findFragment(navPosition)
+        val fragment = supportFragmentManager.findFragment(navPosition)
         if (fragment!!.isAdded) return false
         detachFragment()
         attachFragment(fragment, navPosition.getTag())
-        getFragManager().executePendingTransactions()
-        setNavActive(navPosition)
+        supportFragmentManager.executePendingTransactions()
+        navActive(navPosition)
         initVisFab()
-        //if drawer is 'active' and 'open'...action will close it!
         closeDrawer()
         return true
     }
-    private fun setNavActive(navPosition: NavigationPosition){
+
+    private fun navActive(navPosition: NavigationPosition){
+        val pos = navPosition.getPos()
         if (Utils().isBottomNav()){
-            setBottomNavActive(navPosition.getPos())
+            bottomNavActive(pos)
         } else{
-            setDrawerNavActive(navPosition.getPos())
+            drawerNavActive(pos)
         }
     }
 
-
     private fun detachFragment() {
-        getFragManager().findFragmentById(R.id.content)?.also {
-            getFragManager().beginTransaction().detach(it).commit()
+        supportFragmentManager.findFragmentById(R.id.content)?.also {
+            supportFragmentManager.beginTransaction().detach(it).commit()
         }
     }
     private fun attachFragment(fragment: Fragment, tag: String) {
         if (fragment.isDetached) {
-            getFragManager().beginTransaction().attach(fragment).commit()
+            supportFragmentManager.beginTransaction().attach(fragment).commit()
         } else {
-            getFragManager().beginTransaction().add(R.id.content, fragment, tag).commit()
+            supportFragmentManager.beginTransaction().add(R.id.content, fragment, tag).commit()
         }
         // Set a transition animation for this transaction.
-        getFragManager().beginTransaction()
+        supportFragmentManager.beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit()
     }
 
     private fun android.support.v4.app.FragmentManager.findFragment(position: NavigationPosition): Fragment? {
         return findFragmentByTag(position.getTag()) ?: position.createFragment()
-    }
-    private fun getFragManager(): android.support.v4.app.FragmentManager{
-        return supportFragmentManager
     }
 
     private fun notifyDataSetChanged() {
@@ -185,7 +188,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
         val moduleUpdateAvailable = mRepoLoader!!.hasModuleUpdates()
 
         try {
-            val currentFragment = getFragManager().findFragmentById(R.id.content)
+            val currentFragment = supportFragmentManager.findFragmentById(R.id.content)
 
             if (currentFragment is DownloadDetailsFragment) {
                 if (frameworkUpdateVersion != null) {
@@ -200,7 +203,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
                 Snackbar.make(parentLayout, R.string.modules_updates_available, Snackbar.LENGTH_LONG).setAction(getString(R.string.view)) { switchFragment(NavigationPosition.MODULES) }.show()
             }
         }catch (e: Exception){
-            //Log.d(XposedApp.TAG, e.message)
+            Log.d(XposedApp.TAG, e.message)
         }
     }
 
@@ -210,7 +213,7 @@ class WelcomeActivity: BaseNavActivity(), ModuleUtil.ModuleListener, Loader.List
             ModuleUtil.getInstance().removeListener(this)
             mRepoLoader?.removeListener(this)
         }catch (e: Exception){
-            //Log.d(XposedApp.TAG, e.message)
+            Log.d(XposedApp.TAG, e.message)
         }
     }
 }

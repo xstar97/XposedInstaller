@@ -7,11 +7,11 @@ import com.skydoves.baserecyclerviewadapter.BaseAdapter
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 import com.skydoves.baserecyclerviewadapter.SectionRow
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.models.InfoModel
+import de.robv.android.xposed.installer.core.models.*
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.viewholders.InfoBaseViewHolder
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.viewholders.InfoBaseViewHolderHeader
 
-open class InfoBaseAdapter(private val context: Context, private val delegate: InfoBaseViewHolder.Delegate): BaseAdapter() {
+open class InfoBaseAdapter(private val context: Context, private val delegate: InfoDelegate): BaseAdapter() {
 
     private var myContext = context
     companion object {

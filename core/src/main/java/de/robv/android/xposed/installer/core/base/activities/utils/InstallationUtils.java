@@ -1,4 +1,4 @@
-package de.robv.android.xposed.installer.mobile.ui.activities.utils;
+package de.robv.android.xposed.installer.core.base.activities.utils;
 
 import android.animation.ObjectAnimator;
 import android.widget.ImageView;

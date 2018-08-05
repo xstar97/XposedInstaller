@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.base.fragments.BaseSupport
 import de.robv.android.xposed.installer.core.models.InfoModel
-import de.robv.android.xposed.installer.mobile.logic.adapters.info.InfoBaseAdapter
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.InfoBaseAdapter.Companion.SECTION_SUPPORT
 import de.robv.android.xposed.installer.mobile.ui.fragments.base.BaseViewFragment
 
@@ -25,25 +23,24 @@ class SupportFragment: BaseViewFragment()
 
             }
             BaseSupport.supportFrameworkLabel -> {
-                BaseSupport.showSupportPage(activity!!)
+                BaseSupport().showSupportPage(activity!!)
             }
             BaseSupport.supportFaqLabel -> {
-                BaseSupport.showIssuesPage(activity!!)
+                BaseSupport().showIssuesPage(activity!!)
             }
             BaseSupport.supportDonateLabel -> {
-                BaseSupport.showDonationPage(activity!!)
+                BaseSupport().showDonationPage(activity!!)
 
             }
         }
     }
-    private val adapter by lazy { InfoBaseAdapter(activity!!, this) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_view, container, false)
+        return initView()
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = BaseSupport.getSupportList(activity!!)
-        initViews(adapter, SECTION_SUPPORT, list)
+        val list = BaseSupport().getSupportList(activity!!)
+        initList(SECTION_SUPPORT, list)
     }
 }

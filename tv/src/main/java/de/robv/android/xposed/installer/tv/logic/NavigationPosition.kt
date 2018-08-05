@@ -3,6 +3,7 @@ package de.robv.android.xposed.installer.tv.logic
 import android.support.v4.app.Fragment
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.tv.ui.fragments.*
+import de.robv.android.xposed.installer.tv.ui.fragments.download.DownloadFragment
 
 enum class NavigationPosition(val pos: Int, val icon: Int, val title: Int) {
     ERROR(-1, R.drawable.lb_ic_sad_cloud, R.string.error_fragment_title),
@@ -28,8 +29,8 @@ fun findNavByPos(pos: Int): NavigationPosition = when (pos) {
 }
 fun NavigationPosition.createFragment(): Fragment = when (this) {
     NavigationPosition.HOME -> StatusInstallerFragment.newInstance()
-    //NavigationPosition.MODULES -> ModulesFragment.newInstance()
-    //NavigationPosition.DOWNLOAD -> DownloadFragment.newInstance()
+    NavigationPosition.MODULES -> ModulesFragment.newInstance()
+    NavigationPosition.DOWNLOAD -> DownloadFragment.newInstance()
     //NavigationPosition.LOGS -> LogsFragment.newInstance()
     NavigationPosition.SUPPORT -> SupportFragment.newInstance()
     NavigationPosition.ABOUT -> AboutFragment.newInstance()
@@ -39,8 +40,8 @@ fun NavigationPosition.createFragment(): Fragment = when (this) {
 
 fun NavigationPosition.getTag(): String = when (this) {
     NavigationPosition.HOME -> StatusInstallerFragment.TAG
-    //NavigationPosition.MODULES -> ModulesFragment.TAG
-    //NavigationPosition.DOWNLOAD -> DownloadFragment.TAG
+    NavigationPosition.MODULES -> ModulesFragment.TAG
+    NavigationPosition.DOWNLOAD -> DownloadFragment.TAG
     //NavigationPosition.LOGS -> LogsFragment.TAG
     NavigationPosition.SUPPORT -> SupportFragment.TAG
     NavigationPosition.ABOUT -> AboutFragment.TAG

@@ -1,13 +1,14 @@
 package de.robv.android.xposed.installer.mobile.logic
 
+import android.support.annotation.IntegerRes
+import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.ui.fragments.*
 import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadFragment
 
-enum class NavigationPosition(val id: Int, val title: Int)
+enum class NavigationPosition(@IntegerRes val id: Int, @StringRes val title: Int)
 {
-    ERROR(-1, R.string.error_fragment_title),
     DOWNLOAD(R.id.nav_item_downloads, R.string.nav_item_download),
     MODULES(R.id.nav_item_modules, R.string.nav_item_modules),
     HOME(R.id.nav_item_framework, R.string.nav_item_install),
@@ -25,7 +26,7 @@ fun findNavPosById(id: Int): NavigationPosition = when (id) {
     NavigationPosition.SUPPORT.id -> NavigationPosition.SUPPORT
     NavigationPosition.ABOUT.id -> NavigationPosition.ABOUT
     //TODO add error fragment
-    else -> NavigationPosition.ERROR
+    else -> NavigationPosition.HOME
 }
 
 fun NavigationPosition.createFragment(): Fragment = when (this) {
@@ -36,7 +37,7 @@ fun NavigationPosition.createFragment(): Fragment = when (this) {
     NavigationPosition.SETTINGS -> SettingsFragment.newInstance()
     NavigationPosition.SUPPORT -> SupportFragment.newInstance()
     NavigationPosition.ABOUT -> AboutFragment.newInstance()
-    else -> ErrorFragment.newInstance()
+    else -> StatusInstallerFragment.newInstance()
 }
 
 fun NavigationPosition.getTag(): String = when (this) {
@@ -47,7 +48,7 @@ fun NavigationPosition.getTag(): String = when (this) {
     NavigationPosition.SETTINGS -> SettingsFragment.TAG
     NavigationPosition.SUPPORT -> SupportFragment.TAG
     NavigationPosition.ABOUT -> AboutFragment.TAG
-    else -> ErrorFragment.TAG
+    else -> StatusInstallerFragment.TAG
 }
 
 fun NavigationPosition.getPos(): Int = when (this) {
@@ -58,6 +59,6 @@ fun NavigationPosition.getPos(): Int = when (this) {
     NavigationPosition.SETTINGS -> 4
     NavigationPosition.SUPPORT -> 5
     NavigationPosition.ABOUT -> 6
-    else -> -1
+    else -> NavigationPosition.HOME.getPos()
 }
 private fun setNavPos(bottom: Int, drawer: Int) = if (Utils().isBottomNav()) bottom else drawer

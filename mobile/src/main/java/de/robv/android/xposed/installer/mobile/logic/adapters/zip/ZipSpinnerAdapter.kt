@@ -11,8 +11,6 @@ import android.widget.TextView
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.models.ZipModel
 
-
-
 class ZipSpinnerAdapter(private val ctx: Context, private val zip: ArrayList<ZipModel>)
     : ArrayAdapter<ZipModel>(ctx, R.layout.spinner_list_zip, R.id.spinner_item_zip_title, zip)
 {
@@ -33,7 +31,7 @@ class ZipSpinnerAdapter(private val ctx: Context, private val zip: ArrayList<Zip
         textView.text = zip[position].key
 
         val imageView = row.findViewById<ImageView>(R.id.spinner_item_zip_status)
-        imageView.setImageResource(zip[position].icon)
+        imageView.setImageDrawable(zip[position].icon)
 
         return row
     }

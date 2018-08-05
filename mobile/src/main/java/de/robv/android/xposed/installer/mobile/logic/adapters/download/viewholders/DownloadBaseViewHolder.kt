@@ -2,16 +2,13 @@ package de.robv.android.xposed.installer.mobile.logic.adapters.download.viewhold
 
 import android.view.View
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
+import de.robv.android.xposed.installer.core.models.DownloadDelegate
 import de.robv.android.xposed.installer.core.models.DownloadModel
 import kotlinx.android.synthetic.main.list_item_download.view.*
 
-class DownloadBaseViewHolder(view: View, private val delegate: Delegate) : BaseViewHolder(view) {
+class DownloadBaseViewHolder(view: View, private val delegate: DownloadDelegate) : BaseViewHolder(view) {
 
     private lateinit var infoItem: DownloadModel
-
-    interface Delegate {
-        fun onItemClick(infoItem: DownloadModel)
-    }
 
     override fun bindData(data: Any) {
         if(data is DownloadModel) {

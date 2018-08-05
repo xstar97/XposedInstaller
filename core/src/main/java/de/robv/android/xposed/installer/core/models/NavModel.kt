@@ -1,3 +1,6 @@
 package de.robv.android.xposed.installer.core.models
 
-data class NavModel(val pos: Int, val icon: Int, val title: String)
+import android.graphics.drawable.Drawable
+import android.support.annotation.DrawableRes
+
+data class NavModel(val pos: Int?, @DrawableRes val icon: Drawable?, val title: String?)

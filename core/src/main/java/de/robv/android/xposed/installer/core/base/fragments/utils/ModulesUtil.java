@@ -19,7 +19,6 @@ import de.robv.android.xposed.installer.core.util.RepoLoader;
 
 public class ModulesUtil
 {
- @SuppressWarnings("ResultOfMethodCallIgnored")
  public boolean onMenuEnabledModules(Context context, File targetDir, File listModules, File enabledModulesPath){
      try {
          if (!targetDir.exists())
@@ -42,7 +41,6 @@ public class ModulesUtil
      }
  }
 
- @SuppressWarnings({"unchecked", "unused"})
  public void onImportModulesUtil(Context context, InputStream ips, RepoLoader repoLoader, List list){
      try {
          assert ips != null;

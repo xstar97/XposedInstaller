@@ -39,7 +39,7 @@ class ViewDialogFragment : DialogFragment() {
         childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getFrag().createFragment()).commitNowAllowingStateLoss()
     }
     private fun getFrag(): NavigationPosition{
-        val bundle = this.arguments ?: return NavigationPosition.ERROR
+        val bundle = this.arguments ?: return NavigationPosition.HOME
         val i = bundle.get(BUNDLE_DIALOG_KEY) as NavigationPosition
         Log.d(XposedApp.TAG, "$BUNDLE_DIALOG_KEY: ${getString(i.title)}")
         return i

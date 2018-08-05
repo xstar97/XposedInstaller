@@ -4,16 +4,12 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.models.InfoModel
+import de.robv.android.xposed.installer.core.models.*
 import kotlinx.android.synthetic.main.list_item_tab.view.*
 
-class InfoBaseViewHolder(view: View, private val delegate: Delegate) : BaseViewHolder(view) {
+class InfoBaseViewHolder(view: View, private val delegate: InfoDelegate) : BaseViewHolder(view) {
 
     private lateinit var infoItem: InfoModel
-
-    interface Delegate {
-        fun onItemClick(infoItem: InfoModel)
-    }
 
     override fun bindData(data: Any) {
         if(data is InfoModel) {
@@ -32,7 +28,7 @@ class InfoBaseViewHolder(view: View, private val delegate: Delegate) : BaseViewH
             }else if(infoItem.desciption == resources.getString(R.string.verified_boot_explanation)){
                 list_item_tab_description.setTextColor(red500)
             }
-            list_item_tab_icon.setBackgroundResource(infoItem.icon)
+            list_item_tab_icon.setImageDrawable(infoItem.icon)
             list_item_tab_key.text = infoItem.key
             list_item_tab_description.text = infoItem.desciption
         }

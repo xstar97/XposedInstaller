@@ -19,6 +19,7 @@ import java.text.DateFormat
 import java.util.Date
 
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.base.fragments.download.BaseDownloadDetailsVersions
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.core.repo.Module
 import de.robv.android.xposed.installer.core.repo.ModuleVersion
@@ -35,6 +36,11 @@ import de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActi
 
 class DownloadDetailsVersionsFragment : ListFragment()
 {
+    companion object {
+        private var sAdapter: VersionsAdapter? = null
+        val TAG: String = DownloadDetailsVersionsFragment::class.java.simpleName
+        fun newInstance() = DownloadDetailsVersionsFragment()
+    }
     private var mActivity: DownloadDetailsActivity? = null
     private var module: Module? = null
 
@@ -96,7 +102,7 @@ class DownloadDetailsVersionsFragment : ListFragment()
         var txtChangesTitle: TextView? = null
         var txtChanges: TextView? = null
     }
-
+/*
     open class DownloadModuleCallback(private val moduleVersion: ModuleVersion) : DownloadsUtil.DownloadFinishedCallback {
 
         override fun onDownloadFinished(context: Context,
@@ -138,7 +144,7 @@ class DownloadDetailsVersionsFragment : ListFragment()
 
             XposedApp.installApk(context, info)
         }
-    }
+    }*/
 
     private inner class VersionsAdapter(context: Context, installed: InstalledModule?) : ArrayAdapter<ModuleVersion>(context, R.layout.list_item_version) {
         private val mDateFormatter = DateFormat
@@ -204,7 +210,7 @@ class DownloadDetailsVersionsFragment : ListFragment()
 
             holder.downloadView!!.url = item.downloadLink
             holder.downloadView!!.title = mActivity!!.module!!.name
-            holder.downloadView!!.downloadFinishedCallback = DownloadModuleCallback(item)
+            holder.downloadView!!.downloadFinishedCallback = BaseDownloadDetailsVersions.DownloadModuleCallback(item)
 
             if (item.changelog != null && !item.changelog.isEmpty()) {
                 holder.txtChangesTitle!!.visibility = View.VISIBLE
@@ -226,11 +232,5 @@ class DownloadDetailsVersionsFragment : ListFragment()
 
             return view
         }
-    }
-
-    companion object {
-        private var sAdapter: VersionsAdapter? = null
-        val TAG: String = DownloadDetailsVersionsFragment::class.java.simpleName
-        fun newInstance() = DownloadDetailsVersionsFragment()
     }
 }

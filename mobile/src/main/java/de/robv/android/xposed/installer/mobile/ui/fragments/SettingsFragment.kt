@@ -26,6 +26,7 @@ class SettingsFragment : BasePreferenceFragment()
         val TAG: String = SettingsFragment::class.java.simpleName
         fun newInstance() = SettingsFragment()
     }
+
     private var mClickedPreference: Preference? = null
     private val downloadLocation: Preference? = null
     private val PREF_TYPE = "release_type_global"

@@ -165,9 +165,9 @@ class SettingsFragment: BaseGuidedFragment(),
         val beta = releaseTypeText()[1]
         val experimental = releaseTypeText()[2]
         Log.v(XposedApp.TAG, "stable: $stable\nbeta: $beta\nexperimental: $experimental")
-        list.add(InfoModel(releaseTypeGlobalStable, 0, stable, ""))
-        list.add(InfoModel(releaseTypeGlobalBeta, 0, beta, ""))
-        list.add(InfoModel(releaseTypeGlobalExperimental, 0, experimental, ""))
+        list.add(InfoModel(releaseTypeGlobalStable, null, stable, ""))
+        list.add(InfoModel(releaseTypeGlobalBeta, null, beta, ""))
+        list.add(InfoModel(releaseTypeGlobalExperimental, null, experimental, ""))
         return list
     }
     private fun releaseTypeText(): Array<String>{

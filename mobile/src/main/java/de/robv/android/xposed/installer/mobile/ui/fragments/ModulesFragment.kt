@@ -6,13 +6,11 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.pm.PackageManager.NameNotFoundException
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
 import android.support.v4.app.ActivityCompat
-import android.util.Log
 import android.util.TypedValue
 import android.view.ContextMenu
 import android.view.ContextMenu.ContextMenuInfo
@@ -31,40 +29,34 @@ import android.widget.Toast
 
 import java.io.BufferedWriter
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileNotFoundException
 import java.io.FileWriter
 import java.io.IOException
-import java.io.InputStream
 import java.io.PrintWriter
 import java.text.Collator
-import java.util.ArrayList
 import java.util.Locale
 
-import de.robv.android.xposed.installer.core.repo.Module
-import de.robv.android.xposed.installer.core.repo.ModuleVersion
-import de.robv.android.xposed.installer.core.repo.ReleaseType
 import de.robv.android.xposed.installer.core.repo.RepoDb
 import de.robv.android.xposed.installer.core.repo.RepoDb.RowNotFoundException
-import de.robv.android.xposed.installer.core.util.DownloadsUtil
+
 import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.core.util.ModuleUtil.InstalledModule
 import de.robv.android.xposed.installer.core.util.NavUtil
-import de.robv.android.xposed.installer.core.util.RepoLoader
+
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
 import de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity
 
 import android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+import android.support.v4.content.ContextCompat
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.core.base.BaseXposedApp.WRITE_EXTERNAL_PERMISSION
+import de.robv.android.xposed.installer.core.base.fragments.BaseModules
 import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
-import de.robv.android.xposed.installer.core.util.ModuleUtil.SETTINGS_CATEGORY
+
 import de.robv.android.xposed.installer.core.base.fragments.utils.ModulesUtil
 import de.robv.android.xposed.installer.mobile.logic.NavigationPosition
 import de.robv.android.xposed.installer.mobile.ui.activities.ModulesBookmark
 import de.robv.android.xposed.installer.mobile.ui.activities.WelcomeActivity
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsVersionsFragment
 
 @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE", "UNUSED_VARIABLE", "PropertyName", "MemberVisibilityCanBePrivate")
 class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
@@ -74,21 +66,12 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         fun newInstance() = ModulesFragment()
     }
 
-    val PLAY_STORE_PACKAGE = "com.android.vending"
-    val PLAY_STORE_LINK = "https://play.google.com/store/apps/details?id=%s"
-    var PLAY_STORE_LABEL: String? = null
-
-    val XPOSED_REPO_LINK = "http://repo.xposed.info/module/%s"
-    val NOT_ACTIVE_NOTE_TAG = "NOT_ACTIVE_NOTE"
-    var installedXposedVersion: Int = 0
-    var mModuleUtil: ModuleUtil? = null
-    var mPm: PackageManager? = null
-
     private var mAdapter: ModuleAdapter? = null
     private val reloadModules = Runnable {
         mAdapter!!.setNotifyOnChange(false)
         mAdapter!!.clear()
-        mAdapter!!.addAll(mModuleUtil!!.modules.values)
+        val list = BaseModules.mModuleUtil!!.modules.values
+        mAdapter!!.addAll(list)
         val col = Collator.getInstance(Locale.getDefault())
         mAdapter!!.sort { lhs, rhs -> col.compare(lhs.appName, rhs.appName) }
         mAdapter!!.notifyDataSetChanged()
@@ -97,29 +80,23 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mModuleUtil = ModuleUtil.getInstance()
-        mPm = activity!!.packageManager
-        if (PLAY_STORE_LABEL == null) {
-            try {
-                val ai = mPm!!.getApplicationInfo(PLAY_STORE_PACKAGE,
-                        0)
-                PLAY_STORE_LABEL = mPm!!.getApplicationLabel(ai).toString()
-            } catch (ignored: NameNotFoundException) {
-            }
-        }
+        BaseModules().initModuleUtil(activity!!)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        installedXposedVersion = XposedApp.getInstalledXposedVersion()
-        if (installedXposedVersion < 0 || XposedApp.getActiveXposedVersion() < 0 || DISABLE_FILE.exists()) {
-            val notActiveNote = activity!!.layoutInflater.inflate(R.layout.view_xposed_not_active_note, listView, false)
-            if (installedXposedVersion < 0) {
-                (notActiveNote.findViewById<View>(android.R.id.title) as TextView).setText(R.string.framework_not_installed)
+        BaseModules.installedXposedVersion = XposedApp.getInstalledXposedVersion()
+        when{
+            BaseModules.installedXposedVersion < 0 || XposedApp.getActiveXposedVersion() < 0 || DISABLE_FILE.exists()->{
+                val notActiveNote = activity!!.layoutInflater!!.inflate(R.layout.view_xposed_not_active_note, listView, false)
+                if (BaseModules.installedXposedVersion < 0) {
+                    (notActiveNote.findViewById<View>(android.R.id.title) as TextView).setText(R.string.framework_not_installed)
+                }
+                notActiveNote.tag = BaseModules.NOT_ACTIVE_NOTE_TAG
+
+                listView.addHeaderView(notActiveNote)
             }
-            notActiveNote.tag = NOT_ACTIVE_NOTE_TAG
-            listView.addHeaderView(notActiveNote)
         }
 
         mAdapter = ModuleAdapter(activity!!)
@@ -127,7 +104,7 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         listAdapter = mAdapter
         setEmptyText(activity!!.getString(R.string.no_xposed_modules_found))
         registerForContextMenu(listView)
-        mModuleUtil!!.addListener(this)
+        BaseModules.mModuleUtil!!.addListener(this)
 
         val actionBar = (activity as WelcomeActivity).supportActionBar
 
@@ -146,7 +123,7 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        // TODO maybe enable again after checking the implementation
+        //TODO maybe enable again after checking the implementation
         //inflater.inflate(R.menu.menu_modules, menu);
     }
 
@@ -233,8 +210,8 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
                 Toast.makeText(activity, installedModulesPath.toString(), Toast.LENGTH_LONG).show()
                 return true
             }
-            R.id.import_installed_modules -> return importModules(installedModulesPath)
-            R.id.import_enabled_modules -> return importModules(enabledModulesPath)
+            R.id.import_installed_modules -> return BaseModules().importModules(activity!!,installedModulesPath)
+            R.id.import_enabled_modules -> return BaseModules().importModules(activity!!, enabledModulesPath)
         }
         return super.onOptionsItemSelected(item)
     }
@@ -247,76 +224,9 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         return false
     }
 
-    private fun importModules(path: File): Boolean {
-        if (Environment.getExternalStorageState() != Environment.MEDIA_MOUNTED) {
-            Toast.makeText(activity, R.string.sdcard_not_writable, Toast.LENGTH_LONG).show()
-            return false
-        }
-        var ips: InputStream? = null
-        val repoLoader = RepoLoader.getInstance()
-        val list = ArrayList<Module>()
-        if (!path.exists()) {
-            Toast.makeText(activity, getString(R.string.no_backup_found),
-                    Toast.LENGTH_LONG).show()
-            return false
-        }
-        try {
-            @Suppress("UNUSED_VALUE")
-            ips = FileInputStream(path)
-        } catch (e: FileNotFoundException) {
-            Log.e(XposedApp.TAG, "Could not open $path", e)
-        }
-
-        if (path.length() == 0L) {
-            Toast.makeText(activity, R.string.file_is_empty, Toast.LENGTH_LONG).show()
-            return false
-        }
-
-        //TODO fix this
-        /*try {
-            assert(ips != null)
-            val ipsr = InputStreamReader(ips!!)
-            val br = BufferedReader(ipsr)
-            var line: String
-            while ((line = br.readLine()) != null) {
-                val m = repoLoader.getModule(line)
-
-                if (m == null) {
-                    Toast.makeText(activity, getString(R.string.download_details_not_found,
-                            line), Toast.LENGTH_SHORT).show()
-                } else {
-                    list.add(m)
-                }
-            }
-            br.close()
-        } catch (e: ActivityNotFoundException) {
-            Toast.makeText(activity, e.toString(), Toast.LENGTH_SHORT).show()
-        } catch (e: IOException) {
-            Toast.makeText(activity, e.toString(), Toast.LENGTH_SHORT).show()
-        }*/
-
-        for (m in list) {
-            var mv: ModuleVersion? = null
-            for (i in m.versions.indices) {
-                val mvTemp = m.versions[i]
-
-                if (mvTemp.relType == ReleaseType.STABLE) {
-                    mv = mvTemp
-                    break
-                }
-            }
-
-            if (mv != null) {
-                DownloadsUtil.addModule(activity, m.name, mv.downloadLink, DownloadDetailsVersionsFragment.DownloadModuleCallback(mv))
-            }
-        }
-
-        return true
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
-        mModuleUtil!!.removeListener(this)
+        BaseModules.mModuleUtil!!.removeListener(this)
         listAdapter = null
         mAdapter = null
     }
@@ -332,20 +242,12 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
     override fun onListItemClick(l: ListView, v: View, position: Int, id: Long) {
         val packageName = v.tag as String
 
-        if (packageName == NOT_ACTIVE_NOTE_TAG) {
+        if (packageName == BaseModules.NOT_ACTIVE_NOTE_TAG) {
             (activity as WelcomeActivity).switchFragment(NavigationPosition.HOME)
-            //TODO enable method for sheet container instead!
-            //Utils.launchSheet(childFragmentManager, NavigationPosition.HOME.getTag())
             return
         }
 
-        val launchIntent = getSettingsIntent(packageName)
-        if (launchIntent != null)
-            startActivity(launchIntent)
-        else
-            Toast.makeText(activity,
-                    activity!!.getString(R.string.module_no_ui),
-                    Toast.LENGTH_LONG).show()
+        BaseModules().launchModule(activity!!, packageName)
     }
 
     override fun onCreateContextMenu(menu: ContextMenu, v: View,
@@ -355,7 +257,7 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         menu.setHeaderTitle(installedModule.appName)
         activity!!.menuInflater.inflate(R.menu.context_menu_modules, menu)
 
-        if (getSettingsIntent(installedModule.packageName) == null)
+        if (BaseModules.getSettingsIntent(activity!!, installedModule.packageName) == null)
             menu.removeItem(R.id.menu_launch)
 
         try {
@@ -368,9 +270,9 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
             menu.removeItem(R.id.menu_support)
         }
 
-        val installer = mPm!!.getInstallerPackageName(installedModule.packageName)
-        if (PLAY_STORE_LABEL != null && PLAY_STORE_PACKAGE == installer)
-            menu.findItem(R.id.menu_play_store).title = PLAY_STORE_LABEL
+        val installer = BaseModules.mPm!!.getInstallerPackageName(installedModule.packageName)
+        if (BaseModules.PLAY_STORE_LABEL != null && BaseModules.PLAY_STORE_PACKAGE == installer)
+            menu.findItem(R.id.menu_play_store).title = BaseModules.PLAY_STORE_LABEL
         else
             menu.removeItem(R.id.menu_play_store)
     }
@@ -380,7 +282,7 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
 
         when (item.itemId) {
             R.id.menu_launch -> {
-                startActivity(getSettingsIntent(module.packageName))
+                startActivity(BaseModules.getSettingsIntent(activity!!, module.packageName))
                 return true
             }
 
@@ -398,8 +300,8 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
 
             R.id.menu_play_store -> {
                 val i = Intent(android.content.Intent.ACTION_VIEW)
-                i.data = Uri.parse(String.format(PLAY_STORE_LINK, module.packageName))
-                i.setPackage(PLAY_STORE_PACKAGE)
+                i.data = Uri.parse(String.format(BaseModules.PLAY_STORE_LINK, module.packageName))
+                i.setPackage(BaseModules.PLAY_STORE_PACKAGE)
                 try {
                     startActivity(i)
                 } catch (e: ActivityNotFoundException) {
@@ -430,28 +332,6 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         return if (position >= 0) listAdapter.getItem(position) as InstalledModule else null
     }
 
-    private fun getSettingsIntent(packageName: String): Intent? {
-        // taken from
-        // ApplicationPackageManager.getLaunchIntentForPackage(String)
-        // first looks for an Xposed-specific category, falls back to
-        // getLaunchIntentForPackage
-        val pm = activity!!.packageManager
-
-        val intentToResolve = Intent(Intent.ACTION_MAIN)
-        intentToResolve.addCategory(SETTINGS_CATEGORY)
-        intentToResolve.setPackage(packageName)
-        val ris = pm.queryIntentActivities(intentToResolve, 0)
-
-        if (ris == null || ris.size <= 0) {
-            return pm.getLaunchIntentForPackage(packageName)
-        }
-
-        val intent = Intent(intentToResolve)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        intent.setClassName(ris[0].activityInfo.packageName, ris[0].activityInfo.name)
-        return intent
-    }
-
     private inner class ModuleAdapter(context: Context) : ArrayAdapter<InstalledModule>(context, R.layout.list_item_module, R.id.title) {
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -462,17 +342,14 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
                 // listener on the checkbox
                 (view.findViewById<View>(R.id.checkbox) as CheckBox).setOnCheckedChangeListener { buttonView, isChecked ->
                     val packageName = buttonView.tag as String
-                    val changed = mModuleUtil!!.isModuleEnabled(packageName) xor isChecked
-                    if (changed) {
-                        mModuleUtil!!.setModuleEnabled(packageName, isChecked)
-                        mModuleUtil!!.updateModulesList(true)
-                    }
+                    BaseModules().isModuleEnabled(packageName, isChecked)
                 }
             }
 
             val item = getItem(position)
-
             val version = view.findViewById<View>(R.id.version_name) as TextView
+            val initWarning = BaseModules().getModuleWarnDescription(activity!!, item.minVersion, item.isInstalledOnExternalStorage)
+
             version.text = item!!.versionName
 
             // Store the package name in some views' tag for later access
@@ -487,38 +364,16 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
                 descriptionText.setTextColor(ThemeUtil.getThemeColor(context, android.R.attr.textColorSecondary))
             } else {
                 descriptionText.text = getString(R.string.module_empty_description)
-                @Suppress("DEPRECATION")
-                descriptionText.setTextColor(resources.getColor(R.color.warning))
+                val warningColor = ContextCompat.getColor(activity!!, R.color.warning)
+                descriptionText.setTextColor(warningColor)
             }
 
             val checkbox = view.findViewById<View>(R.id.checkbox) as CheckBox
-            checkbox.isChecked = mModuleUtil!!.isModuleEnabled(item.packageName)
+            checkbox.isChecked = BaseModules.mModuleUtil!!.isModuleEnabled(item.packageName)
             val warningText = view.findViewById<View>(R.id.warning) as TextView
-
-            if (item.minVersion == 0) {
-                checkbox.isEnabled = false
-                warningText.text = getString(R.string.no_min_version_specified)
-                warningText.visibility = View.VISIBLE
-            } else if (installedXposedVersion != 0 && item.minVersion > installedXposedVersion) {
-                checkbox.isEnabled = false
-                warningText.text = String.format(getString(R.string.warning_xposed_min_version), item.minVersion)
-                warningText.visibility = View.VISIBLE
-            } else if (item.minVersion < ModuleUtil.MIN_MODULE_VERSION) {
-                checkbox.isEnabled = false
-                warningText.text = String.format(getString(R.string.warning_min_version_too_low), item.minVersion, ModuleUtil.MIN_MODULE_VERSION)
-                warningText.visibility = View.VISIBLE
-            } else if (item.isInstalledOnExternalStorage) {
-                checkbox.isEnabled = false
-                warningText.text = getString(R.string.warning_installed_on_external_storage)
-                warningText.visibility = View.VISIBLE
-            } else if (installedXposedVersion == 0) {
-                checkbox.isEnabled = false
-                warningText.text = getString(R.string.framework_not_installed)
-                warningText.visibility = View.VISIBLE
-            } else {
-                checkbox.isEnabled = true
-                warningText.visibility = View.GONE
-            }
+            checkbox.isEnabled = initWarning.second
+            warningText.text = initWarning.first
+            warningText.visibility = if(!initWarning.second) View.VISIBLE else View.GONE
             return view
         }
     }

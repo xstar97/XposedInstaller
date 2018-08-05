@@ -17,6 +17,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.base.fragments.download.BaseDownloadDetailsVersions
 
 import java.util.ArrayList
 
@@ -24,9 +25,13 @@ import de.robv.android.xposed.installer.core.repo.Module
 import de.robv.android.xposed.installer.core.util.DownloadsUtil
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsVersionsFragment
 
 class ModulesBookmark : XposedBaseActivity() {
+
+    companion object {
+        private var mRepoLoader: RepoLoader? = null
+        private var container: View? = null
+    }
 
     override fun onCreate(savedInstanceBundle: Bundle?) {
         super.onCreate(savedInstanceBundle)
@@ -149,8 +154,8 @@ class ModulesBookmark : XposedBaseActivity() {
             mClickedMenuItem = item
 
             when (item.itemId) {
-                R.id.install_bookmark -> DownloadsUtil.addModule(activity, module.name, mv.downloadLink, DownloadDetailsVersionsFragment.DownloadModuleCallback(mv))
-                R.id.install_remove_bookmark -> DownloadsUtil.addModule(activity, module.name, mv.downloadLink, object : DownloadDetailsVersionsFragment.DownloadModuleCallback(mv) {
+                R.id.install_bookmark -> DownloadsUtil.addModule(activity, module.name, mv.downloadLink, BaseDownloadDetailsVersions.DownloadModuleCallback(mv))
+                R.id.install_remove_bookmark -> DownloadsUtil.addModule(activity, module.name, mv.downloadLink, object : BaseDownloadDetailsVersions.DownloadModuleCallback(mv) {
                     override fun onDownloadFinished(context: Context, info: DownloadsUtil.DownloadInfo) {
                         super.onDownloadFinished(context, info)
                         remove(pkg)
@@ -197,11 +202,5 @@ class ModulesBookmark : XposedBaseActivity() {
 
             return view
         }
-    }
-
-    companion object {
-
-        private var mRepoLoader: RepoLoader? = null
-        private var container: View? = null
     }
 }

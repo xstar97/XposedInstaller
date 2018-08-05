@@ -30,7 +30,7 @@ import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.core.installation.FlashCallback
 import de.robv.android.xposed.installer.core.installation.Flashable
 import de.robv.android.xposed.installer.core.util.RootUtil
-import de.robv.android.xposed.installer.mobile.ui.activities.utils.InstallationUtils
+import de.robv.android.xposed.installer.core.base.activities.utils.InstallationUtils
 
 class InstallationActivity : XposedBaseActivity() {
 

@@ -26,7 +26,9 @@ open class BaseNavActivity: XposedBaseActivity(),
         BottomNavigationView.OnNavigationItemReselectedListener,
         NavigationView.OnNavigationItemSelectedListener
 {
-    val NAV_KEY_POSITION = "keyPosition"
+    companion object {
+        const val navKeyPosition = "keyPosition"
+    }
     var navPosition: NavigationPosition = getDefaultMenu()
 
     private var myToggle: ActionBarDrawerToggle? = null
@@ -57,59 +59,59 @@ open class BaseNavActivity: XposedBaseActivity(),
 
     //Bottom nav section
     open fun initBottomNav(selectedListener: BottomNavigationView.OnNavigationItemSelectedListener, reSelectedListener: BottomNavigationView.OnNavigationItemReselectedListener) {
-        getBottomNav()!!.setOnNavigationItemSelectedListener(selectedListener)
-        getBottomNav()!!.setOnNavigationItemReselectedListener(reSelectedListener)
+        bottomNav()!!.setOnNavigationItemSelectedListener(selectedListener)
+        bottomNav()!!.setOnNavigationItemReselectedListener(reSelectedListener)
     }
 
-    fun setBottomNavActive(position: Int) {
-        getBottomNav()!!.menu.getItem(position).isChecked = true
+    fun bottomNavActive(position: Int) {
+        bottomNav()!!.menu.getItem(position).isChecked = true
     }
 
-    fun getBottomNav(): BottomNavigationView?{
+    fun bottomNav(): BottomNavigationView?{
         return bottom_navigation
     }
 
     //Nav navigation_drawer section
     open fun initDrawerNav(activity: Activity, listener: NavigationView.OnNavigationItemSelectedListener) {
         myToggle = ActionBarDrawerToggle(
-                activity, getDrawerLayout(), getToolBar(), R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        getDrawerLayout()!!.addDrawerListener(myToggle!!)
+                activity, drawerLayout(), toolBar(), R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawerLayout()!!.addDrawerListener(myToggle!!)
         myToggle!!.syncState()
 
-        getDrawerNav()!!.setNavigationItemSelectedListener(listener)
+        drawerNav()!!.setNavigationItemSelectedListener(listener)
     }
-    fun setDrawerNavActive(position: Int) {
-        getDrawerNav()!!.menu.getItem(position).isChecked = true
+    fun drawerNavActive(position: Int) {
+        drawerNav()!!.menu.getItem(position).isChecked = true
     }
 
     open fun closeDrawer() {
-        getDrawerLayout()!!.closeDrawer(GravityCompat.START)
+        drawerLayout()!!.closeDrawer(GravityCompat.START)
     }
     open fun openDrawer() {
-        getDrawerLayout()!!.openDrawer(GravityCompat.START)
+        drawerLayout()!!.openDrawer(GravityCompat.START)
     }
     open fun isDrawerOpen(): Boolean {
-        return getDrawerLayout()!!.isDrawerOpen(GravityCompat.START)
+        return drawerLayout()!!.isDrawerOpen(GravityCompat.START)
     }
     open fun selectDrawerMenuItem(isChecked: Boolean) {
-        for (i in 0 until getDrawerMenuSize()) {
+        for (i in 0 until drawerMenuSize()) {
             unSelectDrawerMenuItem(i, isChecked)
         }
     }
     open fun unSelectDrawerMenuItem(i: Int, isChecked: Boolean) {
-        getDrawerNav()!!.menu.getItem(i).isChecked = isChecked
+        drawerNav()!!.menu.getItem(i).isChecked = isChecked
     }
-    private fun getDrawerMenuSize(): Int {
-        return getDrawerNav()!!.menu.size()
+    private fun drawerMenuSize(): Int {
+        return drawerNav()!!.menu.size()
     }
 
-    open fun getToolBar(): Toolbar? {
+    open fun toolBar(): Toolbar? {
         return toolbar
     }
-    open fun getDrawerLayout(): DrawerLayout? {
+    open fun drawerLayout(): DrawerLayout? {
         return drawer_layout
     }
-    open fun getDrawerNav(): NavigationView? {
-        return drawer_navigation!!
+    open fun drawerNav(): NavigationView? {
+        return drawer_navigation
     }
 }

@@ -223,7 +223,6 @@ class DownloadFragment : Fragment(), Loader.Listener<RepoLoader>, ModuleListener
         private val sectionHeadersDate: Array<String>
 
         init {
-
             val res = mContext.resources
             sectionHeadersStatus = arrayOf(res.getString(R.string.download_section_framework), res.getString(R.string.download_section_update_available), res.getString(R.string.download_section_installed), res.getString(R.string.download_section_not_installed))
             sectionHeadersDate = arrayOf(res.getString(R.string.download_section_24h), res.getString(R.string.download_section_7d), res.getString(R.string.download_section_30d), res.getString(R.string.download_section_older))

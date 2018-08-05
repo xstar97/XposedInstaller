@@ -1,3 +1,6 @@
 package de.robv.android.xposed.installer.core.models
 
-data class InfoModel(val pos: Int, val icon: Int, val key: String, val desciption: String)
+import android.graphics.drawable.Drawable
+import android.support.annotation.DrawableRes
+
+data class InfoModel(val pos: Int, @DrawableRes val icon: Drawable?, val key: String, val desciption: String)

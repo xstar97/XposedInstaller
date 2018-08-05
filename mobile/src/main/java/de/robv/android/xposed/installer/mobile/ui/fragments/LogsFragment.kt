@@ -54,19 +54,19 @@ class LogsFragment : Fragment()
                 return true
             }
             R.id.send_email -> {
-                BaseLogs.sendEmail(activity!!)
+                BaseLogs().sendEmail(activity!!)
                 return true
             }
             R.id.send_github -> {
-                BaseLogs.sendGitHubReport(activity!!)
+                BaseLogs().sendGitHubReport(activity!!)
                 return true
             }
             R.id.menu_save -> {
-                BaseLogs.save(activity!!)
+                BaseLogs().save(activity!!)
                 return true
             }
             R.id.menu_clear -> {
-                if(BaseLogs.clear(activity!!)) {
+                if(BaseLogs().clear(activity!!)) {
                     txtLog!!.setText(R.string.log_is_empty)
                     reloadErrorLog()
                 }
@@ -91,7 +91,7 @@ class LogsFragment : Fragment()
         val mProgressDialog = MaterialDialog.Builder(activity!!).content(de.robv.android.xposed.installer.core.R.string.loading).progress(true, 0).show()
         var logs: String?
         doAsync {
-            logs = BaseLogs.getLogs(activity!!)
+            logs = BaseLogs().getLogs(activity!!)
             Log.d(XposedApp.TAG, "log: $logs")
             onUiThread {
                 mProgressDialog.dismiss()

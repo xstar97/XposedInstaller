@@ -4,17 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v17.leanback.widget.GuidanceStylist
 import android.support.v17.leanback.widget.GuidedAction
-import android.support.v4.content.ContextCompat
 import android.util.Log
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.base.fragments.BaseDeviceInfo
 import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller
-import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.showActionDialog
+import de.robv.android.xposed.installer.core.models.StatusModel
 import de.robv.android.xposed.installer.core.models.ZipModel
 import de.robv.android.xposed.installer.core.util.FrameworkZips
 import de.robv.android.xposed.installer.core.util.Loader
 import de.robv.android.xposed.installer.tv.XposedApp
+import de.robv.android.xposed.installer.tv.ui.activities.InstallationActivity
 import de.robv.android.xposed.installer.tv.ui.fragments.base.BaseGuidedFragment
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.support.v4.onUiThread
@@ -40,19 +39,19 @@ class StatusInstallerFragment: BaseGuidedFragment()
 
         getZipLists()
 
-        BaseStatusInstaller.ONLINE_ZIP_LOADER.addListener(mOnlineZipListener)
-        BaseStatusInstaller.ONLINE_ZIP_LOADER.triggerFirstLoadIfNecessary()
+        BaseStatusInstaller().ONLINE_ZIP_LOADER.addListener(mOnlineZipListener)
+        BaseStatusInstaller().ONLINE_ZIP_LOADER.triggerFirstLoadIfNecessary()
 
-        BaseStatusInstaller.LOCAL_ZIP_LOADER.addListener(mLocalZipListener)
-        BaseStatusInstaller.LOCAL_ZIP_LOADER.triggerFirstLoadIfNecessary()
+        BaseStatusInstaller().LOCAL_ZIP_LOADER.addListener(mLocalZipListener)
+        BaseStatusInstaller().LOCAL_ZIP_LOADER.triggerFirstLoadIfNecessary()
     }
 
     override fun onResume() {
         super.onResume()
         val xposed = findActionById(actionXposed.toLong())
         if (xposed != null){
-            val myDescription = getXposedData().second
-            val myIcon = ContextCompat.getDrawable(activity!!, getXposedData().first)
+            val myDescription = getXposedData().errorMes!!
+            val myIcon = getXposedData().statusIcon!!
             xposed.icon = myIcon
             xposed.description = myDescription
             notifyActionChanged(findActionPositionById(actionError.toLong()))
@@ -74,9 +73,9 @@ class StatusInstallerFragment: BaseGuidedFragment()
             actions.add(getUninstaller())
             actions.add(getDevice())
         }catch (npe: NullPointerException){
-            error {"npe: ${npe.message}"}
+            Log.e(TAG,"npe: ${npe.message}")
         }catch (e: Exception){
-            error {"e: ${e.message}"}
+            Log.e(TAG,"e: ${e.message}")
         }
     }
 
@@ -92,33 +91,37 @@ class StatusInstallerFragment: BaseGuidedFragment()
             }
         }
     }
-
     override fun onSubGuidedActionClicked(action: GuidedAction?): Boolean {
         val pos = action!!.id.toInt()
 
         val title = action.title.toString()
-        val type = if(title.contains("uninstaller", ignoreCase = true)) FrameworkZips.Type.UNINSTALLER else FrameworkZips.Type.INSTALLER
-        Log.v(XposedApp.TAG, "onSubGuidedActionClicked: \nposSub: $pos\ntitle: $title\ntype: $type")
-        // showActionDialog(activity!!, Intent(context, InstallationActivity::class.java), title, type)
-        return true
+        val isInstaller = title.contains("version", ignoreCase = true)
+        val isUninstaller = title.contains("uninstaller", ignoreCase = true)
+        val type = if (isInstaller) FrameworkZips.Type.INSTALLER else FrameworkZips.Type.UNINSTALLER
+        return when {
+            isInstaller || isUninstaller -> {
+                BaseStatusInstaller().showActionDialog(activity!!, Intent(activity!!, InstallationActivity::class.java), title, type)
+                 true
+            }
+            else -> {//this is device info:p
+
+                 false
+            }
+        }
+        //return true
     }
 
     private fun getXposed(): GuidedAction {
         return GuidedAction.Builder(activity!!)
                 .id(actionXposed.toLong())
                 .title(activity!!.getString(R.string.app_name))
-                .icon(getXposedData().first)
-                .description(getXposedData().second)
+                .icon(getXposedData().statusIcon!!)
+                .description(getXposedData().errorMes)
                 .build()
     }
-    private fun getXposedData(): Pair<Int, String>{
-        val active = BaseXposedApp.getActiveXposedVersion()
-        val installed = BaseXposedApp.getInstalledXposedVersion()
-        return when{
-            installed < 0 -> Pair(R.drawable.ic_error, activity!!.getString(R.string.framework_not_installed))
-            installed != active -> Pair(R.drawable.ic_check_circle, activity!!.getString(R.string.framework_not_active, BaseXposedApp.getXposedProp().version))
-            else -> Pair(R.drawable.ic_check_circle, activity!!.getString(R.string.framework_active, BaseXposedApp.getXposedProp().version))
-        }
+
+    private fun getXposedData(): StatusModel{
+        return BaseStatusInstaller().getInstallerStatusData(activity!!)
     }
 
     private fun getError(): GuidedAction{
@@ -132,7 +135,7 @@ class StatusInstallerFragment: BaseGuidedFragment()
         return when {
             !FrameworkZips.hasLoadedOnlineZips() -> activity!!.getString(R.string.framework_zip_load_failed)
             myZips0.size == 0 || myZips1.size == 0 ->  activity!!.getString(R.string.framework_no_zips)
-            else -> "noting to report:)"
+            else -> "nothing to report:)"
         }
     }
 
@@ -152,7 +155,7 @@ class StatusInstallerFragment: BaseGuidedFragment()
     private fun getDevice(): GuidedAction{
         val id = actionYourDevice.toLong()
         val title = activity!!.getString(R.string.framework_device_info)
-        val list = BaseDeviceInfo.getDeviceInfoList(activity!!)
+        val list = BaseDeviceInfo().getDeviceInfoList(activity!!)
         return GuidedAction.Builder(activity!!)
                 .id(id)
                 .title(title)
@@ -163,14 +166,14 @@ class StatusInstallerFragment: BaseGuidedFragment()
     private fun getZipLists(){
         try {
             doAsync {
-                val myZips0 = BaseStatusInstaller.getZips().first
-                val myZips1 = BaseStatusInstaller.getZips().second
+                val myZips0 = BaseStatusInstaller().getZips(activity!!).first
+                val myZips1 = BaseStatusInstaller().getZips(activity!!).second
                 Log.v(XposedApp.TAG, "getZipLists: \nzip0: ${myZips0.size}\nzip1: ${myZips1.size}")
                 onUiThread {
+                    collapseAction(true)
                     val zip0 = findActionById(actionInstallUpdate.toLong())
                     val zip1 = findActionById(actionUninstall.toLong())
                     val error = findActionById(actionError.toLong())
-
                     if (zip0 != null){
                         zip0.subActions = getActionsFromZipList(activity!!, myZips0)
                         notifyActionChanged(findActionPositionById(actionInstallUpdate.toLong()))
@@ -199,7 +202,12 @@ class StatusInstallerFragment: BaseGuidedFragment()
 
     override fun onDestroyView() {
         super.onDestroyView()
-        BaseStatusInstaller.ONLINE_ZIP_LOADER.removeListener(mOnlineZipListener)
-        BaseStatusInstaller.LOCAL_ZIP_LOADER.removeListener(mLocalZipListener)
+        BaseStatusInstaller().ONLINE_ZIP_LOADER.removeListener(mOnlineZipListener)
+        BaseStatusInstaller().LOCAL_ZIP_LOADER.removeListener(mLocalZipListener)
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        BaseStatusInstaller().ONLINE_ZIP_LOADER.removeListener(mOnlineZipListener)
+        BaseStatusInstaller().LOCAL_ZIP_LOADER.removeListener(mLocalZipListener)
     }
 }
