@@ -54,7 +54,7 @@ import de.robv.android.xposed.installer.core.base.fragments.BaseModules
 import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
 
 import de.robv.android.xposed.installer.core.base.fragments.utils.ModulesUtil
-import de.robv.android.xposed.installer.mobile.logic.NavigationPosition
+import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.ui.activities.ModulesBookmark
 import de.robv.android.xposed.installer.mobile.ui.activities.WelcomeActivity
 
@@ -243,7 +243,7 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         val packageName = v.tag as String
 
         if (packageName == BaseModules.NOT_ACTIVE_NOTE_TAG) {
-            (activity as WelcomeActivity).switchFragment(NavigationPosition.HOME)
+            (activity as WelcomeActivity).switchFragment(Navigation.NAV_HOME)
             return
         }
 

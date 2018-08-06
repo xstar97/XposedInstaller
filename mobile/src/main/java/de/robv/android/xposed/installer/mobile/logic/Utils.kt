@@ -53,14 +53,14 @@ open class Utils
         }
     }
 
-    fun launchViewActivity(context: Context, nav: NavigationPosition){
+    fun launchViewActivity(context: Context, nav: Navigation){
         context.startActivity<ViewActivity>(ViewActivity.INTENT_NAV_KEY to nav)
     }
-    fun launchSheet(fragmentManager: android.support.v4.app.FragmentManager, nav: NavigationPosition){
+    fun launchSheet(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){
         val bottomSheetFragment = ViewBottomSheetFragment.newInstance(nav)
         bottomSheetFragment.show(fragmentManager, bottomSheetFragment.tag)
     }
-    fun launchDialog(fragmentManager: android.support.v4.app.FragmentManager, nav: NavigationPosition){
+    fun launchDialog(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){
         val dialog = ViewDialogFragment.newInstance(nav)
         dialog.show(fragmentManager, dialog.tag)
     }

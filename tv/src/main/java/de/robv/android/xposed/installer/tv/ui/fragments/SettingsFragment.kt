@@ -37,7 +37,6 @@ class SettingsFragment: BaseGuidedFragment(),
     private val PREF_VIEW ="default_view"
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-
         Log.d(XposedApp.TAG, "onSharedPreferenceChanged key: $key")
         when(key){
             PREF_TYPE ->{
@@ -88,7 +87,6 @@ class SettingsFragment: BaseGuidedFragment(),
         val pos = action!!.id.toInt()
         Log.v(XposedApp.TAG, "onGuidedActionClicked: pos: $pos")
 
-
         when (pos) {
             releaseTypeGlobal -> {
                 //nothing to do here:/
@@ -128,8 +126,6 @@ class SettingsFragment: BaseGuidedFragment(),
                 XposedApp.getPreferences().edit().putString(PREF_TYPE, experimental).apply()
             }
         }
-
-
         return true
     }
 

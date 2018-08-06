@@ -9,7 +9,7 @@ import android.view.ViewGroup
 
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
-import de.robv.android.xposed.installer.mobile.logic.NavigationPosition
+import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.createFragment
 
 /**
@@ -20,7 +20,7 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
     companion object {
         val TAG: String = ViewBottomSheetFragment::class.java.simpleName
         const val BUNDLE_SHEET_KEY = "initSheet"
-        fun newInstance(nav: NavigationPosition): ViewBottomSheetFragment {
+        fun newInstance(nav: Navigation): ViewBottomSheetFragment {
             val frag = ViewBottomSheetFragment()
             val args = Bundle()
             args.putSerializable(BUNDLE_SHEET_KEY, nav)
@@ -42,9 +42,9 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
     private fun setSheetFragment(){
         childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getFrag().createFragment()).commitNowAllowingStateLoss()
     }
-    private fun getFrag(): NavigationPosition{
-        val bundle = this.arguments ?: return NavigationPosition.HOME
-        val i = bundle.get(BUNDLE_SHEET_KEY) as NavigationPosition
+    private fun getFrag(): Navigation{
+        val bundle = this.arguments ?: return Navigation.FRAG_ERROR
+        val i = bundle.get(BUNDLE_SHEET_KEY) as Navigation
         Log.d(XposedApp.TAG, "$BUNDLE_SHEET_KEY: ${getString(i.title)}")
         return i
     }

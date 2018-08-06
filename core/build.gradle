@@ -48,9 +48,14 @@ dependencies {
     api utilsDependencies.licensesDialog
     api supportDependencies.customTabs
 
+    implementation supportDependencies.vectorDrawable
+
     api ankoDependencies.commons
     api ankoDependencies.coroutines
     api ankoDependencies.sqlite
 
     api utilsDependencies.issueReporter
+}
+androidExtensions {
+    experimental = true
 }

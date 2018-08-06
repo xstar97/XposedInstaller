@@ -9,7 +9,7 @@ import java.io.File
 
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
-import de.robv.android.xposed.installer.mobile.logic.NavigationPosition
+import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
 import de.robv.android.xposed.installer.mobile.logic.createFragment
 import kotlinx.android.synthetic.main.view_toolbar.*
@@ -35,7 +35,7 @@ class SettingsActivity : XposedBaseActivity(), FolderChooserDialog.FolderCallbac
 
         if (savedInstanceBundle == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, NavigationPosition.SETTINGS.createFragment()).commit()
+                    .replace(R.id.container, Navigation.NAV_SETTINGS.createFragment()).commit()
         }
 
     }

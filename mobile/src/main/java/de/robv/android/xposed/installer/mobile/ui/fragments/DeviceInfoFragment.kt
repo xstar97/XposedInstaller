@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import de.robv.android.xposed.installer.core.base.fragments.BaseDeviceInfo
+import de.robv.android.xposed.installer.core.base.fragments.BaseDevice
 import de.robv.android.xposed.installer.core.models.InfoModel
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.InfoBaseAdapter.Companion.SECTION_DEVICE
 import de.robv.android.xposed.installer.mobile.ui.fragments.base.BaseViewFragment
@@ -24,7 +24,7 @@ class DeviceInfoFragment: BaseViewFragment()
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = BaseDeviceInfo().getDeviceInfoList(activity!!)
+        val list = BaseDevice().getDeviceInfoList(activity!!)
         initList(SECTION_DEVICE, list)
     }
 }

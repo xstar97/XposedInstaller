@@ -9,9 +9,9 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.TextView
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.models.NavModel
 import de.robv.android.xposed.installer.core.models.ZipModel
 import de.robv.android.xposed.installer.core.repo.RepoDbDefinitions
+import de.robv.android.xposed.installer.tv.logic.Navigation
 
 open class BaseBrowseSupportFragment: BrowseSupportFragment(), OnItemViewSelectedListener, OnItemViewClickedListener
 {
@@ -33,8 +33,8 @@ open class BaseBrowseSupportFragment: BrowseSupportFragment(), OnItemViewSelecte
 
     fun setupUIElements(myTitle: String){
         title = myTitle
-        headersState = BrowseSupportFragment.HEADERS_ENABLED
-        isHeadersTransitionOnBackEnabled = true
+        headersState = BrowseSupportFragment.HEADERS_HIDDEN
+        isHeadersTransitionOnBackEnabled = false
         brandColor = ContextCompat.getColor(activity!!, R.color.fastlane_background)
     }
 
@@ -53,8 +53,8 @@ open class BaseBrowseSupportFragment: BrowseSupportFragment(), OnItemViewSelecte
         }
 
         override fun onBindViewHolder(viewHolder: Presenter.ViewHolder, item: Any) {
-            item as NavModel
-            (viewHolder.view as TextView).text = item.title
+            item as Navigation
+            (viewHolder.view as TextView).text = activity!!.getString(item.title)
         }
 
         override fun onUnbindViewHolder(viewHolder: Presenter.ViewHolder) {

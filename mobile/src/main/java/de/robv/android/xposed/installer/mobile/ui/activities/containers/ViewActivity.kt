@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
-import de.robv.android.xposed.installer.mobile.logic.NavigationPosition
+import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
 import de.robv.android.xposed.installer.mobile.logic.createFragment
 import de.robv.android.xposed.installer.mobile.ui.activities.XposedBaseActivity
@@ -46,14 +46,14 @@ class ViewActivity: XposedBaseActivity()
         supportFragmentManager.beginTransaction().replace(R.id.container, getFrag().createFragment()).commit()
     }
 
-    private fun getFrag(): NavigationPosition {
+    private fun getFrag(): Navigation {
         return try {
-            val nav = this.intent.extras!!.get(INTENT_NAV_KEY) as NavigationPosition
+            val nav = this.intent.extras!!.get(INTENT_NAV_KEY) as Navigation
             Log.d(XposedApp.TAG, "$INTENT_NAV_KEY: ${getString(nav.title)}")
             nav
         }catch (e: Exception){
             Log.w(XposedApp.TAG, e.message)
-            NavigationPosition.HOME
+            Navigation.NAV_HOME
         }
     }
 }

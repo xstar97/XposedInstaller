@@ -116,7 +116,7 @@ class WelcomeActivity: BaseNavActivity(),
     private fun initVisFab(){
         fabMenu.hide()
         if (Utils().isBottomNav()) {
-            if (navPosition != NavigationPosition.SETTINGS) fabMenu.show()
+            if (navPosition != Navigation.NAV_SETTINGS) fabMenu.show()
         }
         else{
             fabMenu.hide()
@@ -140,7 +140,7 @@ class WelcomeActivity: BaseNavActivity(),
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
-    fun switchFragment(navPosition: NavigationPosition): Boolean {
+    fun switchFragment(navPosition: Navigation): Boolean {
         val fragment = supportFragmentManager.findFragment(navPosition)
         if (fragment!!.isAdded) return false
         detachFragment()
@@ -152,7 +152,7 @@ class WelcomeActivity: BaseNavActivity(),
         return true
     }
 
-    private fun navActive(navPosition: NavigationPosition){
+    private fun navActive(navPosition: Navigation){
         val pos = navPosition.getPos()
         if (Utils().isBottomNav()){
             bottomNavActive(pos)
@@ -178,7 +178,7 @@ class WelcomeActivity: BaseNavActivity(),
                 .commit()
     }
 
-    private fun android.support.v4.app.FragmentManager.findFragment(position: NavigationPosition): Fragment? {
+    private fun android.support.v4.app.FragmentManager.findFragment(position: Navigation): Fragment? {
         return findFragmentByTag(position.getTag()) ?: position.createFragment()
     }
 
@@ -200,7 +200,7 @@ class WelcomeActivity: BaseNavActivity(),
 
             if (moduleUpdateAvailable && snackBar) {
 
-                Snackbar.make(parentLayout, R.string.modules_updates_available, Snackbar.LENGTH_LONG).setAction(getString(R.string.view)) { switchFragment(NavigationPosition.MODULES) }.show()
+                Snackbar.make(parentLayout, R.string.modules_updates_available, Snackbar.LENGTH_LONG).setAction(getString(R.string.view)) { switchFragment(Navigation.NAV_MODULES) }.show()
             }
         }catch (e: Exception){
             Log.d(XposedApp.TAG, e.message)

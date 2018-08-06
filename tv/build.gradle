@@ -70,3 +70,6 @@ dependencies {
     // Util Libraries
     implementation utilsDependencies.glide
 }
+androidExtensions {
+    experimental = true
+}

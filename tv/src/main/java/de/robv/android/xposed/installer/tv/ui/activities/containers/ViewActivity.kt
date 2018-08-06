@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.util.Log
 import de.robv.android.xposed.installer.tv.XposedApp
-import de.robv.android.xposed.installer.tv.logic.NavigationPosition
+import de.robv.android.xposed.installer.tv.logic.Navigation
 import de.robv.android.xposed.installer.tv.logic.createFragment
 
 class ViewActivity: FragmentActivity()
@@ -26,15 +26,14 @@ class ViewActivity: FragmentActivity()
         supportFragmentManager.beginTransaction()
                 .replace(android.R.id.content, getFrag().createFragment()).commit()
     }
-
-    private fun getFrag(): NavigationPosition {
+    private fun getFrag(): Navigation {
         return try {
-            val nav = this.intent.extras!!.get(INTENT_NAV_KEY) as NavigationPosition
-            Log.d(XposedApp.TAG, "$INTENT_NAV_KEY: ${getString(nav.title)}")
+            val nav = this.intent.extras!!.get(INTENT_NAV_KEY) as Navigation
+            Log.d(XposedApp.TAG, "$INTENT_NAV_KEY: $nav")
             nav
         }catch (e: Exception){
             Log.w(XposedApp.TAG, e.message)
-            NavigationPosition.ERROR
+            Navigation.FRAG_ERROR
         }
     }
 }

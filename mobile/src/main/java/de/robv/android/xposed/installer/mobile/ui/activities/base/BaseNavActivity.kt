@@ -13,7 +13,7 @@ import android.util.Log
 import android.view.MenuItem
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
-import de.robv.android.xposed.installer.mobile.logic.NavigationPosition
+import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.Utils
 import de.robv.android.xposed.installer.mobile.ui.activities.XposedBaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,7 +29,7 @@ open class BaseNavActivity: XposedBaseActivity(),
     companion object {
         const val navKeyPosition = "keyPosition"
     }
-    var navPosition: NavigationPosition = getDefaultMenu()
+    var navPosition: Navigation = getDefaultMenu()
 
     private var myToggle: ActionBarDrawerToggle? = null
 
@@ -41,19 +41,19 @@ open class BaseNavActivity: XposedBaseActivity(),
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    fun getDefaultMenu(): NavigationPosition {
+    fun getDefaultMenu(): Navigation {
         return try {
             val id = Utils().getView()
             when (id) {
-                0 -> NavigationPosition.HOME
-                1 -> NavigationPosition.MODULES
-                2 -> NavigationPosition.DOWNLOAD
-                3 -> NavigationPosition.LOGS
-                else -> NavigationPosition.HOME
+                0 -> Navigation.NAV_HOME
+                1 -> Navigation.NAV_MODULES
+                2 -> Navigation.NAV_DOWNLOAD
+                3 -> Navigation.NAV_LOGS
+                else -> Navigation.FRAG_ERROR
             }
         }catch (e: Exception){
             Log.e(XposedApp.TAG, e.message)
-            return NavigationPosition.HOME
+            return Navigation.FRAG_ERROR
         }
     }
 
