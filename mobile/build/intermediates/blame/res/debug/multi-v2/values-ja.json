@@ -4,24 +4,7 @@
             "outputFile": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ja\\values-ja.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\62e21d90349109d1a6a92232de31d81d\\res\\values-ja\\values-ja.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "164",
-                        "startColumns": "4",
-                        "startOffsets": "11380",
-                        "endColumns": "100",
-                        "endOffsets": "11476"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fe396f009e1b2eb2e399c75fe4a1fd44\\res\\values-ja\\values-ja.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ffd4ad83f7fbc92619563073718f5999\\res\\values-ja\\values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\licensesdialog-1.8.3.aar\\2fa8233caa9247658084021e1454ff2f\\res\\values-ja\\strings.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\licensesdialog-1.8.3.aar\\490953d4fc051c6f76f6154681bd7f70\\res\\values-ja\\strings.xml",
                     "from": {
                         "startLines": "19,18",
                         "startColumns": "4,4",
@@ -69,6 +52,23 @@
                         "startOffsets": "9093,9139",
                         "endColumns": "45,54",
                         "endOffsets": "9134,9189"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\ef09e146a09f65346f60a06be1144ce4\\res\\values-ja\\values-ja.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "164",
+                        "startColumns": "4",
+                        "startOffsets": "11380",
+                        "endColumns": "100",
+                        "endOffsets": "11476"
                     }
                 }
             ]

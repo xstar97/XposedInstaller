@@ -38,13 +38,11 @@ dependencies {
 
     // Kotlin
     implementation kotlinDependencies.kotlinJdk8
-    //implementation kotlinDependencies.kotlinJre8
 
     api utilsDependencies.libSuperUser
 
     api utilsDependencies.stickyListHeaders
     api utilsDependencies.picasso//glide
-    api utilsDependencies.materialDialogs
     api utilsDependencies.licensesDialog
     api supportDependencies.customTabs
 
@@ -53,8 +51,11 @@ dependencies {
     api ankoDependencies.commons
     api ankoDependencies.coroutines
     api ankoDependencies.sqlite
+    api ankoDependencies.appCompat
+    api ankoDependencies.appCompatDelegate
 
     api utilsDependencies.issueReporter
+    implementation 'androidx.core:core-ktx:0.3'//1.0.0-rc01
 }
 androidExtensions {
     experimental = true

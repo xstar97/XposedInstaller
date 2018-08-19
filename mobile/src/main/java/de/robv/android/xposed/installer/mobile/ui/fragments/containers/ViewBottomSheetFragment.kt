@@ -6,11 +6,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 
-import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.createFragment
+import de.robv.android.xposed.installer.mobile.ui.anko.ContainerViewUI
+import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.support.v4.find
 
 /**
  * BottomSheetFragment Container for all the fragments
@@ -28,19 +31,21 @@ class ViewBottomSheetFragment : BottomSheetDialogFragment() {
             return frag
         }
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var containerView : ContainerViewUI<BottomSheetDialogFragment>
+    private lateinit var frameLayout: FrameLayout
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val v=  inflater.inflate(R.layout.view_sheet, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
+        containerView = ContainerViewUI(activity!!)
+        return this.containerView.createView(AnkoContext.create(activity!!, this))
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         setSheetFragment()
-        return v
     }
     private fun setSheetFragment(){
-        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getFrag().createFragment()).commitNowAllowingStateLoss()
+        frameLayout = find(ContainerViewUI.Ids.baseViewFL)
+        childFragmentManager.beginTransaction().replace(frameLayout.id, getFrag().createFragment()).commit()
     }
     private fun getFrag(): Navigation{
         val bundle = this.arguments ?: return Navigation.FRAG_ERROR

@@ -141,7 +141,7 @@
     <string name="about_source_label">Zdrojový kód:</string>
     <string name="about_libraries_label">Použité knihovny:</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Stáhnout</string>
     <string name="download_view_install">Instalovat</string>
     <string name="download_view_cancel">Zrušit</string>

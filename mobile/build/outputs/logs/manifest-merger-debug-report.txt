@@ -1,72 +1,70 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-74:12
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-70:12
 MERGED from [:core] D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\core\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-17:12
-MERGED from [com.android.support:preference-v14:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v14-27.1.1.aar\b556799134bd90cdc6b6aa9640338acc\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:preference-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v7-27.1.1.aar\e719916a203232be32867d99a231ab64\AndroidManifest.xml:17:1-22:12
-MERGED from [com.afollestad.material-dialogs:commons:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\commons-0.9.6.0.aar\968d0e84c465ebb02be50262f68b3779\AndroidManifest.xml:2:1-14:12
-MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\2fa8233caa9247658084021e1454ff2f\AndroidManifest.xml:16:6-20:12
-MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:25:1-42:12
-MERGED from [com.android.support:design:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\bd8269469c06fe57f4f2519374dcb34f\AndroidManifest.xml:17:1-22:12
-MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\595810849bd59482ea6d8b042d09a6bb\AndroidManifest.xml:2:1-15:12
-MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\a857e49fbe0846aa9b8119e66b5676fe\AndroidManifest.xml:6:1-16:12
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\fe396f009e1b2eb2e399c75fe4a1fd44\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-v13:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v13-27.1.1.aar\1e4da796c6b1a2832e722de877f4fea3\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\ca4258367fb5b3d412e1683ccad8c20a\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.skydoves:baserecyclerviewadapter:0.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\baserecyclerviewadapter-0.1.0.aar\9138833ace12bf57fe059272471137f9\AndroidManifest.xml:2:1-12:12
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\51d23a5d2b9962862e3193b461b958cc\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\d5a4780e0e4aed3d3d6db98735c6e60a\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\b5c8b3e0803aa210dedad32deb56ce10\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\39ef03a31db78f6f9535eb30a0a795df\AndroidManifest.xml:17:1-22:12
-MERGED from [eu.chainfire:libsuperuser:1.0.0.201608240809] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\libsuperuser-1.0.0.201608240809.aar\7296d04b057ba41d0895b438d5a16a3d\AndroidManifest.xml:2:1-11:12
-MERGED from [se.emilsjolander:stickylistheaders:2.7.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\stickylistheaders-2.7.0.aar\dff25cfad6a7b58aa851d99a21098dd3\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:customtabs:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\e54a077ba032f6f6ac28a25ecf58a1b9\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\f0fa5d4b1814997ad8971cfb868936ff\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\83f66c6f2acdca272644e291bd713110\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\cd101df30f3c3eb98c886503210e47ba\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\ef625a133d5c87b0d8062ef551167074\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\753809f10984a7e6bd6aff4b3ceddb97\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\62e21d90349109d1a6a92232de31d81d\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-1.1.0.aar\cf50bffc7a6fc779a8a996bdea9d8de9\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\8168455f8a1b1ec4b83f27166bd6d193\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\bbea9a4571fa0ef9a2d7bd94cbb45be0\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2d570ab7973e5bcc0c3f49123ba6c0b5\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\3f8827da4dc5ef57ec2e5cd9d2a34d9a\AndroidManifest.xml:2:1-14:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\c5271bf4f8cdc9908af63a0885644e64\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-74:12
+MERGED from [com.android.support:preference-v14:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v14-27.1.1.aar\bdcac5a6354722cba22c5051556c6589\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:preference-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v7-27.1.1.aar\9a4cd1e2b48fb0f20eac63ded386423e\AndroidManifest.xml:17:1-22:12
+MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\490953d4fc051c6f76f6154681bd7f70\AndroidManifest.xml:16:6-20:12
+MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:25:1-42:12
+MERGED from [com.afollestad.material-dialogs:core:0.8.5.9] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.8.5.9.aar\8b57e1d60f9870c5adf8233605a82361\AndroidManifest.xml:2:1-15:12
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.1.5] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\library-1.1.5.aar\a05ed007e7afe83b453d2ab8d02a5594\AndroidManifest.xml:6:1-16:12
+MERGED from [com.android.support:design:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\8fe9b1daa140998cb077a5747b22c34b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\ffd4ad83f7fbc92619563073718f5999\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v13:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v13-27.1.1.aar\fec27bcfbcc871dfea34c81775e24fdf\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\5c046e4956f3b72be6dc0cc525b4161c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.skydoves:baserecyclerviewadapter:0.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\baserecyclerviewadapter-0.1.0.aar\3f56a29dfb62359b800836e7ce483338\AndroidManifest.xml:2:1-12:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\a6167d8d5e3c6bedaf117d41a2b14c52\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\dbf1247894805a16b3714a3858785cf4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\a00501aff62ecba0eb6fcbbf2dcc777b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\50c97a7f0cc88adcb8c4654f61d5f460\AndroidManifest.xml:17:1-22:12
+MERGED from [eu.chainfire:libsuperuser:1.0.0.201608240809] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\libsuperuser-1.0.0.201608240809.aar\869b73d32e07156c619785194a3fb4e3\AndroidManifest.xml:2:1-11:12
+MERGED from [se.emilsjolander:stickylistheaders:2.7.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\stickylistheaders-2.7.0.aar\f0392292f55449de88d96233dea7ba92\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:customtabs:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\7cd742d8e1904d5780f5eb0ee2583781\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:0.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-ktx-0.3.aar\62b90b30d482ff6b1c65b8f31dd774dc\AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\91f15b7bcbcc1651f29ef26e117ee82d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\e586fa627ef81ad95b0db11bc729ce5b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\6e1761683a70d66f6826c39c9b135e46\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-1.1.0.aar\f33bd5d27f917301da0c6b228490e7dc\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a8740a13d09f44af53b5aa01ce9c9abe\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\66fb9143e27dd269624f752c502f5476\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\cdeb02d278c7e9b6caf4a19c13e8334a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\ac0a7073239725bc1572f3dff465d1c8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\ef09e146a09f65346f60a06be1144ce4\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\df9cf878f5f1a5aa09218d33c9abc84c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\824feeb9c106d3b97251d0d351a890e6\AndroidManifest.xml:2:1-14:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\ea9caa907674cf62361d068fa441f33a\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-70:12
 	package
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:4:5-47
 		INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
 		INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-74:12
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-70:12
 		INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-74:12
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:1-70:12
 		INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:6:5-72:19
-MERGED from [com.afollestad.material-dialogs:commons:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\commons-0.9.6.0.aar\968d0e84c465ebb02be50262f68b3779\AndroidManifest.xml:12:5-20
-MERGED from [com.afollestad.material-dialogs:commons:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\commons-0.9.6.0.aar\968d0e84c465ebb02be50262f68b3779\AndroidManifest.xml:12:5-20
-MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\2fa8233caa9247658084021e1454ff2f\AndroidManifest.xml:19:5-19
-MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\2fa8233caa9247658084021e1454ff2f\AndroidManifest.xml:19:5-19
-MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:36:5-40:19
-MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:36:5-40:19
-MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\595810849bd59482ea6d8b042d09a6bb\AndroidManifest.xml:13:5-20
-MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\595810849bd59482ea6d8b042d09a6bb\AndroidManifest.xml:13:5-20
-MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\3f8827da4dc5ef57ec2e5cd9d2a34d9a\AndroidManifest.xml:12:5-20
-MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\3f8827da4dc5ef57ec2e5cd9d2a34d9a\AndroidManifest.xml:12:5-20
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:6:5-68:19
+MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\490953d4fc051c6f76f6154681bd7f70\AndroidManifest.xml:19:5-19
+MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\490953d4fc051c6f76f6154681bd7f70\AndroidManifest.xml:19:5-19
+MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:36:5-40:19
+MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:36:5-40:19
+MERGED from [com.afollestad.material-dialogs:core:0.8.5.9] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.8.5.9.aar\8b57e1d60f9870c5adf8233605a82361\AndroidManifest.xml:13:5-20
+MERGED from [com.afollestad.material-dialogs:core:0.8.5.9] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.8.5.9.aar\8b57e1d60f9870c5adf8233605a82361\AndroidManifest.xml:13:5-20
+MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\824feeb9c106d3b97251d0d351a890e6\AndroidManifest.xml:12:5-20
+MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\824feeb9c106d3b97251d0d351a890e6\AndroidManifest.xml:12:5-20
 	android:label
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:10:9-41
 	android:icon
@@ -111,192 +109,180 @@ ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\J
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:24:112-168
 	android:name
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:24:19-111
-activity#de.robv.android.xposed.installer.mobile.ui.activities.SettingsActivity
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:9-164
-	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:105-161
-	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:19-104
 activity#de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:9-44:20
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:9-42:20
 	android:exported
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:159-182
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:159-182
 	android:configChanges
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:112-158
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:112-158
 	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:183-239
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:183-239
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:19-111
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:26:19-111
 intent-filter#action:name:de.robv.android.xposed.installer.DOWNLOAD_DETAILS+category:name:android.intent.category.DEFAULT+data:scheme:package
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:29:13-35:29
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:27:13-33:29
 action#de.robv.android.xposed.installer.DOWNLOAD_DETAILS
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:30:17-92
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:17-92
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:30:25-89
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:28:25-89
 data
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:32:17-50
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:30:17-50
 	android:host
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:39:23-54
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:37:23-54
 	android:scheme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:32:23-47
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:30:23-47
 	android:pathPrefix
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:39:55-84
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:37:55-84
 category#android.intent.category.DEFAULT
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:34:17-76
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:32:17-76
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:34:27-73
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:32:27-73
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:repo.xposed.info+data:pathPrefix:/module/+data:scheme:http
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:36:13-43:29
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:34:13-41:29
 action#android.intent.action.VIEW
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:37:17-69
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:35:17-69
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:37:25-66
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:35:25-66
 category#android.intent.category.BROWSABLE
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:42:17-78
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:40:17-78
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:42:27-75
-activity#de.robv.android.xposed.installer.mobile.ui.activities.ModulesBookmark
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:9-163
-	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:104-160
-	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:19-103
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:40:27-75
 activity#de.robv.android.xposed.installer.mobile.ui.activities.InstallationActivity
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:9-205
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:44:9-205
 	android:screenOrientation
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:109-145
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:44:109-145
 	android:theme
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:146-202
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:44:146-202
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:19-108
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:44:19-108
 receiver#de.robv.android.xposed.installer.core.receivers.PackageChangeReceiver
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:50:9-58:20
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:9-54:20
 	android:exported
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:50:72-96
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:72-96
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:50:19-71
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:46:19-71
 intent-filter#action:name:android.intent.action.PACKAGE_ADDED+action:name:android.intent.action.PACKAGE_CHANGED+action:name:android.intent.action.PACKAGE_REMOVED+data:scheme:package
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:51:13-57:29
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:47:13-53:29
 action#android.intent.action.PACKAGE_ADDED
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:52:17-78
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:17-78
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:52:25-75
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:48:25-75
 action#android.intent.action.PACKAGE_CHANGED
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:53:17-80
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:49:17-80
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:53:25-77
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:49:25-77
 action#android.intent.action.PACKAGE_REMOVED
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:54:17-80
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:50:17-80
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:54:25-77
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:50:25-77
 receiver#de.robv.android.xposed.installer.core.receivers.DownloadReceiver
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:60:9-64:20
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:56:9-60:20
 	android:exported
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:60:67-90
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:56:67-90
 	android:permission
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:60:91-162
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:56:91-162
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:60:19-66
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:56:19-66
 intent-filter#action:name:android.intent.action.DOWNLOAD_COMPLETE
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:61:13-63:29
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:57:13-59:29
 action#android.intent.action.DOWNLOAD_COMPLETE
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:62:17-82
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:58:17-82
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:62:25-79
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:58:25-79
 receiver#de.robv.android.xposed.installer.core.util.NotificationUtil$RebootReceiver
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:66:9-104
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:62:9-104
 	android:exported
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:66:77-101
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:62:77-101
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:66:19-76
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:62:19-76
 provider#android.support.v4.content.FileProvider
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:68:9-70:20
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:64:9-66:20
 	android:grantUriPermissions
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:68:167-201
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:64:167-201
 	android:authorities
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:68:74-141
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:64:74-141
 	android:exported
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:68:142-166
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:64:142-166
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:68:19-73
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:64:19-73
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:69:13-112
+ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:65:13-112
 	android:resource
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:69:75-109
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:65:75-109
 	android:name
-		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:69:24-74
+		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml:65:24-74
 uses-sdk
 INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
 MERGED from [:core] D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\core\build\intermediates\manifests\full\debug\AndroidManifest.xml:8:5-44
 MERGED from [:core] D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\core\build\intermediates\manifests\full\debug\AndroidManifest.xml:8:5-44
-MERGED from [com.android.support:preference-v14:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v14-27.1.1.aar\b556799134bd90cdc6b6aa9640338acc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:preference-v14:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v14-27.1.1.aar\b556799134bd90cdc6b6aa9640338acc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:preference-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v7-27.1.1.aar\e719916a203232be32867d99a231ab64\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:preference-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v7-27.1.1.aar\e719916a203232be32867d99a231ab64\AndroidManifest.xml:20:5-44
-MERGED from [com.afollestad.material-dialogs:commons:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\commons-0.9.6.0.aar\968d0e84c465ebb02be50262f68b3779\AndroidManifest.xml:8:5-10:41
-MERGED from [com.afollestad.material-dialogs:commons:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\commons-0.9.6.0.aar\968d0e84c465ebb02be50262f68b3779\AndroidManifest.xml:8:5-10:41
-MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\2fa8233caa9247658084021e1454ff2f\AndroidManifest.xml:18:5-72
-MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\2fa8233caa9247658084021e1454ff2f\AndroidManifest.xml:18:5-72
-MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:30:5-32:41
-MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:30:5-32:41
-MERGED from [com.android.support:design:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\bd8269469c06fe57f4f2519374dcb34f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\bd8269469c06fe57f4f2519374dcb34f\AndroidManifest.xml:20:5-44
-MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\595810849bd59482ea6d8b042d09a6bb\AndroidManifest.xml:8:5-11:75
-MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\595810849bd59482ea6d8b042d09a6bb\AndroidManifest.xml:8:5-11:75
-MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\a857e49fbe0846aa9b8119e66b5676fe\AndroidManifest.xml:12:5-14:41
-MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\a857e49fbe0846aa9b8119e66b5676fe\AndroidManifest.xml:12:5-14:41
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\fe396f009e1b2eb2e399c75fe4a1fd44\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\fe396f009e1b2eb2e399c75fe4a1fd44\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v13:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v13-27.1.1.aar\1e4da796c6b1a2832e722de877f4fea3\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v13:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v13-27.1.1.aar\1e4da796c6b1a2832e722de877f4fea3\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\ca4258367fb5b3d412e1683ccad8c20a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\ca4258367fb5b3d412e1683ccad8c20a\AndroidManifest.xml:20:5-44
-MERGED from [com.github.skydoves:baserecyclerviewadapter:0.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\baserecyclerviewadapter-0.1.0.aar\9138833ace12bf57fe059272471137f9\AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.skydoves:baserecyclerviewadapter:0.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\baserecyclerviewadapter-0.1.0.aar\9138833ace12bf57fe059272471137f9\AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\51d23a5d2b9962862e3193b461b958cc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\51d23a5d2b9962862e3193b461b958cc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\d5a4780e0e4aed3d3d6db98735c6e60a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\d5a4780e0e4aed3d3d6db98735c6e60a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\b5c8b3e0803aa210dedad32deb56ce10\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\b5c8b3e0803aa210dedad32deb56ce10\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\39ef03a31db78f6f9535eb30a0a795df\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\39ef03a31db78f6f9535eb30a0a795df\AndroidManifest.xml:20:5-44
-MERGED from [eu.chainfire:libsuperuser:1.0.0.201608240809] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\libsuperuser-1.0.0.201608240809.aar\7296d04b057ba41d0895b438d5a16a3d\AndroidManifest.xml:7:5-9:41
-MERGED from [eu.chainfire:libsuperuser:1.0.0.201608240809] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\libsuperuser-1.0.0.201608240809.aar\7296d04b057ba41d0895b438d5a16a3d\AndroidManifest.xml:7:5-9:41
-MERGED from [se.emilsjolander:stickylistheaders:2.7.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\stickylistheaders-2.7.0.aar\dff25cfad6a7b58aa851d99a21098dd3\AndroidManifest.xml:7:5-9:41
-MERGED from [se.emilsjolander:stickylistheaders:2.7.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\stickylistheaders-2.7.0.aar\dff25cfad6a7b58aa851d99a21098dd3\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:customtabs:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\e54a077ba032f6f6ac28a25ecf58a1b9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customtabs:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\e54a077ba032f6f6ac28a25ecf58a1b9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\f0fa5d4b1814997ad8971cfb868936ff\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\f0fa5d4b1814997ad8971cfb868936ff\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\83f66c6f2acdca272644e291bd713110\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\83f66c6f2acdca272644e291bd713110\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\cd101df30f3c3eb98c886503210e47ba\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\cd101df30f3c3eb98c886503210e47ba\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\ef625a133d5c87b0d8062ef551167074\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\ef625a133d5c87b0d8062ef551167074\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\753809f10984a7e6bd6aff4b3ceddb97\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\753809f10984a7e6bd6aff4b3ceddb97\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\62e21d90349109d1a6a92232de31d81d\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\62e21d90349109d1a6a92232de31d81d\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-1.1.0.aar\cf50bffc7a6fc779a8a996bdea9d8de9\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-1.1.0.aar\cf50bffc7a6fc779a8a996bdea9d8de9\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\8168455f8a1b1ec4b83f27166bd6d193\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\8168455f8a1b1ec4b83f27166bd6d193\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\bbea9a4571fa0ef9a2d7bd94cbb45be0\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\bbea9a4571fa0ef9a2d7bd94cbb45be0\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2d570ab7973e5bcc0c3f49123ba6c0b5\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2d570ab7973e5bcc0c3f49123ba6c0b5\AndroidManifest.xml:20:5-44
-MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\3f8827da4dc5ef57ec2e5cd9d2a34d9a\AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\3f8827da4dc5ef57ec2e5cd9d2a34d9a\AndroidManifest.xml:8:5-10:41
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\c5271bf4f8cdc9908af63a0885644e64\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\c5271bf4f8cdc9908af63a0885644e64\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:preference-v14:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v14-27.1.1.aar\bdcac5a6354722cba22c5051556c6589\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:preference-v14:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v14-27.1.1.aar\bdcac5a6354722cba22c5051556c6589\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:preference-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v7-27.1.1.aar\9a4cd1e2b48fb0f20eac63ded386423e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:preference-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\preference-v7-27.1.1.aar\9a4cd1e2b48fb0f20eac63ded386423e\AndroidManifest.xml:20:5-44
+MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\490953d4fc051c6f76f6154681bd7f70\AndroidManifest.xml:18:5-72
+MERGED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\490953d4fc051c6f76f6154681bd7f70\AndroidManifest.xml:18:5-72
+MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:30:5-32:41
+MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:30:5-32:41
+MERGED from [com.afollestad.material-dialogs:core:0.8.5.9] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.8.5.9.aar\8b57e1d60f9870c5adf8233605a82361\AndroidManifest.xml:8:5-11:75
+MERGED from [com.afollestad.material-dialogs:core:0.8.5.9] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.8.5.9.aar\8b57e1d60f9870c5adf8233605a82361\AndroidManifest.xml:8:5-11:75
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.1.5] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\library-1.1.5.aar\a05ed007e7afe83b453d2ab8d02a5594\AndroidManifest.xml:12:5-14:41
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.1.5] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\library-1.1.5.aar\a05ed007e7afe83b453d2ab8d02a5594\AndroidManifest.xml:12:5-14:41
+MERGED from [com.android.support:design:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\8fe9b1daa140998cb077a5747b22c34b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\8fe9b1daa140998cb077a5747b22c34b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\ffd4ad83f7fbc92619563073718f5999\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\ffd4ad83f7fbc92619563073718f5999\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v13-27.1.1.aar\fec27bcfbcc871dfea34c81775e24fdf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v13-27.1.1.aar\fec27bcfbcc871dfea34c81775e24fdf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\5c046e4956f3b72be6dc0cc525b4161c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\5c046e4956f3b72be6dc0cc525b4161c\AndroidManifest.xml:20:5-44
+MERGED from [com.github.skydoves:baserecyclerviewadapter:0.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\baserecyclerviewadapter-0.1.0.aar\3f56a29dfb62359b800836e7ce483338\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.skydoves:baserecyclerviewadapter:0.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\baserecyclerviewadapter-0.1.0.aar\3f56a29dfb62359b800836e7ce483338\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\a6167d8d5e3c6bedaf117d41a2b14c52\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\a6167d8d5e3c6bedaf117d41a2b14c52\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\dbf1247894805a16b3714a3858785cf4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\dbf1247894805a16b3714a3858785cf4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\a00501aff62ecba0eb6fcbbf2dcc777b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\a00501aff62ecba0eb6fcbbf2dcc777b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\50c97a7f0cc88adcb8c4654f61d5f460\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\50c97a7f0cc88adcb8c4654f61d5f460\AndroidManifest.xml:20:5-44
+MERGED from [eu.chainfire:libsuperuser:1.0.0.201608240809] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\libsuperuser-1.0.0.201608240809.aar\869b73d32e07156c619785194a3fb4e3\AndroidManifest.xml:7:5-9:41
+MERGED from [eu.chainfire:libsuperuser:1.0.0.201608240809] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\libsuperuser-1.0.0.201608240809.aar\869b73d32e07156c619785194a3fb4e3\AndroidManifest.xml:7:5-9:41
+MERGED from [se.emilsjolander:stickylistheaders:2.7.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\stickylistheaders-2.7.0.aar\f0392292f55449de88d96233dea7ba92\AndroidManifest.xml:7:5-9:41
+MERGED from [se.emilsjolander:stickylistheaders:2.7.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\stickylistheaders-2.7.0.aar\f0392292f55449de88d96233dea7ba92\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:customtabs:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\7cd742d8e1904d5780f5eb0ee2583781\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.1.aar\7cd742d8e1904d5780f5eb0ee2583781\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:0.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-ktx-0.3.aar\62b90b30d482ff6b1c65b8f31dd774dc\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:0.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-ktx-0.3.aar\62b90b30d482ff6b1c65b8f31dd774dc\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\91f15b7bcbcc1651f29ef26e117ee82d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\91f15b7bcbcc1651f29ef26e117ee82d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\e586fa627ef81ad95b0db11bc729ce5b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\e586fa627ef81ad95b0db11bc729ce5b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\6e1761683a70d66f6826c39c9b135e46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\6e1761683a70d66f6826c39c9b135e46\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-1.1.0.aar\f33bd5d27f917301da0c6b228490e7dc\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-1.1.0.aar\f33bd5d27f917301da0c6b228490e7dc\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a8740a13d09f44af53b5aa01ce9c9abe\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a8740a13d09f44af53b5aa01ce9c9abe\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\66fb9143e27dd269624f752c502f5476\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\66fb9143e27dd269624f752c502f5476\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\cdeb02d278c7e9b6caf4a19c13e8334a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\cdeb02d278c7e9b6caf4a19c13e8334a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\ac0a7073239725bc1572f3dff465d1c8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\ac0a7073239725bc1572f3dff465d1c8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\ef09e146a09f65346f60a06be1144ce4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\ef09e146a09f65346f60a06be1144ce4\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\df9cf878f5f1a5aa09218d33c9abc84c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\df9cf878f5f1a5aa09218d33c9abc84c\AndroidManifest.xml:20:5-44
+MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\824feeb9c106d3b97251d0d351a890e6\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.aakira:expandable-layout:1.4.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\expandable-layout-1.4.3.aar\824feeb9c106d3b97251d0d351a890e6\AndroidManifest.xml:8:5-10:41
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\ea9caa907674cf62361d068fa441f33a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\ea9caa907674cf62361d068fa441f33a\AndroidManifest.xml:20:5-44
 INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\595810849bd59482ea6d8b042d09a6bb\AndroidManifest.xml:11:9-72
+		ADDED from [com.afollestad.material-dialogs:core:0.8.5.9] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\core-0.8.5.9.aar\8b57e1d60f9870c5adf8233605a82361\AndroidManifest.xml:11:9-72
 	android:targetSdkVersion
-		ADDED from [com.afollestad.material-dialogs:commons:0.9.6.0] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\commons-0.9.6.0.aar\968d0e84c465ebb02be50262f68b3779\AndroidManifest.xml:10:9-38
+		ADDED from [de.psdev.licensesdialog:licensesdialog:1.8.3] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\licensesdialog-1.8.3.aar\490953d4fc051c6f76f6154681bd7f70\AndroidManifest.xml:18:41-70
 	android:minSdkVersion
 		INJECTED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
 		ADDED from D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\mobile\src\main\AndroidManifest.xml
@@ -315,8 +301,8 @@ ADDED from [:core] D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedIns
 		ADDED from [:core] D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\core\build\intermediates\manifests\full\debug\AndroidManifest.xml:12:22-77
 uses-permission#android.permission.INTERNET
 ADDED from [:core] D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\core\build\intermediates\manifests\full\debug\AndroidManifest.xml:13:5-67
-MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:34:5-67
-MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:34:5-67
+MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:34:5-67
+MERGED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:34:5-67
 	android:name
 		ADDED from [:core] D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\core\build\intermediates\manifests\full\debug\AndroidManifest.xml:13:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
@@ -328,8 +314,8 @@ ADDED from [:core] D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedIns
 	android:name
 		ADDED from [:core] D:\mille\projects\AndroidStudioProjects\Apps\GitHub\XposedInstaller\Java\core\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:22-80
 activity#com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher$Activity
-ADDED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:37:9-39:58
+ADDED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:37:9-39:58
 	android:theme
-		ADDED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:39:13-55
+		ADDED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:39:13-55
 	android:name
-		ADDED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\154b9cd89a661459bbea28a3214575e4\AndroidManifest.xml:38:13-106
+		ADDED from [com.heinrichreimersoftware:android-issue-reporter:1.3.1] C:\Users\mille\.gradle\caches\transforms-1\files-1.1\android-issue-reporter-1.3.1.aar\a91c9ed4d572be5b2c3ccfd218234ea5\AndroidManifest.xml:38:13-106

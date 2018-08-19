@@ -7,20 +7,21 @@ import com.skydoves.baserecyclerviewadapter.BaseAdapter
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 import com.skydoves.baserecyclerviewadapter.SectionRow
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.delegates.InfoDelegate
 import de.robv.android.xposed.installer.core.models.*
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.viewholders.InfoBaseViewHolder
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.viewholders.InfoBaseViewHolderHeader
 
-open class InfoBaseAdapter(private val context: Context, private val delegate: InfoDelegate): BaseAdapter() {
+open class InfoBaseAdapter(private val context: Context?, private val delegate: InfoDelegate?): BaseAdapter() {
 
-    private var myContext = context
+   // private var myContext = context
     companion object {
-        const val SECTION_ABOUT = 0
-        const val SECTION_SUPPORT = 1
-        const val SECTION_DEVICE = 2
+        const val mSectionAbout = 0
+        const val mSectionSupport = 1
+        const val mSectionDevice = 2
     }
     init {
-        this.myContext = context
+        //this.myContext = context
         for(i in 0..2) {
             addSection(ArrayList<InfoModel>())
         }
@@ -34,24 +35,24 @@ open class InfoBaseAdapter(private val context: Context, private val delegate: I
 
     override fun layout(sectionRow: SectionRow): Int {
         return when(sectionRow.row()) {
-            0 -> R.layout.list_item_tab_header
+            0 -> R.layout.list_item_header
             else -> R.layout.list_item_tab
         }
     }
 
     override fun viewHolder(layout: Int, view: View): BaseViewHolder {
         when(layout) {
-            R.layout.list_item_tab_header -> return InfoBaseViewHolderHeader(view)
-            R.layout.list_item_tab -> return InfoBaseViewHolder(view, delegate)
+            R.layout.list_item_header -> return InfoBaseViewHolderHeader(view)
+            R.layout.list_item_tab -> return InfoBaseViewHolder(view, delegate!!)
         }
         throw Resources.NotFoundException("no layout founded")
     }
 
     private fun setSectionName(section: Int): String{
         return when (section) {
-            SECTION_ABOUT -> context.getString(R.string.nav_item_about)
-            SECTION_SUPPORT -> context.getString(R.string.nav_item_support)
-            SECTION_DEVICE -> context.getString(R.string.framework_device_info)
+            mSectionAbout -> context!!.getString(R.string.nav_item_about)
+            mSectionSupport -> context!!.getString(R.string.nav_item_support)
+            mSectionDevice -> context!!.getString(R.string.framework_device_info)
             else -> "section: $section"
         }
     }

@@ -6,11 +6,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 
-import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.createFragment
+import de.robv.android.xposed.installer.mobile.ui.anko.ContainerViewUI
+import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.support.v4.find
 
 class ViewDialogFragment : DialogFragment() {
 
@@ -25,18 +28,20 @@ class ViewDialogFragment : DialogFragment() {
             return frag
         }
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.view_sheet, container)
-    }
+    private lateinit var containerView : ContainerViewUI<DialogFragment>
+    private lateinit var frameLayout: FrameLayout
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
+        containerView = ContainerViewUI(activity!!)
+        return this.containerView.createView(AnkoContext.create(activity!!, this))
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setDialogFragment()
     }
     private fun setDialogFragment(){
-        childFragmentManager.beginTransaction().replace(R.id.view_sheet_content, getFrag().createFragment()).commitNowAllowingStateLoss()
+        frameLayout = find(ContainerViewUI.Ids.baseViewFL)
+        childFragmentManager.beginTransaction().replace(frameLayout.id, getFrag().createFragment()).commit()
     }
     private fun getFrag(): Navigation{
         val bundle = this.arguments ?: return Navigation.NAV_HOME

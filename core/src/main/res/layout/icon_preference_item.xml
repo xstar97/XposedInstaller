@@ -23,7 +23,7 @@
     android:padding="6dip">
 
     <ImageView
-        android:id="@+id/icon"
+        android:id="@+id/moduleIcon"
         tools:src="#000000"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/icon"
+        android:layout_toRightOf="@+id/moduleIcon"
         android:checkMark="?android:attr/listChoiceIndicatorSingle"
         android:ellipsize="marquee"
         android:gravity="center_vertical"
@@ -47,6 +47,6 @@
         android:textColor="?android:attr/textColorAlertDialogListItem"
         android:textIsSelectable="false"
         android:layout_alignParentRight="true"
-        android:layout_toEndOf="@+id/icon" />
+        android:layout_toEndOf="@+id/moduleIcon" />
 
 </RelativeLayout>

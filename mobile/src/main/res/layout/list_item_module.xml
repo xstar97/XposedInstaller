@@ -23,33 +23,33 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/icon"
+            android:id="@+id/moduleIcon"
             android:layout_width="48dip"
             android:layout_height="48dip"
             tools:ignore="ContentDescription"
             tools:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/moduleTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
-            android:layout_toEndOf="@id/icon"
-            android:layout_toRightOf="@id/icon"
+            android:layout_toEndOf="@id/moduleIcon"
+            android:layout_toRightOf="@id/moduleIcon"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="false"
             tools:text="Module Title" />
 
         <TextView
-            android:id="@+id/version_name"
+            android:id="@+id/moduleVersionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginTop="3dp"
-            android:layout_toLeftOf="@+id/checkbox"
-            android:layout_toStartOf="@+id/checkbox"
+            android:layout_toLeftOf="@+id/moduleCheckbox"
+            android:layout_toStartOf="@+id/moduleCheckbox"
             android:ellipsize="middle"
             android:gravity="end"
             android:maxWidth="150dp"
@@ -62,7 +62,7 @@
             tools:text="1.0" />
 
         <CheckBox
-            android:id="@+id/checkbox"
+            android:id="@+id/moduleCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -72,29 +72,29 @@
             android:padding="3dp" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/moduleDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/title"
+            android:layout_below="@id/moduleTitle"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
-            android:layout_toEndOf="@id/icon"
-            android:layout_toRightOf="@id/icon"
+            android:layout_toEndOf="@id/moduleIcon"
+            android:layout_toRightOf="@id/moduleIcon"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textIsSelectable="false"
             tools:text="Module Description!!!" />
 
         <TextView
-            android:id="@+id/warning"
+            android:id="@+id/moduleWarning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/description"
+            android:layout_below="@id/moduleDescription"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
-            android:layout_toEndOf="@id/icon"
-            android:layout_toRightOf="@id/icon"
+            android:layout_toEndOf="@id/moduleIcon"
+            android:layout_toRightOf="@id/moduleIcon"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/warning"
             android:visibility="gone"
@@ -102,87 +102,5 @@
             tools:visibility="visible" />
 
     </RelativeLayout>
-
-
-    <!--
-    TODO relpace old layout
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?android:attr/listPreferredItemHeight"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        tools:visibility="gone">
-
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="48dip"
-            android:layout_height="48dip"/>
-
-        <LinearLayout
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="4dip"
-            android:layout_marginRight="4dip"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="4dip"
-                    android:layout_marginEnd="4dip"
-                    android:layout_weight="1"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textIsSelectable="false"/>
-
-                <TextView
-                    android:id="@+id/version_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dip"
-                    android:layout_marginStart="4dip"
-                    android:ellipsize="middle"
-                    android:gravity="end"
-                    android:maxWidth="150dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@android:color/tertiary_text_dark"
-                    android:textIsSelectable="false"
-                    android:singleLine="true" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textIsSelectable="false"/>
-
-            <TextView
-                android:id="@+id/warning"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/warning"
-                android:visibility="gone"/>
-        </LinearLayout>
-
-        <CheckBox
-            android:id="@+id/checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:focusable="false"
-            android:gravity="top"
-            android:padding="3dp"/>
-
-    </LinearLayout>-->
 
 </android.support.v7.widget.CardView>

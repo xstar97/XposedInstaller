@@ -23,8 +23,6 @@
         <!-- Container -->
         <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.containers.ViewActivity" android:theme="@style/Theme.XposedInstaller.Transparent"/>
 
-        <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.SettingsActivity" android:theme="@style/Theme.XposedInstaller.Transparent" />
-
         <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity" android:configChanges="orientation|screenSize" android:exported="true" android:theme="@style/Theme.XposedInstaller.Transparent">
             <intent-filter>
                 <action android:name="de.robv.android.xposed.installer.DOWNLOAD_DETAILS" />
@@ -42,8 +40,6 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-
-        <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.ModulesBookmark" android:theme="@style/Theme.XposedInstaller.Transparent" />
 
         <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.InstallationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.XposedInstaller.Transparent" />
 

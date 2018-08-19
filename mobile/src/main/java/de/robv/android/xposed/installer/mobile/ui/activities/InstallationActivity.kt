@@ -10,7 +10,6 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
-import android.support.v7.widget.Toolbar
 import android.text.Spannable
 import android.text.style.ForegroundColorSpan
 import android.util.Log
@@ -18,19 +17,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
 
 import java.io.File
 
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.R.id.container
+import de.robv.android.xposed.installer.R.layout.activity_container
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.core.installation.FlashCallback
 import de.robv.android.xposed.installer.core.installation.Flashable
 import de.robv.android.xposed.installer.core.util.RootUtil
 import de.robv.android.xposed.installer.core.base.activities.utils.InstallationUtils
+import kotlinx.android.synthetic.main.activity_installation.*
+import kotlinx.android.synthetic.main.view_toolbar.*
 
 class InstallationActivity : XposedBaseActivity() {
 
@@ -44,9 +43,8 @@ class InstallationActivity : XposedBaseActivity() {
             return
         }
 
-        setContentView(R.layout.activity_container)
+        setContentView(activity_container)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         toolbar.setNavigationOnClickListener { finish() }
@@ -62,18 +60,13 @@ class InstallationActivity : XposedBaseActivity() {
 
         if (savedInstanceBundle == null) {
             val logFragment = InstallationFragment()
-            supportFragmentManager.beginTransaction().replace(R.id.container, logFragment).commit()
+            supportFragmentManager.beginTransaction().replace(container, logFragment).commit()
             logFragment.startInstallation(this, flashable)
         }
     }
 
     class InstallationFragment : Fragment(), FlashCallback {
         private var mFlashable: Flashable? = null
-        private var mLogText: TextView? = null
-        private var mProgress: ProgressBar? = null
-        private var mConsoleResult: ImageView? = null
-        private var mBtnReboot: Button? = null
-        private var mBtnCancel: Button? = null
 
         //TODO: Add toggle for user to force system installation
         @Suppress("unused")
@@ -102,15 +95,7 @@ class InstallationActivity : XposedBaseActivity() {
         }
 
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            val view = inflater.inflate(R.layout.activity_installation, container, false)
-
-            mLogText = view.findViewById(R.id.console)
-            mProgress = view.findViewById(R.id.progressBar)
-            mConsoleResult = view.findViewById(R.id.console_result)
-            mBtnReboot = view.findViewById(R.id.reboot)
-            mBtnCancel = view.findViewById(R.id.cancel)
-
-            return view
+            return inflater.inflate(R.layout.activity_installation, container, false)
         }
 
         override fun onStarted() {
@@ -150,10 +135,10 @@ class InstallationActivity : XposedBaseActivity() {
                 appendText("\n" + getString(R.string.file_done), TYPE_OK)
 
                 // Fade in the result image.
-                mConsoleResult!!.setImageResource(R.drawable.ic_check_circle)
-                mConsoleResult!!.visibility = View.VISIBLE
+                console_result!!.setImageResource(R.drawable.ic_check_circle)
+                console_result!!.visibility = View.VISIBLE
                 //TODO replace the InstallationUtils method
-                val fadeInResult = InstallationUtils.FadeInResult(mConsoleResult, "alpha", 0.0f, 0.03f)
+                val fadeInResult = InstallationUtils.FadeInResult(console_result, "alpha", 0.0f, 0.03f)
                 fadeInResult.duration = (MEDIUM_ANIM_TIME * 2).toLong()
 
                 // Collapse the whole bottom bar.
@@ -163,13 +148,13 @@ class InstallationActivity : XposedBaseActivity() {
                 collapseBottomBar.duration = MEDIUM_ANIM_TIME.toLong()
                 collapseBottomBar.addListener(object : AnimatorListenerAdapter() {
                     override fun onAnimationEnd(animation: Animator) {
-                        mProgress!!.isIndeterminate = false
-                        mProgress!!.rotation = 180f
-                        mProgress!!.max = REBOOT_COUNTDOWN
-                        mProgress!!.progress = REBOOT_COUNTDOWN
+                        progressBar!!.isIndeterminate = false
+                        progressBar!!.rotation = 180f
+                        progressBar!!.max = REBOOT_COUNTDOWN
+                        progressBar!!.progress = REBOOT_COUNTDOWN
 
-                        mBtnReboot!!.visibility = View.VISIBLE
-                        mBtnCancel!!.visibility = View.VISIBLE
+                        reboot!!.visibility = View.VISIBLE
+                        cancel!!.visibility = View.VISIBLE
                     }
                 })
 
@@ -178,7 +163,7 @@ class InstallationActivity : XposedBaseActivity() {
                 expandBottomBar.startDelay = (LONG_ANIM_TIME * 4).toLong()
 
                 //TODO replace the InstallationUtils method
-                val countdownProgress = InstallationUtils.CountdownProgress(mProgress, "progress", REBOOT_COUNTDOWN, 0)
+                val countdownProgress = InstallationUtils.CountdownProgress(progressBar, "progress", REBOOT_COUNTDOWN, 0)
                 countdownProgress.duration = REBOOT_COUNTDOWN.toLong()
                 countdownProgress.interpolator = LinearInterpolator()
 
@@ -189,19 +174,19 @@ class InstallationActivity : XposedBaseActivity() {
                 val format = getString(R.string.countdown)
                 val rebootMode = mFlashable!!.rebootMode
                 val action = getString(rebootMode.titleRes)
-                mBtnReboot!!.text = String.format(format, action, REBOOT_COUNTDOWN / 1000)
+                reboot!!.text = String.format(format, action, REBOOT_COUNTDOWN / 1000)
 
                 countdownButton.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
                     private var minWidth = 0
 
                     @SuppressLint("StringFormatMatches")
                     override fun onAnimationUpdate(animation: ValueAnimator) {
-                        mBtnReboot!!.text = String.format(format, action, animation.animatedValue)
+                        reboot!!.text = String.format(format, action, animation.animatedValue)
 
                         // Make sure that the button width doesn't shrink.
-                        if (mBtnReboot!!.width > minWidth) {
-                            minWidth = mBtnReboot!!.width
-                            mBtnReboot!!.minimumWidth = minWidth
+                        if (reboot!!.width > minWidth) {
+                            minWidth = reboot!!.width
+                            reboot!!.minimumWidth = minWidth
                         }
                     }
                 })
@@ -215,12 +200,12 @@ class InstallationActivity : XposedBaseActivity() {
 
                     override fun onAnimationEnd(animation: Animator) {
                         if (!canceled) {
-                            mBtnReboot!!.callOnClick()
+                            reboot!!.callOnClick()
                         }
                     }
                 })
 
-                mBtnReboot!!.setOnClickListener {
+                reboot!!.setOnClickListener {
                     countdownProgress.cancel()
                     countdownButton.cancel()
 
@@ -230,7 +215,7 @@ class InstallationActivity : XposedBaseActivity() {
                     }
                 }
 
-                mBtnCancel!!.setOnClickListener {
+                cancel!!.setOnClickListener {
                     countdownProgress.cancel()
                     countdownButton.cancel()
 
@@ -252,10 +237,10 @@ class InstallationActivity : XposedBaseActivity() {
             XposedApp.postOnUiThread {
                 appendText(error, TYPE_ERROR)
 
-                mConsoleResult!!.setImageResource(R.drawable.ic_error)
-                mConsoleResult!!.visibility = View.VISIBLE
+                console_result!!.setImageResource(R.drawable.ic_error)
+                console_result!!.visibility = View.VISIBLE
                 //TODO replace the InstallationUtils method
-                val fadeInResult = InstallationUtils.FadeInResult(mConsoleResult, "alpha", 0.0f, 0.03f)
+                val fadeInResult = InstallationUtils.FadeInResult(console_result, "alpha", 0.0f, 0.03f)
                 fadeInResult.duration = (MEDIUM_ANIM_TIME * 2).toLong()
 
                 assert(view != null)
@@ -282,17 +267,17 @@ class InstallationActivity : XposedBaseActivity() {
                     ContextCompat.getColor(activity!!, R.color.darker_green)
                 }
                 else -> {
-                    mLogText!!.append(text)
-                    mLogText!!.append("\n")
+                    console!!.append(text)
+                    console!!.append("\n")
                     return
                 }
             }
 
-            val start = mLogText!!.length()
-            mLogText!!.append(text)
-            val end = mLogText!!.length()
-            (mLogText!!.text as Spannable).setSpan(ForegroundColorSpan(color), start, end, 0)
-            mLogText!!.append("\n")
+            val start = console!!.length()
+            console!!.append(text)
+            val end = console!!.length()
+            (console!!.text as Spannable).setSpan(ForegroundColorSpan(color), start, end, 0)
+            console!!.append("\n")
         }
 
         companion object {

@@ -154,7 +154,7 @@
     <string name="about_source_label">Codice sorgente</string>
     <string name="about_libraries_label">Librerie utilizzate</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Download</string>
     <string name="download_view_install">Installa</string>
     <string name="download_view_cancel">Annulla</string>

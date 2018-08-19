@@ -5,13 +5,13 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.widget.DrawerLayout
-import android.support.v7.widget.PopupMenu
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.core.util.Loader
+import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.mobile.logic.*
@@ -22,13 +22,11 @@ import kotlinx.android.synthetic.main.view_toolbar.*
 
 class WelcomeActivity: BaseNavActivity(),
         ModuleUtil.ModuleListener,
-        Loader.Listener<RepoLoader>,
-        View.OnClickListener,
-        PopupMenu.OnMenuItemClickListener
+        Loader.Listener<RepoLoader>
 {
     private var mRepoLoader: RepoLoader? = null
 
-    override fun onReloadDone(loader: RepoLoader?) {
+    override fun onReloadDone(loader: RepoLoader) {
         notifyDataSetChanged()
     }
 
@@ -40,30 +38,11 @@ class WelcomeActivity: BaseNavActivity(),
         notifyDataSetChanged()
     }
 
-    override fun onClick(v: View?) {
-        val id = v!!.id
-        when(id){
-            R.id.fabMenu ->{
-                showFabMenu(v)
-            }
-            R.id.card_view_status ->{
-
-            }
-        }
-    }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         navPosition = findNavPosById(item.itemId)
         return switchFragment(navPosition)
     }
-    override fun onMenuItemClick(item: MenuItem?): Boolean {
-        try {
-            val nav = findNavPosById(item!!.itemId)
-            Utils().launchSheet(supportFragmentManager, nav)
-        }catch (e: Exception){
-            Log.e(XposedApp.TAG, e.message)
-        }
-        return true
-    }
+
     override fun onNavigationItemReselected(item: MenuItem) {
         //TODO notify user to stop spamming!
     }
@@ -74,10 +53,29 @@ class WelcomeActivity: BaseNavActivity(),
         restoreSaveInstanceState(savedInstanceBundle)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        fabMenu.setOnClickListener(this@WelcomeActivity)
 
         setNav()
         initFragment(savedInstanceBundle)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        return if (Utils().isBottomNav()) {
+            menuInflater.inflate(R.menu.menu_fragments, menu)
+            true
+        }else{
+            false
+        }
+    }
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val id = item!!.itemId
+        when (id) {
+            R.id.nav_item_support, R.id.nav_item_about ->{
+                val nav = findNavPosById(id)
+                Utils().launchSheet(supportFragmentManager, nav)
+                return true
+            }
+        }
+        return true
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -98,7 +96,7 @@ class WelcomeActivity: BaseNavActivity(),
         super.onResume()
         val lockOrNot = if (Utils().isBottomNav()) DrawerLayout.LOCK_MODE_LOCKED_CLOSED else DrawerLayout.LOCK_MODE_UNLOCKED
         drawerLayout()!!.setDrawerLockMode(lockOrNot)
-        initVisFab()
+        //initVisFab()
         navActive(navPosition)
     }
     private fun restoreSaveInstanceState(savedInstanceState: Bundle?) {
@@ -111,19 +109,6 @@ class WelcomeActivity: BaseNavActivity(),
     }
     private fun initFragment(savedInstanceState: Bundle?) {
         savedInstanceState ?: switchFragment(navPosition)
-    }
-
-    private fun initVisFab(){
-        fabMenu.hide()
-        if (Utils().isBottomNav()) {
-            if (navPosition != Navigation.NAV_SETTINGS) fabMenu.show()
-        }
-        else{
-            fabMenu.hide()
-        }
-    }
-    private fun showFabMenu(v: View){
-        Utils().launchMenu(this, v, R.menu.menu_popup, this).show()
     }
 
     private fun setNav() {
@@ -139,7 +124,6 @@ class WelcomeActivity: BaseNavActivity(),
         }
     }
 
-    @Suppress("MemberVisibilityCanBePrivate")
     fun switchFragment(navPosition: Navigation): Boolean {
         val fragment = supportFragmentManager.findFragment(navPosition)
         if (fragment!!.isAdded) return false
@@ -147,7 +131,6 @@ class WelcomeActivity: BaseNavActivity(),
         attachFragment(fragment, navPosition.getTag())
         supportFragmentManager.executePendingTransactions()
         navActive(navPosition)
-        initVisFab()
         closeDrawer()
         return true
     }

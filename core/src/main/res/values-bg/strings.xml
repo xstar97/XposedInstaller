@@ -120,7 +120,7 @@
     <string name="about_source_label">Изходен код:</string>
     <string name="about_libraries_label">Използвани библиотеки:</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Изтегли</string>
     <string name="download_view_install">Инсталирай</string>
     <string name="download_view_cancel">Отказ</string>

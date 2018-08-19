@@ -145,7 +145,7 @@
     <string name="about_source_label">Codi font</string>
     <string name="about_libraries_label">Biblioteques utilitzades</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Baixa</string>
     <string name="download_view_install">Instal·la</string>
     <string name="download_view_cancel">Cancel·la</string>

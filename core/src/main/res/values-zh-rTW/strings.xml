@@ -153,7 +153,7 @@
     <string name="about_source_label">原始碼</string>
     <string name="about_libraries_label">使用的函式庫</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">下載</string>
     <string name="download_view_install">安裝</string>
     <string name="download_view_cancel">取消</string>

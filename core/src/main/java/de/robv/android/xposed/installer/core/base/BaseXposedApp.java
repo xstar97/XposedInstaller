@@ -19,6 +19,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
+
+import de.robv.android.xposed.installer.core.base.fragments.BaseSettings;
 import de.robv.android.xposed.installer.core.util.DownloadsUtil;
 import de.robv.android.xposed.installer.core.util.InstallZipUtil;
 import de.robv.android.xposed.installer.core.util.RepoLoader;
@@ -29,7 +31,7 @@ public class BaseXposedApp extends Application implements Application.ActivityLi
 
     public static final String BASE_PKG = "de.robv.android.xposed.installer";
 
-    public static final String PREF_DL_DIR = "download_location";
+    public static final String PREF_DL_DIR = BaseSettings.prefDownload;
 
     public static BaseXposedApp getInstance() {
         return mInstance;
@@ -87,7 +89,6 @@ public class BaseXposedApp extends Application implements Application.ActivityLi
     public static String getDownloadPath() {
         return getPreferences().getString(PREF_DL_DIR, Environment.getExternalStorageDirectory() + "/XposedInstaller");
     }
-
 
     @Override
     public void onCreate() {

@@ -25,12 +25,12 @@ import java.util.ArrayList
 open class BaseModules
 {
     companion object {
-        val PLAY_STORE_PACKAGE = "com.android.vending"
-        val PLAY_STORE_LINK = "https://play.google.com/store/apps/details?id=%s"
+        const val PLAY_STORE_PACKAGE = "com.android.vending"
+        const val PLAY_STORE_LINK = "https://play.google.com/store/apps/details?id=%s"
         var PLAY_STORE_LABEL: String? = null
 
-        val XPOSED_REPO_LINK = "http://repo.xposed.info/module/%s"
-        val NOT_ACTIVE_NOTE_TAG = "NOT_ACTIVE_NOTE"
+        const val XPOSED_REPO_LINK = "http://repo.xposed.info/module/%s"
+        const val NOT_ACTIVE_NOTE_TAG = "NOT_ACTIVE_NOTE"
         var installedXposedVersion: Int = 0
         var mModuleUtil: ModuleUtil? = null
         var mPm: PackageManager? = null

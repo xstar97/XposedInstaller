@@ -10,10 +10,10 @@ import android.support.v7.preference.Preference
 import android.util.Log
 import android.widget.Toast
 
-import java.io.File
 import java.io.IOException
 
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.base.fragments.BaseSettings
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.mobile.ui.fragments.base.BasePreferenceFragment
@@ -22,15 +22,12 @@ import de.robv.android.xposed.installer.mobile.ui.fragments.base.BasePreferenceF
 class SettingsFragment : BasePreferenceFragment()
 {
     companion object {
-        private val mDisableResourcesFlag = File(XposedApp().BASE_DIR + "conf/disable_resources")
         val TAG: String = SettingsFragment::class.java.simpleName
         fun newInstance() = SettingsFragment()
     }
 
     private var mClickedPreference: Preference? = null
     private val downloadLocation: Preference? = null
-    private val PREF_TYPE = "release_type_global"
-    private val PREF_RES = "disable_resources"
 
     override fun onPreferenceClick(preference: Preference?): Boolean {
         if (preference!!.key == downloadLocation!!.key) {
@@ -55,9 +52,7 @@ class SettingsFragment : BasePreferenceFragment()
             val value = sharedPreferences!!.getString(preference.key, "")
             setPreferenceSummery(preference, value)
 
-            if (key == "theme"){
-                activity!!.recreate()
-            } else if(key == "default_navigation") {
+            if (key == BaseSettings.prefTheme || key == BaseSettings.prefNav){
                 activity!!.recreate()
             }
         }
@@ -70,27 +65,27 @@ class SettingsFragment : BasePreferenceFragment()
 
         if (sharedPreferences != null) {
         //val preferenceScreen = preferenceScreen
-        findPreference(PREF_TYPE).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+        findPreference(BaseSettings.prefType).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
             val type = newValue as String
             RepoLoader.getInstance().setReleaseTypeGlobal(type)
             true
         }
 
-            val prefDisableResources = findPreference(PREF_RES) as android.support.v7.preference.CheckBoxPreference
-            prefDisableResources.isChecked = mDisableResourcesFlag.exists()
+            val prefDisableResources = findPreference(BaseSettings.prefRes) as android.support.v7.preference.CheckBoxPreference
+            prefDisableResources.isChecked = BaseSettings.mDisableResourcesFlag.exists()
             prefDisableResources.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
             val enabled = newValue as Boolean
             if (enabled) {
                 try {
-                    mDisableResourcesFlag.createNewFile()
+                    BaseSettings.mDisableResourcesFlag.createNewFile()
                 } catch (e: IOException) {
                     Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
                 }
 
             } else {
-                mDisableResourcesFlag.delete()
+                BaseSettings.mDisableResourcesFlag.delete()
             }
-            enabled == mDisableResourcesFlag.exists()
+            enabled == BaseSettings.mDisableResourcesFlag.exists()
             }
         }
 

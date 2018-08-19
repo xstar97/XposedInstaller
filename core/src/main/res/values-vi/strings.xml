@@ -120,7 +120,7 @@
     <string name="about_source_label">Mã nguồn:</string>
     <string name="about_libraries_label">Sử dụng các thư viện:</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Tải xuống</string>
     <string name="download_view_install">Cài đặt</string>
     <string name="download_view_cancel">Bỏ</string>

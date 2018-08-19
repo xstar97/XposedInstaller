@@ -24,6 +24,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.preference.ListPreference;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,8 +60,7 @@ public class IconListPreference extends ListPreference {
         for (CharSequence drawable : drawables) {
             int resId = context.getResources().getIdentifier(drawable.toString(), "mipmap", context.getPackageName());
 
-            Drawable d = context.getResources().getDrawable(resId);
-
+            Drawable d = ContextCompat.getDrawable(context, resId);
             mEntryDrawables.add(d);
         }
 

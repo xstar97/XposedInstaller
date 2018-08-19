@@ -120,7 +120,7 @@
     <string name="about_source_label">सोर्से कोड:</string>
     <string name="about_libraries_label">इस्तमाल किये हुआ कोड संघ्रह:</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">डाउनलोड</string>
     <string name="download_view_install">इनस्टॉल</string>
     <string name="download_view_cancel">कैंसिल</string>

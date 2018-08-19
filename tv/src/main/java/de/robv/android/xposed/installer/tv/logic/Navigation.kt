@@ -8,6 +8,9 @@ import de.robv.android.xposed.installer.tv.ui.fragments.*
 import de.robv.android.xposed.installer.tv.ui.fragments.browse.StatusInstallerBrowseFragment
 import de.robv.android.xposed.installer.tv.ui.fragments.download.DownloadFragment
 import de.robv.android.xposed.installer.tv.ui.fragments.download.DownloadSettingsFragment
+import de.robv.android.xposed.installer.tv.ui.fragments.list.AboutFragment
+import de.robv.android.xposed.installer.tv.ui.fragments.list.DeviceInfoFragment
+import de.robv.android.xposed.installer.tv.ui.fragments.module.ModulesFragment
 
 enum class Navigation(val pos: Int, @DrawableRes val icon: Int, @StringRes val title: Int) {
     NAV_HOME(0, R.drawable.ic_nav_install, R.string.nav_item_install),
@@ -18,8 +21,8 @@ enum class Navigation(val pos: Int, @DrawableRes val icon: Int, @StringRes val t
     NAV_ABOUT(5, R.drawable.ic_nav_about, R.string.nav_item_about),
     NAV_SETTINGS(6, R.drawable.ic_nav_settings, R.string.nav_item_settings),
     FRAG_DEVICE(7, R.drawable.ic_nav_about, R.string.framework_device_info),
-    FRAG_ERROR(8, R.drawable.lb_ic_sad_cloud, R.string.error_fragment_title),
-    FRAG_DOWNLOAD_SETTINGS(9, R.drawable.ic_nav_settings, R.string.nav_item_settings);
+    FRAG_DOWNLOAD_SETTINGS(8, R.drawable.ic_nav_settings, R.string.download_sorting_title),
+    FRAG_ERROR(-1, R.drawable.lb_ic_sad_cloud, R.string.error_fragment_title),;
 }
 fun findNavByPos(pos: Int): Navigation = when (pos) {
     Navigation.NAV_HOME.pos -> Navigation.NAV_HOME

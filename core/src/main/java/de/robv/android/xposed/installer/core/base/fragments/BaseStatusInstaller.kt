@@ -9,7 +9,6 @@ import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.afollestad.materialdialogs.MaterialDialog
 import de.robv.android.xposed.installer.core.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.installation.FlashDirectly
@@ -19,9 +18,7 @@ import de.robv.android.xposed.installer.core.models.ActionModel
 import de.robv.android.xposed.installer.core.models.StatusModel
 import de.robv.android.xposed.installer.core.models.ZipModel
 import de.robv.android.xposed.installer.core.util.*
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.selector
-import org.jetbrains.anko.uiThread
+import org.jetbrains.anko.*
 import java.io.File
 import java.io.IOException
 
@@ -50,8 +47,8 @@ open class BaseStatusInstaller
 
     }
 
-    open val ONLINE_ZIP_LOADER = FrameworkZips.OnlineZipLoader.getInstance()!!
-    open val LOCAL_ZIP_LOADER = FrameworkZips.LocalZipLoader.getInstance()!!
+    open val mOnlineZipLoader = FrameworkZips.OnlineZipLoader.getInstance()!!
+    open val mLocalZipLoader = FrameworkZips.LocalZipLoader.getInstance()!!
 
     open fun checkClassExists(className: String): Boolean {
         return try {
@@ -89,10 +86,10 @@ open class BaseStatusInstaller
         val actionFlashRecoveryId = actionFlashRecovery
 
         //TODO add save function
-        /*
-        val actionSaveTitle = "Save to...";
-        val actionSaveId = ACTION_SAVE;
-        */
+
+        val actionSaveTitle = "Save to..."
+        val actionSaveId = actionSave
+
 
         val actionDeleteTitle = context.getString(R.string.framework_delete)
         val actionDeleteId = actionDelete
@@ -122,7 +119,7 @@ open class BaseStatusInstaller
             for (a in list){
                 listActions.add(a.key)
             }
-            context.selector(title, listActions) { dialogInterface, i ->
+            context.selector(title, listActions) { _, i ->
                 val action = list[i].pos
 
                 val runAfterDownload: RunnableWithParam<File>?
@@ -143,7 +140,7 @@ open class BaseStatusInstaller
                     }
                     BaseStatusInstaller.actionDelete ->{
                         FrameworkZips.delete(context, title, type)
-                        LOCAL_ZIP_LOADER.triggerReload(true)
+                        mLocalZipLoader.triggerReload(true)
                     }
                 }
             }
@@ -284,39 +281,64 @@ open class BaseStatusInstaller
         }
     }
 
-
     open fun showOptimizedAppDialog(context: Context){
-        MaterialDialog.Builder(context)
-                .title(R.string.dexopt_now)
-                .content(R.string.this_may_take_a_while)
-                .progress(true, 0)
-                .cancelable(false)
-                .showListener { dialog ->
-                    object : Thread("dexopt") {
-                        override fun run() {
-                            val rootUtil = RootUtil()
-                            if (!rootUtil.startShell()) {
-                                dialog.dismiss()
-                                NavUtil.showMessage(context, context.getString(R.string.root_failed))
-                                return
-                            }
-
-                            rootUtil.execute("cmd package bg-dexopt-job", null)
-
+        context.alert{
+            titleResource = R.string.dexopt_now
+            messageResource = R.string.this_may_take_a_while
+            negativeButton(android.R.string.cancel) { dialog ->
+                dialog.dismiss()
+            }
+            positiveButton(android.R.string.ok) { dialog ->
+                object : Thread("dexopt") {
+                    override fun run() {
+                        val rootUtil = RootUtil()
+                        if (!rootUtil.startShell()) {
                             dialog.dismiss()
-                            BaseXposedApp.runOnUiThread { Toast.makeText(context, R.string.done, Toast.LENGTH_LONG).show() }
+                            NavUtil.showMessage(context, context.getString(R.string.root_failed))
+                            return
                         }
-                    }.start()
-                }.show()
-    }
 
-    open fun confirmReboot(context: Context, contentTextId: Int, yesHandler: MaterialDialog.SingleButtonCallback) {
-        MaterialDialog.Builder(context)
-                .content(R.string.reboot_confirmation)
-                .positiveText(contentTextId)
-                .negativeText(android.R.string.no)
-                .onPositive(yesHandler)
-                .show()
+                        rootUtil.execute("cmd package bg-dexopt-job", null)
+
+                        dialog.dismiss()
+                        BaseXposedApp.runOnUiThread { Toast.makeText(context, R.string.done, Toast.LENGTH_LONG).show() }
+                    }
+                }.start()
+            }
+            show()
+        }
+    }
+    open fun showPrefWarnDialog(context: Context?){
+    if (!BaseXposedApp.getPreferences().getBoolean(BaseSettings.prefInstallWarn, false)) {
+        context!!.alert{
+            titleResource = R.string.install_warning_title
+            messageResource = R.string.install_warning
+            negativeButton(android.R.string.ok) { dialog ->
+                dialog.dismiss()
+            }
+            positiveButton(R.string.dont_show_again) { dialog ->
+                BaseXposedApp.getPreferences().edit().putBoolean(BaseSettings.prefInstallWarn, true).apply()
+                dialog.dismiss()
+            }
+            show()
+        }
+    }
+}
+
+
+    open fun confirmReboot(context: Context, contentTextId: Int, mode: RootUtil.RebootMode){
+        context.alert{
+            //titleResource = R.string.install_warning_title
+            messageResource = R.string.reboot_confirmation
+            negativeButton(android.R.string.cancel) { dialog ->
+                dialog.dismiss()
+            }
+            positiveButton(contentTextId) { dialog ->
+                RootUtil.reboot(mode, context)
+                dialog.dismiss()
+            }
+            show()
+        }
     }
 
     //actions
@@ -331,8 +353,8 @@ open class BaseStatusInstaller
                             .setTitle(zipTitle)
                             .setUrl(zip.url)
                             .setDestinationFromUrl(DownloadsUtil.DOWNLOAD_FRAMEWORK)
-                            .setCallback { delegate, info ->
-                                LOCAL_ZIP_LOADER.triggerReload(true)
+                            .setCallback { _, info ->
+                                mLocalZipLoader.triggerReload(true)
                                 callback!!.run(File(info.localFilename))
                             }
                             .setMimeType(DownloadsUtil.MIME_TYPES.ZIP)
@@ -345,11 +367,11 @@ open class BaseStatusInstaller
         }
     }
     private fun flash(context: Context, install: Intent, flashable: Flashable) {
-        //val install = Intent(context, InstallationActivity::class.java)
         install.putExtra(Flashable.KEY, flashable)
         context.startActivity(install)
     }
     //TODO allow user to choose download folder
+    @Suppress("UNUSED_PARAMETER")
     private fun saveTo(context: Context, file: File) {
         Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show()
     }

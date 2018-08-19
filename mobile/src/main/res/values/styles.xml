@@ -7,5 +7,8 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="stickyHeaderBackground">
+        <item name="android:background">?sticky_header_background</item>
+    </style>
 
 </resources>

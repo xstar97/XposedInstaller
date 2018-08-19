@@ -75,7 +75,7 @@
     <string name="about_source_label">Qaynaq kod:</string>
     <string name="about_libraries_label">İstifadə olunmuş kitabxanalar:</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Yüklə</string>
     <string name="download_view_install">Quraşdır</string>
     <string name="download_view_cancel">Ləğv et</string>

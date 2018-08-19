@@ -43,6 +43,7 @@ class WelcomeFragment : BaseBrowseSupportFragment()
         onItemViewSelectedListener = this
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private fun loadRows(context: Context){
         mRowsAdapter = ArrayObjectAdapter(ListRowPresenter())
         val mGridPresenter = GridNavPresenter()

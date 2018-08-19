@@ -2,7 +2,8 @@ package de.robv.android.xposed.installer.mobile.ui.activities.containers
 
 import android.os.Bundle
 import android.util.Log
-import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.R.id.container
+import de.robv.android.xposed.installer.R.layout.activity_container
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
@@ -21,7 +22,7 @@ class ViewActivity: XposedBaseActivity()
     override fun onCreate(savedInstanceBundle: Bundle?) {
         super.onCreate(savedInstanceBundle)
         ThemeUtil.setTheme(this)
-        setContentView(R.layout.activity_container)
+        setContentView(activity_container)
 
         setSupportActionBar(toolbar)
 
@@ -43,7 +44,7 @@ class ViewActivity: XposedBaseActivity()
         return getString(getFrag().title)
     }
     private fun setActivityFragment(){
-        supportFragmentManager.beginTransaction().replace(R.id.container, getFrag().createFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(container, getFrag().createFragment()).commit()
     }
 
     private fun getFrag(): Navigation {

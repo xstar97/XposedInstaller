@@ -1,5 +1,6 @@
 package de.robv.android.xposed.installer.core.repo;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -26,6 +28,7 @@ import java.io.InputStream;
 
 import de.robv.android.xposed.installer.core.R;
 
+@SuppressWarnings("WeakerAccess")
 public class RepoParser {
     public final static String TAG = "XposedRepoParser";
     protected final static String NS = null;
@@ -48,19 +51,17 @@ public class RepoParser {
     public static Spanned parseSimpleHtml(final Context c, String source, final TextView textView) {
         source = source.replaceAll("<li>", "\t\u0095 ");
         source = source.replaceAll("</li>", "<br>");
-        Spanned html = Html.fromHtml(source, new Html.ImageGetter() {
-            @Override
-            public Drawable getDrawable(String source) {
-                LevelListDrawable d = new LevelListDrawable();
-                @SuppressWarnings("deprecation")
-                Drawable empty = c.getResources().getDrawable(R.drawable.ic_no_image);
-                d.addLevel(0, 0, empty);
-                assert empty != null;
-                d.setBounds(0, 0, empty.getIntrinsicWidth(), empty.getIntrinsicHeight());
-                new ImageGetterAsyncTask(c, source, d).execute(textView);
+        Spanned html = Html.fromHtml(source, source1 -> {
+            LevelListDrawable d = new LevelListDrawable();
+            //@SuppressWarnings("deprecation")
+            //            Drawable empty = c.getResources().getDrawable(R.drawable.ic_no_image);
+            Drawable empty = ContextCompat.getDrawable(c, R.drawable.ic_no_image);
+            d.addLevel(0, 0, empty);
+            assert empty != null;
+            d.setBounds(0, 0, empty.getIntrinsicWidth(), empty.getIntrinsicHeight());
+            new ImageGetterAsyncTask(c, source1, d).execute(textView);
 
-                return d;
-            }
+            return d;
         }, null);
 
         // trim trailing newlines
@@ -297,8 +298,10 @@ public class RepoParser {
 
     static class ImageGetterAsyncTask extends AsyncTask<TextView, Void, Bitmap> {
         private LevelListDrawable levelListDrawable;
+        @SuppressLint("StaticFieldLeak")
         private Context context;
         private String source;
+        @SuppressLint("StaticFieldLeak")
         private TextView t;
 
         public ImageGetterAsyncTask(Context context, String source, LevelListDrawable levelListDrawable) {

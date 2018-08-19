@@ -13,44 +13,45 @@
         android:padding="16dip">
 
         <TextView
-            android:id="@android:id/text1"
+            android:id="@+id/list_item_download_title"
             tools:text="text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@android:id/text2"
+            android:id="@+id/list_item_download_summary"
             tools:text="text2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@android:id/text1"
-            android:layout_alignStart="@android:id/text1"
-            android:layout_below="@android:id/text1"
+            android:layout_alignLeft="@id/list_item_download_title"
+            android:layout_alignStart="@id/list_item_download_title"
+            android:layout_below="@id/list_item_download_title"
             android:layout_marginBottom="8dip"
             android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <TextView
-            android:id="@+id/downloadStatus"
+            android:id="@+id/list_item_download_status"
             tools:text="downloadStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@android:id/text2"
-            android:layout_alignStart="@android:id/text2"
-            android:layout_below="@android:id/text2"
+            android:layout_alignLeft="@id/list_item_download_summary"
+            android:layout_alignStart="@id/list_item_download_summary"
+            android:layout_below="@id/list_item_download_summary"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/timestamps"
+            android:id="@+id/list_item_download_time"
             tools:text="timestamps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@android:id/text2"
-            android:layout_alignStart="@android:id/text2"
-            android:layout_below="@id/downloadStatus"
+            android:layout_alignLeft="@id/list_item_download_summary"
+            android:layout_alignStart="@id/list_item_download_summary"
+            android:layout_below="@id/list_item_download_status"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@android:color/tertiary_text_dark" />
+
     </RelativeLayout>
 
 </FrameLayout>

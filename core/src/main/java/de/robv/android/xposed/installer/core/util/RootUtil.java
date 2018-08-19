@@ -276,7 +276,7 @@ public class RootUtil
     public static boolean reboot(RebootMode mode, @NonNull Context context) {
         RootUtil rootUtil = new RootUtil();
         if (!rootUtil.startShell()) {
-            NavUtil.showMessage(context, context.getString(R.string.root_failed));
+            NavUtil.INSTANCE.showMessage(context, context.getString(R.string.root_failed));
             return false;
         }
 
@@ -287,7 +287,7 @@ public class RootUtil
                 message.append("\n\n");
             }
             message.append(context.getString(R.string.reboot_failed));
-            NavUtil.showMessage(context, message);
+            NavUtil.INSTANCE.showMessage(context, message);
             return false;
         }
 

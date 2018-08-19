@@ -42,7 +42,7 @@ open class Utils
         return id
     }
 
-    fun getPrefValue(key: String): Int {
+    private fun getPrefValue(key: String): Int {
         return try {
             val value = XposedApp.getPreferences().getString(key, "0").toInt()
             Log.d(XposedApp.TAG, "key: $key\nvalue: $value")

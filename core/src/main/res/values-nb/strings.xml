@@ -120,7 +120,7 @@
     <string name="about_source_label">Kildekode:</string>
     <string name="about_libraries_label">Brukte bibliotek:</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Last ned</string>
     <string name="download_view_install">Installer</string>
     <string name="download_view_cancel">Avbryt</string>

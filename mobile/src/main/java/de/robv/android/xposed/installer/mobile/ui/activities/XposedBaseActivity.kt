@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.support.annotation.StringRes
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import de.robv.android.xposed.installer.R.bool.isTablet
+import de.robv.android.xposed.installer.R.color.colorPrimaryDark
+import de.robv.android.xposed.installer.R.drawable.ic_close
 
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
@@ -25,7 +28,7 @@ abstract class XposedBaseActivity : AppCompatActivity()
     }
 
     fun setFloating(toolbar: android.support.v7.widget.Toolbar, @StringRes details: Int) {
-        val isTablet = resources.getBoolean(R.bool.isTablet)
+        val isTablet = resources.getBoolean(isTablet)
         if (isTablet) {
             val params = window.attributes
             params.height = resources.getDimensionPixelSize(R.dimen.floating_height)
@@ -38,12 +41,11 @@ abstract class XposedBaseActivity : AppCompatActivity()
             if (details != 0) {
                 toolbar.setTitle(details)
             }
-            toolbar.setNavigationIcon(R.drawable.ic_close)
+            toolbar.setNavigationIcon(ic_close)
             setFinishOnTouchOutside(true)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val color = ContextCompat.getColor(this, R.color.colorPrimaryDark)
-            //window.statusBarColor = resources.getColor(R.color.colorPrimaryDark)
+            val color = ContextCompat.getColor(this, colorPrimaryDark)
             window.statusBarColor = color
         }
     }

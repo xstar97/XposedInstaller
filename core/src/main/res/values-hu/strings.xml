@@ -120,7 +120,7 @@
     <string name="about_source_label">Forráskód:</string>
     <string name="about_libraries_label">Használt könyvtárak:</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Letöltés</string>
     <string name="download_view_install">Telepítés</string>
     <string name="download_view_cancel">Mégse</string>

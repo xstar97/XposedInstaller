@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_installer_status"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/disableView"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Spinner
+            android:id="@+id/zip_spinner0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:entries="@array/default_view_values"
+            android:layout_margin="10dp" />
+
+        <Button
+            android:id="@+id/button_zip_spinner0"
+            android:layout_below="@id/zip_spinner0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/install_update" />
+
+        <Spinner
+            android:id="@+id/zip_spinner1"
+            android:layout_below="@id/button_zip_spinner0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:entries="@array/default_view_values"
+            android:layout_margin="10dp" />
+
+        <Button
+            android:id="@+id/button_zip_spinner1"
+            android:layout_below="@id/zip_spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/uninstall" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

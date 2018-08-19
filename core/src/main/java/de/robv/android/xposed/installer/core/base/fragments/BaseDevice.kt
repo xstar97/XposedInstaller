@@ -77,7 +77,7 @@ open class BaseDevice
         }
     }
 
-    open fun getDeviceInfoList(context: Context): ArrayList<InfoModel>{
+    open fun getDeviceList(context: Context): ArrayList<InfoModel>{
         val androidSdk = context.getString(R.string.android_sdk, Build.VERSION.RELEASE, androidVersion, Build.VERSION.SDK_INT)
         val manufacturer = uiFramework
         val cpu = FrameworkZips.ARCH

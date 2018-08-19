@@ -25,7 +25,7 @@ import de.robv.android.xposed.installer.R
 class ErrorFragment : ErrorSupportFragment() {
 
     companion object {
-        private val TRANSLUCENT = true
+        private const val TRANSLUCENT = true
         val TAG: String = ErrorFragment::class.java.simpleName
         fun newInstance() = ErrorFragment()
     }

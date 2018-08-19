@@ -151,7 +151,7 @@
     <string name="about_source_label">Código fonte</string>
     <string name="about_libraries_label">Bibliotecas usadas</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Baixar</string>
     <string name="download_view_install">Instalar</string>
     <string name="download_view_cancel">Cancelar</string>

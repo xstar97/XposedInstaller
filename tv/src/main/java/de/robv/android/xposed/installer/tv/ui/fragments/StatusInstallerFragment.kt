@@ -39,11 +39,11 @@ class StatusInstallerFragment: BaseGuidedFragment()
 
         getZipLists()
 
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.addListener(mOnlineZipListener)
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.triggerFirstLoadIfNecessary()
+        BaseStatusInstaller().mOnlineZipLoader.addListener(mOnlineZipListener)
+        BaseStatusInstaller().mOnlineZipLoader.triggerFirstLoadIfNecessary()
 
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.addListener(mLocalZipListener)
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.triggerFirstLoadIfNecessary()
+        BaseStatusInstaller().mLocalZipLoader.addListener(mLocalZipListener)
+        BaseStatusInstaller().mLocalZipLoader.triggerFirstLoadIfNecessary()
     }
 
     override fun onResume() {
@@ -92,9 +92,9 @@ class StatusInstallerFragment: BaseGuidedFragment()
         }
     }
     override fun onSubGuidedActionClicked(action: GuidedAction?): Boolean {
-        val pos = action!!.id.toInt()
+        ///val pos = action!!.id.toInt()
 
-        val title = action.title.toString()
+        val title = action?.title.toString()
         val isInstaller = title.contains("version", ignoreCase = true)
         val isUninstaller = title.contains("uninstaller", ignoreCase = true)
         val type = if (isInstaller) FrameworkZips.Type.INSTALLER else FrameworkZips.Type.UNINSTALLER
@@ -155,7 +155,7 @@ class StatusInstallerFragment: BaseGuidedFragment()
     private fun getDevice(): GuidedAction{
         val id = actionYourDevice.toLong()
         val title = activity!!.getString(R.string.framework_device_info)
-        val list = BaseDevice().getDeviceInfoList(activity!!)
+        val list = BaseDevice().getDeviceList(activity!!)
         return GuidedAction.Builder(activity!!)
                 .id(id)
                 .title(title)
@@ -202,12 +202,12 @@ class StatusInstallerFragment: BaseGuidedFragment()
 
     override fun onDestroyView() {
         super.onDestroyView()
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.removeListener(mOnlineZipListener)
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.removeListener(mLocalZipListener)
+        BaseStatusInstaller().mOnlineZipLoader.removeListener(mOnlineZipListener)
+        BaseStatusInstaller().mLocalZipLoader.removeListener(mLocalZipListener)
     }
     override fun onDestroy() {
         super.onDestroy()
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.removeListener(mOnlineZipListener)
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.removeListener(mLocalZipListener)
+        BaseStatusInstaller().mOnlineZipLoader.removeListener(mOnlineZipListener)
+        BaseStatusInstaller().mLocalZipLoader.removeListener(mLocalZipListener)
     }
 }

@@ -32,10 +32,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="de.robv.android.xposed.installer.tv.ui.activities.WelcomeActivity" />
-        <activity android:name="de.robv.android.xposed.installer.tv.ui.activities.containers.ViewActivity"/>
+        <activity android:name=".tv.ui.activities.WelcomeActivity" />
+        <activity android:name=".tv.ui.activities.containers.ViewActivity"/>
         <activity android:name=".tv.ui.activities.InstallationActivity" />
-        <activity android:name=".tv.ui.activities.containers.ViewActivity2" />
 
     </application>
 

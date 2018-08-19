@@ -28,17 +28,6 @@
             android:layout_alignParentTop="true"
             android:layout_above="@id/bottom_navigation"/>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabMenu"
-            android:visibility="visible"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:layout_above="@id/bottom_navigation"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            app:srcCompat="@mipmap/ic_launcher"/>
-
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"

@@ -17,6 +17,16 @@ open class BaseGuidedFragment : GuidedStepSupportFragment() {
 
         fun newInstance() = BaseGuidedFragment()
     }
+    fun getActionsFromList(context: Context, list: Array<String>): ArrayList<GuidedAction>{
+        val actions = ArrayList<GuidedAction>()
+        for ((pos, title) in list.withIndex()) {
+            actions.add(GuidedAction.Builder(context)
+                    .id(pos.toLong())
+                    .title(title)
+                    .build())
+        }
+        return actions
+    }
     fun getActionsFromList(context: Context, list: ArrayList<InfoModel>): ArrayList<GuidedAction>{
         val actions = ArrayList<GuidedAction>()
         for (info in list) {

@@ -65,7 +65,7 @@ dependencies {
     implementation ankoDependencies.appCompat
     implementation ankoDependencies.appCompatDelegate
     implementation ankoDependencies.design
-    implementation ankoDependencies.constraint
+    //implementation ankoDependencies.constraint
 
     // Util Libraries
     implementation utilsDependencies.glide

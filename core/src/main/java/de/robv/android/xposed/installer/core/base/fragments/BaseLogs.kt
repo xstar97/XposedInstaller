@@ -57,6 +57,7 @@ open class BaseLogs
         }
     }
     open fun save(context: Context): File? {
+        Log.v(BaseXposedApp.TAG, "save....")
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(context as Activity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), BaseXposedApp.WRITE_EXTERNAL_PERMISSION)
             return null

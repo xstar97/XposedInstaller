@@ -95,7 +95,7 @@
     <string name="about_source_label">Izvor koda:</string>
     <string name="about_libraries_label">Korišćene biblioteke:</string>
 
-    <!-- DownloadView -->
+    <!-- DownloadViewMvc -->
     <string name="download_view_download">Učitavanje</string>
     <string name="download_view_install">Instalacija</string>
     <string name="download_view_cancel">Prekid</string>

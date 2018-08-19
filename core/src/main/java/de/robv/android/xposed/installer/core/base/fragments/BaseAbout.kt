@@ -4,9 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.support.v4.content.ContextCompat
-import android.text.method.LinkMovementMethod
-import android.widget.TextView
-import com.afollestad.materialdialogs.MaterialDialog
 import de.psdev.licensesdialog.LicensesDialog
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20
 import de.psdev.licensesdialog.licenses.MITLicense
@@ -16,6 +13,7 @@ import de.psdev.licensesdialog.model.Notices
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.models.InfoModel
 import de.robv.android.xposed.installer.core.util.NavUtil
+import org.jetbrains.anko.alert
 
 class BaseAbout
 {
@@ -41,13 +39,20 @@ class BaseAbout
         NavUtil.startURL(context as Activity, context.getString(R.string.about_source))
     }
     fun showDevelopersDialog(context: Context){
+        /*
         val dialog = MaterialDialog.Builder(context)
                 .title(R.string.about_developers_label)
                 .content(R.string.about_developers)
                 .positiveText(android.R.string.ok)
                 .show()
 
-        (dialog.findViewById(R.id.md_content) as TextView).movementMethod = LinkMovementMethod.getInstance()
+        (dialog.findViewById(R.id.md_content) as TextView).movementMethod = LinkMovementMethod.getInstance()*/
+        context.alert {
+            titleResource = R.string.about_developers_label
+            messageResource = R.string.about_developers
+            positiveButton(android.R.string.ok){}
+            show()
+        }
     }
     //todo add other used libraries here
     fun getLicenseDialog(context: Context) {

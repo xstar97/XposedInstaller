@@ -35,6 +35,7 @@ class StatusInstallerBrowseFragment : BaseBrowseSupportFragment()
         try {
             when (item) {
                 is Navigation -> {
+                    Log.d(XposedApp.TAG, "item: $item")
                     activity!!.startActivity<ViewActivity>(INTENT_NAV_KEY to item)
                 }
                 is ZipModel -> {
@@ -58,24 +59,24 @@ class StatusInstallerBrowseFragment : BaseBrowseSupportFragment()
 
         reloadData()
 
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.addListener(mOnlineZipListener)
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.triggerFirstLoadIfNecessary()
+        BaseStatusInstaller().mOnlineZipLoader.addListener(mOnlineZipListener)
+        BaseStatusInstaller().mOnlineZipLoader.triggerFirstLoadIfNecessary()
 
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.addListener(mLocalZipListener)
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.triggerFirstLoadIfNecessary()
+        BaseStatusInstaller().mLocalZipLoader.addListener(mLocalZipListener)
+        BaseStatusInstaller().mLocalZipLoader.triggerFirstLoadIfNecessary()
         onItemViewClickedListener = this
         onItemViewSelectedListener = this
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.removeListener(mOnlineZipListener)
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.removeListener(mLocalZipListener)
+        BaseStatusInstaller().mOnlineZipLoader.removeListener(mOnlineZipListener)
+        BaseStatusInstaller().mLocalZipLoader.removeListener(mLocalZipListener)
     }
     override fun onDestroy() {
         super.onDestroy()
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.removeListener(mOnlineZipListener)
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.removeListener(mLocalZipListener)
+        BaseStatusInstaller().mOnlineZipLoader.removeListener(mOnlineZipListener)
+        BaseStatusInstaller().mLocalZipLoader.removeListener(mLocalZipListener)
     }
 
     private fun reloadData() {

@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.preference.Preference
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.base.fragments.BaseSettings
 
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity
@@ -29,22 +30,26 @@ class DownloadDetailsSettingsFragment : BasePreferenceFragment() {
 
         addPreferencesFromResource(R.xml.module_prefs)
 
-        val prefs = activity!!.getSharedPreferences("module_settings", Context.MODE_PRIVATE)
+        val prefs = activity!!.getSharedPreferences(BaseSettings.prefNameModuleSettings, Context.MODE_PRIVATE)
         val editor = prefs.edit()
 
-        if (prefs.getBoolean("no_global", true)) {
+        if (prefs.getBoolean(BaseSettings.prefNoGlobal, true)) {
             for ((key) in prefs.all) {
                 if (prefs.getString(key, "") == "global") {
                     editor.putString(key, "").apply()
                 }
             }
 
-            editor.putBoolean("no_global", false).apply()
+            editor.putBoolean(BaseSettings.prefNoGlobal, false).apply()
         }
+        try {
+            val type = BaseSettings.prefType
+                findPreference(type).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+                    RepoLoader.getInstance().setReleaseTypeLocal(packageName, newValue as String)
+                    true
+                }
+        }catch (e: Exception){
 
-        findPreference("release_type").onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
-            RepoLoader.getInstance().setReleaseTypeLocal(packageName, newValue as String)
-            true
         }
     }
 }

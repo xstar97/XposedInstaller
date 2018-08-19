@@ -8,13 +8,10 @@ import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+
 import android.view.View
 import android.view.ViewGroup
 
-import com.afollestad.materialdialogs.MaterialDialog
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.XposedApp
 
@@ -23,69 +20,60 @@ import java.io.IOException
 import de.robv.android.xposed.installer.core.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller
 import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
-import de.robv.android.xposed.installer.core.mvc.FrameworkView
+import de.robv.android.xposed.installer.core.mvc.FrameworkViewMvc
 import de.robv.android.xposed.installer.core.models.ZipModel
 import de.robv.android.xposed.installer.core.util.*
 import de.robv.android.xposed.installer.core.util.FrameworkZips.LocalZipLoader
 import de.robv.android.xposed.installer.core.util.FrameworkZips.OnlineZipLoader
+import de.robv.android.xposed.installer.core.util.Loader.Listener
 import de.robv.android.xposed.installer.mobile.logic.adapters.zip.ZipSpinnerAdapter
 import de.robv.android.xposed.installer.mobile.ui.activities.InstallationActivity
-import de.robv.android.xposed.installer.mobile.mvc.FrameworkViewImp
-import kotlinx.android.synthetic.main.fragment_status_installer.*
-import kotlinx.android.synthetic.main.view_status_installer_installed.*
+import de.robv.android.xposed.installer.mobile.mvc.FrameworkViewMvcImp
+import de.robv.android.xposed.installer.mobile.ui.fragments.list.DeviceInfoFragment
+import kotlinx.android.synthetic.main.fragment_status_installer.view.*
+import kotlinx.android.synthetic.main.view_state.*
+import kotlinx.android.synthetic.main.view_state.view.*
+import kotlinx.android.synthetic.main.view_status_installer_actions.view.*
+import kotlinx.android.synthetic.main.view_status_installer_installed.view.*
+import org.jetbrains.anko.*
 
-import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.support.v4.onUiThread
 
-class StatusInstallerFragment : Fragment(), FrameworkView.FrameworkDelegate
+class StatusInstallerFragment : Fragment(), FrameworkViewMvc.FrameworkDelegate
 {
     companion object {
         val TAG: String = StatusInstallerFragment::class.java.simpleName
         fun newInstance() = StatusInstallerFragment()
     }
 
-    override fun onFrameworkSelected(zip: ZipModel) {
-        val title = zip.key!!
-        val type = zip.type
-        BaseStatusInstaller().showActionDialog(activity!!, Intent(activity!!, InstallationActivity::class.java), title, type)
-    }
+    private lateinit var mFrameworkViewMvc : FrameworkViewMvc
 
-    override fun onKnownIssueSelected(uri: String?) {
-        NavUtil.startURL(activity, uri)
-    }
-
-    private lateinit var mFrameworkView : FrameworkView
-    private val PREF_VALUE_HIDE_WARN = "hide_install_warning"
-
-    private val mOnlineZipListener = Loader.Listener<OnlineZipLoader> { reloadData() }
-    private val mLocalZipListener = Loader.Listener<LocalZipLoader> { reloadData() }
+    private val mOnlineZipListener = Listener<OnlineZipLoader> { reloadData() }
+    private val mLocalZipListener = Listener<LocalZipLoader> { reloadData() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mFrameworkView = FrameworkViewImp(layoutInflater)
-        mFrameworkView.setDelegate(this)
-        return mFrameworkView.getRootView()
+        mFrameworkViewMvc = FrameworkViewMvcImp(activity!!, layoutInflater)
+        mFrameworkViewMvc.setDelegate(this)
+        return mFrameworkViewMvc.getRootView()
     }
     override fun onViewCreated(v: View, savedInstanceState: Bundle?) {
         super.onViewCreated(v, savedInstanceState)
 
         reloadData()
+        val refreshLayout = mFrameworkViewMvc.getRootView().swiperefreshlayout
+        refreshLayout.setColorSchemeColors(ContextCompat.getColor(activity!!, R.color.colorPrimary))
+
+        BaseStatusInstaller().mOnlineZipLoader.setSwipeRefreshLayout(refreshLayout)
+        BaseStatusInstaller().mOnlineZipLoader.addListener(mOnlineZipListener)
+        BaseStatusInstaller().mOnlineZipLoader.triggerFirstLoadIfNecessary()
+
+        BaseStatusInstaller().mLocalZipLoader.addListener(mLocalZipListener)
+        BaseStatusInstaller().mLocalZipLoader.triggerFirstLoadIfNecessary()
 
         try {
-            swiperefreshlayout.setColorSchemeColors(ContextCompat.getColor(activity!!, R.color.colorPrimary))
-        }catch (e: Exception){
-            Log.w(XposedApp.TAG, e.message)
-        }
-
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.setSwipeRefreshLayout(swiperefreshlayout)
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.addListener(mOnlineZipListener)
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.triggerFirstLoadIfNecessary()
-
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.addListener(mLocalZipListener)
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.triggerFirstLoadIfNecessary()
-
-        try {
+            val disableSwitch = mFrameworkViewMvc.getRootView().disableSwitch
             disableSwitch.isChecked = !DISABLE_FILE.exists()
-            disableSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            disableSwitch.setOnCheckedChangeListener { _, _ ->
             if (DISABLE_FILE.exists()) {
                 DISABLE_FILE.delete()
                 Snackbar.make(disableSwitch, R.string.xposed_on_next_reboot, Snackbar.LENGTH_LONG).show()
@@ -107,7 +95,24 @@ class StatusInstallerFragment : Fragment(), FrameworkView.FrameworkDelegate
         refreshKnownIssue()
 
         // Display warning dialog to new users
-        showDialog()
+        BaseStatusInstaller().showPrefWarnDialog(activity!!)
+
+    }
+
+    override fun onFrameworkSelected(zip: ZipModel) {
+        val title = zip.key!!
+        val type = zip.type
+        BaseStatusInstaller().showActionDialog(activity!!, Intent(activity!!, InstallationActivity::class.java), title, type)
+    }
+    override fun onKnownIssueSelected(uri: String?) {
+        NavUtil.startURL(activity!!, uri!!)
+    }
+    override fun onReboot(id: Int) {
+        val mode = RootUtil.RebootMode.fromId(id)
+       BaseStatusInstaller().confirmReboot(activity!!, mode.titleRes, mode)
+    }
+    override fun onOptimizedAppDialog() {
+        BaseStatusInstaller().showOptimizedAppDialog(activity!!)
     }
 
     override fun onResume() {
@@ -117,50 +122,11 @@ class StatusInstallerFragment : Fragment(), FrameworkView.FrameworkDelegate
 
     override fun onDestroyView() {
         super.onDestroyView()
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.removeListener(mOnlineZipListener)
-        BaseStatusInstaller().ONLINE_ZIP_LOADER.setSwipeRefreshLayout(null)
-        BaseStatusInstaller().LOCAL_ZIP_LOADER.removeListener(mLocalZipListener)
+        BaseStatusInstaller().mOnlineZipLoader.removeListener(mOnlineZipListener)
+        BaseStatusInstaller().mOnlineZipLoader.setSwipeRefreshLayout(null)
+        BaseStatusInstaller().mLocalZipLoader.removeListener(mLocalZipListener)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater!!.inflate(R.menu.menu_installer, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val i = item!!.itemId
-        if (i == R.id.reboot || i == R.id.soft_reboot || i == R.id.reboot_recovery) {
-            val mode = RootUtil.RebootMode.fromId(item.itemId)
-            BaseStatusInstaller().confirmReboot(activity!!, mode.titleRes, MaterialDialog.SingleButtonCallback { dialog, which -> RootUtil.reboot(mode, activity!!) })
-            return true
-        } else if (i == R.id.dexopt_now) {
-            BaseStatusInstaller().showOptimizedAppDialog(activity!!)
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun showDialog(){
-        if (!BaseXposedApp.getPreferences().getBoolean(PREF_VALUE_HIDE_WARN, false)) {
-            MaterialDialog.Builder(activity!!)
-                    .title(R.string.install_warning_title)
-                    .content(R.string.install_warning)
-                    .positiveText(android.R.string.ok)
-                    .onPositive { dialog, which ->
-                        if (dialog.isPromptCheckBoxChecked) {
-                            BaseXposedApp.getPreferences().edit().putBoolean(PREF_VALUE_HIDE_WARN, true).apply()
-                        }
-                    }
-                    .checkBoxPromptRes(R.string.dont_show_again, false, null)
-                    .cancelable(false)
-                    .show()
-        }
-    }
 
     private fun setSheetFragment(){
         childFragmentManager.beginTransaction().replace(R.id.app_sheet_content, DeviceInfoFragment()).commit()
@@ -168,49 +134,71 @@ class StatusInstallerFragment : Fragment(), FrameworkView.FrameworkDelegate
 
     private fun refreshInstallStatus() {
         val status = BaseStatusInstaller().getInstallerStatusData(activity!!)
-        framework_install_errors.text = status.errorMes!!
-        framework_install_errors.setTextColor(status.errorColor!!)
-        status_container.setBackgroundColor(status.statusContainerColor!!)
-        status_icon.setImageDrawable(status.statusIcon!!)
+        val disableView = mFrameworkViewMvc.getRootView().disableView
+
+        val frameworkInstallErrors = mFrameworkViewMvc.getRootView().framework_install_errors
+        val statusContainer = mFrameworkViewMvc.getRootView().status_container
+        val statusIcon = mFrameworkViewMvc.getRootView().status_icon
+
+        frameworkInstallErrors.text = status.errorMes!!
+        frameworkInstallErrors.setTextColor(status.errorColor!!)
+        statusContainer.setBackgroundColor(status.statusContainerColor!!)
+        statusIcon.setImageDrawable(status.statusIcon!!)
         if (status.disableView != -1)
         disableView.visibility = View.GONE
     }
 
     @SuppressLint("StringFormatInvalid")
     private fun refreshKnownIssue() {
+        val frameworkKnownIssue = mFrameworkViewMvc.getRootView().view_state_title
+        val frameworkKnownIssueIcon = mFrameworkViewMvc.getRootView().view_state_icon
+        frameworkKnownIssueIcon.setImageResource(R.drawable.ic_error)
+        val viewState = mFrameworkViewMvc.getRootView().view_state
+        val viewInstaller = mFrameworkViewMvc.getRootView().installer_view
+        val viewActions = mFrameworkViewMvc.getRootView().view_status_installer_actions
         val initIssues = BaseStatusInstaller().getKnownIssueData(activity!!)
         val issueName = initIssues.first
         val issueLink = initIssues.second
         if (issueName.isNotEmpty()) {
-            framework_known_issue.text = String.format(getString(R.string.install_known_issue, issueName))
-            framework_known_issue.tag = issueLink
-            framework_known_issue.visibility = View.VISIBLE
+            frameworkKnownIssue.text = String.format(getString(R.string.install_known_issue, issueName))
+            frameworkKnownIssue.tag = issueLink
+            viewState.visibility = View.VISIBLE
+            viewInstaller.visibility = View.GONE
+            viewActions.visibility = View.GONE
         } else {
-            framework_known_issue.visibility = View.GONE
+            viewState.visibility = View.GONE
+            viewInstaller.visibility = View.VISIBLE
+            viewActions.visibility = View.VISIBLE
         }
     }
 
     private fun reloadData(){
-
         doAsync {
             val initZip = BaseStatusInstaller().getZips(activity!!)
             val myZips0 = initZip.first
             val myZips1 = initZip.second
 
             onUiThread {
-                //val tvError = v.findViewById(R.id.zips_load_error) as TextView
+                val viewState = mFrameworkViewMvc.getRootView().view_state
+                val myLayout = mFrameworkViewMvc.getRootView().myLayout
+                val errorTitle = view_state_title
+                val errorIcon = view_state_icon
+                errorIcon.setImageResource(R.drawable.ic_error)
                 Log.d(XposedApp.TAG, "size 0: ${myZips0.size}\nsize 1: ${myZips1.size}")
                 when {
                     !FrameworkZips.hasLoadedOnlineZips() -> {
-                        zips_load_error.setText(R.string.framework_zip_load_failed)
-                        zips_load_error.visibility = View.VISIBLE
+                        errorTitle.setText(R.string.framework_zip_load_failed)
+                        myLayout.visibility = View.GONE
+                        viewState.visibility = View.VISIBLE
                     }
                     myZips0.size == 0 || myZips1.size == 0 -> {
-                        zips_load_error.setText(R.string.framework_no_zips)
-                        zips_load_error.visibility = View.VISIBLE
+                        errorTitle.setText(R.string.framework_no_zips)
+                        myLayout.visibility = View.GONE
+                        viewState.visibility = View.VISIBLE
                     }
                     else -> {
-                        zips_load_error.visibility = View.GONE
+                        myLayout.visibility = View.VISIBLE
+                        viewState.visibility = View.GONE
                         populateSpinner(myZips0, myZips1)
                     }
                 }
@@ -220,18 +208,12 @@ class StatusInstallerFragment : Fragment(), FrameworkView.FrameworkDelegate
 
     private fun populateSpinner(zip0: ArrayList<ZipModel>, zip1: ArrayList<ZipModel>){
         doAsync {
-
             val adapter0 = ZipSpinnerAdapter(activity!!, zip0)
             val adapter1 = ZipSpinnerAdapter(activity!!, zip1)
-
             onUiThread {
-                zip_spinner0.adapter = adapter0
-                zip_spinner1.adapter = adapter1
+                mFrameworkViewMvc.getRootView().zip_spinner0.adapter = adapter0
+                mFrameworkViewMvc.getRootView().zip_spinner1.adapter = adapter1
             }
         }
     }
-    /*
-    private fun reloadAdapterData() {
-        BaseXposedApp.runOnUiThread { refreshZips() }
-    }*/
 }

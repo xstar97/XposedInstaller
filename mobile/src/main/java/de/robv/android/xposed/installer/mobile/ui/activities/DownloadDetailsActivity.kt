@@ -9,14 +9,12 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.design.widget.TabLayout
 import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager
-import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 
 import de.robv.android.xposed.installer.R
@@ -27,14 +25,14 @@ import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.core.util.ModuleUtil.InstalledModule
 import de.robv.android.xposed.installer.core.util.ModuleUtil.ModuleListener
 import de.robv.android.xposed.installer.core.util.RepoLoader
+import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsSettingsFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsVersionsFragment
+import de.robv.android.xposed.installer.mobile.logic.createFragment
+import kotlinx.android.synthetic.main.activity_download_details.*
 
 class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader>, ModuleListener
 {
-    private var mPager: ViewPager? = null
+    //private var mPager: ViewPager? = null
     private var mPackageName: String? = null
     var module: Module? = null
         private set
@@ -74,7 +72,6 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
         if (module != null) {
             setContentView(R.layout.activity_download_details)
 
-            val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
             setSupportActionBar(toolbar)
 
             toolbar.setNavigationOnClickListener { finish() }
@@ -93,7 +90,7 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
             val directDownload = intent.getBooleanExtra("direct_download", false)
             // Updates available => start on the versions page
             if (installedModule != null && installedModule!!.isUpdate(sRepoLoader.getLatestVersion(module)) || directDownload)
-                mPager!!.currentItem = DOWNLOAD_VERSIONS
+                download_pager!!.currentItem = DOWNLOAD_VERSIONS
 
             if (Build.VERSION.SDK_INT >= 21)
                 findViewById<View>(R.id.fake_elevation).visibility = View.GONE
@@ -101,10 +98,10 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
         } else {
             setContentView(R.layout.activity_download_details_not_found)
 
-            val txtMessage = findViewById<View>(android.R.id.message) as TextView
+            val txtMessage = findViewById<TextView>(android.R.id.message)
             txtMessage.text = resources.getString(R.string.download_details_not_found, mPackageName)
 
-            findViewById<View>(R.id.reload).setOnClickListener { v ->
+            findViewById<Button>(R.id.reload).setOnClickListener { v ->
                 v.isEnabled = false
                 sRepoLoader.triggerReload(true)
             }
@@ -112,10 +109,8 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
     }
 
     private fun setupTabs() {
-        mPager = findViewById<View>(R.id.download_pager) as ViewPager
-        mPager!!.adapter = SwipeFragmentPagerAdapter(supportFragmentManager)
-        val mTabLayout = findViewById<View>(R.id.sliding_tabs) as TabLayout
-        mTabLayout.setupWithViewPager(mPager)
+        download_pager!!.adapter = SwipeFragmentPagerAdapter(supportFragmentManager)
+        sliding_tabs.setupWithViewPager(download_pager)
     }
 
     override fun onDestroy() {
@@ -125,7 +120,7 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
     }
 
     fun gotoPage(page: Int) {
-        mPager!!.currentItem = page
+        download_pager!!.currentItem = page
     }
 
     private fun reload() {
@@ -236,20 +231,20 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
     }
 
     internal inner class SwipeFragmentPagerAdapter(fm: android.support.v4.app.FragmentManager) : FragmentPagerAdapter(fm) {
-        private val PAGE_COUNT = 3
-        private val tabTitles = arrayOf(getString(R.string.download_details_page_description), getString(R.string.download_details_page_versions), getString(R.string.download_details_page_settings))
+        private val mPageCount = 3
+        private val tabTitles = arrayOf(getString(Navigation.FRAG_DOWNLOAD_DESCRIPTION.title), getString(Navigation.FRAG_DOWNLOAD_VERSION.title), getString(Navigation.FRAG_DOWNLOAD_SETTINGS.title))
 
         override fun getCount(): Int {
-            return PAGE_COUNT
+            return mPageCount
         }
 
 
         @Suppress("OverridingDeprecatedMember")
         override fun getItem(position: Int): android.support.v4.app.Fragment? {
             return when (position) {
-                DOWNLOAD_DESCRIPTION -> DownloadDetailsFragment()
-                DOWNLOAD_VERSIONS -> DownloadDetailsVersionsFragment()
-                DOWNLOAD_SETTINGS -> DownloadDetailsSettingsFragment()
+                DOWNLOAD_DESCRIPTION -> Navigation.FRAG_DOWNLOAD_DESCRIPTION.createFragment()
+                DOWNLOAD_VERSIONS -> Navigation.FRAG_DOWNLOAD_VERSION.createFragment()
+                DOWNLOAD_SETTINGS -> Navigation.FRAG_DOWNLOAD_SETTINGS.createFragment()
                 else -> null
             }
         }

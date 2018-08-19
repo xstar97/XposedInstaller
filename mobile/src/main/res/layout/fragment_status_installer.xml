@@ -6,118 +6,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/view_state"
+        android:id="@+id/view_state"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swiperefreshlayout"
         android:paddingBottom="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/myLayout"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <RelativeLayout
+            <android.support.v7.widget.CardView
+                android:id="@+id/disableView"
                 android:layout_width="match_parent"
-                android:id="@+id/myLayout"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                app:cardCornerRadius="0dp">
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/disableView"
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/disableSwitch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="0dp">
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="12dp"
+                    android:checked="true"
+                    android:text="@string/status"
+                    android:textSize="16sp" />
 
-                    <android.support.v7.widget.SwitchCompat
-                        android:id="@+id/disableSwitch"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_margin="12dp"
-                        android:checked="true"
-                        android:text="@string/status"
-                        android:textSize="16sp" />
+            </android.support.v7.widget.CardView>
 
-                </android.support.v7.widget.CardView>
+            <include layout="@layout/view_status_installer_installed"
+                android:id="@+id/installer_view"
+                android:layout_below="@id/disableView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-                <include android:id="@+id/installer_view"
-                    android:layout_below="@id/disableView"
-                    layout="@layout/view_status_installer_installed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+            <include layout="@layout/view_status_installer_actions"
+                android:id="@+id/view_status_installer_actions"
+                android:layout_below="@id/installer_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/framework_known_issue"
-                    android:layout_below="@id/installer_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:paddingEnd="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingStart="8dp"
-                    android:textColor="@color/warning"
-                    android:textSize="15sp"
-                    android:visibility="gone"
-                    tools:text="@string/install_known_issue"
-                    tools:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/zips_load_error"
-                    android:layout_below="@id/framework_known_issue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingStart="8dp"
-                    android:textColor="@color/warning"
-                    android:textSize="15sp"
-                    android:visibility="gone"
-                    tools:text="@string/framework_no_zips"
-                    tools:visibility="visible" />
-
-                <Spinner
-                    android:id="@+id/zip_spinner0"
-                    android:layout_below="@id/zips_load_error"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp" />
-
-                <Button
-                    android:id="@+id/button_zip_spinner0"
-                    android:layout_below="@id/zip_spinner0"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/install_update" />
-
-                <Spinner
-                    android:id="@+id/zip_spinner1"
-                    android:layout_below="@id/button_zip_spinner0"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp" />
-
-                <Button
-                    android:id="@+id/button_zip_spinner1"
-                    android:layout_below="@id/zip_spinner1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/uninstall" />
-
-            </RelativeLayout>
-
-        </ScrollView>
+        </RelativeLayout>
 
     </android.support.v4.widget.SwipeRefreshLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabStatusInstallerActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/ic_info" />
 
     <include android:id="@+id/app_sheet"
         layout="@layout/app_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

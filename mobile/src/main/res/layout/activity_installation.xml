@@ -59,7 +59,7 @@
             tools:indeterminate="false"
             tools:max="15"
             tools:progress="10"
-            tools:rotation="180"/>
+            tools:rotation="180" />
 
         <Button
             android:id="@+id/cancel"
