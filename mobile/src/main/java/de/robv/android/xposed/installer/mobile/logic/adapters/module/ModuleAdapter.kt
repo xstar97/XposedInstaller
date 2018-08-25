@@ -9,7 +9,7 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.BaseModules
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseModules
 import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
 

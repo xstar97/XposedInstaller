@@ -7,23 +7,23 @@ import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
-import de.robv.android.xposed.installer.R.id.*
+import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.R.layout.list_item_module
 import de.robv.android.xposed.installer.core.repo.Module
 
-class BookmarkModuleAdapter(context: Context) : ArrayAdapter<Module>(context, list_item_module, moduleTitle) {
+class BookmarkModuleAdapter(context: Context) : ArrayAdapter<Module>(context, list_item_module, R.id.moduleTitle) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = super.getView(position, convertView, parent)
 
-        view.findViewById<CheckBox>(moduleCheckbox).visibility = View.GONE
-        view.findViewById<TextView>(moduleVersionName).visibility = View.GONE
-        view.findViewById<ImageView>(moduleIcon).visibility = View.GONE
+        view.findViewById<CheckBox>(R.id.moduleCheckbox).visibility = View.GONE
+        view.findViewById<TextView>(R.id.moduleVersionName).visibility = View.GONE
+        view.findViewById<ImageView>(R.id.moduleIcon).visibility = View.GONE
 
         val item = getItem(position)
 
-        view.findViewById<TextView>(moduleTitle).text = item!!.name
-        view.findViewById<TextView>(moduleDescription).text = item.summary
+        view.findViewById<TextView>(R.id.moduleTitle).text = item!!.name.toString()
+        view.findViewById<TextView>(R.id.moduleDescription).text = item.summary
 
         return view
     }

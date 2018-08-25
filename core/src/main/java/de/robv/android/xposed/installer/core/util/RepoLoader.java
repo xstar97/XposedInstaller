@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.zip.GZIPInputStream;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 import de.robv.android.xposed.installer.core.R;
 import de.robv.android.xposed.installer.core.repo.Module;
 import de.robv.android.xposed.installer.core.repo.ModuleVersion;

@@ -7,7 +7,7 @@ import android.support.v17.leanback.widget.GuidedAction.CHECKBOX_CHECK_SET_ID
 import android.util.Log
 import android.widget.Toast
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.BaseSettings
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 import de.robv.android.xposed.installer.tv.XposedApp
 import de.robv.android.xposed.installer.tv.ui.fragments.base.BaseGuidedFragment
 import java.io.IOException

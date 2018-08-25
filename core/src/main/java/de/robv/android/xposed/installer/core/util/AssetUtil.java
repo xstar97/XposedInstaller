@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 
 @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
 public class AssetUtil {

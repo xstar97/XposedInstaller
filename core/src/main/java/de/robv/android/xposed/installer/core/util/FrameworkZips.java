@@ -32,7 +32,7 @@ import java.util.TreeMap;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 import de.robv.android.xposed.installer.core.R;
 import de.robv.android.xposed.installer.core.util.DownloadsUtil.SyncDownloadInfo;
 import de.robv.android.xposed.installer.core.util.InstallZipUtil.XposedProp;

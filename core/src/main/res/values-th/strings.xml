@@ -148,7 +148,7 @@
     <string name="about_source_label">ที่มารหัส</string>
     <string name="about_libraries_label">ใช้ไลบารี่แล้ว</string>
 
-    <!-- DownloadViewMvc -->
+    <!-- DownloadView -->
     <string name="download_view_download">ดาวน์โหลด</string>
     <string name="download_view_install">ติดตั้ง</string>
     <string name="download_view_cancel">ยกเลิก</string>

@@ -10,10 +10,10 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.CursorAdapter
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.BaseXposedApp
-import de.robv.android.xposed.installer.core.base.fragments.BaseSettings
-import de.robv.android.xposed.installer.core.base.fragments.download.BaseDownload
-import de.robv.android.xposed.installer.core.mvc.DownloadViewMvc
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
+import de.robv.android.xposed.installer.core.logic.base.fragments.download.BaseDownload
+import de.robv.android.xposed.installer.core.logic.mvc.DownloadViewMvc
 import de.robv.android.xposed.installer.core.repo.RepoDbDefinitions
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.Utils

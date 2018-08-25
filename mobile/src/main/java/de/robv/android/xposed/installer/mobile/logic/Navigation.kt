@@ -4,16 +4,19 @@ import android.support.annotation.IntegerRes
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.mobile.ui.fragments.LogsFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.list.AboutFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.*
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsFragment
 import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsSettingsFragment
 import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsVersionsFragment
+import de.robv.android.xposed.installer.mobile.ui.fragments.ErrorFragment
+import de.robv.android.xposed.installer.mobile.ui.fragments.LogsFragment
+import de.robv.android.xposed.installer.mobile.ui.fragments.SettingsFragment
+import de.robv.android.xposed.installer.mobile.ui.fragments.StatusInstallerFragment
+import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsFragment
 import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadFragment
+import de.robv.android.xposed.installer.mobile.ui.fragments.list.AboutFragment
+import de.robv.android.xposed.installer.mobile.ui.fragments.list.DeviceInfoFragment
+import de.robv.android.xposed.installer.mobile.ui.fragments.list.SupportFragment
 import de.robv.android.xposed.installer.mobile.ui.fragments.module.ModulesBookmarkFragment
 import de.robv.android.xposed.installer.mobile.ui.fragments.module.ModulesFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.list.SupportFragment
 
 enum class Navigation(@IntegerRes val id: Int, @StringRes val title: Int)
 {
@@ -24,6 +27,7 @@ enum class Navigation(@IntegerRes val id: Int, @StringRes val title: Int)
     NAV_SETTINGS(R.id.nav_item_settings, R.string.nav_item_settings),
     NAV_SUPPORT(R.id.nav_item_support, R.string.nav_item_support),
     NAV_ABOUT(R.id.nav_item_about, R.string.nav_item_about),
+    FRAG_DEVICE(R.id.frag_device_info, R.string.framework_device_info),
     FRAG_MODULE_BOOKMARK(R.id.frag_module_bookmark, R.string.bookmarks),
     FRAG_DOWNLOAD_DESCRIPTION(R.id.frag_download_description, R.string.download_details_page_description),
     FRAG_DOWNLOAD_VERSION(R.id.frag_download_version, R.string.download_details_page_versions),
@@ -49,6 +53,7 @@ fun Navigation.createFragment(): Fragment = when (this) {
     Navigation.NAV_SETTINGS -> SettingsFragment.newInstance()
     Navigation.NAV_SUPPORT -> SupportFragment.newInstance()
     Navigation.NAV_ABOUT -> AboutFragment.newInstance()
+    Navigation.FRAG_DEVICE -> DeviceInfoFragment.newInstance()
     Navigation.FRAG_MODULE_BOOKMARK -> ModulesBookmarkFragment.newInstance()
     Navigation.FRAG_DOWNLOAD_DESCRIPTION -> DownloadDetailsFragment.newInstance()
     Navigation.FRAG_DOWNLOAD_VERSION -> DownloadDetailsVersionsFragment.newInstance()
@@ -64,6 +69,7 @@ fun Navigation.getTag(): String = when (this) {
     Navigation.NAV_SETTINGS -> SettingsFragment.TAG
     Navigation.NAV_SUPPORT -> SupportFragment.TAG
     Navigation.NAV_ABOUT -> AboutFragment.TAG
+    Navigation.FRAG_DEVICE -> DeviceInfoFragment.TAG
     Navigation.FRAG_MODULE_BOOKMARK -> ModulesBookmarkFragment.TAG
     Navigation.FRAG_DOWNLOAD_DESCRIPTION -> DownloadDetailsFragment.TAG
     Navigation.FRAG_DOWNLOAD_VERSION -> DownloadDetailsVersionsFragment.TAG
@@ -71,7 +77,7 @@ fun Navigation.getTag(): String = when (this) {
     else -> ErrorFragment.TAG
 }
 
-fun Navigation.getPos(): Int = when (this) {
+fun Navigation.getNavPos(): Int = when (this) {
     Navigation.NAV_DOWNLOAD -> setNavPos(0, 2)
     Navigation.NAV_MODULES -> 1
     Navigation.NAV_HOME -> setNavPos(2, 0)

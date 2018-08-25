@@ -75,7 +75,7 @@
     <string name="about_source_label">Källkod:</string>
     <string name="about_libraries_label">Bibliotek som använts:</string>
 
-    <!-- DownloadViewMvc -->
+    <!-- DownloadView -->
     <string name="download_view_download">Ladda ner</string>
     <string name="download_view_install">Installera</string>
     <string name="download_view_cancel">Avbryt</string>

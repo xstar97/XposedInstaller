@@ -11,7 +11,7 @@
         android:theme="@style/Theme.XposedInstaller.Light"
         tools:replace="android:allowBackup">
         <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.SplashActivity" android:theme="@style/SplashTheme">
-            <intent-filter>
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,7 +21,7 @@
         <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.WelcomeActivity" android:configChanges="orientation|screenSize" android:exported="true" android:label="@string/app_name" />
 
         <!-- Container -->
-        <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.containers.ViewActivity" android:theme="@style/Theme.XposedInstaller.Transparent"/>
+        <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.base.ViewActivity" android:theme="@style/Theme.XposedInstaller.Transparent"/>
 
         <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity" android:configChanges="orientation|screenSize" android:exported="true" android:theme="@style/Theme.XposedInstaller.Transparent">
             <intent-filter>
@@ -40,6 +40,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
+
+        <!--<activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.ModulesBookmark" android:theme="@style/Theme.XposedInstaller.Transparent" />-->
 
         <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.InstallationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.XposedInstaller.Transparent" />
 

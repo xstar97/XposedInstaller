@@ -15,13 +15,15 @@ import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.util.DownloadsUtil
 import de.robv.android.xposed.installer.core.util.DownloadsUtil.DownloadFinishedCallback
 import de.robv.android.xposed.installer.core.util.DownloadsUtil.DownloadInfo
+import kotlinx.android.synthetic.main.download_view.view.*
 
-class DownloadView(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
-    private lateinit var btnDownload: Button
-    private lateinit var btnDownloadCancel: Button
-    private lateinit var btnInstall: Button
-    private lateinit var progressBar: ProgressBar
-    private lateinit var txtInfo: TextView
+class DownloadView(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs)
+{
+    private lateinit var mDownloadBtn: Button
+    private lateinit var mDownloadBtnCancel: Button
+    private lateinit var mInstallBtn: Button
+    private lateinit var mProgressBar: ProgressBar
+    private lateinit var mTxtInfo: TextView
     var fragment: Fragment? = null
     private var mInfo: DownloadInfo? = null
     var url: String? = null
@@ -38,35 +40,36 @@ class DownloadView(context: Context, attrs: AttributeSet) : LinearLayout(context
     private val refreshViewRunnable = Runnable {
         when {
             url == null -> {
-                btnDownload.visibility = View.GONE
-                btnDownloadCancel.visibility = View.GONE
-                btnInstall.visibility = View.GONE
-                progressBar.visibility = View.GONE
-                txtInfo.visibility = View.VISIBLE
-                txtInfo.setText(R.string.download_view_no_url)
+                mDownloadBtn.visibility = View.GONE
+                mDownloadBtnCancel.visibility = View.GONE
+                mInstallBtn.visibility = View.GONE
+                mProgressBar.visibility = View.GONE
+                mTxtInfo.visibility = View.VISIBLE
+                //mTxtInfo.setText(R.string.download_view_no_url)
+                mTxtInfo.text = context.getString(R.string.download_view_no_url)
             }
             mInfo == null -> {
-                btnDownload.visibility = View.VISIBLE
-                btnDownloadCancel.visibility = View.GONE
-                btnInstall.visibility = View.GONE
-                progressBar.visibility = View.GONE
-                txtInfo.visibility = View.GONE
+                mDownloadBtn.visibility = View.VISIBLE
+                mDownloadBtnCancel.visibility = View.GONE
+                mInstallBtn.visibility = View.GONE
+                mProgressBar.visibility = View.GONE
+                mTxtInfo.visibility = View.GONE
             }
             else -> when (mInfo!!.status) {
                 DownloadManager.STATUS_PENDING, DownloadManager.STATUS_PAUSED, DownloadManager.STATUS_RUNNING -> {
-                    btnDownload.visibility = View.GONE
-                    btnDownloadCancel.visibility = View.VISIBLE
-                    btnInstall.visibility = View.GONE
-                    progressBar.visibility = View.VISIBLE
-                    txtInfo.visibility = View.VISIBLE
+                    mDownloadBtn.visibility = View.GONE
+                    mDownloadBtnCancel.visibility = View.VISIBLE
+                    mInstallBtn.visibility = View.GONE
+                    mProgressBar.visibility = View.VISIBLE
+                    mTxtInfo.visibility = View.VISIBLE
                     if (mInfo!!.totalSize <= 0 || mInfo!!.status != DownloadManager.STATUS_RUNNING) {
-                        progressBar.isIndeterminate = true
-                        txtInfo.setText(R.string.download_view_waiting)
+                        mProgressBar.isIndeterminate = true
+                        mTxtInfo.setText(R.string.download_view_waiting)
                     } else {
-                        progressBar.isIndeterminate = false
-                        progressBar.max = mInfo!!.totalSize
-                        progressBar.progress = mInfo!!.bytesDownloaded
-                        txtInfo.text = getContext().getString(
+                        mProgressBar.isIndeterminate = false
+                        mProgressBar.max = mInfo!!.totalSize
+                        mProgressBar.progress = mInfo!!.bytesDownloaded
+                        mTxtInfo.text = getContext().getString(
                                 R.string.download_view_running,
                                 mInfo!!.bytesDownloaded / 1024,
                                 mInfo!!.totalSize / 1024)
@@ -74,22 +77,22 @@ class DownloadView(context: Context, attrs: AttributeSet) : LinearLayout(context
                 }
 
                 DownloadManager.STATUS_FAILED -> {
-                    btnDownload.visibility = View.VISIBLE
-                    btnDownloadCancel.visibility = View.GONE
-                    btnInstall.visibility = View.GONE
-                    progressBar.visibility = View.GONE
-                    txtInfo.visibility = View.VISIBLE
-                    txtInfo.text = getContext().getString(
+                    mDownloadBtn.visibility = View.VISIBLE
+                    mDownloadBtnCancel.visibility = View.GONE
+                    mInstallBtn.visibility = View.GONE
+                    mProgressBar.visibility = View.GONE
+                    mTxtInfo.visibility = View.VISIBLE
+                    mTxtInfo.text = getContext().getString(
                             R.string.download_view_failed, mInfo!!.reason)
                 }
 
                 DownloadManager.STATUS_SUCCESSFUL -> {
-                    btnDownload.visibility = View.GONE
-                    btnDownloadCancel.visibility = View.GONE
-                    btnInstall.visibility = View.VISIBLE
-                    progressBar.visibility = View.GONE
-                    txtInfo.visibility = View.VISIBLE
-                    txtInfo.setText(R.string.download_view_successful)
+                    mDownloadBtn.visibility = View.GONE
+                    mDownloadBtnCancel.visibility = View.GONE
+                    mInstallBtn.visibility = View.VISIBLE
+                    mProgressBar.visibility = View.GONE
+                    mTxtInfo.visibility = View.VISIBLE
+                    mTxtInfo.setText(R.string.download_view_successful)
                 }
             }
         }
@@ -104,11 +107,11 @@ class DownloadView(context: Context, attrs: AttributeSet) : LinearLayout(context
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.download_view, this, true)
 
-        btnDownload = findViewById<View>(R.id.btnDownload) as Button
-        btnDownloadCancel = findViewById<View>(R.id.btnDownloadCancel) as Button
-        btnInstall = findViewById<View>(R.id.btnInstall) as Button
+        mDownloadBtn = btnDownload//findViewById<View>(R.id.btnDownload) as Button
+        mDownloadBtnCancel = btnDownloadCancel//findViewById<View>(R.id.btnDownloadCancel) as Button
+        mInstallBtn = btnInstall//findViewById<View>(R.id.btnInstall) as Button
 
-        btnDownload.setOnClickListener {
+        mDownloadBtn.setOnClickListener {
             mInfo = DownloadsUtil.addModule(getContext(), title, url, downloadFinishedCallback)
             refreshViewFromUiThread()
 
@@ -116,7 +119,7 @@ class DownloadView(context: Context, attrs: AttributeSet) : LinearLayout(context
                 DownloadMonitor().start()
         }
 
-        btnDownloadCancel.setOnClickListener(OnClickListener {
+        mDownloadBtnCancel.setOnClickListener(OnClickListener {
             if (mInfo == null)
                 return@OnClickListener
 
@@ -124,15 +127,15 @@ class DownloadView(context: Context, attrs: AttributeSet) : LinearLayout(context
             // UI update will happen automatically by the DownloadMonitor
         })
 
-        btnInstall.setOnClickListener(OnClickListener {
+        mInstallBtn.setOnClickListener(OnClickListener {
             if (downloadFinishedCallback == null)
                 return@OnClickListener
 
             downloadFinishedCallback!!.onDownloadFinished(getContext(), mInfo)
         })
 
-        progressBar = findViewById<View>(R.id.progress) as ProgressBar
-        txtInfo = findViewById<View>(R.id.txtInfo) as TextView
+        mProgressBar = progress//findViewById<View>(R.id.progress) as ProgressBar
+        mTxtInfo = txtInfo//findViewById<View>(R.id.txtInfo) as TextView
 
         refreshViewFromUiThread()
     }
@@ -170,9 +173,5 @@ class DownloadView(context: Context, attrs: AttributeSet) : LinearLayout(context
                     return
             }
         }
-    }
-
-    companion object {
-        var mClickedUrl: String? = null
     }
 }

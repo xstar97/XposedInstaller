@@ -6,10 +6,10 @@ import android.support.v17.leanback.widget.GuidanceStylist
 import android.support.v17.leanback.widget.GuidedAction
 import android.util.Log
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.BaseDevice
-import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller
-import de.robv.android.xposed.installer.core.models.StatusModel
-import de.robv.android.xposed.installer.core.models.ZipModel
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseDevice
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseStatusInstaller
+import de.robv.android.xposed.installer.core.logic.models.StatusModel
+import de.robv.android.xposed.installer.core.logic.models.ZipModel
 import de.robv.android.xposed.installer.core.util.FrameworkZips
 import de.robv.android.xposed.installer.core.util.Loader
 import de.robv.android.xposed.installer.tv.XposedApp

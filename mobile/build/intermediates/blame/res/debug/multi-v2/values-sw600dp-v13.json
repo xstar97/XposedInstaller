@@ -16,27 +16,10 @@
                     "to": {
                         "startLines": "2,21",
                         "startColumns": "4,4",
-                        "startOffsets": "55,1313",
+                        "startOffsets": "55,1323",
                         "endLines": "2,27",
                         "endColumns": "37,12",
-                        "endOffsets": "88,1761"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\core-0.8.5.9.aar\\8b57e1d60f9870c5adf8233605a82361\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "41",
-                        "endOffsets": "92"
-                    },
-                    "to": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "93",
-                        "endColumns": "41",
-                        "endOffsets": "130"
+                        "endOffsets": "88,1771"
                     }
                 },
                 {
@@ -49,11 +32,11 @@
                         "endOffsets": "119,188,258,332,408,467,538,606"
                     },
                     "to": {
-                        "startLines": "4,5,6,7,8,9,10,11",
+                        "startLines": "3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "135,204,273,343,417,493,552,623",
+                        "startOffsets": "93,162,231,301,375,451,510,581",
                         "endColumns": "68,68,69,73,75,58,70,67",
-                        "endOffsets": "199,268,338,412,488,547,618,686"
+                        "endOffsets": "157,226,296,370,446,505,576,644"
                     }
                 },
                 {
@@ -67,12 +50,29 @@
                         "endOffsets": "110,180,251,323,381,439,545,609,672,854"
                     },
                     "to": {
-                        "startLines": "12,13,14,15,16,17,18,19,20,28",
+                        "startLines": "11,12,13,14,15,16,17,18,20,28",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "691,751,821,892,964,1022,1080,1186,1250,1766",
-                        "endLines": "12,13,14,15,16,17,18,19,20,31",
+                        "startOffsets": "649,709,779,850,922,980,1038,1144,1260,1776",
+                        "endLines": "11,12,13,14,15,16,17,18,20,31",
                         "endColumns": "59,69,70,71,57,57,105,63,62,12",
-                        "endOffsets": "746,816,887,959,1017,1075,1181,1245,1308,1943"
+                        "endOffsets": "704,774,845,917,975,1033,1139,1203,1318,1953"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\core-0.9.6.0.aar\\8e973defbd77351884671f082e6379af\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "51",
+                        "endOffsets": "102"
+                    },
+                    "to": {
+                        "startLines": "19",
+                        "startColumns": "4",
+                        "startOffsets": "1208",
+                        "endColumns": "51",
+                        "endOffsets": "1255"
                     }
                 }
             ]

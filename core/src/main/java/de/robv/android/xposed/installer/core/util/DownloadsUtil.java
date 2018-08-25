@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 import de.robv.android.xposed.installer.core.R;
 import de.robv.android.xposed.installer.core.repo.Module;
 import de.robv.android.xposed.installer.core.repo.ModuleVersion;

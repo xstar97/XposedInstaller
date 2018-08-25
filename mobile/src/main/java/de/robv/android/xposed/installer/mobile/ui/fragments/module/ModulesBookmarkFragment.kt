@@ -16,7 +16,7 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.R.id.install_bookmark
 import de.robv.android.xposed.installer.R.id.install_remove_bookmark
 import de.robv.android.xposed.installer.R.menu.context_menu_modules_bookmark
-import de.robv.android.xposed.installer.core.base.fragments.download.BaseDownloadDetailsVersions
+import de.robv.android.xposed.installer.core.logic.base.fragments.download.BaseDownloadDetailsVersions
 import de.robv.android.xposed.installer.core.repo.Module
 import de.robv.android.xposed.installer.core.util.DownloadsUtil
 import de.robv.android.xposed.installer.core.util.RepoLoader

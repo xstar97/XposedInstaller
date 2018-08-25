@@ -5,7 +5,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 
 @SuppressWarnings("WeakerAccess")
 public abstract class Loader<T> implements SwipeRefreshLayout.OnRefreshListener {

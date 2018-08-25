@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 import de.robv.android.xposed.installer.core.util.AssetUtil;
 import de.robv.android.xposed.installer.core.util.FrameworkZips;
 import de.robv.android.xposed.installer.core.util.InstallZipUtil.ZipCheckResult;

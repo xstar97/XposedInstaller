@@ -1,12 +1,11 @@
 package de.robv.android.xposed.installer.mobile.logic.adapters.info.viewholders
 
-import android.opengl.Visibility
 import android.support.v4.content.ContextCompat
 import android.view.View
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.delegates.InfoDelegate
-import de.robv.android.xposed.installer.core.models.*
+import de.robv.android.xposed.installer.core.logic.delegates.InfoDelegate
+import de.robv.android.xposed.installer.core.logic.models.*
 import kotlinx.android.synthetic.main.list_item_tab.view.*
 
 class InfoBaseViewHolder(view: View, private val delegate: InfoDelegate) : BaseViewHolder(view) {

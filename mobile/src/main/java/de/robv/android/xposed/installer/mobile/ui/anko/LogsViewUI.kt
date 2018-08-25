@@ -6,14 +6,13 @@ import android.support.v7.widget.PopupMenu
 import android.view.MenuItem
 import android.view.View
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.delegates.LogsDelegate
-import de.robv.android.xposed.installer.mobile.ui.fragments.LogsFragment
+import de.robv.android.xposed.installer.core.logic.delegates.LogsDelegate
 import de.robv.android.xposed.installer.mobile.logic.Utils
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.floatingActionButton
 import org.jetbrains.anko.sdk15.coroutines.onClick
 
-class LogsViewUI(context: Context, delegate: LogsDelegate) : AnkoComponent<LogsFragment>, PopupMenu.OnMenuItemClickListener {
+class LogsViewUI<T>(context: Context, delegate: LogsDelegate) : AnkoComponent<T>, PopupMenu.OnMenuItemClickListener {
 
     private var mContext: Context? = null
     private var mDelegate: LogsDelegate? = null
@@ -22,7 +21,7 @@ class LogsViewUI(context: Context, delegate: LogsDelegate) : AnkoComponent<LogsF
         mContext = context
         mDelegate = delegate
     }
-    override fun createView(ui: AnkoContext<LogsFragment>): View = with(ui) {
+    override fun createView(ui: AnkoContext<T>): View = with(ui) {
 
         relativeLayout {
             id = Ids.container

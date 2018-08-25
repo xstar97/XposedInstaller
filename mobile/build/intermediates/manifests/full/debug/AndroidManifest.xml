@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="15"
-        android:targetSdkVersion="23" />
+        android:targetSdkVersion="27" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -40,7 +40,7 @@
 
         <!-- Container -->
         <activity
-            android:name="de.robv.android.xposed.installer.mobile.ui.activities.containers.ViewActivity"
+            android:name="de.robv.android.xposed.installer.mobile.ui.activities.base.ViewActivity"
             android:theme="@style/Theme.XposedInstaller.Transparent" />
         <activity
             android:name="de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity"
@@ -66,6 +66,9 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
+
+        <!-- <activity android:name="de.robv.android.xposed.installer.mobile.ui.activities.ModulesBookmark" android:theme="@style/Theme.XposedInstaller.Transparent" /> -->
+
         <activity
             android:name="de.robv.android.xposed.installer.mobile.ui.activities.InstallationActivity"
             android:screenOrientation="portrait"

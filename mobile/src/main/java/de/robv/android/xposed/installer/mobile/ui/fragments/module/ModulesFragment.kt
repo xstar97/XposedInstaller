@@ -44,16 +44,16 @@ import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.R.id.*
 import de.robv.android.xposed.installer.R.layout.view_state_xposed_note
 import de.robv.android.xposed.installer.mobile.XposedApp
-import de.robv.android.xposed.installer.core.base.BaseXposedApp.WRITE_EXTERNAL_PERMISSION
-import de.robv.android.xposed.installer.core.base.fragments.BaseModules
-import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp.WRITE_EXTERNAL_PERMISSION
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseModules
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
 
-import de.robv.android.xposed.installer.core.base.fragments.utils.ModulesUtil
+import de.robv.android.xposed.installer.core.logic.base.fragments.utils.ModulesUtil
 import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.adapters.module.ModuleAdapter
 import de.robv.android.xposed.installer.mobile.ui.activities.WelcomeActivity
-import de.robv.android.xposed.installer.mobile.ui.activities.containers.ViewActivity
-import de.robv.android.xposed.installer.mobile.ui.activities.containers.ViewActivity.Companion.INTENT_NAV_KEY
+import de.robv.android.xposed.installer.mobile.ui.activities.base.ViewActivity
+import de.robv.android.xposed.installer.mobile.ui.activities.base.ViewActivity.Companion.INTENT_NAV_KEY
 import org.jetbrains.anko.startActivity
 
 class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener

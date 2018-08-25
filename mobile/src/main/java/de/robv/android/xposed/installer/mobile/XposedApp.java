@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 import de.robv.android.xposed.installer.core.util.AssetUtil;
 import de.robv.android.xposed.installer.core.util.NotificationUtil;
 import de.robv.android.xposed.installer.core.util.RepoLoader;

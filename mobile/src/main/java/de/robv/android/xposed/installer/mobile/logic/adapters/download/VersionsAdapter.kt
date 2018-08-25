@@ -1,7 +1,9 @@
 package de.robv.android.xposed.installer.mobile.logic.adapters.download
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
@@ -10,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.download.BaseDownloadDetailsVersions
+import de.robv.android.xposed.installer.core.logic.base.fragments.download.BaseDownloadDetailsVersions
 import de.robv.android.xposed.installer.core.repo.ModuleVersion
 import de.robv.android.xposed.installer.core.repo.ReleaseType
 import de.robv.android.xposed.installer.core.repo.RepoParser
@@ -18,13 +20,11 @@ import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.core.util.chrome.LinkTransformationMethod
 import de.robv.android.xposed.installer.core.widget.DownloadView
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
-import de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsVersionsFragment
 import kotlinx.android.synthetic.main.list_item_version.view.*
 import java.text.DateFormat
 import java.util.*
 
-class VersionsAdapter(context: Context, myActivity: DownloadDetailsActivity?, verFragment: DownloadDetailsVersionsFragment, installed: ModuleUtil.InstalledModule?) : ArrayAdapter<ModuleVersion>(context, R.layout.list_item_version) {
+class VersionsAdapter(context: Context, myActivity: Activity?, verFragment: Fragment, installed: ModuleUtil.InstalledModule?) : ArrayAdapter<ModuleVersion>(context, R.layout.list_item_version) {
     private val mDateFormatter = DateFormat
             .getDateInstance(DateFormat.SHORT)
     private val mColorRelTypeStable: Int = ThemeUtil.getThemeColor(context, android.R.attr.textColorTertiary)
@@ -89,7 +89,7 @@ class VersionsAdapter(context: Context, myActivity: DownloadDetailsActivity?, ve
         }
 
         holder.moduleDownloadView!!.url = item.downloadLink
-        holder.moduleDownloadView!!.title = mActivity!!.module!!.name
+        holder.moduleDownloadView!!.title = ""//mActivity!!.module!!.name
         holder.moduleDownloadView!!.downloadFinishedCallback = BaseDownloadDetailsVersions.DownloadModuleCallback(item)
 
         if (item.changelog != null && !item.changelog.isEmpty()) {

@@ -6,12 +6,6 @@ ext {
             tv: ':tv'
     ]
 
-    initNames = [
-        kotlin                 : 'org.jetbrains.kotlin',
-        anko                   : 'org.jetbrains.anko',
-        androidSupport         : 'com.android.support'
-    ]
-
     versions = [
             appId              : 'de.robv.android.xposed.installer',
             appVersion         : '3.1.5',
@@ -56,54 +50,53 @@ ext {
     ]
 
     kotlinDependencies = [
-            kotlinJre8         : [group: initNames.kotlin, name: 'kotlin-stdlib-jre8', version: versions.kotlin],
-            kotlinJdk8         : [group: initNames.kotlin, name: 'kotlin-stdlib-jdk8', version: versions.kotlin],
-            kotlinJre7         : [group: initNames.kotlin, name: 'kotlin-stdlib-jre7', version: versions.kotlin],
-            kotlinJdk7         : [group: initNames.kotlin, name: 'kotlin-stdlib-jdk7', version: versions.kotlin]
+            kotlinJre8         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jre8', version: versions.kotlin],
+            kotlinJdk8         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: versions.kotlin],
+            kotlinJre7         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jre7', version: versions.kotlin],
+            kotlinJdk7         : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: versions.kotlin]
     ]
 
     //Support Libraries dependencies
     supportDependencies = [
-            appCompat          : [group: initNames.androidSupport, name: 'appcompat-v7', version: versions.supportLib],
-            design             : [group: initNames.androidSupport, name: 'design', version: versions.supportLib],
-            leanbackV17        : [group: initNames.androidSupport, name: 'leanback-v17', version: versions.supportLib],
-            recyclerView       : [group: initNames.androidSupport, name: 'recyclerview-v7', version: versions.supportLib],
-            cardView           : [group: initNames.androidSupport, name: 'cardview-v7', version: versions.supportLib],
-            supportV13         : [group: initNames.androidSupport, name: 'support-v13', version: versions.supportLib],
-            supportV4          : [group: initNames.androidSupport, name: 'support-v4', version: versions.supportLib],
-            preferenceV17      : [group: initNames.androidSupport, name: 'preference-leanback-v17', version: versions.supportLib],
-            preferenceV14      : [group: initNames.androidSupport, name: 'preference-v14', version: versions.supportLib],
-            preferenceV7       : [group: initNames.androidSupport, name: 'preference-v7', version: versions.supportLib],
-            customTabs         : [group: initNames.androidSupport, name: 'customtabs', version: versions.supportLib],
-            vectorDrawable     : [group: initNames.androidSupport, name: 'support-vector-drawable', version: versions.supportLib],
-            annotations        : [group: initNames.androidSupport, name: 'support-annotations', version: versions.supportLib],
-            constraint         : [group: initNames.androidSupport+'.constraint', name: 'constraint-layout', version: versions.constraint]
+            appCompat          : [group: 'com.android.support', name: 'appcompat-v7', version: versions.supportLib],
+            design             : [group: 'com.android.support', name: 'design', version: versions.supportLib],
+            leanbackV17        : [group: 'com.android.support', name: 'leanback-v17', version: versions.supportLib],
+            recyclerView       : [group: 'com.android.support', name: 'recyclerview-v7', version: versions.supportLib],
+            cardView           : [group: 'com.android.support', name: 'cardview-v7', version: versions.supportLib],
+            supportV13         : [group: 'com.android.support', name: 'support-v13', version: versions.supportLib],
+            supportV4          : [group: 'com.android.support', name: 'support-v4', version: versions.supportLib],
+            preferenceV17      : [group: 'com.android.support', name: 'preference-leanback-v17', version: versions.supportLib],
+            preferenceV14      : [group: 'com.android.support', name: 'preference-v14', version: versions.supportLib],
+            preferenceV7       : [group: 'com.android.support', name: 'preference-v7', version: versions.supportLib],
+            customTabs         : [group: 'com.android.support', name: 'customtabs', version: versions.supportLib],
+            vectorDrawable     : [group: 'com.android.support', name: 'support-vector-drawable', version: versions.supportLib],
+            annotations        : [group: 'com.android.support', name: 'support-annotations', version: versions.supportLib],
+            constraint         : [group: 'com.android.support.constraint', name: 'constraint-layout', version: versions.constraint]
     ]
 
     ankoDependencies = [
+            anko               : [group: 'org.jetbrains.anko', name: 'anko', version: versions.anko],
+            commons            : [group: 'org.jetbrains.anko', name: 'anko-commons', version: versions.anko],
+            sqlite             : [group: 'org.jetbrains.anko', name: 'anko-sqlite', version: versions.anko],
+            percent            : [group: 'org.jetbrains.anko', name: 'anko-percent', version: versions.anko],
+            coroutines         : [group: 'org.jetbrains.anko', name: 'anko-coroutines', version: versions.anko],
 
-            anko               : [group: initNames.anko, name: 'anko', version: versions.anko],
-            commons            : [group: initNames.anko, name: 'anko-commons', version: versions.anko],
-            sqlite             : [group: initNames.anko, name: 'anko-sqlite', version: versions.anko],
-            percent            : [group: initNames.anko, name: 'anko-percent', version: versions.anko],
-            coroutines         : [group: initNames.anko, name: 'anko-coroutines', version: versions.anko],
+            appCompat          : [group: 'org.jetbrains.anko', name: 'anko-appcompat-v7', version: versions.anko],
+            supportV4          : [group: 'org.jetbrains.anko', name: 'anko-support-v4', version: versions.anko],
+            design             : [group: 'org.jetbrains.anko', name: 'anko-design', version: versions.anko],
+            supportV4Commons   : [group: 'org.jetbrains.anko', name: 'anko-support-v4-commons', version: versions.anko],
+            appCompatCommons   : [group: 'org.jetbrains.anko', name: 'anko-appcompat-v7-commons', version: versions.anko],
+            appCompatDelegate  : [group: 'org.jetbrains.anko', name: 'anko-appcompat-v7-coroutines', version: versions.anko],
+            designDelegate     : [group: 'org.jetbrains.anko', name: 'anko-anko-design-coroutines', version: versions.anko],
 
-            appCompat          : [group: initNames.anko, name: 'anko-appcompat-v7', version: versions.anko],
-            supportV4          : [group: initNames.anko, name: 'anko-support-v4', version: versions.anko],
-            design             : [group: initNames.anko, name: 'anko-design', version: versions.anko],
-            supportV4Commons   : [group: initNames.anko, name: 'anko-support-v4-commons', version: versions.anko],
-            appCompatCommons   : [group: initNames.anko, name: 'anko-appcompat-v7-commons', version: versions.anko],
-            appCompatDelegate  : [group: initNames.anko, name: 'anko-appcompat-v7-coroutines', version: versions.anko],
-            designDelegate     : [group: initNames.anko, name: 'anko-anko-design-coroutines', version: versions.anko],
-
-            recyclerView       :[group: initNames.anko, name: 'anko-recyclerview-v7', version: versions.anko],
-            recyclerViewDelegate : [group: initNames.anko, name: 'anko-recyclerview-v7-coroutines', version: versions.anko],
-            cardView           : [group: initNames.anko, name: 'anko-cardview-v7', version: versions.anko],
-            constraint         : [group: initNames.anko, name: 'anko-constraint-layout', version: versions.anko],
-            ankoSdk15          : [group: initNames.anko, name: 'anko-sdk15', version: versions.anko],
-            sdk15Delegate      : [group: initNames.anko, name: 'anko-sdk15-coroutines', version: versions.anko],
-            ankoSdk21          : [group: initNames.anko, name: 'anko-sdk21', version: versions.anko],
-            sdk21Delegate      : [group: initNames.anko, name: 'anko-sdk21-coroutines', version: versions.anko]
+            recyclerView       : [group: 'org.jetbrains.anko', name: 'anko-recyclerview-v7', version: versions.anko],
+            recyclerViewDelegate : [group: 'org.jetbrains.anko', name: 'anko-recyclerview-v7-coroutines', version: versions.anko],
+            cardView            : [group: 'org.jetbrains.anko', name: 'anko-cardview-v7', version: versions.anko],
+            constraint          : [group: 'org.jetbrains.anko', name: 'anko-constraint-layout', version: versions.anko],
+            ankoSdk15           : [group: 'org.jetbrains.anko', name: 'anko-sdk15', version: versions.anko],
+            sdk15Delegate       : [group: 'org.jetbrains.anko', name: 'anko-sdk15-coroutines', version: versions.anko],
+            ankoSdk21           : [group: 'org.jetbrains.anko', name: 'anko-sdk21', version: versions.anko],
+            sdk21Delegate       : [group: 'org.jetbrains.anko', name: 'anko-sdk21-coroutines', version: versions.anko]
     ]
 
     utilsDependencies = [

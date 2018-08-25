@@ -75,7 +75,7 @@
     <string name="about_source_label">소스 코드 :</string>
     <string name="about_libraries_label">사용된 라이브러리들 :</string>
 
-    <!-- DownloadViewMvc -->
+    <!-- DownloadView -->
     <string name="download_view_download">내려받기</string>
     <string name="download_view_install">설치</string>
     <string name="download_view_cancel">취소</string>

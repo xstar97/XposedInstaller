@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import de.robv.android.xposed.installer.core.base.fragments.BaseAbout
-import de.robv.android.xposed.installer.core.delegates.InfoDelegate
-import de.robv.android.xposed.installer.core.models.InfoModel
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseAbout
+import de.robv.android.xposed.installer.core.logic.delegates.InfoDelegate
+import de.robv.android.xposed.installer.core.logic.models.InfoModel
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.InfoBaseAdapter.Companion.mSectionAbout
 import de.robv.android.xposed.installer.mobile.ui.anko.BaseViewUI
 import org.jetbrains.anko.AnkoContext

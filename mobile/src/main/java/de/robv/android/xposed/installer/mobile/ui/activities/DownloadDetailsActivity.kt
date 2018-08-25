@@ -18,7 +18,7 @@ import android.widget.Button
 import android.widget.TextView
 
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.BaseModules
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseModules
 import de.robv.android.xposed.installer.core.repo.Module
 import de.robv.android.xposed.installer.core.util.Loader
 import de.robv.android.xposed.installer.core.util.ModuleUtil
@@ -28,6 +28,7 @@ import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
 import de.robv.android.xposed.installer.mobile.logic.createFragment
+import de.robv.android.xposed.installer.mobile.ui.activities.base.XposedBaseActivity
 import kotlinx.android.synthetic.main.activity_download_details.*
 
 class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader>, ModuleListener

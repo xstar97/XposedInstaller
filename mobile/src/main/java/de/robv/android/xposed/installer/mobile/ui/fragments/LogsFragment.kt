@@ -10,9 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.BaseXposedApp
-import de.robv.android.xposed.installer.core.base.fragments.BaseLogs
-import de.robv.android.xposed.installer.core.delegates.LogsDelegate
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseLogs
+import de.robv.android.xposed.installer.core.logic.delegates.LogsDelegate
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.ui.anko.LogsViewUI
 import org.jetbrains.anko.*
@@ -26,7 +26,7 @@ class LogsFragment: Fragment(), LogsDelegate
         fun newInstance() = LogsFragment()
     }
 
-    private lateinit var logViewUI : LogsViewUI
+    private lateinit var logViewUI : LogsViewUI<LogsFragment>
 
     private lateinit var svLog: ScrollView
     private lateinit var hsvLog: HorizontalScrollView

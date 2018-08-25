@@ -12,7 +12,7 @@ import android.text.SpannableString
 import android.text.style.URLSpan
 import android.text.util.Linkify
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.R
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.okButton

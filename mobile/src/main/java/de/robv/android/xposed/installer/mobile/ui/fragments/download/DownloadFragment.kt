@@ -18,8 +18,8 @@ import android.widget.AbsListView
 import android.widget.FilterQueryProvider
 
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.BaseSettings
-import de.robv.android.xposed.installer.core.mvc.DownloadViewMvc
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
+import de.robv.android.xposed.installer.core.logic.mvc.DownloadViewMvc
 
 import de.robv.android.xposed.installer.core.repo.RepoDb
 import de.robv.android.xposed.installer.core.util.Loader

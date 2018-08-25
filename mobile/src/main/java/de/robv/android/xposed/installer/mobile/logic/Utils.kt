@@ -5,9 +5,9 @@ import android.support.v7.widget.PopupMenu
 import android.util.Log
 import android.view.View
 import de.robv.android.xposed.installer.mobile.XposedApp
-import de.robv.android.xposed.installer.mobile.ui.activities.containers.ViewActivity
-import de.robv.android.xposed.installer.mobile.ui.fragments.containers.ViewBottomSheetFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.containers.ViewDialogFragment
+import de.robv.android.xposed.installer.mobile.ui.activities.base.ViewActivity
+import de.robv.android.xposed.installer.mobile.ui.fragments.base.ViewBottomSheetFragment
+import de.robv.android.xposed.installer.mobile.ui.fragments.base.ViewDialogFragment
 import org.jetbrains.anko.startActivity
 
 open class Utils
@@ -57,7 +57,7 @@ open class Utils
         context.startActivity<ViewActivity>(ViewActivity.INTENT_NAV_KEY to nav)
     }
     fun launchSheet(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){
-        val bottomSheetFragment = ViewBottomSheetFragment.newInstance(nav)
+       val bottomSheetFragment = ViewBottomSheetFragment.newInstance(nav)
         bottomSheetFragment.show(fragmentManager, bottomSheetFragment.tag)
     }
     fun launchDialog(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){

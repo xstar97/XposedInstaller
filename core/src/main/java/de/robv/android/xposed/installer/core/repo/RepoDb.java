@@ -13,7 +13,7 @@ import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 import de.robv.android.xposed.installer.core.repo.RepoDbDefinitions.InstalledModulesColumns;
 import de.robv.android.xposed.installer.core.repo.RepoDbDefinitions.InstalledModulesUpdatesColumns;
 import de.robv.android.xposed.installer.core.repo.RepoDbDefinitions.ModuleVersionsColumns;

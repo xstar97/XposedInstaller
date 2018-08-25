@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.models.ZipModel
-import de.robv.android.xposed.installer.core.mvc.FrameworkViewMvc
+import de.robv.android.xposed.installer.core.logic.models.ZipModel
+import de.robv.android.xposed.installer.core.logic.mvc.FrameworkViewMvc
 import de.robv.android.xposed.installer.mobile.logic.Utils
 import kotlinx.android.synthetic.main.fragment_status_installer.view.*
 import kotlinx.android.synthetic.main.view_state.view.*

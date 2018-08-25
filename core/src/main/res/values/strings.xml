@@ -185,7 +185,7 @@
     <string name="about_source_label">Source code</string>
     <string name="about_libraries_label">Used libraries</string>
 
-    <!-- DownloadViewMvc -->
+    <!-- DownloadView -->
     <string name="download_view_download">Download</string>
     <string name="download_view_install">Install</string>
     <string name="download_view_cancel">Cancel</string>

@@ -9,7 +9,7 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.TextView
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.models.ZipModel
+import de.robv.android.xposed.installer.core.logic.models.ZipModel
 import de.robv.android.xposed.installer.core.repo.RepoDbDefinitions
 import de.robv.android.xposed.installer.tv.logic.Navigation
 

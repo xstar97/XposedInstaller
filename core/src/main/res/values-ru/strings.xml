@@ -153,7 +153,7 @@
     <string name="about_source_label">Исходный код</string>
     <string name="about_libraries_label">Используемые библиотеки</string>
 
-    <!-- DownloadViewMvc -->
+    <!-- DownloadView -->
     <string name="download_view_download">Скачать</string>
     <string name="download_view_install">Установить</string>
     <string name="download_view_cancel">Отмена</string>

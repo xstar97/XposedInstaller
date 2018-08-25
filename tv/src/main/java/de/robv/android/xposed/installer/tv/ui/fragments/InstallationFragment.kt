@@ -21,7 +21,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.activities.utils.InstallationUtils
+import de.robv.android.xposed.installer.core.logic.base.activities.utils.InstallationUtils
 import de.robv.android.xposed.installer.core.installation.FlashCallback
 import de.robv.android.xposed.installer.core.installation.Flashable
 import de.robv.android.xposed.installer.core.util.RootUtil

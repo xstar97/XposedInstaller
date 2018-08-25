@@ -4,6 +4,7 @@
     <item name="reboot" type="id" />
     <item name="soft_reboot" type="id" />
     <item name="reboot_recovery" type="id" />
+    <item name="frag_device_info" type="id"/>
     <item name="frag_module_bookmark" type="id"/>
     <item name="frag_download_description" type="id"/>
     <item name="frag_download_version" type="id"/>

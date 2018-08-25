@@ -22,12 +22,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 import de.robv.android.xposed.installer.core.R;
 import de.robv.android.xposed.installer.core.repo.ModuleVersion;
 import de.robv.android.xposed.installer.core.repo.RepoDb;
 
-import static de.robv.android.xposed.installer.core.base.BaseXposedApp.BASE_PKG;
+import static de.robv.android.xposed.installer.core.logic.base.BaseXposedApp.BASE_PKG;
 
 public final class ModuleUtil
 {

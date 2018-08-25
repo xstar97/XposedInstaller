@@ -11,7 +11,7 @@ import android.view.ViewGroup
 
 import de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.download.BaseDownloadDetails
+import de.robv.android.xposed.installer.core.logic.base.fragments.download.BaseDownloadDetails
 import de.robv.android.xposed.installer.core.repo.RepoParser
 import de.robv.android.xposed.installer.core.util.NavUtil
 import de.robv.android.xposed.installer.core.util.chrome.LinkTransformationMethod

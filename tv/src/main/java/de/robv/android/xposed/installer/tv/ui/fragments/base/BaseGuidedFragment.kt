@@ -5,8 +5,8 @@ import android.support.v17.leanback.app.GuidedStepSupportFragment
 import android.support.v17.leanback.widget.GuidedAction
 import android.support.v17.leanback.widget.GuidedAction.CHECKBOX_CHECK_SET_ID
 import android.util.Log
-import de.robv.android.xposed.installer.core.models.InfoModel
-import de.robv.android.xposed.installer.core.models.ZipModel
+import de.robv.android.xposed.installer.core.logic.models.InfoModel
+import de.robv.android.xposed.installer.core.logic.models.ZipModel
 import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.tv.XposedApp
 

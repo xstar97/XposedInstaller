@@ -11,10 +11,10 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp;
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 import de.robv.android.xposed.installer.core.R;
 
-import static de.robv.android.xposed.installer.core.base.BaseXposedApp.BASE_PKG;
+import static de.robv.android.xposed.installer.core.logic.base.BaseXposedApp.BASE_PKG;
 
 @SuppressWarnings({"FieldCanBeLocal", "WeakerAccess"})
 public final class NotificationUtil

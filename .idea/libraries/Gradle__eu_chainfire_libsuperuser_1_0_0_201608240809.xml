@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: eu.chainfire:libsuperuser-1.0.0.201608240809">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/libsuperuser-1.0.0.201608240809.aar/9b10aa05280d416e248d6a179e8b493e/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/libsuperuser-1.0.0.201608240809.aar/9b10aa05280d416e248d6a179e8b493e/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/libsuperuser-1.0.0.201608240809.aar/869b73d32e07156c619785194a3fb4e3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/libsuperuser-1.0.0.201608240809.aar/869b73d32e07156c619785194a3fb4e3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -8,11 +8,10 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.R.id.spinner_item_zip_status
 import de.robv.android.xposed.installer.R.id.spinner_item_zip_title
 import de.robv.android.xposed.installer.R.layout.spinner_list_zip
-import de.robv.android.xposed.installer.core.models.ZipModel
+import de.robv.android.xposed.installer.core.logic.models.ZipModel
 
 class ZipSpinnerAdapter(private val ctx: Context, private val zip: ArrayList<ZipModel>)
     //: ArrayAdapter<ZipModel>(ctx, R.layout.spinner_list_zip, R.id.spinner_item_zip_title, zip)

@@ -177,7 +177,7 @@
     <string name="about_source_label">Kaynak kodu</string>
     <string name="about_libraries_label">Kullanılan kütüphaneler</string>
 
-    <!-- DownloadViewMvc -->
+    <!-- DownloadView -->
     <string name="download_view_download">İndir</string>
     <string name="download_view_install">Yükle</string>
     <string name="download_view_cancel">İptal</string>

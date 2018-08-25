@@ -17,19 +17,20 @@ import de.robv.android.xposed.installer.mobile.XposedApp
 
 import java.io.IOException
 
-import de.robv.android.xposed.installer.core.base.BaseXposedApp
-import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller
-import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
-import de.robv.android.xposed.installer.core.mvc.FrameworkViewMvc
-import de.robv.android.xposed.installer.core.models.ZipModel
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseStatusInstaller
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseStatusInstaller.Companion.DISABLE_FILE
+import de.robv.android.xposed.installer.core.logic.mvc.FrameworkViewMvc
+import de.robv.android.xposed.installer.core.logic.models.ZipModel
 import de.robv.android.xposed.installer.core.util.*
 import de.robv.android.xposed.installer.core.util.FrameworkZips.LocalZipLoader
 import de.robv.android.xposed.installer.core.util.FrameworkZips.OnlineZipLoader
 import de.robv.android.xposed.installer.core.util.Loader.Listener
+import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.adapters.zip.ZipSpinnerAdapter
+import de.robv.android.xposed.installer.mobile.logic.createFragment
 import de.robv.android.xposed.installer.mobile.ui.activities.InstallationActivity
-import de.robv.android.xposed.installer.mobile.mvc.FrameworkViewMvcImp
-import de.robv.android.xposed.installer.mobile.ui.fragments.list.DeviceInfoFragment
+import de.robv.android.xposed.installer.mobile.ui.mvc.FrameworkViewMvcImp
 import kotlinx.android.synthetic.main.fragment_status_installer.view.*
 import kotlinx.android.synthetic.main.view_state.*
 import kotlinx.android.synthetic.main.view_state.view.*
@@ -129,7 +130,7 @@ class StatusInstallerFragment : Fragment(), FrameworkViewMvc.FrameworkDelegate
 
 
     private fun setSheetFragment(){
-        childFragmentManager.beginTransaction().replace(R.id.app_sheet_content, DeviceInfoFragment()).commit()
+        childFragmentManager.beginTransaction().replace(R.id.app_sheet_content, Navigation.FRAG_DEVICE.createFragment()).commit()
     }
 
     private fun refreshInstallStatus() {

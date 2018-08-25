@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.support.v17.leanback.widget.*
 import android.util.Log
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.BaseStatusInstaller
-import de.robv.android.xposed.installer.core.models.ZipModel
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseStatusInstaller
+import de.robv.android.xposed.installer.core.logic.models.ZipModel
 import de.robv.android.xposed.installer.core.util.FrameworkZips
 import de.robv.android.xposed.installer.core.util.Loader
 import de.robv.android.xposed.installer.tv.XposedApp

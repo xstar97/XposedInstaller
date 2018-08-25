@@ -3,8 +3,8 @@ package de.robv.android.xposed.installer.mobile.ui.anko
 import android.content.Context
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import de.robv.android.xposed.installer.core.delegates.InfoDelegate
-import de.robv.android.xposed.installer.core.models.InfoModel
+import de.robv.android.xposed.installer.core.logic.delegates.InfoDelegate
+import de.robv.android.xposed.installer.core.logic.models.InfoModel
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.InfoBaseAdapter
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView

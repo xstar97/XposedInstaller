@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.support.v17.leanback.widget.*
 import android.util.Log
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.BaseXposedApp
-import de.robv.android.xposed.installer.core.base.fragments.BaseSettings
-import de.robv.android.xposed.installer.core.base.fragments.download.BaseDownload
-import de.robv.android.xposed.installer.core.mvc.DownloadViewMvc
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
+import de.robv.android.xposed.installer.core.logic.base.fragments.download.BaseDownload
+import de.robv.android.xposed.installer.core.logic.mvc.DownloadViewMvc
 import de.robv.android.xposed.installer.core.repo.RepoDb
 import de.robv.android.xposed.installer.core.repo.RepoDbDefinitions
 import de.robv.android.xposed.installer.core.util.Loader

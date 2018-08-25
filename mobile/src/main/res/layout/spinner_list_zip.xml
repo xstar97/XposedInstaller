@@ -21,14 +21,17 @@
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             tools:text="Version 123"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
             android:layout_marginEnd="4dp" />
 
         <ImageView
             android:id="@+id/spinner_item_zip_status"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
+            android:layout_alignEnd="@+id/spinner_item_zip_title"
+            android:layout_alignRight="@+id/spinner_item_zip_title"
+            android:layout_centerVertical="true"
             tools:ignore="ContentDescription"
             tools:src="@drawable/ic_cloud" />
 

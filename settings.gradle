@@ -1,1 +1,1 @@
-include ':mobile', ':tv', ':core', ':AndroidHiddenAPI'
+include ':core', ':mobile', ':tv'

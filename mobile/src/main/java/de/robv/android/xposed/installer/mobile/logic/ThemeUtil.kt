@@ -3,13 +3,14 @@ package de.robv.android.xposed.installer.mobile.logic
 import android.content.Context
 
 import de.robv.android.xposed.installer.core.R
-import de.robv.android.xposed.installer.core.base.BaseXposedApp
-import de.robv.android.xposed.installer.mobile.ui.activities.XposedBaseActivity
+import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp
+import de.robv.android.xposed.installer.mobile.ui.activities.base.XposedBaseActivity
 
-object ThemeUtil {
+object ThemeUtil
+{
     private val THEMES = intArrayOf(R.style.Theme_XposedInstaller_Light, R.style.Theme_XposedInstaller_Dark, R.style.Theme_XposedInstaller_Dark_Black)
 
-    val selectTheme: Int
+    private val selectTheme: Int
         get() {
             val myTheme = BaseXposedApp.getPreferences().getString("theme", "0")
             val theme = Integer.parseInt(myTheme)

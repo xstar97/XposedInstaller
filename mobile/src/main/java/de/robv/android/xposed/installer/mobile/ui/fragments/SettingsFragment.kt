@@ -13,7 +13,7 @@ import android.widget.Toast
 import java.io.IOException
 
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.BaseSettings
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.mobile.ui.fragments.base.BasePreferenceFragment

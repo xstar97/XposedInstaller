@@ -5,7 +5,7 @@ import android.support.v17.leanback.widget.GuidanceStylist
 import android.support.v17.leanback.widget.GuidedAction
 import android.util.Log
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.BaseSupport
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSupport
 import de.robv.android.xposed.installer.tv.XposedApp
 import de.robv.android.xposed.installer.tv.ui.fragments.base.BaseGuidedFragment
 

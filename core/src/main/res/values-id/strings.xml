@@ -70,7 +70,7 @@
     <string name="about_source_label">Source code:</string>
     <string name="about_libraries_label">Library yang digunakan:</string>
 
-    <!-- DownloadViewMvc -->
+    <!-- DownloadView -->
     <string name="download_view_download">Unduh</string>
     <string name="download_view_install">Pasang</string>
     <string name="download_view_cancel">Batal</string>

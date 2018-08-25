@@ -5,7 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.preference.Preference
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.core.base.fragments.BaseSettings
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity
