@@ -29,6 +29,10 @@ Bottom Nav(MOBILE)         |            TV
 ### TODO
 
 - TV Module:)
+
+The tv module is still being work on, but a lot modules mostly focus on mobile apps not nearly as many tv apps at all.
+trying to figure out on how to load modules to download either by adding a share function in mobile to send the apk to get installed on the tv device(aka shield tv)
+
 - remove unused dependencies...
 - remove specific ui/notification from core to be more universal!
 - create utlity/base classes to be resused in both mobile and tv modules and be written in 'core' module
