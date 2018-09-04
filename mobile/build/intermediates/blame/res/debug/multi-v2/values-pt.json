@@ -4,24 +4,7 @@
             "outputFile": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt\\values-pt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\licensesdialog-1.8.3.aar\\490953d4fc051c6f76f6154681bd7f70\\res\\values-pt\\strings.xml",
-                    "from": {
-                        "startLines": "19,18",
-                        "startColumns": "4,4",
-                        "startOffsets": "767,717",
-                        "endColumns": "48,48",
-                        "endOffsets": "811,761"
-                    },
-                    "to": {
-                        "startLines": "128,129",
-                        "startColumns": "4,4",
-                        "startOffsets": "11068,11117",
-                        "endColumns": "48,48",
-                        "endOffsets": "11112,11161"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\ef09e146a09f65346f60a06be1144ce4\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\107bd54afb8cfcff059fdc6df008f46f\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ffd4ad83f7fbc92619563073718f5999\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\licensesdialog-1.8.3.aar\\4374a067426e645ee16e5e478ccd7008\\res\\values-pt\\strings.xml",
+                    "from": {
+                        "startLines": "19,18",
+                        "startColumns": "4,4",
+                        "startOffsets": "767,717",
+                        "endColumns": "48,48",
+                        "endOffsets": "811,761"
+                    },
+                    "to": {
+                        "startLines": "128,129",
+                        "startColumns": "4,4",
+                        "startOffsets": "11068,11117",
+                        "endColumns": "48,48",
+                        "endOffsets": "11112,11161"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\808b6d06f96a200d07dfbe8c435ecab1\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

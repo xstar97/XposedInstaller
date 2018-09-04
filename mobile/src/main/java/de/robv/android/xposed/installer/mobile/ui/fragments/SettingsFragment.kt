@@ -49,7 +49,7 @@ class SettingsFragment : BasePreferenceFragment()
         val preference = findPreference(key)
         if (preference != null) {
             Log.d(XposedApp.TAG, "key: $key")
-            val value = sharedPreferences!!.getString(preference.key, "")
+            val value = sharedPreferences!!.getString(preference.key, "")!!
             setPreferenceSummery(preference, value)
 
             if (key == BaseSettings.prefTheme || key == BaseSettings.prefNav){

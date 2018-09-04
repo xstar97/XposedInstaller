@@ -22,6 +22,7 @@ import org.jetbrains.anko.*
 import java.io.File
 import java.io.IOException
 
+@Suppress("UNUSED_VARIABLE")
 open class BaseStatusInstaller
 {
     companion object {
@@ -86,7 +87,6 @@ open class BaseStatusInstaller
         val actionFlashRecoveryId = actionFlashRecovery
 
         //TODO add save function
-
         val actionSaveTitle = "Save to..."
         val actionSaveId = actionSave
 

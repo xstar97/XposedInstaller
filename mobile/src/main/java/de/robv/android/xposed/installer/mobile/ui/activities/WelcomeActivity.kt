@@ -1,19 +1,24 @@
 package de.robv.android.xposed.installer.mobile.ui.activities
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.widget.DrawerLayout
+import android.util.Log
 import android.widget.Toast
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.delegates.NavigationDelegate
 import de.robv.android.xposed.installer.core.util.Loader
 import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.core.util.RepoLoader
+import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.Navigation
 import de.robv.android.xposed.installer.mobile.logic.ThemeUtil
 import de.robv.android.xposed.installer.mobile.logic.Utils
 import de.robv.android.xposed.installer.mobile.logic.getNavPos
 import de.robv.android.xposed.installer.mobile.ui.activities.base.BaseNavActivity
+import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 
 class WelcomeActivity: BaseNavActivity(),
@@ -32,15 +37,15 @@ class WelcomeActivity: BaseNavActivity(),
     private var mRepoLoader: RepoLoader? = null
 
     override fun onReloadDone(loader: RepoLoader) {
-        //notifyDataSetChanged()
+        notifyDataSetChanged()
     }
 
     override fun onInstalledModulesReloaded(moduleUtil: ModuleUtil?) {
-        //notifyDataSetChanged()
+        notifyDataSetChanged()
     }
 
     override fun onSingleInstalledModuleReloaded(moduleUtil: ModuleUtil?, packageName: String?, module: ModuleUtil.InstalledModule?) {
-        //notifyDataSetChanged()
+        notifyDataSetChanged()
     }
 
     override fun onCreate(savedInstanceBundle: Bundle?) {
@@ -76,7 +81,7 @@ class WelcomeActivity: BaseNavActivity(),
         setNavActive(navPosition.getNavPos())
     }
 
-    /*
+
     private fun notifyDataSetChanged() {
         val parentLayout = content
         val frameworkUpdateVersion = mRepoLoader!!.frameworkUpdateVersion
@@ -100,5 +105,5 @@ class WelcomeActivity: BaseNavActivity(),
         }catch (e: Exception){
             Log.d(XposedApp.TAG, e.message)
         }
-    }*/
+    }
 }

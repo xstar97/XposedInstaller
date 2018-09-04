@@ -24,7 +24,7 @@ class AboutFragment: BaseGuidedFragment()
     override fun onCreateActions(actions: MutableList<GuidedAction>, savedInstanceState: Bundle?) {
 
         try {
-            val list = getActionsFromList(activity!!, BaseAbout().getAboutList(activity!!))
+            val list = getActionsFromDeviceList(activity!!, BaseAbout().getAboutList(activity!!))
             for (about in list) {
                 actions.add(about)
             }

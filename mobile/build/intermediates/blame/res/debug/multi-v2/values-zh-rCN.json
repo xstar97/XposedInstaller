@@ -4,23 +4,6 @@
             "outputFile": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rCN\\values-zh-rCN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\ef09e146a09f65346f60a06be1144ce4\\res\\values-zh-rCN\\values-zh-rCN.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "159",
-                        "startColumns": "4",
-                        "startOffsets": "9809",
-                        "endColumns": "100",
-                        "endOffsets": "9905"
-                    }
-                },
-                {
                     "source": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\core\\build\\intermediates\\packaged_res\\debug\\values-zh-rCN\\values-zh-rCN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\ffd4ad83f7fbc92619563073718f5999\\res\\values-zh-rCN\\values-zh-rCN.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\licensesdialog-1.8.3.aar\\4374a067426e645ee16e5e478ccd7008\\res\\values-zh-rCN\\strings.xml",
+                    "from": {
+                        "startLines": "19,18",
+                        "startColumns": "4,4",
+                        "startOffsets": "768,717",
+                        "endColumns": "44,49",
+                        "endOffsets": "808,762"
+                    },
+                    "to": {
+                        "startLines": "126,127",
+                        "startColumns": "4,4",
+                        "startOffsets": "7961,8006",
+                        "endColumns": "44,49",
+                        "endOffsets": "8001,8051"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\808b6d06f96a200d07dfbe8c435ecab1\\res\\values-zh-rCN\\values-zh-rCN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,20 +55,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\licensesdialog-1.8.3.aar\\490953d4fc051c6f76f6154681bd7f70\\res\\values-zh-rCN\\strings.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\107bd54afb8cfcff059fdc6df008f46f\\res\\values-zh-rCN\\values-zh-rCN.xml",
                     "from": {
-                        "startLines": "19,18",
-                        "startColumns": "4,4",
-                        "startOffsets": "768,717",
-                        "endColumns": "44,49",
-                        "endOffsets": "808,762"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "126,127",
-                        "startColumns": "4,4",
-                        "startOffsets": "7961,8006",
-                        "endColumns": "44,49",
-                        "endOffsets": "8001,8051"
+                        "startLines": "159",
+                        "startColumns": "4",
+                        "startOffsets": "9809",
+                        "endColumns": "100",
+                        "endOffsets": "9905"
                     }
                 }
             ]

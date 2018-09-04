@@ -5,14 +5,16 @@ import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.tv.ui.fragments.*
-import de.robv.android.xposed.installer.tv.ui.fragments.browse.StatusInstallerBrowseFragment
+import de.robv.android.xposed.installer.tv.ui.fragments.StatusInstallerBrowseFragment
 import de.robv.android.xposed.installer.tv.ui.fragments.download.DownloadFragment
 import de.robv.android.xposed.installer.tv.ui.fragments.download.DownloadSettingsFragment
 import de.robv.android.xposed.installer.tv.ui.fragments.list.AboutFragment
 import de.robv.android.xposed.installer.tv.ui.fragments.list.DeviceInfoFragment
+import de.robv.android.xposed.installer.tv.ui.fragments.list.SupportFragment
 import de.robv.android.xposed.installer.tv.ui.fragments.module.ModulesFragment
 
-enum class Navigation(val pos: Int, @DrawableRes val icon: Int, @StringRes val title: Int) {
+enum class Navigation(val pos: Int, @DrawableRes val icon: Int, @StringRes val title: Int)
+{
     NAV_HOME(0, R.drawable.ic_nav_install, R.string.nav_item_install),
     NAV_MODULES(1, R.drawable.ic_nav_modules, R.string.nav_item_modules),
     NAV_DOWNLOAD(2, R.drawable.ic_nav_downloads, R.string.nav_item_download),

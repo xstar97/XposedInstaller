@@ -7,6 +7,7 @@ import android.util.Log
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.tv.XposedApp
 import de.robv.android.xposed.installer.tv.logic.Navigation
+import de.robv.android.xposed.installer.tv.logic.presenters.CardPresenter
 import de.robv.android.xposed.installer.tv.ui.activities.containers.ViewActivity
 import de.robv.android.xposed.installer.tv.ui.activities.containers.ViewActivity.Companion.INTENT_NAV_KEY
 import de.robv.android.xposed.installer.tv.ui.fragments.base.BaseBrowseSupportFragment
@@ -46,9 +47,9 @@ class WelcomeFragment : BaseBrowseSupportFragment()
     @Suppress("UNUSED_PARAMETER")
     private fun loadRows(context: Context){
         mRowsAdapter = ArrayObjectAdapter(ListRowPresenter())
-        val mGridPresenter = GridNavPresenter()
-        val gridRowAdapter0 = ArrayObjectAdapter(mGridPresenter)
-        val gridRowAdapter1 = ArrayObjectAdapter(mGridPresenter)
+        val mCardPresenter = CardPresenter(activity!!)//ImageCardViewPresenter(activity!!)
+        val gridRowAdapter0 = ArrayObjectAdapter(mCardPresenter)
+        val gridRowAdapter1 = ArrayObjectAdapter(mCardPresenter)
         val initList= navList()
 
         for (nav0 in initList.first){

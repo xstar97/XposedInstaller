@@ -62,7 +62,6 @@ class SettingsFragment: BaseGuidedFragment()
                     } catch (e: IOException) {
                         Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
                     }
-
                 } else {
                     BaseSettings.mDisableResourcesFlag.delete()
                     Log.v(XposedApp.TAG, "deleting...${BaseSettings.mDisableResourcesFlag.name}")
@@ -103,10 +102,11 @@ class SettingsFragment: BaseGuidedFragment()
                 .description(activity!!.getString(R.string.settings_disable_resources_summary))
                 .checkSetId(CHECKBOX_CHECK_SET_ID)
                 .checked(getDisableResourcesCheckState())
+                .enabled(false)
                 .build()
     }
 
-    private fun getReleaseTypeGlobalSummary(): String{
+    private fun getReleaseTypeGlobalSummary(): String?{
         return XposedApp.getPreferences().getString(BaseSettings.prefType, releaseTypeValues()[0])
     }
     private fun getDisableResourcesCheckState(): Boolean{
@@ -117,6 +117,6 @@ class SettingsFragment: BaseGuidedFragment()
         return resources.getStringArray(R.array.release_type_texts)
     }
     private fun releaseTypeValues(): Array<String>{
-        return activity!!.resources.getStringArray(R.array.release_type_values)
+        return resources.getStringArray(R.array.release_type_values)
     }
 }

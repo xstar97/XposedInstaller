@@ -86,7 +86,7 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         BaseModules.installedXposedVersion = XposedApp.getInstalledXposedVersion()
         when{
             BaseModules.installedXposedVersion < 0 || XposedApp.getActiveXposedVersion() < 0 || DISABLE_FILE.exists()->{
-                val notActiveNote = activity!!.layoutInflater!!.inflate(view_state_xposed_note, listView, false)
+                val notActiveNote = activity!!.layoutInflater.inflate(view_state_xposed_note, listView, false)
                 if (BaseModules.installedXposedVersion < 0) {
                     notActiveNote.findViewById<TextView>(android.R.id.title).setText(R.string.framework_not_installed)
                 }

@@ -29,15 +29,15 @@ import de.robv.android.xposed.installer.core.util.ModuleUtil.ModuleListener
 import de.robv.android.xposed.installer.core.util.RepoLoader
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.adapters.download.DownloadsAdapter
-import de.robv.android.xposed.installer.mobile.mvc.DownloadViewMvcImp
+import de.robv.android.xposed.installer.mobile.ui.mvc.DownloadViewMvcImp
 import de.robv.android.xposed.installer.mobile.ui.activities.DownloadDetailsActivity
 import kotlinx.android.synthetic.main.fragment_download.view.*
 import kotlinx.android.synthetic.main.view_state.view.*
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView
 
-//TODO replace list view with recyclerView and base adapter
 class DownloadFragment : Fragment(), DownloadViewMvc.DownloadDelegate, Loader.Listener<RepoLoader>, ModuleListener
 {
+
     companion object {
         val TAG: String = DownloadFragment::class.java.simpleName
         fun newInstance() = DownloadFragment()
@@ -82,7 +82,7 @@ class DownloadFragment : Fragment(), DownloadViewMvc.DownloadDelegate, Loader.Li
         mRefreshHintIcon.setImageResource(R.drawable.ic_menu_refresh)
         val mRefreshHintTitle = mDownloadViewImp.getRootView().view_state_title
         mRefreshHintTitle.text = activity!!.getString(R.string.update_download_list)
-        val refreshLayout = mDownloadViewImp.getRootView().swiperefreshlayout//mDownloadViewImp.getRootView().findViewById(R.id.swiperefreshlayout) as SwipeRefreshLayout
+        val refreshLayout = mDownloadViewImp.getRootView().swipeRefreshLayout//mDownloadViewImp.getRootView().findViewById(R.id.swiperefreshlayout) as SwipeRefreshLayout
         refreshLayout.setColorSchemeColors(ContextCompat.getColor(activity!!,R.color.colorPrimary))
         mRepoLoader!!.addListener(this)
         mRepoLoader!!.setSwipeRefreshLayout(refreshLayout)
@@ -121,9 +121,10 @@ class DownloadFragment : Fragment(), DownloadViewMvc.DownloadDelegate, Loader.Li
         mSortingOrder = mPref!!.getInt(BaseSettings.prefDownloadSort, mSortingOrder)
         reloadItems()
     }
-    override fun onSearchInit() {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onQueryFilter(data: String?) {
+        setFilter(data)
     }
+
     override fun onModuleSelected(pkg: String?) {
         Log.v(XposedApp.TAG, "myPKG: $pkg")
         val detailsIntent = Intent(activity, DownloadDetailsActivity::class.java)
@@ -180,30 +181,6 @@ class DownloadFragment : Fragment(), DownloadViewMvc.DownloadDelegate, Loader.Li
     private fun reloadItems() {
         mAdapter!!.filter.filter(mFilterText)
     }
-
-    /*
-    @Suppress("UNUSED_ANONYMOUS_PARAMETER")
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.menu_sort -> {
-                //BaseDownload().showSortingDialog(activity!!)
-                /*
-                MaterialDialog.Builder(activity!!)
-                        .title(R.string.download_sorting_title)
-                        .items(R.array.download_sort_order)
-                        .itemsCallbackSingleChoice(mSortingOrder
-                        ) { materialDialog, view, i, charSequence ->
-                            mSortingOrder = i
-                            mPref!!.edit().putInt("download_sorting_order", mSortingOrder).apply()
-                            reloadItems()
-                            materialDialog.dismiss()
-                            true
-                        }
-                        .show()*/
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }*/
 
     override fun onReloadDone(loader: RepoLoader) {
         reloadItems()

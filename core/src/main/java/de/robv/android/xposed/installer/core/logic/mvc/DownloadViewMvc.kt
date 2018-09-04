@@ -13,7 +13,7 @@ interface DownloadViewMvc
          */
         fun onModuleSelected(pkg: String?)
 
-        fun onSearchInit()
+        fun onQueryFilter(data: String?)
 
         fun onSortingDialogOptionSelected(sort: Int)
 

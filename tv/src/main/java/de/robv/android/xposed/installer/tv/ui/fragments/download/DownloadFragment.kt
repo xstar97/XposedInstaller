@@ -20,10 +20,18 @@ import de.robv.android.xposed.installer.tv.XposedApp
 import de.robv.android.xposed.installer.tv.logic.Navigation
 import de.robv.android.xposed.installer.tv.ui.fragments.base.BaseBrowseSupportFragment
 import org.jetbrains.anko.selector
+import android.os.Handler
+import android.view.View
+import android.text.TextUtils
+import de.robv.android.xposed.installer.tv.logic.presenters.TextViewPresenter
 
 class DownloadFragment : BaseBrowseSupportFragment(), Loader.Listener<RepoLoader>,
-        ModuleUtil.ModuleListener, DownloadViewMvc.DownloadDelegate
-{
+        ModuleUtil.ModuleListener, DownloadViewMvc.DownloadDelegate, View.OnClickListener, android.support.v17.leanback.app.SearchSupportFragment.SearchResultProvider {
+
+    override fun onClick(v: View?) {
+        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     companion object {
         val TAG: String = DownloadFragment::class.java.simpleName
         fun newInstance() = DownloadFragment()
@@ -35,6 +43,11 @@ class DownloadFragment : BaseBrowseSupportFragment(), Loader.Listener<RepoLoader
     private var mModuleUtil: ModuleUtil? = null
 
     private var downloadListener : DownloadViewMvc.DownloadDelegate? = null
+
+
+    private val mHandler = Handler()
+    private var mQuery: String? = null
+    private val SEARCH_DELAY_MS = 1000
 
     override fun onInstalledModulesReloaded(moduleUtil: ModuleUtil?) {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -49,9 +62,11 @@ class DownloadFragment : BaseBrowseSupportFragment(), Loader.Listener<RepoLoader
     override fun onModuleSelected(pkg: String?) {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-    override fun onSearchInit() {
+
+    override fun onQueryFilter(data: String?) {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
     override fun onSortingDialogOptionSelected(sort: Int) {
 
         mSortingOrder = mPref!!.getInt(BaseSettings.prefDownloadSort, mSortingOrder)
@@ -105,6 +120,24 @@ class DownloadFragment : BaseBrowseSupportFragment(), Loader.Listener<RepoLoader
         loadRows(activity!!)
         downloadListener = this
         onItemViewClickedListener = this
+        setOnSearchClickedListener(this)
+    }
+
+    override fun getResultsAdapter(): ObjectAdapter {
+        return mRowsAdapter!!
+    }
+    override fun onQueryTextChange(newQuery: String): Boolean {
+        Log.i(TAG, String.format("Search Query Text Change %s", newQuery))
+        mRowsAdapter?.clear()
+        loadQuery(newQuery)
+        return true
+    }
+
+    override fun onQueryTextSubmit(query: String): Boolean {
+        Log.i(TAG, String.format("Search Query Text Submit %s", query))
+        mRowsAdapter?.clear()
+        loadQuery(query)
+        return true
     }
 
     override fun onResume() {
@@ -123,7 +156,7 @@ class DownloadFragment : BaseBrowseSupportFragment(), Loader.Listener<RepoLoader
     @Suppress("UNUSED_PARAMETER")
     private fun loadRows(context: Context) {
         mRowsAdapter = ArrayObjectAdapter(ListRowPresenter())
-        val mGridPresenter = GridCursorPresenter()
+        val mGridPresenter = TextViewPresenter(activity!!)//GridPresenter()
         val gridRowAdapter = ArrayObjectAdapter(mGridPresenter)
         val settingsPos: Int?
         when {
@@ -150,10 +183,19 @@ class DownloadFragment : BaseBrowseSupportFragment(), Loader.Listener<RepoLoader
             }
         }
 
-        val mNavPresenter = GridNavPresenter()
-        val navRowAdapter = ArrayObjectAdapter(mNavPresenter)
+        val navRowAdapter = ArrayObjectAdapter(mGridPresenter)
         navRowAdapter.add(0, Navigation.FRAG_DOWNLOAD_SETTINGS)
         mRowsAdapter!!.add(ListRow(HeaderItem(settingsPos.toLong(), "other"), navRowAdapter))
         adapter = mRowsAdapter
     }
+
+    private fun loadQuery(query: String) {
+        mQuery = query
+        mHandler.removeCallbacks(mDelayedLoad)
+        if (!TextUtils.isEmpty(query) && query != "nil") {
+            mHandler.postDelayed(mDelayedLoad, SEARCH_DELAY_MS.toLong())
+        }
+    }
+
+    private val mDelayedLoad = Runnable { loadRows(activity!!) }
 }

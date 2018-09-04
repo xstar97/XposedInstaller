@@ -17,4 +17,28 @@
         <item name="android:colorPrimary">@color/fastlane_background</item>
     </style>
 
+    <!-- TextCardView. used in cards example -->
+    <style name="TextCardStyle" parent="Widget.Leanback.BaseCardViewStyle">
+        <item name="cardBackground">@null</item>
+    </style>
+
+    <!-- CharacterCardView. used in details example -->
+    <style name="CharacterCardStyle" parent="Widget.Leanback.BaseCardViewStyle">
+        <item name="cardBackground">@null</item>
+    </style>
+
+    <!-- A default card style. Used in cards example. -->
+    <style name="DefaultCardImageStyle" parent="Widget.Leanback.ImageCardView.ImageStyle">
+        <item name="android:layout_width">@dimen/grid_item_width</item>
+        <item name="android:layout_height">@dimen/grid_item_height</item>
+    </style>
+
+    <style name="DefaultCardStyle" parent="Widget.Leanback.ImageCardViewStyle">
+        <item name="cardBackground">@null</item>
+    </style>
+
+    <style name="DefaultCardTheme" parent="Theme.Leanback">
+    <item name="imageCardViewImageStyle">@style/DefaultCardImageStyle</item>
+    </style>
+
 </resources>

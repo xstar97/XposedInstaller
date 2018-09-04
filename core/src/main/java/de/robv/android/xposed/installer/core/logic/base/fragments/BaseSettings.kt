@@ -19,5 +19,6 @@ open class BaseSettings
         const val prefRes = "disable_resources"
         const val prefNav = "default_navigation"
         const val prefTheme = "theme"
+        const val prefSubView = "default_sub_view"
     }
 }

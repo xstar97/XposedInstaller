@@ -2,7 +2,9 @@ package de.robv.android.xposed.installer.mobile.ui.mvc
 
 import android.content.Context
 import android.database.Cursor
+import android.support.v4.view.MenuItemCompat
 import android.support.v7.widget.PopupMenu
+import android.support.v7.widget.SearchView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -10,6 +12,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.CursorAdapter
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.R.id.search_view
 import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 import de.robv.android.xposed.installer.core.logic.base.fragments.download.BaseDownload
@@ -22,13 +25,14 @@ import kotlinx.android.synthetic.main.fragment_download.view.*
 import org.jetbrains.anko.selector
 
 class DownloadViewMvcImp(context: Context, adapter: DownloadsAdapter, layoutInflater: LayoutInflater):
-        DownloadViewMvc, View.OnClickListener, PopupMenu.OnMenuItemClickListener, AdapterView.OnItemClickListener
-{
-    private var mRootView = layoutInflater.inflate(R.layout.fragment_download, null)
-    private var downloadListener : DownloadViewMvc.DownloadDelegate? = null
+        DownloadViewMvc, View.OnClickListener, PopupMenu.OnMenuItemClickListener, AdapterView.OnItemClickListener, SearchView.OnQueryTextListener {
+
+    private var mRootView = layoutInflater.inflate(R.layout.fragment_download, null)//R.layout.fragment_download, null)
+    private var downloadDelegate : DownloadViewMvc.DownloadDelegate? = null
     private var myContext: Context? = context
     private var mAdapter: CursorAdapter? = adapter
     init{
+         mRootView.search_view.setOnQueryTextListener(this)
         mRootView.fabDownloadActions.setOnClickListener(this)
         mRootView.listModules.setOnItemClickListener(this)
     }
@@ -36,14 +40,25 @@ class DownloadViewMvcImp(context: Context, adapter: DownloadsAdapter, layoutInfl
     override fun getRootView() = this.mRootView!!
 
     override fun setDelegate(delegate: DownloadViewMvc.DownloadDelegate){
-        downloadListener = delegate
+        downloadDelegate = delegate
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        downloadDelegate?.onQueryFilter(query)
+        mRootView.search_view.clearFocus()
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        downloadDelegate?.onQueryFilter(newText)
+        return true
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         val id = item!!.itemId
         return when(id) {
             R.id.menu_search -> {
-                downloadListener?.onSearchInit()
+                mRootView.search_view.visibility = if(mRootView.search_view.visibility == View.VISIBLE) View.GONE else View.VISIBLE
                 return true
             }
             R.id.menu_sort -> {
@@ -52,7 +67,7 @@ class DownloadViewMvcImp(context: Context, adapter: DownloadsAdapter, layoutInfl
                     when(i){
                         BaseDownload.prefSortStatus, BaseDownload.prefSortUpdate, BaseDownload.prefSortCreate -> {
                             BaseXposedApp.getPreferences().edit().putInt(BaseSettings.prefDownloadSort, i).apply()
-                            downloadListener?.onSortingDialogOptionSelected(i)
+                            downloadDelegate?.onSortingDialogOptionSelected(i)
                         }
                     }
                 }
@@ -75,9 +90,39 @@ class DownloadViewMvcImp(context: Context, adapter: DownloadsAdapter, layoutInfl
             val cursor = mAdapter!!.getItem(position) as Cursor
             val packageName = cursor.getString(RepoDbDefinitions.OverviewColumnsIndexes.PKGNAME)
             Log.v(XposedApp.TAG, "pkg: $packageName")
-            downloadListener?.onModuleSelected(packageName)
+            downloadDelegate?.onModuleSelected(packageName)
         }catch (e: Exception){
             Log.e(XposedApp.TAG, e.message)
         }
     }
 }
+/*
+
+val searchItem = item//menu.findItem(R.id.menu_search)
+                mSearchView = searchItem.actionView as SearchView
+                mSearchView!!.setIconifiedByDefault(true)
+                mSearchView!!.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String): Boolean {
+                        downloadDelegate?.onQueryFilter(query)
+                        mSearchView!!.clearFocus()
+                        return true
+                    }
+
+                    override fun onQueryTextChange(newText: String): Boolean {
+                        downloadDelegate?.onQueryFilter(newText)
+                        return true
+                    }
+                })
+                @Suppress("DEPRECATION")
+                (MenuItemCompat.setOnActionExpandListener(searchItem, object : MenuItemCompat.OnActionExpandListener {
+                    override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
+                        downloadDelegate?.onQueryFilter(null)
+                        return true // Return true to collapse action view
+                    }
+
+                    override fun onMenuItemActionExpand(item: MenuItem): Boolean {
+                        return true // Return true to expand action view
+                    }
+                }))
+
+ */

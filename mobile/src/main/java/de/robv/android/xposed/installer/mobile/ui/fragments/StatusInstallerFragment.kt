@@ -61,7 +61,7 @@ class StatusInstallerFragment : Fragment(), FrameworkViewMvc.FrameworkDelegate
         super.onViewCreated(v, savedInstanceState)
 
         reloadData()
-        val refreshLayout = mFrameworkViewMvc.getRootView().swiperefreshlayout
+        val refreshLayout = mFrameworkViewMvc.getRootView().swipeRefreshLayout
         refreshLayout.setColorSchemeColors(ContextCompat.getColor(activity!!, R.color.colorPrimary))
 
         BaseStatusInstaller().mOnlineZipLoader.setSwipeRefreshLayout(refreshLayout)
@@ -141,8 +141,8 @@ class StatusInstallerFragment : Fragment(), FrameworkViewMvc.FrameworkDelegate
         val statusContainer = mFrameworkViewMvc.getRootView().status_container
         val statusIcon = mFrameworkViewMvc.getRootView().status_icon
 
-        frameworkInstallErrors.text = status.errorMes!!
-        frameworkInstallErrors.setTextColor(status.errorColor!!)
+        frameworkInstallErrors.text = status.statusMessage!!
+        frameworkInstallErrors.setTextColor(status.statusColor!!)
         statusContainer.setBackgroundColor(status.statusContainerColor!!)
         statusIcon.setImageDrawable(status.statusIcon!!)
         if (status.disableView != -1)

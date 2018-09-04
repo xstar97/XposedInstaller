@@ -27,11 +27,11 @@ class ModuleAdapter(context: Context) : ArrayAdapter<ModuleUtil.InstalledModule>
             }
         }
 
-        val item = getItem(position)
+        val item = getItem(position)!!
         val version = view.findViewById<TextView>(R.id.moduleVersionName)
-        val initWarning = BaseModules().getModuleWarnDescription(context!!, item.minVersion, item.isInstalledOnExternalStorage)
+        val initWarning = BaseModules().getModuleWarnDescription(context, item.minVersion, item.isInstalledOnExternalStorage)
 
-        version.text = item!!.versionName
+        version.text = item.versionName
 
         // Store the package name in some views' tag for later access
         view.findViewById<View>(R.id.moduleCheckbox).tag = item.packageName
@@ -44,8 +44,8 @@ class ModuleAdapter(context: Context) : ArrayAdapter<ModuleUtil.InstalledModule>
             descriptionText.text = item.description
             descriptionText.setTextColor(ThemeUtil.getThemeColor(context, android.R.attr.textColorSecondary))
         } else {
-            descriptionText.text = context!!.getString(R.string.module_empty_description)
-            val warningColor = ContextCompat.getColor(context!!, R.color.warning)
+            descriptionText.text = context.getString(R.string.module_empty_description)
+            val warningColor = ContextCompat.getColor(context, R.color.warning)
             descriptionText.setTextColor(warningColor)
         }
 

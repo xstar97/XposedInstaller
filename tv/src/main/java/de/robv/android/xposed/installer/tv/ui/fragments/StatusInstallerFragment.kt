@@ -50,7 +50,7 @@ class StatusInstallerFragment: BaseGuidedFragment()
         super.onResume()
         val xposed = findActionById(actionXposed.toLong())
         if (xposed != null){
-            val myDescription = getXposedData().errorMes!!
+            val myDescription = getXposedData().statusMessage!!
             val myIcon = getXposedData().statusIcon!!
             xposed.icon = myIcon
             xposed.description = myDescription
@@ -116,7 +116,7 @@ class StatusInstallerFragment: BaseGuidedFragment()
                 .id(actionXposed.toLong())
                 .title(activity!!.getString(R.string.app_name))
                 .icon(getXposedData().statusIcon!!)
-                .description(getXposedData().errorMes)
+                .description(getXposedData().statusMessage)
                 .build()
     }
 
@@ -159,7 +159,7 @@ class StatusInstallerFragment: BaseGuidedFragment()
         return GuidedAction.Builder(activity!!)
                 .id(id)
                 .title(title)
-                .subActions(getActionsFromList(activity!!, list))
+                .subActions(getActionsFromDeviceList(activity!!, list))
                 .build()
     }
 

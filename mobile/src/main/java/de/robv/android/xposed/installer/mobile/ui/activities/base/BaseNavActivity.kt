@@ -14,6 +14,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 import de.robv.android.xposed.installer.core.logic.delegates.NavigationDelegate
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.logic.*
@@ -66,7 +67,8 @@ open class BaseNavActivity: XposedBaseActivity(),
         when (id) {
             R.id.nav_item_support, R.id.nav_item_about ->{
                 val nav = findNavPosById(id)
-                Utils().launchSheet(supportFragmentManager, nav)
+                val context = if (XposedApp.getPreferences().getString(BaseSettings.prefSubView, "0")!!.toInt() == 2) this else myManager
+                Utils().launchView(context, nav)
                 return true
             }
         }

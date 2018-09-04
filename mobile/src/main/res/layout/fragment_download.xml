@@ -5,10 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".mobile.old.ui.fragments.download.DownloadFragment">
+    tools:context=".mobile.ui.fragments.download.DownloadFragment">
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/search_view"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swiperefreshlayout"
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_below="@id/search_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

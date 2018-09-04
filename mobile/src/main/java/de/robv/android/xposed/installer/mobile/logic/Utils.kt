@@ -4,12 +4,14 @@ import android.content.Context
 import android.support.v7.widget.PopupMenu
 import android.util.Log
 import android.view.View
+import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.ui.activities.base.ViewActivity
 import de.robv.android.xposed.installer.mobile.ui.fragments.base.ViewBottomSheetFragment
 import de.robv.android.xposed.installer.mobile.ui.fragments.base.ViewDialogFragment
 import org.jetbrains.anko.startActivity
 
+@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 open class Utils
 {
     companion object {
@@ -44,7 +46,7 @@ open class Utils
 
     private fun getPrefValue(key: String): Int {
         return try {
-            val value = XposedApp.getPreferences().getString(key, "0").toInt()
+            val value = XposedApp.getPreferences().getString(key, "0")!!.toInt()
             Log.d(XposedApp.TAG, "key: $key\nvalue: $value")
             value
         } catch (e: Exception) {
@@ -53,17 +55,40 @@ open class Utils
         }
     }
 
-    fun launchViewActivity(context: Context, nav: Navigation){
+    fun launchView(context: Any?, nav: Navigation?){
+        val subView = XposedApp.getPreferences().getString(BaseSettings.prefSubView, "0").toInt()
+        when(context){
+            is android.support.v4.app.FragmentManager ->{
+                when(subView){
+                    0 -> {
+                        val bottomSheetFragment = ViewBottomSheetFragment.newInstance(nav!!)
+                        bottomSheetFragment.show(context, bottomSheetFragment.tag)
+                    }
+                    1 -> {
+                        val dialog = ViewDialogFragment.newInstance(nav!!)
+                        dialog.show(context, dialog.tag)
+                    }
+                }
+
+            }
+            is Context ->{
+                context.startActivity<ViewActivity>(ViewActivity.INTENT_NAV_KEY to nav)
+            }
+        }
+    }
+
+    /*
+    private fun launchViewActivity(context: Context, nav: Navigation){
         context.startActivity<ViewActivity>(ViewActivity.INTENT_NAV_KEY to nav)
     }
-    fun launchSheet(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){
+    private fun launchSheet(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){
        val bottomSheetFragment = ViewBottomSheetFragment.newInstance(nav)
         bottomSheetFragment.show(fragmentManager, bottomSheetFragment.tag)
     }
-    fun launchDialog(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){
+    private fun launchDialog(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){
         val dialog = ViewDialogFragment.newInstance(nav)
         dialog.show(fragmentManager, dialog.tag)
-    }
+    }*/
     fun launchMenu(context: Context, v: View, menu: Int, delegate: PopupMenu.OnMenuItemClickListener): PopupMenu{
         val popUp = PopupMenu(context, v)
         popUp.menuInflater.inflate(menu, popUp.menu)

@@ -63,6 +63,14 @@
 
         <android.support.v7.preference.ListPreference
             android:defaultValue="0"
+            android:entries="@array/default_sub_view_texts"
+            android:entryValues="@array/default_sub_view_values"
+            android:key="default_sub_view"
+            android:summary="%s"
+            android:title="default sub view"/>
+
+        <android.support.v7.preference.ListPreference
+            android:defaultValue="0"
             android:entries="@array/default_navigation_texts"
             android:entryValues="@array/default_navigation_values"
             android:key="default_navigation"

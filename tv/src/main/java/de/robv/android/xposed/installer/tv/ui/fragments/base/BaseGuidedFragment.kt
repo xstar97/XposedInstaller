@@ -1,6 +1,8 @@
 package de.robv.android.xposed.installer.tv.ui.fragments.base
 
 import android.content.Context
+import android.support.annotation.ArrayRes
+import android.support.annotation.IntegerRes
 import android.support.v17.leanback.app.GuidedStepSupportFragment
 import android.support.v17.leanback.widget.GuidedAction
 import android.support.v17.leanback.widget.GuidedAction.CHECKBOX_CHECK_SET_ID
@@ -27,7 +29,7 @@ open class BaseGuidedFragment : GuidedStepSupportFragment() {
         }
         return actions
     }
-    fun getActionsFromList(context: Context, list: ArrayList<InfoModel>): ArrayList<GuidedAction>{
+    fun getActionsFromDeviceList(context: Context, list: ArrayList<InfoModel>): ArrayList<GuidedAction>{
         val actions = ArrayList<GuidedAction>()
         for (info in list) {
             val pos = info.pos.toLong()

@@ -40,7 +40,7 @@ class CustomTabActivityHelper : ServiceConnectionCallback {
     fun unbindCustomTabsService(activity: Activity) {
         if (mConnection == null)
             return
-        activity.unbindService(mConnection)
+        activity.unbindService(mConnection!!)
         mClient = null
         mCustomTabsSession = null
         mConnection = null
