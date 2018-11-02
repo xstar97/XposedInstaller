@@ -13,13 +13,14 @@
     <application
         android:name=".tv.XposedApp"
         android:allowBackup="false"
+        tools:replace="android:allowBackup"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="de.robv.android.xposed.installer.tv.ui.activities.SplashActivity"
+            android:name="de.robv.android.xposed.installer.tv.ui.main.SplashActivity"
             android:banner="@drawable/app_icon_your_company"
             android:icon="@drawable/app_icon_your_company"
             android:logo="@drawable/app_icon_your_company"
@@ -32,9 +33,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".tv.ui.activities.WelcomeActivity" />
-        <activity android:name=".tv.ui.activities.containers.ViewActivity"/>
-        <activity android:name=".tv.ui.activities.InstallationActivity" />
+        <activity android:name=".tv.ui.main.WelcomeActivity" />
+        <activity android:name=".tv.ui.base.ViewActivity"/>
+        <activity android:name=".tv.ui.installation.InstallationActivity" />
 
     </application>
 

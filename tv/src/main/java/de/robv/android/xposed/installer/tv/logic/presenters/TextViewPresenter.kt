@@ -48,7 +48,9 @@ class TextViewPresenter(private val context: Context?): Presenter(){
             }
             is Cursor -> {
                 textView.text = item.getString(RepoDbDefinitions.OverviewColumnsIndexes.TITLE)
-            }
+            } else ->{
+            textView.text = item.toString()
+        }
         }
 
     }

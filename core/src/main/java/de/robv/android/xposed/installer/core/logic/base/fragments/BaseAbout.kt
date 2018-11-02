@@ -11,9 +11,11 @@ import de.psdev.licensesdialog.licenses.SILOpenFontLicense11
 import de.psdev.licensesdialog.model.Notice
 import de.psdev.licensesdialog.model.Notices
 import de.robv.android.xposed.installer.core.R
+import de.robv.android.xposed.installer.core.logic.Util
 import de.robv.android.xposed.installer.core.logic.models.InfoModel
 import de.robv.android.xposed.installer.core.util.NavUtil
 import org.jetbrains.anko.alert
+import org.jetbrains.anko.toast
 
 class BaseAbout
 {
@@ -36,7 +38,10 @@ class BaseAbout
     }
     //actions
     fun showGitHubPage(context: Context){
-        NavUtil.startURL(context as Activity, context.getString(R.string.about_source))
+        if(!Util().isDeviceTV(context))
+            NavUtil.startURL(context as Activity, context.getString(R.string.about_source))
+        else
+            context.toast("no browser")
     }
     fun showDevelopersDialog(context: Context){
         /*

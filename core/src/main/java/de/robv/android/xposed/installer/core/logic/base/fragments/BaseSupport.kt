@@ -4,8 +4,11 @@ import android.app.Activity
 import android.content.Context
 import android.support.v4.content.ContextCompat
 import de.robv.android.xposed.installer.core.R
+import de.robv.android.xposed.installer.core.logic.Util
 import de.robv.android.xposed.installer.core.logic.models.InfoModel
 import de.robv.android.xposed.installer.core.util.NavUtil
+import eu.chainfire.libsuperuser.Application.toast
+import org.jetbrains.anko.toast
 
 open class BaseSupport
 {
@@ -36,6 +39,9 @@ open class BaseSupport
     }
 
     private fun setNavUtil(context: Context,string: String){
-        NavUtil.startURL(context as Activity, string)
+        if (!Util().isDeviceTV(context))
+            NavUtil.startURL(context as Activity, string)
+        else
+            context.toast("no browser...")
     }
 }

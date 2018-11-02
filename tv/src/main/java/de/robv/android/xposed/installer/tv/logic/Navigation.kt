@@ -4,14 +4,16 @@ import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.tv.ui.fragments.*
-import de.robv.android.xposed.installer.tv.ui.fragments.StatusInstallerBrowseFragment
-import de.robv.android.xposed.installer.tv.ui.fragments.download.DownloadFragment
-import de.robv.android.xposed.installer.tv.ui.fragments.download.DownloadSettingsFragment
-import de.robv.android.xposed.installer.tv.ui.fragments.list.AboutFragment
-import de.robv.android.xposed.installer.tv.ui.fragments.list.DeviceInfoFragment
-import de.robv.android.xposed.installer.tv.ui.fragments.list.SupportFragment
-import de.robv.android.xposed.installer.tv.ui.fragments.module.ModulesFragment
+import de.robv.android.xposed.installer.tv.ui.framework.StatusInstallerBrowseFragment
+import de.robv.android.xposed.installer.tv.ui.download.DownloadGuidedFragment
+import de.robv.android.xposed.installer.tv.ui.error.ErrorFragment
+import de.robv.android.xposed.installer.tv.ui.framework.StatusInstallerFragment
+import de.robv.android.xposed.installer.tv.ui.list.AboutFragment
+import de.robv.android.xposed.installer.tv.ui.list.DeviceInfoFragment
+import de.robv.android.xposed.installer.tv.ui.list.SupportFragment
+import de.robv.android.xposed.installer.tv.ui.logs.LogsGuidedFragment
+import de.robv.android.xposed.installer.tv.ui.module.ModulesFragment
+import de.robv.android.xposed.installer.tv.ui.settings.SettingsFragment
 
 enum class Navigation(val pos: Int, @DrawableRes val icon: Int, @StringRes val title: Int)
 {
@@ -39,27 +41,25 @@ fun findNavByPos(pos: Int): Navigation = when (pos) {
     else -> Navigation.FRAG_ERROR
 }
 fun Navigation.createFragment(): Fragment = when (this) {
-    Navigation.NAV_HOME -> StatusInstallerBrowseFragment.newInstance()
+    Navigation.NAV_HOME -> StatusInstallerBrowseFragment.newInstance()//StatusInstallerBrowseFragment.newInstance()
     Navigation.NAV_MODULES -> ModulesFragment.newInstance()
-    Navigation.NAV_DOWNLOAD -> DownloadFragment.newInstance()
-  //Navigation.NAV_LOGS -> LogsFragment.newInstance()
+    //Navigation.NAV_DOWNLOAD -> DownloadGuidedFragment.newInstance()
+    Navigation.NAV_LOGS -> LogsGuidedFragment.newInstance()
     Navigation.NAV_SUPPORT -> SupportFragment.newInstance()
     Navigation.NAV_ABOUT -> AboutFragment.newInstance()
     Navigation.NAV_SETTINGS -> SettingsFragment.newInstance()
     Navigation.FRAG_DEVICE -> DeviceInfoFragment.newInstance()
-    Navigation.FRAG_DOWNLOAD_SETTINGS -> DownloadSettingsFragment.newInstance()
     else -> ErrorFragment.newInstance()
 }
 
 fun Navigation.getTag(): String = when (this) {
     Navigation.NAV_HOME -> StatusInstallerBrowseFragment.TAG
     Navigation.NAV_MODULES -> ModulesFragment.TAG
-    Navigation.NAV_DOWNLOAD -> DownloadFragment.TAG
-  //Navigation.NAV_LOGS -> LogsFragment.TAG
+    Navigation.NAV_DOWNLOAD -> DownloadGuidedFragment.TAG
+    Navigation.NAV_LOGS -> LogsGuidedFragment.TAG
     Navigation.NAV_SUPPORT -> SupportFragment.TAG
     Navigation.NAV_ABOUT -> AboutFragment.TAG
     Navigation.NAV_SETTINGS -> SettingsFragment.TAG
     Navigation.FRAG_DEVICE -> DeviceInfoFragment.TAG
-    Navigation.FRAG_DOWNLOAD_SETTINGS -> DownloadSettingsFragment.TAG
     else -> ErrorFragment.TAG
 }

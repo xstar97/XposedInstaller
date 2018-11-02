@@ -49,8 +49,6 @@ dependencies {
     api supportDependencies.customTabs
 
     api ankoDependencies.commons
-    api ankoDependencies.coroutines
-    api ankoDependencies.sqlite
 
     api utilsDependencies.issueReporter
 }

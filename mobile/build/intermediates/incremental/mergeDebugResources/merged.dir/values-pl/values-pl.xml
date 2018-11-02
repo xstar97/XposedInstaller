@@ -8,6 +8,16 @@
     <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Wybierz aplikację"</string>
     <string msgid="121134116657445385" name="abc_capital_off">"WYŁ."</string>
     <string msgid="3405795526292276155" name="abc_capital_on">"WŁ."</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Funkcyjny+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"spacja"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menu+"</string>
     <string msgid="7723749260725869598" name="abc_search_hint">"Szukaj…"</string>
     <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Wyczyść zapytanie"</string>
     <string msgid="2550479030709304392" name="abc_searchview_description_query">"Wyszukiwane hasło"</string>
@@ -68,6 +78,7 @@
     <string name="download_view_running">Pobieranie jest uruchomione (%1$,d of %2$,d kB)</string>
     <string name="download_view_successful">Pobieranie zakończone</string>
     <string name="download_view_waiting">Pobieranie oczekuje</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Zaawansowane"</string>
     <string name="export_">Eksport…</string>
     <string name="export_enabled_modules">Eksport listy włączonych modułów</string>
     <string name="export_installed_modules">Eksport listy zainstalowanych modułów</string>
@@ -166,7 +177,8 @@
     <string name="skip_xposedminversion_check_summ">Pomiń sprawdzanie modułów \'xposedminversion\'</string>
     <string name="soft_reboot">Tryb szybki</string>
     <string name="status">Status Xposed</string>
-    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="7988687684186075107" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
     <string name="support_donate_description">Jeśli chcesz podziękować za Xposed, dokonaj dotacji dla rovo89 tutaj</string>
     <string name="support_donate_label">Dotacja</string>
     <string name="support_faq_label">FAQ/znane problemy</string>
@@ -176,6 +188,8 @@
     <string name="translator"/>
     <string name="undo">Cofnij</string>
     <string name="uninstall">Odinstaluj i przywróć systemowe procesy</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"WYŁ."</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"WŁ."</string>
     <string name="view">PODGLĄD</string>
     <string name="warning_installed_on_external_storage">Ten moduł nie może zostać załadowany, ponieważ jest zainstalowany na karcie SD, przenieś go do pamięci wewnętrznej.</string>
     <string name="warning_min_version_too_low">Ten moduł był stworzony dla Xposed w wersji %1$d, ale przez niekompatybilne zmiany w wersji %2$d, został wyłączony.</string>

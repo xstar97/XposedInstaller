@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import de.robv.android.xposed.installer.R
+import de.robv.android.xposed.installer.core.logic.models.InfoModel
 import de.robv.android.xposed.installer.core.logic.models.StatusModel
 import de.robv.android.xposed.installer.core.logic.models.ZipModel
 import de.robv.android.xposed.installer.core.util.FrameworkZips
@@ -45,7 +46,7 @@ class CardPresenter(private val context: Context?): Presenter()
                 is StatusModel -> {
                     val infoField = cardView.findViewById<View>(R.id.info_field)
                     val title = cardView.findViewById<TextView>(R.id.title_text)
-                    //title.maxLines = 2
+                    title.maxLines = 2
                     cardView.layoutParams.width = 400
                     infoField.layoutParams.width = 400
                     val msg = item.statusMessage!!
@@ -58,19 +59,24 @@ class CardPresenter(private val context: Context?): Presenter()
                     cardView.setBackgroundColor(item.statusContainerColor!!)
                 }
                 is ZipModel -> {
-                    if (item.type == FrameworkZips.Type.INSTALLER){
-                    cardView.titleText = item.key
-                    } else {
+                    //if (item.type == FrameworkZips.Type.INSTALLER){
+                    //cardView.titleText = item.key
+                    //} else {
                         val title = cardView.findViewById<TextView>(R.id.title_text)
                         title.maxLines = 2
                         val key = item.key!!
                         val mid = key.length / 2
                         val initKey = arrayOf(key.substring(0, mid), key.substring(mid))
-                        //cardView.titleText = initKey[0]
-                        //cardView.contentText = initKey[1]
-                        cardView.titleText = key
-                    }
+                        cardView.titleText = initKey[0]
+                        cardView.contentText = initKey[1]
+                        //cardView.titleText = key
+                    //}
                     cardView.mainImage = item.icon
+                }
+                is InfoModel -> {
+                    cardView.titleText = item.key
+                    cardView.contentText = item.desciption
+                    cardView.mainImage = item.icon!!//ContextCompat.getDrawable(context, item.icon)
                 }
             }
         }

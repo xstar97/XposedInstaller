@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Environment
 import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 
 import android.util.Log
 import android.widget.Toast
@@ -13,6 +14,7 @@ import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp
 import de.robv.android.xposed.installer.core.logic.base.fragments.utils.LogsUtils
+import de.robv.android.xposed.installer.core.logic.models.InfoModel
 
 import org.jetbrains.anko.email
 import java.io.File
@@ -28,6 +30,15 @@ open class BaseLogs
         private val mFileErrorLogOld = File("${BaseXposedApp().BASE_DIR}/log/error.log.old")
         private val gitHubUser = "rovo89"
         private val gitHubRepo = "XposedInstaller"
+
+        const val actionView = 0
+        const val actionSave = 1
+        const val actionSendEmail = 2
+        const val actionSendGithub = 3
+        const val actionClear = 4
+        const val actionRefresh = 5
+        const val actionScrollTop = 6
+        const val actionScrollDown = 7
     }
 
    open fun getLogs(context: Context): String{
@@ -115,5 +126,18 @@ open class BaseLogs
             Log.e(BaseXposedApp.TAG, e.message)
             Pair(name, log)
         }
+    }
+
+    fun getLogsList(context: Context): ArrayList<InfoModel>{
+        val list = ArrayList<InfoModel>()
+        list.add(InfoModel(actionView, ContextCompat.getDrawable(context,R.drawable.ic_nav_logs)!!, context.getString(R.string.nav_item_logs),""))
+        list.add(InfoModel(actionSave, ContextCompat.getDrawable(context,R.drawable.ic_save)!!, context.getString(R.string.menuSaveToSd),""))
+        list.add(InfoModel(actionSendEmail, ContextCompat.getDrawable(context,R.drawable.ic_send)!!, context.getString(R.string.menuSendEmail), ""))
+        list.add(InfoModel(actionSendGithub, ContextCompat.getDrawable(context,R.drawable.ic_github)!!, context.getString(R.string.menuSendGitHub), ""))
+        list.add(InfoModel(actionClear, ContextCompat.getDrawable(context,R.drawable.ic_delete)!!, context.getString(R.string.menuClearLog), ""))
+        //list.add(InfoModel(actionRefresh, ContextCompat.getDrawable(context,R.drawable.ic_menu_refresh)!!, context.getString(R.string.menuReload), ""))
+        //list.add(InfoModel(actionScrollTop, ContextCompat.getDrawable(context,R.drawable.ic_scroll_top)!!, context.getString(R.string.scroll_top), ""))
+        //list.add(InfoModel(actionScrollDown, ContextCompat.getDrawable(context,R.drawable.ic_scroll_down)!!, context.getString(R.string.scroll_bottom), ""))
+        return list
     }
 }

@@ -4,19 +4,19 @@ import android.support.annotation.IntegerRes
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import de.robv.android.xposed.installer.R
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsSettingsFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsVersionsFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.ErrorFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.LogsFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.SettingsFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.StatusInstallerFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadDetailsFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.download.DownloadFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.list.AboutFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.list.DeviceInfoFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.list.SupportFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.module.ModulesBookmarkFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.module.ModulesFragment
+import de.robv.android.xposed.installer.mobile.ui.download.DownloadDetailsSettingsFragment
+import de.robv.android.xposed.installer.mobile.ui.download.DownloadDetailsVersionsFragment
+import de.robv.android.xposed.installer.mobile.ui.error.ErrorFragment
+import de.robv.android.xposed.installer.mobile.ui.logs.LogsFragment
+import de.robv.android.xposed.installer.mobile.ui.settings.SettingsFragment
+import de.robv.android.xposed.installer.mobile.ui.framework.StatusInstallerFragment
+import de.robv.android.xposed.installer.mobile.ui.download.DownloadDetailsFragment
+import de.robv.android.xposed.installer.mobile.ui.download.DownloadFragment
+import de.robv.android.xposed.installer.mobile.ui.list.AboutFragment
+import de.robv.android.xposed.installer.mobile.ui.list.DeviceInfoFragment
+import de.robv.android.xposed.installer.mobile.ui.list.SupportFragment
+import de.robv.android.xposed.installer.mobile.ui.module.ModulesBookmarkFragment
+import de.robv.android.xposed.installer.mobile.ui.module.ModulesFragment
 
 enum class Navigation(@IntegerRes val id: Int, @StringRes val title: Int)
 {

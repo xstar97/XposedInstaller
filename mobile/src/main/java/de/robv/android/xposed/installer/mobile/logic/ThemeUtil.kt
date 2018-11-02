@@ -4,7 +4,7 @@ import android.content.Context
 
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp
-import de.robv.android.xposed.installer.mobile.ui.activities.base.XposedBaseActivity
+import de.robv.android.xposed.installer.mobile.ui.base.XposedBaseActivity
 
 object ThemeUtil
 {
@@ -13,7 +13,7 @@ object ThemeUtil
     private val selectTheme: Int
         get() {
             val myTheme = BaseXposedApp.getPreferences().getString("theme", "0")
-            val theme = Integer.parseInt(myTheme)
+            val theme = Integer.parseInt(myTheme!!)
             return if (theme >= 0 && theme < THEMES.size) theme else 0
         }
 

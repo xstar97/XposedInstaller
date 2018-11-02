@@ -8,6 +8,16 @@
     <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"选择应用"</string>
     <string msgid="121134116657445385" name="abc_capital_off">"关闭"</string>
     <string msgid="3405795526292276155" name="abc_capital_on">"开启"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"Delete 键"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"Enter 键"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Fn+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"空格键"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menu+"</string>
     <string msgid="7723749260725869598" name="abc_search_hint">"搜索…"</string>
     <string msgid="3691816814315814921" name="abc_searchview_description_clear">"清除查询"</string>
     <string msgid="2550479030709304392" name="abc_searchview_description_query">"搜索查询"</string>
@@ -67,6 +77,7 @@
     <string name="download_view_running">正在下载（%1$,d / %2$,d kB）</string>
     <string name="download_view_successful">下载成功</string>
     <string name="download_view_waiting">下载等待中</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"高级"</string>
     <string name="export_">导出…</string>
     <string name="export_enabled_modules">导出已启用模块列表</string>
     <string name="export_installed_modules">导出已安装模块列表</string>
@@ -157,7 +168,8 @@
     <string name="settings_theme_light">亮色</string>
     <string name="share">分享</string>
     <string name="soft_reboot">软重启</string>
-    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="7988687684186075107" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>、<ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
     <string name="support_donate_description">如果您想感谢 Xposed 作者，可以在此向 rovo89 捐赠</string>
     <string name="support_donate_label">捐赠</string>
     <string name="support_faq_label">常见问题/已知问题</string>
@@ -167,6 +179,8 @@
     <string name="translator">Phantom</string>
     <string name="undo">撤销</string>
     <string name="uninstall">卸载</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"关闭"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"开启"</string>
     <string name="view">视图</string>
     <string name="warning_installed_on_external_storage">该模块不能载入，因为它安装在 SD 卡上，请将它移至内部存储。</string>
     <string name="warning_min_version_too_low">该模块在 Xposed %1$d 版下创建，但因为不兼容 %2$d 版中的更改，它已被禁用。</string>

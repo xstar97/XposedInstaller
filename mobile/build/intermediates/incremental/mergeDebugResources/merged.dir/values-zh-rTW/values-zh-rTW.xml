@@ -8,6 +8,16 @@
     <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"選擇應用程式"</string>
     <string msgid="121134116657445385" name="abc_capital_off">"關閉"</string>
     <string msgid="3405795526292276155" name="abc_capital_on">"開啟"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"Delete 鍵"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"Enter 鍵"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"空格鍵"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menu +"</string>
     <string msgid="7723749260725869598" name="abc_search_hint">"搜尋…"</string>
     <string msgid="3691816814315814921" name="abc_searchview_description_clear">"清除查詢"</string>
     <string msgid="2550479030709304392" name="abc_searchview_description_query">"搜尋查詢"</string>
@@ -68,6 +78,7 @@
     <string name="download_view_running">正在下載 (%1$,d / %2$,d kB)</string>
     <string name="download_view_successful">下載成功</string>
     <string name="download_view_waiting">等待下載中</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"進階"</string>
     <string name="export_">匯出…</string>
     <string name="export_enabled_modules">匯出啟用模組清單</string>
     <string name="export_installed_modules">匯出安裝模組清單</string>
@@ -168,7 +179,8 @@
     <string name="skip_xposedminversion_check_summ">略過模組 \'Xposed 最低版本\' 檢查</string>
     <string name="soft_reboot">快速重啟</string>
     <string name="status">Xposed 狀態</string>
-    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="7988687684186075107" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>，<ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
     <string name="support_donate_description">若您想對 Xposed 表達感謝，在此贊助 rovo89。</string>
     <string name="support_donate_label">贊助</string>
     <string name="support_faq_label">常見/已知問題</string>
@@ -178,6 +190,8 @@
     <string name="translator">Cye3s、 taammanhoi、 TaiXiong</string>
     <string name="undo">還原</string>
     <string name="uninstall">移除</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"關閉"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"開啟"</string>
     <string name="view">查看</string>
     <string name="warning_installed_on_external_storage">此模組安裝在SD卡中導致無法載入，請將此模組移回內部儲存空間。</string>
     <string name="warning_min_version_too_low">該模組在 Xposed %1$d 版本下建立，但因為不相容 %2$d 版本中的變化內容，它已被停用。</string>

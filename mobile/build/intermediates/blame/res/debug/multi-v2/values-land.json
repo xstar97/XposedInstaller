@@ -4,32 +4,32 @@
             "outputFile": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\bfeea5445ea45769ae642fe32c51d84b\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\fd64d35cd9af67a4242f6f723e812bd9\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
                         "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "232"
+                        "endColumns": "10",
+                        "endOffsets": "222"
                     },
                     "to": {
-                        "startLines": "6",
+                        "startLines": "5",
                         "startColumns": "4",
-                        "startOffsets": "328",
-                        "endLines": "9",
-                        "endColumns": "12",
-                        "endOffsets": "505"
+                        "startOffsets": "264",
+                        "endLines": "8",
+                        "endColumns": "10",
+                        "endOffsets": "431"
                     }
                 },
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\808b6d06f96a200d07dfbe8c435ecab1\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\785d08308f8fdaf1b88f9f889208fe3e\\res\\values-land\\values-land.xml",
                     "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,125,189,260",
-                        "endColumns": "69,63,70,67",
-                        "endOffsets": "120,184,255,323"
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
                     }
                 }
             ]

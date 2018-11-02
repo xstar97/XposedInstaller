@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mobile.old.ui.activities.WelcomeActivity">
+    tools:context=".mobile.ui.main.WelcomeActivity">
 
     <include
         android:id="@+id/myToolBarView"
@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_marginTop="?android:attr/actionBarSize"
-        app:itemBackground="@color/colorPrimary">
+        android:itemBackground="@color/colorPrimary">
 
         <FrameLayout
             android:id="@+id/content"

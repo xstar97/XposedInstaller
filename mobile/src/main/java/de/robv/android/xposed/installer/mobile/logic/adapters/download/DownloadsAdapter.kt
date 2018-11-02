@@ -120,7 +120,6 @@ class DownloadsAdapter(private val mContext: Context, sortingOrder: Int) : Curso
 
         val creationDate = mDateFormatter.format(Date(created))
         val updateDate = mDateFormatter.format(Date(updated))
-        //view.findViewById<TextView>(R.id.list_item_download_time)
         timeStamp.text = context.getString(R.string.download_timestamps, creationDate, updateDate)
     }
 }

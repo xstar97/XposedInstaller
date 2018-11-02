@@ -4,7 +4,7 @@
             "outputFile": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\808b6d06f96a200d07dfbe8c435ecab1\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\785d08308f8fdaf1b88f9f889208fe3e\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.1.1.aar\\5ffcf1526649509e65df79bd8afe17b7\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0.aar\\51e689509290079f970c9776d4c68c0d\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

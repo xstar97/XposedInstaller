@@ -60,9 +60,14 @@ dependencies {
 
     // Anko Support Libraries
     implementation ankoDependencies.appCompat
+    /*
     implementation ankoDependencies.appCompatDelegate
     implementation ankoDependencies.design
-    //implementation ankoDependencies.constraint
+    implementation ankoDependencies.cardView
+    implementation ankoDependencies.recyclerView
+    implementation ankoDependencies.recyclerViewDelegate
+    implementation ankoDependencies.ankoSdk21
+    implementation ankoDependencies.sdk21Delegate*/
 
     // Util Libraries
     implementation utilsDependencies.glide

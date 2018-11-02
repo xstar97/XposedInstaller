@@ -8,6 +8,16 @@
     <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Bir uygulama seçin"</string>
     <string msgid="121134116657445385" name="abc_capital_off">"KAPAT"</string>
     <string msgid="3405795526292276155" name="abc_capital_on">"AÇ"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"sil"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"İşlev+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Üst Karakter+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"boşluk"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menü+"</string>
     <string msgid="7723749260725869598" name="abc_search_hint">"Ara…"</string>
     <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Sorguyu temizle"</string>
     <string msgid="2550479030709304392" name="abc_searchview_description_query">"Arama sorgusu"</string>
@@ -73,6 +83,7 @@
     <string name="download_view_size">Boyut: %s KB</string>
     <string name="download_view_successful">İndirme başarılı</string>
     <string name="download_view_waiting">İndirme bekliyor</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Gelişmiş"</string>
     <string name="export_">Dışa aktar…</string>
     <string name="export_enabled_modules">Etkin modül listesini dışa aktar</string>
     <string name="export_installed_modules">Yüklü modül listesini dışa aktar</string>
@@ -195,7 +206,8 @@
     <string name="skip_xposedminversion_check_summ">Modüller için minimum xposed sürümü kontrolünü atla</string>
     <string name="soft_reboot">Hızlı yeniden başlat</string>
     <string name="status">Xposed Durumu</string>
-    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="7988687684186075107" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
     <string name="support_donate_description">Xposed için teşekkür etmek isterseniz, buradan rovo89\'a bağış yapabilirsiniz</string>
     <string name="support_donate_label">Bağış yap</string>
     <string name="support_faq_label">SSS/Bilinen sorunlar</string>
@@ -206,6 +218,8 @@
     <string name="undo">Geri al</string>
     <string name="uninstall">Kaldır</string>
     <string name="update_download_list">Modül listesini yenilemek için aşağı çekin</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"KAPALI"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"AÇIK"</string>
     <string name="view">GÖRÜNTÜLE</string>
     <string name="warning_forward_locked">Bu modül ileriye kilitli olduğu için yüklenemez, lütfen modülün geliştiricisine başvurun.</string>
     <string name="warning_installed_on_external_storage">Bu modül hafıza kartına yüklendiğinden başlatılamıyor, lütfen dahili hafızaya taşıyın.</string>

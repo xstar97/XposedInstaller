@@ -4,7 +4,7 @@
             "outputFile": "D:\\mille\\projects\\AndroidStudioProjects\\Apps\\GitHub\\XposedInstaller\\Java\\mobile\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\core-0.9.6.0.aar\\2720f57889ac05096967d9b77af6fd90\\res\\values-v11\\values-v11.xml",
+                    "source": "C:\\Users\\mille\\.gradle\\caches\\transforms-1\\files-1.1\\core-0.9.6.0.aar\\08ada8f34e5c2622c47d2241fd37959f\\res\\values-v11\\values-v11.xml",
                     "from": {
                         "startLines": "2,19",
                         "startColumns": "4,4",

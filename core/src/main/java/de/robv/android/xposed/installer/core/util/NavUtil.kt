@@ -26,7 +26,7 @@ object NavUtil {
         val spannable = SpannableString(str)
         Linkify.addLinks(spannable, Linkify.WEB_URLS or Linkify.EMAIL_ADDRESSES)
         val spans = spannable.getSpans(0, spannable.length, URLSpan::class.java)
-        return if (spans.size > 0) Uri.parse(spans[0].url) else null
+        return if (spans.isNotEmpty()) Uri.parse(spans[0].url) else null
     }
 
     fun startURL(activity: Activity, uri: Uri?) {
@@ -39,7 +39,6 @@ object NavUtil {
 
         val customTabsIntent = CustomTabsIntent.Builder()
         customTabsIntent.setShowTitle(true)
-        //customTabsIntent.setToolbarColor(activity.resources.getColor(R.color.colorPrimary))
         customTabsIntent.setToolbarColor(ContextCompat.getColor(activity, R.color.colorPrimary))
         customTabsIntent.build().launchUrl(activity, uri)
     }

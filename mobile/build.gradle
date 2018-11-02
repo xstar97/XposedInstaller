@@ -51,17 +51,18 @@ dependencies {
     implementation supportDependencies.cardView
     implementation supportDependencies.preferenceV7
     implementation supportDependencies.preferenceV14
+    implementation supportDependencies.vectorDrawable
 
     // Anko Support Libraries
     implementation ankoDependencies.appCompat
     implementation ankoDependencies.appCompatDelegate
     implementation ankoDependencies.design
-    implementation supportDependencies.vectorDrawable
+    /*
     implementation ankoDependencies.cardView
     implementation ankoDependencies.recyclerView
     implementation ankoDependencies.recyclerViewDelegate
     implementation ankoDependencies.ankoSdk15
-    implementation ankoDependencies.sdk15Delegate
+    implementation ankoDependencies.sdk15Delegate*/
 
     // Utils Libraries
     implementation utilsDependencies.baseAdapter

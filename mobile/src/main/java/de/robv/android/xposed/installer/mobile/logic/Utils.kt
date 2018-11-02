@@ -1,14 +1,12 @@
 package de.robv.android.xposed.installer.mobile.logic
 
 import android.content.Context
-import android.support.v7.widget.PopupMenu
 import android.util.Log
-import android.view.View
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 import de.robv.android.xposed.installer.mobile.XposedApp
-import de.robv.android.xposed.installer.mobile.ui.activities.base.ViewActivity
-import de.robv.android.xposed.installer.mobile.ui.fragments.base.ViewBottomSheetFragment
-import de.robv.android.xposed.installer.mobile.ui.fragments.base.ViewDialogFragment
+import de.robv.android.xposed.installer.mobile.ui.base.ViewActivity
+import de.robv.android.xposed.installer.mobile.ui.base.ViewBottomSheetFragment
+import de.robv.android.xposed.installer.mobile.ui.base.ViewDialogFragment
 import org.jetbrains.anko.startActivity
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -77,22 +75,4 @@ open class Utils
         }
     }
 
-    /*
-    private fun launchViewActivity(context: Context, nav: Navigation){
-        context.startActivity<ViewActivity>(ViewActivity.INTENT_NAV_KEY to nav)
-    }
-    private fun launchSheet(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){
-       val bottomSheetFragment = ViewBottomSheetFragment.newInstance(nav)
-        bottomSheetFragment.show(fragmentManager, bottomSheetFragment.tag)
-    }
-    private fun launchDialog(fragmentManager: android.support.v4.app.FragmentManager, nav: Navigation){
-        val dialog = ViewDialogFragment.newInstance(nav)
-        dialog.show(fragmentManager, dialog.tag)
-    }*/
-    fun launchMenu(context: Context, v: View, menu: Int, delegate: PopupMenu.OnMenuItemClickListener): PopupMenu{
-        val popUp = PopupMenu(context, v)
-        popUp.menuInflater.inflate(menu, popUp.menu)
-        popUp.setOnMenuItemClickListener(delegate)
-        return popUp
-    }
 }

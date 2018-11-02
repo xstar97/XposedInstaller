@@ -4,6 +4,7 @@ import android.app.DownloadManager
 import android.content.Context
 import android.support.v4.app.Fragment
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -130,7 +131,7 @@ class DownloadView(context: Context, attrs: AttributeSet) : LinearLayout(context
         mInstallBtn.setOnClickListener(OnClickListener {
             if (downloadFinishedCallback == null)
                 return@OnClickListener
-
+            Log.d("test", "show menu")
             downloadFinishedCallback!!.onDownloadFinished(getContext(), mInfo)
         })
 

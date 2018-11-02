@@ -8,6 +8,16 @@
     <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Selecciona una aplicació"</string>
     <string msgid="121134116657445385" name="abc_capital_off">"DESACTIVAT"</string>
     <string msgid="3405795526292276155" name="abc_capital_on">"ACTIVAT"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"Supr"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"Retorn"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Funció+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Maj+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"Espai"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menú+"</string>
     <string msgid="7723749260725869598" name="abc_search_hint">"Cerca..."</string>
     <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Esborra la consulta"</string>
     <string msgid="2550479030709304392" name="abc_searchview_description_query">"Consulta de cerca"</string>
@@ -68,6 +78,7 @@
     <string name="download_view_running">S\'està baixant (%1$,d de %2$,d kB)</string>
     <string name="download_view_successful">S\'ha baixat amb èxit</string>
     <string name="download_view_waiting">La baixada està en espera</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Opcions avançades"</string>
     <string name="export_">Exporta…</string>
     <string name="export_enabled_modules">Exporta la llista de mòduls habilitats</string>
     <string name="export_installed_modules">Exporta la llista de mòduls instal·lats</string>
@@ -160,7 +171,8 @@
     <string name="settings_theme_light">Clar</string>
     <string name="share">Comparteix amb…</string>
     <string name="soft_reboot">Reinici ràpid</string>
-    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"+999"</string>
+    <string msgid="7988687684186075107" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
     <string name="support_donate_description">Si voleu donar les gràcies per l\'Xposed, podeu fer una donació per a rovo89 aquí</string>
     <string name="support_donate_label">Donació</string>
     <string name="support_faq_label">PMF/problemes coneguts</string>
@@ -170,6 +182,8 @@
     <string name="translator">Ferri64</string>
     <string name="undo">Desfés</string>
     <string name="uninstall">Desinstal·la</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"DESACTIVAT"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ACTIVAT"</string>
     <string name="view">VISUALITZA</string>
     <string name="warning_installed_on_external_storage">No es pot carregar aquest mòdul perquè s\'ha instal·lat a la targeta SD, moveu-lo a l\'emmagatzematge intern.</string>
     <string name="warning_min_version_too_low">Aquest mòdul es va crear per a l\'Xposed versió %1$d, però degut als canvis incompatibles a la versió %2$d, s\'ha inhabilitat.</string>

@@ -35,7 +35,8 @@ import de.robv.android.xposed.installer.core.util.DownloadsUtil.SyncDownloadInfo
 @SuppressWarnings({"WeakerAccess", "FieldCanBeLocal", "unused"})
 public class RepoLoader extends OnlineLoader<RepoLoader>
 {
-    private static final String DEFAULT_REPOSITORIES = "http://dl.xposed.info/repo/full.xml.gz";
+    private static final String DEFAULT_REPOSITORIES = "https://dl-xda.xposed.info/repo/full.xml.gz";//"http://dl.xposed.info/repo/full.xml.gz";
+
     @SuppressLint("StaticFieldLeak")
     private static RepoLoader mInstance = null;
     private static final BaseXposedApp sApp = BaseXposedApp.getInstance();

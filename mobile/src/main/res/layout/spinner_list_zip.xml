@@ -11,7 +11,8 @@
         android:paddingBottom="6dp"
         android:paddingEnd="14dp"
         android:paddingStart="14dp"
-        android:paddingTop="6dp">
+        android:paddingTop="6dp"
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/spinner_item_zip_title"
