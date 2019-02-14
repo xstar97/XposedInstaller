@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.annotation.CallSuper;
+import androidx.annotation.CallSuper;
 
 import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp;
 

@@ -2,8 +2,8 @@ package de.robv.android.xposed.installer.mobile.ui.download
 
 import android.content.Context
 import android.database.Cursor
-import android.support.v7.widget.PopupMenu
-import android.support.v7.widget.SearchView
+import androidx.appcompat.widget.PopupMenu
+import androidx.appcompat.widget.SearchView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem

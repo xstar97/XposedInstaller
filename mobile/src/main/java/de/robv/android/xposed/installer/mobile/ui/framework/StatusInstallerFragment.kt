@@ -3,9 +3,9 @@ package de.robv.android.xposed.installer.mobile.ui.framework
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
 import android.util.Log
 import android.view.LayoutInflater
 
@@ -36,8 +36,6 @@ import kotlinx.android.synthetic.main.view_state.view.*
 import kotlinx.android.synthetic.main.view_status_installer_actions.view.*
 import kotlinx.android.synthetic.main.view_status_installer_installed.view.*
 import org.jetbrains.anko.*
-
-import org.jetbrains.anko.support.v4.onUiThread
 
 class StatusInstallerFragment : Fragment(), FrameworkViewMvc.FrameworkDelegate
 {
@@ -178,7 +176,7 @@ class StatusInstallerFragment : Fragment(), FrameworkViewMvc.FrameworkDelegate
             val myZips0 = initZip.first
             val myZips1 = initZip.second
 
-            onUiThread {
+            uiThread {
                 val viewState = mFrameworkViewMvc.getRootView().view_state
                 val myLayout = mFrameworkViewMvc.getRootView().myLayout
                 val errorTitle = view_state_title
@@ -210,7 +208,7 @@ class StatusInstallerFragment : Fragment(), FrameworkViewMvc.FrameworkDelegate
         doAsync {
             val adapter0 = ZipSpinnerAdapter(activity!!, zip0)
             val adapter1 = ZipSpinnerAdapter(activity!!, zip1)
-            onUiThread {
+            uiThread {
                 mFrameworkViewMvc.getRootView().zip_spinner0.adapter = adapter0
                 mFrameworkViewMvc.getRootView().zip_spinner1.adapter = adapter1
             }

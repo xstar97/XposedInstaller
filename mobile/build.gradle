@@ -7,7 +7,6 @@ android {
     buildToolsVersion versions.buildTools
 
     defaultConfig {
-        //applicationId "de.robv.android.xposed.installer"
         applicationId versions.appId
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
@@ -16,6 +15,7 @@ android {
         archivesBaseName = "XposedInstaller_${versionName}".replace(' ', '_')
         testInstrumentationRunner rootProject.ext.testInstrumentationRunner
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -39,7 +39,7 @@ dependencies {
     implementation project(":core")
 
     // Kotlin
-    implementation kotlinDependencies.kotlinJdk8
+    //implementation kotlinDependencies.kotlinJdk8
 
     // Support Libraries
     implementation supportDependencies.appCompat
@@ -53,17 +53,6 @@ dependencies {
     implementation supportDependencies.preferenceV14
     implementation supportDependencies.vectorDrawable
 
-    // Anko Support Libraries
-    implementation ankoDependencies.appCompat
-    implementation ankoDependencies.appCompatDelegate
-    implementation ankoDependencies.design
-    /*
-    implementation ankoDependencies.cardView
-    implementation ankoDependencies.recyclerView
-    implementation ankoDependencies.recyclerViewDelegate
-    implementation ankoDependencies.ankoSdk15
-    implementation ankoDependencies.sdk15Delegate*/
-
     // Utils Libraries
     implementation utilsDependencies.baseAdapter
 
@@ -71,8 +60,6 @@ dependencies {
     androidTestImplementation testDependencies.testRunner
     androidTestImplementation testDependencies.espressoCore
 }
-kotlin {
-    experimental {
-        coroutines "enable"
-    }
+repositories {
+    mavenCentral()
 }

@@ -1,7 +1,7 @@
 package de.robv.android.xposed.installer.mobile.ui.module
 
 import android.Manifest
-import android.support.v4.app.ListFragment
+import androidx.fragment.app.ListFragment
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,7 +9,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
-import android.support.v4.app.ActivityCompat
+import androidx.core.app.ActivityCompat
 import android.util.TypedValue
 import android.view.ContextMenu
 import android.view.ContextMenu.ContextMenuInfo
@@ -130,7 +130,7 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         if (requestCode == WRITE_EXTERNAL_PERMISSION) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 if (mClickedMenuItem != null) {
-                    Handler().postDelayed({ onOptionsItemSelected(mClickedMenuItem) }, 500)
+                    Handler().postDelayed({ onOptionsItemSelected(mClickedMenuItem!!) }, 500)
                 }
             } else {
                 Toast.makeText(activity, R.string.permissionNotGranted, Toast.LENGTH_LONG).show()
@@ -138,8 +138,8 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item!!.itemId == bookmarks) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == bookmarks) {
             activity!!.startActivity<ViewActivity>(INTENT_NAV_KEY to Navigation.FRAG_MODULE_BOOKMARK)
             return true
         }
@@ -247,9 +247,8 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
         BaseModules().launchModule(activity!!, packageName)
     }
 
-    override fun onCreateContextMenu(menu: ContextMenu, v: View,
-                                     menuInfo: ContextMenuInfo) {
-        val installedModule = getItemFromContextMenuInfo(menuInfo) ?: return
+    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenuInfo?) {
+        val installedModule = getItemFromContextMenuInfo(menuInfo!!) ?: return
 
         menu.setHeaderTitle(installedModule.appName)
         activity!!.menuInflater.inflate(R.menu.context_menu_modules, menu)
@@ -325,6 +324,6 @@ class ModulesFragment : ListFragment(), ModuleUtil.ModuleListener
     private fun getItemFromContextMenuInfo(menuInfo: ContextMenuInfo): InstalledModule? {
         val info = menuInfo as AdapterContextMenuInfo
         val position = info.position - listView.headerViewsCount
-        return if (position >= 0) listAdapter.getItem(position) as InstalledModule else null
+        return if (position >= 0) listAdapter!!.getItem(position) as InstalledModule else null
     }
 }

@@ -5,9 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Browser
-import android.support.annotation.AnyThread
-import android.support.customtabs.CustomTabsIntent
-import android.support.v4.content.ContextCompat
+import androidx.annotation.AnyThread
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import android.text.SpannableString
 import android.text.style.URLSpan
 import android.text.util.Linkify

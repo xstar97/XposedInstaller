@@ -1,9 +1,9 @@
 package de.robv.android.xposed.installer.tv.ui.settings
 
 import android.os.Bundle
-import android.support.v17.leanback.widget.GuidanceStylist
-import android.support.v17.leanback.widget.GuidedAction
-import android.support.v17.leanback.widget.GuidedAction.CHECKBOX_CHECK_SET_ID
+import androidx.leanback.widget.GuidanceStylist
+import androidx.leanback.widget.GuidedAction
+import androidx.leanback.widget.GuidedAction.CHECKBOX_CHECK_SET_ID
 import android.util.Log
 import android.widget.Toast
 import de.robv.android.xposed.installer.R

@@ -1,7 +1,7 @@
 package de.robv.android.xposed.installer.tv.ui.installation
 
 import android.os.Bundle
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import android.util.Log
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.installation.Flashable

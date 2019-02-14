@@ -8,8 +8,7 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.XposedInstaller.Light"
-        tools:replace="android:allowBackup">
+        android:theme="@style/Theme.XposedInstaller.Light">
         <activity android:name="de.robv.android.xposed.installer.mobile.ui.main.SplashActivity" android:theme="@style/SplashTheme">
         <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,7 +62,7 @@
 
         <receiver android:name=".core.util.NotificationUtil$RebootReceiver" android:exported="false" />
 
-        <provider android:name="android.support.v4.content.FileProvider" android:authorities="de.robv.android.xposed.installer.fileprovider" android:exported="false" android:grantUriPermissions="true">
+        <provider android:name="androidx.core.content.FileProvider" android:authorities="de.robv.android.xposed.installer.fileprovider" android:exported="false" android:grantUriPermissions="true">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
         </provider>
 

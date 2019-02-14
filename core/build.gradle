@@ -10,8 +10,9 @@ android {
         targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -37,8 +38,9 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     // Kotlin
-    implementation kotlinDependencies.kotlinJdk8
-    //implementation kotlinDependencies.kotlinJre8
+    api kotlinDependencies.kotlinJdk8
+    api 'com.google.android.material:material:1.1.0-alpha03'
+    api supportDependencies.multiDex
 
     api utilsDependencies.libSuperUser
 
@@ -48,7 +50,15 @@ dependencies {
     api utilsDependencies.licensesDialog
     api supportDependencies.customTabs
 
+
+    // Anko Support Libraries
+    api ankoDependencies.appCompat
+    api ankoDependencies.appCompatDelegate
+    api ankoDependencies.design
     api ankoDependencies.commons
 
     api utilsDependencies.issueReporter
+}
+repositories {
+    mavenCentral()
 }

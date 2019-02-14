@@ -1,8 +1,8 @@
 package de.robv.android.xposed.installer.tv.logic
 
-import android.support.annotation.DrawableRes
-import android.support.annotation.StringRes
-import android.support.v4.app.Fragment
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.tv.ui.framework.StatusInstallerBrowseFragment
 import de.robv.android.xposed.installer.tv.ui.download.DownloadGuidedFragment

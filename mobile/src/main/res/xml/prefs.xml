@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.preference.PreferenceCategory
+    <androidx.preference.PreferenceCategory
         android:key="group_download"
         android:title="@string/settings_group_download">
 
-        <android.support.v7.preference.ListPreference
+        <androidx.preference.ListPreference
             android:defaultValue="stable"
             android:entries="@array/release_type_texts"
             android:entryValues="@array/release_type_values"
@@ -14,13 +14,13 @@
             android:summary="%s"
             android:title="@string/settings_release_type"/>
 
-    </android.support.v7.preference.PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
 
-    <android.support.v7.preference.PreferenceCategory
+    <androidx.preference.PreferenceCategory
         android:key="group_app"
         android:title="@string/settings_group_app">
 
-        <android.support.v7.preference.ListPreference
+        <androidx.preference.ListPreference
             android:defaultValue="0"
             android:entries="@array/theme_texts"
             android:entryValues="@array/theme_values"
@@ -53,7 +53,7 @@
             android:title="@string/download_location"/>
         -->
 
-        <android.support.v7.preference.ListPreference
+        <androidx.preference.ListPreference
             android:defaultValue="0"
             android:entries="@array/default_view_texts"
             android:entryValues="@array/default_view_values"
@@ -61,7 +61,7 @@
             android:summary="%s"
             android:title="@string/settings_default_view"/>
 
-        <android.support.v7.preference.ListPreference
+        <androidx.preference.ListPreference
             android:defaultValue="0"
             android:entries="@array/default_sub_view_texts"
             android:entryValues="@array/default_sub_view_values"
@@ -69,7 +69,7 @@
             android:summary="%s"
             android:title="default sub view"/>
 
-        <android.support.v7.preference.ListPreference
+        <androidx.preference.ListPreference
             android:defaultValue="0"
             android:entries="@array/default_navigation_texts"
             android:entryValues="@array/default_navigation_values"
@@ -85,19 +85,19 @@
             android:title="@string/open_drawer"/>
         -->
 
-    </android.support.v7.preference.PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
 
-    <android.support.v7.preference.PreferenceCategory
+    <androidx.preference.PreferenceCategory
         android:key="group_experimental"
         android:title="@string/settings_group_experimental">
 
-        <android.support.v7.preference.CheckBoxPreference
+        <androidx.preference.CheckBoxPreference
             android:defaultValue="false"
             android:key="disable_resources"
             android:persistent="false"
             android:summary="@string/settings_disable_resources_summary"
             android:title="@string/settings_disable_resources"/>
 
-    </android.support.v7.preference.PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
 
-</android.support.v7.preference.PreferenceScreen>
+</androidx.preference.PreferenceScreen>

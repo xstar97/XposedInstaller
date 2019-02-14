@@ -3,7 +3,7 @@ package de.robv.android.xposed.installer.core.logic.base.fragments
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.util.Log
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.logic.base.BaseXposedApp

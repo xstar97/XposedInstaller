@@ -3,7 +3,7 @@ package de.robv.android.xposed.installer.mobile.ui.logs
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +15,8 @@ import de.robv.android.xposed.installer.core.logic.base.fragments.BaseLogs
 import de.robv.android.xposed.installer.core.logic.delegates.LogsDelegate
 import de.robv.android.xposed.installer.core.logic.mvc.LogsViewMvc
 import de.robv.android.xposed.installer.mobile.XposedApp
+import kotlinx.android.synthetic.main.fragment_logs.*
 import org.jetbrains.anko.*
-import org.jetbrains.anko.support.v4.find
 
 class LogsFragment: Fragment(), LogsDelegate
 {
@@ -27,10 +27,10 @@ class LogsFragment: Fragment(), LogsDelegate
 
     private lateinit var mLogsViewMvc : LogsViewMvc
 
-    private lateinit var svLog: ScrollView
-    private lateinit var hsvLog: HorizontalScrollView
-    private lateinit var container: RelativeLayout
-    private lateinit var txtLog: TextView
+    //private lateinit var svLog: ScrollView
+    //private lateinit var hsvLog: HorizontalScrollView
+   // private lateinit var container: RelativeLayout
+    //private lateinit var txtLog: TextView
 
     private var isSavedMethod: Boolean = false
 
@@ -74,7 +74,7 @@ class LogsFragment: Fragment(), LogsDelegate
 
     override fun onClearLog() {
         if(BaseLogs().clear(activity!!)) {
-            txtLog = find(R.id.txtLog)
+            //txtLog = find(R.id.txtLog)
             txtLog.setText(R.string.log_is_empty)
             reloadErrorLog()
         }
@@ -92,25 +92,25 @@ class LogsFragment: Fragment(), LogsDelegate
     }
 
     private fun scrollTop() {
-        svLog = find(R.id.svLog)
-        hsvLog = find(R.id.hsvLog)
+        //svLog = find(R.id.svLog)
+        //hsvLog = find(R.id.hsvLog)
         svLog.post { svLog.scrollTo(0, 0) }
         hsvLog.post { hsvLog.scrollTo(0, 0) }
     }
     private fun scrollDown() {
-        svLog = find(R.id.svLog)
-        hsvLog = find(R.id.hsvLog)
-        txtLog = find(R.id.txtLog)
+        //svLog = find(R.id.svLog)
+        //hsvLog = find(R.id.hsvLog)
+        //txtLog = find(R.id.txtLog)
         svLog.post { svLog.scrollTo(0, txtLog.height) }
         hsvLog.post { hsvLog.scrollTo(0, 0) }
     }
 
     //TODO replaced dep. progress dialog with a progress view instead
     private fun reloadErrorLog(){
-        svLog = find(R.id.svLog)
-        hsvLog = find(R.id.hsvLog)
-        txtLog = find(R.id.txtLog)
-        container = find(R.id.container)
+        //svLog = find(R.id.svLog)
+        //hsvLog = find(R.id.hsvLog)
+        //txtLog = find(R.id.txtLog)
+        //container = find(R.id.container)
         val mProgressDialog = activity!!.progressDialog(message = "", title = activity!!.getString(R.string.loading))
         var logs: String?
         doAsync {

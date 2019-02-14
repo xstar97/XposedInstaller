@@ -1,8 +1,8 @@
 package de.robv.android.xposed.installer.mobile.logic
 
-import android.support.annotation.IntegerRes
-import android.support.annotation.StringRes
-import android.support.v4.app.Fragment
+import androidx.annotation.IntegerRes
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.mobile.ui.download.DownloadDetailsSettingsFragment
 import de.robv.android.xposed.installer.mobile.ui.download.DownloadDetailsVersionsFragment

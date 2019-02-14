@@ -1,8 +1,8 @@
 package de.robv.android.xposed.installer.mobile.ui.main
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.widget.DrawerLayout
+import com.google.android.material.snackbar.Snackbar
+import androidx.drawerlayout.widget.DrawerLayout
 import android.util.Log
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.delegates.NavigationDelegate
@@ -59,9 +59,9 @@ class WelcomeActivity: BaseNavActivity(),
         initFragment(savedInstanceBundle)
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         // Store the current navigation position.
-        outState?.putInt(navKeyPosition, navPosition.id)
+        outState.putInt(navKeyPosition, navPosition.id)
         super.onSaveInstanceState(outState)
     }
 

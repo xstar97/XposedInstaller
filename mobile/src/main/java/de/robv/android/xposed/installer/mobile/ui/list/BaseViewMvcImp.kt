@@ -1,7 +1,7 @@
 package de.robv.android.xposed.installer.mobile.ui.list
 
 import android.content.Context
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.delegates.InfoDelegate

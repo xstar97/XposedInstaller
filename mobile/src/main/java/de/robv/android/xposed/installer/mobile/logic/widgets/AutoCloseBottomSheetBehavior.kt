@@ -2,12 +2,11 @@ package de.robv.android.xposed.installer.mobile.logic.widgets
 
 import android.content.Context
 import android.graphics.Rect
-import android.support.design.widget.BottomSheetBehavior
-import android.support.design.widget.CoordinatorLayout
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class AutoCloseBottomSheetBehavior<V : View>(context: Context, attrs: AttributeSet) : BottomSheetBehavior<V>(context, attrs) {
 

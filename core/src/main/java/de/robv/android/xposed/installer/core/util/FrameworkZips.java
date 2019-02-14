@@ -3,8 +3,8 @@ package de.robv.android.xposed.installer.core.util;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.StringRes;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.StringRes;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 
 import org.json.JSONArray;

@@ -3,7 +3,7 @@ package de.robv.android.xposed.installer.mobile.ui.download
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.preference.Preference
+import androidx.preference.Preference
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 

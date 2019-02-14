@@ -15,6 +15,7 @@ android {
         archivesBaseName = "XposedInstaller_${versionName}".replace(' ', '_')
         testInstrumentationRunner rootProject.ext.testInstrumentationRunner
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -41,7 +42,7 @@ dependencies {
     implementation project(":core")
 
     // Kotlin
-    implementation kotlinDependencies.kotlinJdk8
+    //implementation kotlinDependencies.kotlinJdk8
 
     // Support Libraries
     implementation supportDependencies.leanbackV17
@@ -58,20 +59,9 @@ dependencies {
     implementation supportDependencies.preferenceV14
     implementation supportDependencies.preferenceV17
 
-    // Anko Support Libraries
-    implementation ankoDependencies.appCompat
-    /*
-    implementation ankoDependencies.appCompatDelegate
-    implementation ankoDependencies.design
-    implementation ankoDependencies.cardView
-    implementation ankoDependencies.recyclerView
-    implementation ankoDependencies.recyclerViewDelegate
-    implementation ankoDependencies.ankoSdk21
-    implementation ankoDependencies.sdk21Delegate*/
-
     // Util Libraries
     implementation utilsDependencies.glide
 }
-androidExtensions {
-    experimental = true
+repositories {
+    mavenCentral()
 }

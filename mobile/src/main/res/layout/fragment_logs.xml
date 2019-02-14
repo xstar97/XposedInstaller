@@ -26,7 +26,7 @@
 
     </ScrollView>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabLogsActions"
         android:layout_margin="@dimen/fab_margin"
         android:layout_width="wrap_content"

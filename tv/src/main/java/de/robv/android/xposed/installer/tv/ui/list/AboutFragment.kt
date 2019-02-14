@@ -1,8 +1,8 @@
 package de.robv.android.xposed.installer.tv.ui.list
 
 import android.os.Bundle
-import android.support.v17.leanback.widget.GuidanceStylist
-import android.support.v17.leanback.widget.GuidedAction
+import androidx.leanback.widget.GuidanceStylist
+import androidx.leanback.widget.GuidedAction
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseAbout
 

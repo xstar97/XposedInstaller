@@ -1,8 +1,8 @@
 package de.robv.android.xposed.installer.tv.ui.base
 
-import android.support.v17.leanback.app.BrowseSupportFragment
-import android.support.v17.leanback.widget.*
-import android.support.v4.content.ContextCompat
+import androidx.leanback.app.BrowseSupportFragment
+import androidx.leanback.widget.*
+import androidx.core.content.ContextCompat
 import de.robv.android.xposed.installer.R
 
 open class BaseBrowseSupportFragment: BrowseSupportFragment(), OnItemViewSelectedListener, OnItemViewClickedListener

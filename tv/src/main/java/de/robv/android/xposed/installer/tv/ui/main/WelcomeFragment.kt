@@ -2,7 +2,7 @@ package de.robv.android.xposed.installer.tv.ui.main
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v17.leanback.widget.*
+import androidx.leanback.widget.*
 import android.util.Log
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.tv.XposedApp

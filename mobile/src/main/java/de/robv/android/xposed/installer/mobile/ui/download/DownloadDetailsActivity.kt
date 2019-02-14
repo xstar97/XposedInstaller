@@ -8,14 +8,16 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.FragmentPagerAdapter
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.FragmentPagerAdapter
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseModules
@@ -231,7 +233,7 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
 
     }
 
-    internal inner class SwipeFragmentPagerAdapter(fm: android.support.v4.app.FragmentManager) : FragmentPagerAdapter(fm) {
+    internal inner class SwipeFragmentPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         private val mPageCount = 3
         private val tabTitles = arrayOf(getString(Navigation.FRAG_DOWNLOAD_DESCRIPTION.title), getString(Navigation.FRAG_DOWNLOAD_VERSION.title), getString(Navigation.FRAG_DOWNLOAD_SETTINGS.title))
 
@@ -241,12 +243,12 @@ class DownloadDetailsActivity : XposedBaseActivity(), Loader.Listener<RepoLoader
 
 
         @Suppress("OverridingDeprecatedMember")
-        override fun getItem(position: Int): android.support.v4.app.Fragment? {
+        override fun getItem(position: Int): Fragment {
             return when (position) {
                 DOWNLOAD_DESCRIPTION -> Navigation.FRAG_DOWNLOAD_DESCRIPTION.createFragment()
                 DOWNLOAD_VERSIONS -> Navigation.FRAG_DOWNLOAD_VERSION.createFragment()
                 DOWNLOAD_SETTINGS -> Navigation.FRAG_DOWNLOAD_SETTINGS.createFragment()
-                else -> null
+                else -> Navigation.FRAG_ERROR.createFragment()
             }
         }
 

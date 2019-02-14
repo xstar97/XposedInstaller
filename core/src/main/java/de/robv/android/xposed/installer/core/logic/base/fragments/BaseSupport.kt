@@ -2,7 +2,7 @@ package de.robv.android.xposed.installer.core.logic.base.fragments
 
 import android.app.Activity
 import android.content.Context
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import de.robv.android.xposed.installer.core.R
 import de.robv.android.xposed.installer.core.logic.Util
 import de.robv.android.xposed.installer.core.logic.models.InfoModel

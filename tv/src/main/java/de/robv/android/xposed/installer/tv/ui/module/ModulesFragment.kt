@@ -1,8 +1,8 @@
 package de.robv.android.xposed.installer.tv.ui.module
 
 import android.os.Bundle
-import android.support.v17.leanback.widget.GuidanceStylist
-import android.support.v17.leanback.widget.GuidedAction
+import androidx.leanback.widget.GuidanceStylist
+import androidx.leanback.widget.GuidedAction
 import android.util.Log
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseModules
@@ -10,7 +10,7 @@ import de.robv.android.xposed.installer.core.util.ModuleUtil
 import de.robv.android.xposed.installer.tv.XposedApp
 import de.robv.android.xposed.installer.tv.ui.base.BaseGuidedFragment
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.support.v4.onUiThread
+import org.jetbrains.anko.uiThread
 
 class ModulesFragment: BaseGuidedFragment(), ModuleUtil.ModuleListener
 {
@@ -21,7 +21,7 @@ class ModulesFragment: BaseGuidedFragment(), ModuleUtil.ModuleListener
 
     override fun onInstalledModulesReloaded(moduleUtil: ModuleUtil?) {
         doAsync {
-            onUiThread {
+            uiThread {
                 reloadModules()
             }
         }
@@ -29,7 +29,7 @@ class ModulesFragment: BaseGuidedFragment(), ModuleUtil.ModuleListener
 
     override fun onSingleInstalledModuleReloaded(moduleUtil: ModuleUtil?, packageName: String?, module: ModuleUtil.InstalledModule?) {
         doAsync {
-            onUiThread {
+            uiThread {
                 reloadModules()
             }
         }
@@ -56,7 +56,7 @@ class ModulesFragment: BaseGuidedFragment(), ModuleUtil.ModuleListener
                 val list = ModuleUtil.getInstance().modules.values
                 val actionList = getActionsFromModuleList(activity!!, list)
                 Log.v(XposedApp.TAG, "list: ${list.size}")
-                onUiThread {
+                uiThread {
                     if (list.isNotEmpty())
                     actions.addAll(actionList)
                     }

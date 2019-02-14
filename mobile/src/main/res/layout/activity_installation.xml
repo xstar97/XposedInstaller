@@ -13,7 +13,7 @@
         android:fillViewport="true"
         android:scrollbars="vertical">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/card_background_dark"
@@ -40,7 +40,7 @@
                 tools:visibility="visible"
                 tools:ignore="ContentDescription" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </ScrollView>
 

@@ -2,6 +2,7 @@ package de.robv.android.xposed.installer.mobile.logic
 
 import android.content.Context
 import android.util.Log
+import androidx.fragment.app.FragmentManager
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 import de.robv.android.xposed.installer.mobile.XposedApp
 import de.robv.android.xposed.installer.mobile.ui.base.ViewActivity
@@ -56,7 +57,7 @@ open class Utils
     fun launchView(context: Any?, nav: Navigation?){
         val subView = XposedApp.getPreferences().getString(BaseSettings.prefSubView, "0").toInt()
         when(context){
-            is android.support.v4.app.FragmentManager ->{
+            is FragmentManager ->{
                 when(subView){
                     0 -> {
                         val bottomSheetFragment = ViewBottomSheetFragment.newInstance(nav!!)

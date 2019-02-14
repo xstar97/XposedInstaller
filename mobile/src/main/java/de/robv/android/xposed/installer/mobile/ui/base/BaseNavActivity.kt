@@ -2,17 +2,18 @@ package de.robv.android.xposed.installer.mobile.ui.base
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.NavigationView
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.core.view.GravityCompat
+import androidx.appcompat.app.ActionBarDrawerToggle
 
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.fragment.app.FragmentManager
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseSettings
 import de.robv.android.xposed.installer.core.logic.delegates.NavigationDelegate
@@ -173,23 +174,23 @@ open class BaseNavActivity: XposedBaseActivity(),
     }
 
     private fun detachFragment() {
-        myManager?.findFragmentById(R.id.content)?.also {
+        myManager.findFragmentById(R.id.content)?.also {
             myManager.beginTransaction().detach(it).commit()
         }
     }
     private fun attachFragment(fragment: Fragment, tag: String) {
         if (fragment.isDetached) {
-            myManager?.beginTransaction()?.attach(fragment)?.commit()
+            myManager.beginTransaction().attach(fragment).commit()
         } else {
-            myManager?.beginTransaction()?.add(R.id.content, fragment, tag)?.commit()
+            myManager.beginTransaction().add(R.id.content, fragment, tag).commit()
         }
         // Set a transition animation for this transaction.
-        myManager!!.beginTransaction()
+        myManager.beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit()
     }
 
-    fun android.support.v4.app.FragmentManager.findFragment(position: Navigation): Fragment? {
+    fun FragmentManager.findFragment(position: Navigation): Fragment? {
         return findFragmentByTag(position.getTag()) ?: position.createFragment()
     }
 }

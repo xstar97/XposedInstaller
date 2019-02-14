@@ -3,8 +3,8 @@ package de.robv.android.xposed.installer.mobile.logic.adapters.download
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View

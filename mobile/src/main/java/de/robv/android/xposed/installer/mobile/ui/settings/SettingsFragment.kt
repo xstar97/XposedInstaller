@@ -5,8 +5,8 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v7.preference.Preference
+import androidx.core.app.ActivityCompat
+import androidx.preference.Preference
 import android.util.Log
 import android.widget.Toast
 
@@ -71,7 +71,7 @@ class SettingsFragment : BasePreferenceFragment()
             true
         }
 
-            val prefDisableResources = findPreference(BaseSettings.prefRes) as android.support.v7.preference.CheckBoxPreference
+            val prefDisableResources = findPreference(BaseSettings.prefRes) as androidx.preference.CheckBoxPreference
             prefDisableResources.isChecked = BaseSettings.mDisableResourcesFlag.exists()
             prefDisableResources.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
             val enabled = newValue as Boolean

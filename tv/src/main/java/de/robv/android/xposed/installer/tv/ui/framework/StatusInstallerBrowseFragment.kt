@@ -2,8 +2,8 @@ package de.robv.android.xposed.installer.tv.ui.framework
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v17.leanback.widget.*
-import android.support.v4.content.ContextCompat
+import androidx.leanback.widget.*
+import androidx.core.content.ContextCompat
 import android.util.Log
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseStatusInstaller
@@ -21,7 +21,7 @@ import de.robv.android.xposed.installer.tv.ui.base.ViewActivity.Companion.INTENT
 import de.robv.android.xposed.installer.tv.ui.base.BaseBrowseSupportFragment
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.support.v4.onUiThread
+import org.jetbrains.anko.uiThread
 
 class StatusInstallerBrowseFragment : BaseBrowseSupportFragment()
 {
@@ -91,7 +91,7 @@ class StatusInstallerBrowseFragment : BaseBrowseSupportFragment()
             val myZips0 = initZip.first
             val myZips1 = initZip.second
 
-            onUiThread {
+            uiThread {
                 //val tvError = v.findViewById(R.id.zips_load_error) as TextView
                 Log.d(XposedApp.TAG, "size 0: ${myZips0.size}\nsize 1: ${myZips1.size}")
                 when {

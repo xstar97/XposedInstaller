@@ -1,6 +1,6 @@
 package de.robv.android.xposed.installer.mobile.logic.adapters.info.viewholders
 
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.view.View
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 import de.robv.android.xposed.installer.R

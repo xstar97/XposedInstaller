@@ -4,7 +4,7 @@ import android.app.UiModeManager
 import android.content.Context
 import android.content.Context.UI_MODE_SERVICE
 import android.content.res.Configuration
-import android.support.v7.widget.PopupMenu
+import androidx.appcompat.widget.PopupMenu
 import android.view.View
 
 open class Util

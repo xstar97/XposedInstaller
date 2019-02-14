@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".mobile.ui.download.DownloadFragment">
 
-    <android.support.v7.widget.SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
         android:visibility="gone"
         tools:visibility="visible"
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_below="@id/search_view"
         android:layout_width="match_parent"
@@ -43,9 +43,9 @@
 
         </RelativeLayout>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabDownloadActions"
         android:layout_margin="@dimen/fab_margin"
         android:layout_alignParentRight="true"

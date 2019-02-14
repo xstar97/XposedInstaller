@@ -4,21 +4,19 @@ import android.app.DownloadManager;
 import android.app.DownloadManager.Query;
 import android.app.DownloadManager.Request;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.UiThread;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.os.EnvironmentCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import androidx.core.content.ContextCompat;
+import androidx.core.os.EnvironmentCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
 import java.io.File;

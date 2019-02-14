@@ -9,7 +9,7 @@
     tools:deviceIds="tv">
 
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/log_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             tools:src="@drawable/ic_check_circle"
             tools:visibility="visible" />
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <RelativeLayout
         android:id="@+id/buttonPanel"

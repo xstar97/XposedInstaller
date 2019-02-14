@@ -1,6 +1,6 @@
 package de.robv.android.xposed.installer.core.util;
 
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;

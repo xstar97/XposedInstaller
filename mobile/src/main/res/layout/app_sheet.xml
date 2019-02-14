@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_sheet_layout"
@@ -15,10 +15,10 @@
     android:padding="16dp"
     app:behavior_peekHeight="60dp"
     app:elevation="4dp"
-    app:layout_behavior="de.robv.android.xposed.installer.mobile.logic.AutoCloseBottomSheetBehavior"
+    app:layout_behavior="de.robv.android.xposed.installer.mobile.logic.widgets.AutoCloseBottomSheetBehavior"
     tools:ignore="MissingPrefix">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/card_view_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,8 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

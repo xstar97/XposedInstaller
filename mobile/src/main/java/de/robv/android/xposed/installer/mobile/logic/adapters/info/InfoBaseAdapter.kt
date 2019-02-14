@@ -8,20 +8,18 @@ import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 import com.skydoves.baserecyclerviewadapter.SectionRow
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.delegates.InfoDelegate
-import de.robv.android.xposed.installer.core.logic.models.*
+import de.robv.android.xposed.installer.core.logic.models.InfoModel
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.viewholders.InfoBaseViewHolder
 import de.robv.android.xposed.installer.mobile.logic.adapters.info.viewholders.InfoBaseViewHolderHeader
 
 open class InfoBaseAdapter(private val context: Context?, private val delegate: InfoDelegate?): BaseAdapter() {
 
-   // private var myContext = context
     companion object {
         const val mSectionAbout = 0
         const val mSectionSupport = 1
         const val mSectionDevice = 2
     }
     init {
-        //this.myContext = context
         for(i in 0..2) {
             addSection(ArrayList<InfoModel>())
         }
@@ -29,12 +27,12 @@ open class InfoBaseAdapter(private val context: Context?, private val delegate: 
 
     fun addItems(section: Int, items: ArrayList<InfoModel>) {
         addItemOnSection(section, setSectionName(section))
-        addItemsOnSection(section, items)
+        addItemListOnSection(section, items)
         notifyDataSetChanged()
     }
 
     override fun layout(sectionRow: SectionRow): Int {
-        return when(sectionRow.row()) {
+        return when(sectionRow.row) {
             0 -> R.layout.list_item_header
             else -> R.layout.list_item_tab
         }

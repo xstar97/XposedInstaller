@@ -1,7 +1,7 @@
 package de.robv.android.xposed.installer.mobile.ui.main
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import de.robv.android.xposed.installer.mobile.ui.main.WelcomeActivity
 import org.jetbrains.anko.startActivity
 

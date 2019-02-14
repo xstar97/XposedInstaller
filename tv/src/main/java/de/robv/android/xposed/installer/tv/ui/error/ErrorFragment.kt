@@ -14,9 +14,9 @@
 package de.robv.android.xposed.installer.tv.ui.error
 
 import android.os.Bundle
-import android.support.v17.leanback.app.BrowseSupportFragment
-import android.support.v17.leanback.app.ErrorSupportFragment
-import android.support.v4.content.ContextCompat
+import androidx.leanback.app.BrowseSupportFragment
+import androidx.leanback.app.ErrorSupportFragment
+import androidx.core.content.ContextCompat
 import android.view.View
 import de.robv.android.xposed.installer.R
 

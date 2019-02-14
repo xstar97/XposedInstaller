@@ -2,8 +2,8 @@ package de.robv.android.xposed.installer.tv.ui.framework
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v17.leanback.widget.GuidanceStylist
-import android.support.v17.leanback.widget.GuidedAction
+import androidx.leanback.widget.GuidanceStylist
+import androidx.leanback.widget.GuidedAction
 import android.util.Log
 import de.robv.android.xposed.installer.R
 import de.robv.android.xposed.installer.core.logic.base.fragments.BaseDevice
@@ -16,7 +16,7 @@ import de.robv.android.xposed.installer.tv.XposedApp
 import de.robv.android.xposed.installer.tv.ui.installation.InstallationActivity
 import de.robv.android.xposed.installer.tv.ui.base.BaseGuidedFragment
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.support.v4.onUiThread
+import org.jetbrains.anko.uiThread
 
 class StatusInstallerFragment: BaseGuidedFragment()
 {
@@ -169,7 +169,7 @@ class StatusInstallerFragment: BaseGuidedFragment()
                 val myZips0 = BaseStatusInstaller().getZips(activity!!).first
                 val myZips1 = BaseStatusInstaller().getZips(activity!!).second
                 Log.v(XposedApp.TAG, "getZipLists: \nzip0: ${myZips0.size}\nzip1: ${myZips1.size}")
-                onUiThread {
+                uiThread {
                     collapseAction(true)
                     val zip0 = findActionById(actionInstallUpdate.toLong())
                     val zip1 = findActionById(actionUninstall.toLong())

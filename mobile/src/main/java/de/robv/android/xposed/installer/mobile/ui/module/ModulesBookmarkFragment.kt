@@ -5,8 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.ListFragment
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.ListFragment
 import android.util.TypedValue
 import android.view.ContextMenu
 import android.view.MenuItem
@@ -109,8 +109,8 @@ class ModulesBookmarkFragment : ListFragment(), AdapterView.OnItemClickListener,
         changed = true
     }
 
-    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo) {
-        val module = getItemFromContextMenuInfo(menuInfo) ?: return
+    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
+        val module = getItemFromContextMenuInfo(menuInfo!!) ?: return
 
         menu.setHeaderTitle(module.name)
         activity!!.menuInflater.inflate(context_menu_modules_bookmark, menu)
@@ -155,6 +155,6 @@ class ModulesBookmarkFragment : ListFragment(), AdapterView.OnItemClickListener,
     private fun getItemFromContextMenuInfo(menuInfo: ContextMenu.ContextMenuInfo): Module? {
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val position = info.position - listView.headerViewsCount
-        return if (position >= 0) listAdapter.getItem(position) as Module else null
+        return if (position >= 0) listAdapter!!.getItem(position) as Module else null
     }
 }

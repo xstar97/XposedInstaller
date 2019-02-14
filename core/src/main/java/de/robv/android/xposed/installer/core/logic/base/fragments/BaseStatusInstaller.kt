@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.support.annotation.RequiresApi
-import android.support.v4.content.ContextCompat
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import android.util.Log
 import android.view.View
 import android.widget.Toast

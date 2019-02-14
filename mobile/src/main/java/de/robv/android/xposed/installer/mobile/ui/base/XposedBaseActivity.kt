@@ -2,10 +2,10 @@ package de.robv.android.xposed.installer.mobile.ui.base
 
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.StringRes
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import de.robv.android.xposed.installer.R.bool.isTablet
 import de.robv.android.xposed.installer.R.color.colorPrimaryDark
 import de.robv.android.xposed.installer.R.drawable.ic_close
